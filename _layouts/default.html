@@ -1,15 +1,25 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Em0t3t's CTF </title>
-	<link rel = "stylesheet" type="text/css" href="style.css">
-</head>
-<body>
-	<a href="https://imgur.com/QjsjmHB"><img src="https://i.imgur.com/QjsjmHB.png" title="source: imgur.com" /></a>
-<div id ="wrapper">
-	<h1><a href = "/">{{site.site_name}}</a></h1>
-	<div id = "content">
-		{{content}}
-	</div>
-</body>
-</html>
+---
+layout: base
+---
+
+<div class="intro-header"></div>
+
+<div role="main" class="{% if page.full-width %} container-fluid {% else %} container-md {% endif %}">
+  {% if page.before-content %}
+    <div class="before-content">
+      {% for file in page.before-content %}
+        {% include {{ file }} %}
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  {{ content }}
+
+  {% if page.after-content %}
+    <div class="after-content">
+      {% for file in page.after-content %}
+        {% include {{ file }} %}
+      {% endfor %}
+    </div>
+  {% endif %}
+</div>
