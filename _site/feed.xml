@@ -23,6 +23,17 @@
       </item>
     
       <item>
+        <title>Test</title>
+        <description>
+          Excerpt from Soulshaping by Jeff Brown - 
+          Sau khi mừng sinh nhật vào ngày 12/1, ông sẽ xuất hiện trên chương trình âm nhạc online - Murakami JAM, Blame it on the Bossa Nova, được tổ chức ở Tokyo. Vào lễ Tình nhân 14/2 tới, các fan khắp thế giới có thể mua vé, truy cập trực...
+        </description>
+        <pubDate>Thu, 27 Feb 2020 00:00:00 -0500</pubDate>
+        <link>http://localhost:4000/2020-02-27-test/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020-02-27-test/</guid>
+      </item>
+    
+      <item>
         <title>Flake it till you make it</title>
         <description>
           Excerpt from Soulshaping by Jeff Brown - 
@@ -31,6 +42,17 @@
         <pubDate>Wed, 26 Feb 2020 00:00:00 -0500</pubDate>
         <link>http://localhost:4000/2020-02-26-flake-it-till-you-make-it/</link>
         <guid isPermaLink="true">http://localhost:4000/2020-02-26-flake-it-till-you-make-it/</guid>
+      </item>
+    
+      <item>
+        <title>Co len anh em oi</title>
+        <description>
+          Tren con duong thanh cong khong co dau chan cua ke luoi bieng - 
+          Sau khi mừng sinh nhật vào ngày 12/1, ông sẽ xuất hiện trên chương trình âm nhạc online - Murakami JAM, Blame it on the Bossa Nova, được tổ chức ở Tokyo. Vào lễ Tình nhân 14/2 tới, các fan khắp thế giới có thể mua vé, truy cập trực...
+        </description>
+        <pubDate>Tue, 25 Feb 2020 00:00:00 -0500</pubDate>
+        <link>http://localhost:4000/2020-02-25-aka/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020-02-25-aka/</guid>
       </item>
     
   </channel>
