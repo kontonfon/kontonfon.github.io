@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     
-    <title>My Website</title>
+    <title>Em0t3t</title>
     
     
     <description>This website is a virtual proof that I'm awesome</description>
@@ -10,6 +10,28 @@
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
     
+    
+      <item>
+        <title>OK</title>
+        <description>
+          Welcome to Em0t3t' Blog - 
+          1.Tạo bảng Number Next number Previous number Five Six Four Ten Eleven Nine Seven Eight Six Two Three One Cú pháp: Number | Next number | Previous number | | :------ |:--- | :--- | | Five | Six | Four | | Ten | Eleven | Nine | |...
+        </description>
+        <pubDate>Sun, 01 Mar 2020 00:00:00 -0500</pubDate>
+        <link>http://localhost:4000/2020-03-01-ok/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020-03-01-ok/</guid>
+      </item>
+    
+      <item>
+        <title>Welcome</title>
+        <description>
+          Welcome to Em0t3t' Blog - 
+          Xin chào các bạn, mình tên là Ngô Tấn Trí, đến từ team Em0t3t của trường đại học Bách Khoa - Đại học Đà Nẵng Mình rất vui khi được làm quen với tất cả các bạn Chúc các bạn dồi dào sức khỏe và năm mới gặp nhiều may...
+        </description>
+        <pubDate>Sat, 29 Feb 2020 00:00:00 -0500</pubDate>
+        <link>http://localhost:4000/2020-02-29-ctf-test/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020-02-29-ctf-test/</guid>
+      </item>
     
       <item>
         <title>Sample blog post</title>
@@ -23,17 +45,6 @@
       </item>
     
       <item>
-        <title>Test</title>
-        <description>
-          Excerpt from Soulshaping by Jeff Brown - 
-          Sau khi mừng sinh nhật vào ngày 12/1, ông sẽ xuất hiện trên chương trình âm nhạc online - Murakami JAM, Blame it on the Bossa Nova, được tổ chức ở Tokyo. Vào lễ Tình nhân 14/2 tới, các fan khắp thế giới có thể mua vé, truy cập trực...
-        </description>
-        <pubDate>Thu, 27 Feb 2020 00:00:00 -0500</pubDate>
-        <link>http://localhost:4000/2020-02-27-test/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020-02-27-test/</guid>
-      </item>
-    
-      <item>
         <title>Flake it till you make it</title>
         <description>
           Excerpt from Soulshaping by Jeff Brown - 
@@ -42,17 +53,6 @@
         <pubDate>Wed, 26 Feb 2020 00:00:00 -0500</pubDate>
         <link>http://localhost:4000/2020-02-26-flake-it-till-you-make-it/</link>
         <guid isPermaLink="true">http://localhost:4000/2020-02-26-flake-it-till-you-make-it/</guid>
-      </item>
-    
-      <item>
-        <title>Co len anh em oi</title>
-        <description>
-          Tren con duong thanh cong khong co dau chan cua ke luoi bieng - 
-          Sau khi mừng sinh nhật vào ngày 12/1, ông sẽ xuất hiện trên chương trình âm nhạc online - Murakami JAM, Blame it on the Bossa Nova, được tổ chức ở Tokyo. Vào lễ Tình nhân 14/2 tới, các fan khắp thế giới có thể mua vé, truy cập trực...
-        </description>
-        <pubDate>Tue, 25 Feb 2020 00:00:00 -0500</pubDate>
-        <link>http://localhost:4000/2020-02-25-aka/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020-02-25-aka/</guid>
       </item>
     
   </channel>
