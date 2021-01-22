@@ -31,17 +31,26 @@ MathJax.Hub.Queue(function() {
 
 ----------------
 
-Direct Proof
+#Direct Proof
 
-claim: if $P$ then $Q$
+## claim: if $P$ then $Q$
 
-proof: Suppose $P$ then $Q$
+## proof: Suppose $P$ then $Q$
 
-claim: if $m$ and $n$ are odd then $mn$ is odd
+------------------
 
-proof: Suppose that $m$ and $n$ are odd . 
+## claim: if $m$ and $n$ are odd then $mn$ is odd
+
+## proof: Suppose that $m$ and $n$ are odd . 
 
 Thus: $m=2x+1$ and $n=2y+1$ for $x,y\in \mathbb{Z}$
 
 Notice that: $mn=(2x+1)(2y+1) = 4xy+2x+2y+1$ then $mn$ is odd 
+
+----------------------
+
+## claim: If $f(x)$ is differentiable at $a\in \mathbb{R}$ then it is continuous at $a$
+
+
+
 
