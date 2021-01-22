@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Tập tành latex
-subtitle: Một số lệnh latex cơ bản
+title: Đại số trừu tượng 
+subtitle: 
 cover-img: /assets/img/path.jpg
 thumbnail-img: /assets/img/lala.png
 share-img: /assets/img/path.jpg
@@ -30,26 +30,18 @@ MathJax.Hub.Queue(function() {
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML-full"></script>
 
 ----------------
-### 1. Phân số 
 
-$\frac{x^2}{y^2}$
+Direct Proof
 
-Cú pháp:
+claim: if $P$ then $Q$
 
-~~~
-$\frac{x^2}{y^2}$
-~~~
+proof: Suppose $P$ then $Q$
 
-### 2. Tên tập hợp
+claim: if $m$ and $n$ are odd then $mn$ is odd
 
-$\mathbb{N}$
+proof: Suppose that $m$ and $n$ are odd . 
 
-Cú pháp:
+Thus: $m=2x+1$ and $n=2y+1$ for $x,y\in \mathbb{Z}$
 
-~~~
-$\mathbb{N}$
-~~~
+Notice that: $mn=(2x+1)(2y+1) = 4xy+2x+2y+1$ then $mn$ is odd 
 
-### 3. Khác
-
-Xem thêm tại [Link](https://tanphong.wordpress.com/latex/mot-so-lenh-latex-thuong-su-dung/)
