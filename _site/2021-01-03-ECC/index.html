@@ -9,13 +9,13 @@
 
   
 
-  <title>Tập tành latex</title>
+  <title>Tản mạn về hệ mật mã khóa công khai dựa trên đường cong Elliptic - Tổng quan về hệ mật mã khóa công khai</title>
 
   
   <meta name="author" content="Ngô Tấn Trí">
   
 
-  <meta name="description" content="Một số lệnh latex cơ bản">
+  <meta name="description" content="ECC">
 
   
 
@@ -72,8 +72,8 @@
 
   
   <meta property="og:site_name" content="Em0t3t">
-  <meta property="og:title" content="Tập tành latex">
-  <meta property="og:description" content="Một số lệnh latex cơ bản">
+  <meta property="og:title" content="Tản mạn về hệ mật mã khóa công khai dựa trên đường cong Elliptic - Tổng quan về hệ mật mã khóa công khai">
+  <meta property="og:description" content="ECC">
 
   
   <meta property="og:image" content="http://localhost:4000/assets/img/path.jpg">
@@ -82,9 +82,9 @@
   
   <meta property="og:type" content="article">
   <meta property="og:article:author" content="Ngô Tấn Trí">
-  <meta property="og:article:published_time" content="2021-01-21T00:00:00-05:00">
-  <meta property="og:url" content="http://localhost:4000/2021-01-21-Test-Latex/">
-  <link rel="canonical" href="http://localhost:4000/2021-01-21-Test-Latex/">
+  <meta property="og:article:published_time" content="2021-01-03T00:00:00-05:00">
+  <meta property="og:url" content="http://localhost:4000/2021-01-03-ECC/">
+  <link rel="canonical" href="http://localhost:4000/2021-01-03-ECC/">
   
 
   
@@ -93,8 +93,8 @@
   <meta name="twitter:site" content="@daattali">
   <meta name="twitter:creator" content="@daattali">
 
-  <meta property="twitter:title" content="Tập tành latex">
-  <meta property="twitter:description" content="Một số lệnh latex cơ bản">
+  <meta property="twitter:title" content="Tản mạn về hệ mật mã khóa công khai dựa trên đường cong Elliptic - Tổng quan về hệ mật mã khóa công khai">
+  <meta property="twitter:description" content="ECC">
 
   
   <meta name="twitter:image" content="http://localhost:4000/assets/img/path.jpg">
@@ -178,15 +178,15 @@
     <div class="row">
       <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
         <div class="post-heading">
-          <h1>Tập tành latex</h1>
+          <h1>Tản mạn về hệ mật mã khóa công khai dựa trên đường cong Elliptic - Tổng quan về hệ mật mã khóa công khai</h1>
           
             
-              <h2 class="post-subheading">Một số lệnh latex cơ bản</h2>
+              <h2 class="post-subheading">ECC</h2>
             
           
 
           
-            <span class="post-meta">Posted on January 21, 2021</span>
+            <span class="post-meta">Posted on January 3, 2021</span>
             
             
           
@@ -202,15 +202,15 @@
     <div class="row">
       <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
         <div class="post-heading">
-          <h1>Tập tành latex</h1>
+          <h1>Tản mạn về hệ mật mã khóa công khai dựa trên đường cong Elliptic - Tổng quan về hệ mật mã khóa công khai</h1>
           
             
-              <h2 class="post-subheading">Một số lệnh latex cơ bản</h2>
+              <h2 class="post-subheading">ECC</h2>
             
           
 
           
-            <span class="post-meta">Posted on January 21, 2021</span>
+            <span class="post-meta">Posted on January 3, 2021</span>
             
             
           
@@ -256,27 +256,66 @@ MathJax.Hub.Queue(function() {
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML-full"></script>
 
 <hr />
-<h3 id="1-phân-số">1. Phân số</h3>
+<h1 id="lời-mở-đầu">Lời mở đầu</h1>
 
-<p>$\frac{x^2}{y^2}$</p>
+<p>Tháng 3 năm 2016, Bộ Ngoại Giao Hoa Kỳ, đứng đầu là bộ trưởng John , đã dẫn một đoàn đại biểu tới các nước ASEAN trong đó có Việt Nam để thảo luận về phát triển Fintech và đặc biệt là về công nghệ Blockchain. Tháng 9 năm 2015, Ủy ban giao dịch hàng hóa tương lai Mỹ công bố, Bitcoin đã chính thức được đưa vào danh sách hàng hóa được phép giao dịch tại Mỹ. Công nghệ Blockchain và Bitcoin là công nghệ tiền số ra đời năm 2009 và ngày càng có nhiều quốc gia và các tổ , doanh nghiệp cho phép lưu hành và thanh toán bằng loại tiền số này trong không gian mạng Internet toàn cầu. Tháng 4-2016, giá trị thương mại của Bitcoin đã lên đến 6.5 tỷ 	USD. Nền tảng cơ sở của Bitcoin chính là lý thuyết về mật mã mà cụ thể ở đây là hàm băm và lý thuyết về chữ ký số dựa trên Hệ thống đường cong Elliptic (ECC).</p>
 
-<p>Cú pháp:</p>
+<p>Bên cạnh việc sử dụng trong tiền số , ECC còn được ứng dụng rất nhiều trong thực tiễn ngành Công nghệ thông tin. Các trang Web bảo mật https (http-secure) thường được dùng trong thanh toán điện tử hay ứng dụng riêng tư như gmail đều sử dụng các giao thức TLS (Transport Layer Security) mà trước đó là SSL (Secure Socket Layer). Trong các giao thức này ECC được sử dụng để trao đổi khóa phiên. Các giao dịch remote access được sử dụng rất nhiều trong thế giới UNIX, LINUX là SSH (Secure SHell) cũng sử dụng ECC để trao đổi khóa. Ưu điểm của hệ mật sử dụng đường cong Elliptic (ECC) là có độ dài khóa nhỏ (160 bit tương đương với khóa độ dài 1024 bit trong hệ mật RSA), do sử dụng độ dài khóa nhỏ nên tài nguyên phục vụ cho ECC thường nhỏ hơn rất , bên cạnh đó hiệu năng tính toán cũng được nâng cao rõ rệt. Hiện nay ECC đang là xu thế để thay thế RSA.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$\frac{x^2}{y^2}$
-</code></pre></div></div>
+<ul>
+  <li>
+    <p>Cơ sở toán học của hệ mật ECC là nhóm giao hoán Abel các điềm nằm trên đường cong Elliptic. Ngoài việc đường cong Elliptic là cơ sở cho hệ mật ECC, hệ mật ID-, đường cong Elliptic (EC) còn là công cụ hữu hiệu để phân tích số nguyên ra thừa số nguyên tố, hoặc dùng để kiểm tra tính nguyên tố của số . EC cũng là cơ sở để chứng minh định lý Fermat nổi tiếng đã tồn tại nhiều trăm năm qua.</p>
+  </li>
+  <li>
+    <p>Đường cong Elliptic là một trường hợp đặc biệt của phương trình Diophant. Lý thuyết về đường cong Elliptic (EC) rất phong phú và độ sộ. Trong cuôn sách “Elliptic Curves Diophantine Analysic”, tác giả Serge Lang đã phát biểu về phương diện học thuật: “Có thể viết vô tận về đường cong “. Các lý thuyết và khái niệm liên quan tới EC có thể liệt kê một số như dưới đây:</p>
+  </li>
+  <li>
+    <p>Lý thuyết nhóm, vành, trường trong đại số trừu</p>
+  </li>
+  <li>
+    <p>Đa tạp Affine, đa tạp Jacobian và đa tạp xạ ảnh trong hình học đại số</p>
+  </li>
+  <li>
+    <p>Điểm Torison, Divisor, cặp song tuyến tính Weil, Tate - Lichtenbaum</p>
+  </li>
+  <li>
+    <p>Lý thuyết trường Galois, tự đồng cấu- ánh xạ Frobenius</p>
+  </li>
+  <li>
+    <p>Lý thuyết Baker-Feldman, Baker-Tijdeman và lý thuyết Kummer</p>
+  </li>
+  <li>
+    <p>Số p-adic, Isogenies, hàm Sigma và hàm Zeta</p>
+  </li>
+  <li>
+    <p>Nhóm đối đồng điều, đối đồng điều Galois và đối đồng điều phi giao hoán (Topo đại số)</p>
+  </li>
+  <li>
+    <p>Nhóm Mordell-Weil, Selmer và nhóm Shafaverich-Tate</p>
+  </li>
+  <li>
+    <p>Phương pháp hình học và Tựa tuyến tính (Quasilinear)</p>
+  </li>
+</ul>
 
-<h3 id="2-tên-tập-hợp">2. Tên tập hợp</h3>
+<p>Với ý nghĩa to lớn về cả thực tiễn và học thuật, EC là nền tảng toán học quan trọng trong đại số hiện đại cũng như lý thuyết mật mã hiện tại. EC cũng là nền tảng quan trọng trong chính phủ điện tử và thường mại điện . Chính vì những điều này mà Chuyên đề “Hệ mật mã khóa công khai dựa trên đường cong Elliptic” được lựa chọn để trình bày báo cáo.</p>
 
-<p>$\mathbb{N}$</p>
+<p>Với khối lượng kiến thức và khái niệm đồ sộ như đã liệt kê ở trên việc nghiên cứu và đào sâu về đường cong Elliptic gặp không ít khó khăn cho những người làm Công nghệ thông tin (CNTT) mà toán học không phải là chuyên môn chính. Mục tiêu của chuyên đề này là tổng hợp những khái niệm và kiến thức cơ bản nhất của EC liên quan đến cơ sở toán học của Hệ mật dựa trên đường cong Elliptic. Đồng thời người viết cũng chứng minh lại một số định lý và bổ đề theo cách dễ hiểu hơn, tránh dùng đến các khái niệm quá phức tạp và xa lạ với chuyên nghành CNTT…</p>
 
-<p>Cú pháp:</p>
+<p>Phạm vi của chuyên đề cũng được giới hạn với những khái niệm và lý thuyết đủ cho các ứng dụng cơ bản của EC, các phát triển của EC thành hệ mật ID-based, hoặc các ứng dụng cơ bản của EC, các phát triển của EC thành hệ mật ID-based, hoặc các ứng dụng về chữ ký số tập thể, chữ ký số nhóm, chữ kỹ ngưỡng, chữ ký ủy nhiệm, chữ ký số mù sẽ không được đề cập đến trong khuôn khổ của báo cáo này.</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$\mathbb{N}$
-</code></pre></div></div>
+<p>Báo cáo chuyên đề được kết cấu thành 02 chương, chương 1 trình bày các khái niệm, định nghĩa cơ bản về đường cong Elliptic (Phương trình của EC, nhóm cộng Abel các điểm trên đường cong, chứng minh định lý về nhóm…). Chương 2 trình bày về Hệ mật dựa trên đường cong Elliptic và một số ứng dụng trong mã hóa, xác thực chữ ký số, trao đổi khóa dựa trên bài toán khó Logarithm rời rạc.</p>
 
-<h3 id="3-khác">3. Khác</h3>
+<p>…
+ To be continued</p>
 
-<p>Xem thêm tại <a href="https://tanphong.wordpress.com/latex/mot-so-lenh-latex-thuong-su-dung/">Link</a></p>
+<hr />
+
+<p>Toàn bộ nội dung trên đây được trích từ chuyên đề: “Hệ mật mã khóa công khai dựa trên đường cong Elliptic - Tổng quan về hệ mật mã khóa công khai” của tác giả Đăng Minh Tuấn - Trong tạp chí Epsilon - Số 09 - Tháng 06/2016</p>
+
+<p>P/s: Những phần tiếp theo trong bài báo này khá cao cấp, nên mình tạm dừng ở đây, vào có dịp sẽ quay lại</p>
+
+<p>Link pdf: <a href="http://quantri.thcsthanhxuan.edu.vn///data/thcsthanhxuan/thcsthanhxuan/attachments/2020_8/tap_chi_epsilon_so_09_118202011.pdf">Tại đây</a></p>
 
       </article>
 
@@ -284,7 +323,7 @@ MathJax.Hub.Queue(function() {
         <div class="blog-tags">
           <span>Tags:</span>
           
-            <a href="/tags#latex">latex</a>
+            <a href="/tags#ECC">ECC</a>
           
         </div>
       
@@ -301,7 +340,7 @@ MathJax.Hub.Queue(function() {
   <span class="sr-only">Share: </span>
 
   
-    <a href="https://twitter.com/intent/tweet?text=T%E1%BA%ADp+t%C3%A0nh+latex&url=http%3A%2F%2Flocalhost%3A4000%2F2021-01-21-Test-Latex%2F"
+    <a href="https://twitter.com/intent/tweet?text=T%E1%BA%A3n+m%E1%BA%A1n+v%E1%BB%81+h%E1%BB%87+m%E1%BA%ADt+m%C3%A3+kh%C3%B3a+c%C3%B4ng+khai+d%E1%BB%B1a+tr%C3%AAn+%C4%91%C6%B0%E1%BB%9Dng+cong+Elliptic+-+T%E1%BB%95ng+quan+v%E1%BB%81+h%E1%BB%87+m%E1%BA%ADt+m%C3%A3+kh%C3%B3a+c%C3%B4ng+khai&url=http%3A%2F%2Flocalhost%3A4000%2F2021-01-03-ECC%2F"
       class="btn btn-social-icon btn-twitter" title="Share on Twitter">
       <span class="fab fa-fw fa-twitter" aria-hidden="true"></span>
       <span class="sr-only">Twitter</span>
@@ -309,7 +348,7 @@ MathJax.Hub.Queue(function() {
   
 
   
-    <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F2021-01-21-Test-Latex%2F"
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F2021-01-03-ECC%2F"
       class="btn btn-social-icon btn-facebook" title="Share on Facebook">
       <span class="fab fa-fw fa-facebook" aria-hidden="true"></span>
       <span class="sr-only">Facebook</span>
@@ -317,7 +356,7 @@ MathJax.Hub.Queue(function() {
   
 
   
-    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2F2021-01-21-Test-Latex%2F"
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2F2021-01-03-ECC%2F"
       class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
       <span class="fab fa-fw fa-linkedin" aria-hidden="true"></span>
       <span class="sr-only">LinkedIn</span>
@@ -335,7 +374,7 @@ MathJax.Hub.Queue(function() {
       <ul class="pagination blog-pager">
         
         <li class="page-item previous">
-          <a class="page-link" href="/2020-03-01-ok/" data-toggle="tooltip" data-placement="top" title="Những câu lệnh markdown đơn giản">&larr; Previous Post</a>
+          <a class="page-link" href="/2021-01-02-Dai-so-truu-tuong/" data-toggle="tooltip" data-placement="top" title="Đại số trừu tượng">&larr; Previous Post</a>
         </li>
         
         
