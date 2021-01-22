@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Đại số trừu tượng 
-subtitle: 
+subtitle: Abstract Algbra
 cover-img: /assets/img/path.jpg
 thumbnail-img: /assets/img/lala.png
 share-img: /assets/img/path.jpg
@@ -35,7 +35,7 @@ MathJax.Hub.Queue(function() {
 
 claim: if $P$ then $Q$
 
-proof: Suppose $P$ then $Q$
+proof: Suppose $P$ ... then $Q$
 
 ------------------
 
@@ -58,6 +58,15 @@ So $\lim\limits_{x\rightarrow} \frac{f(x)-f(a)}{x-a}=f'(a)$ exists and is finite
 $0=\lim\limits_{x\rightarrow a}f'(a)(x-a)=(\lim\limits_{x\rightarrow a} x-a)(\lim\limits_{x\rightarrow a} \frac{f(x)-f(a)}{x-a})=\lim\limits_{x\rightarrow a} (f(x)-f(a))$
 
 So, $\lim\limits_{x\rightarrow a} f(x)=f(a)$ so $f(x)$ is continuous at $a$
+
+-----------------------
+
+claim: If $a$ is odd then $a^2+4a+7$ is even.
+
+proof: Suppose that $a$ is odd. So we can write $a=2k+1$ for $k\in \mathbb{Z}$
+
+Notice that: $a^2+4a+7=(2k+1)^2+4(2k+1)+7=4k^2+4k+1+8k+4+7=4k^2+12k+12=2(2k^2+6k+6)=2k'$, which is even.
+
 
 
 
