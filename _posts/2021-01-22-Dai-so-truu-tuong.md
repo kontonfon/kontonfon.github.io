@@ -79,7 +79,7 @@ $\text{~}P: x^2-8x+11$ is odd
 
 $Q: x$ is odd
 
-$Q: x$ is even
+$\text{~}Q: x$ is even
 
 Proof: Suppose that $x$ is even 
 
