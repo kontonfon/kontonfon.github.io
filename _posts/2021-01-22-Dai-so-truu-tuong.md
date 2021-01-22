@@ -69,7 +69,7 @@ Notice that: $a^2+4a+7=(2k+1)^2+4(2k+1)+7=4k^2+4k+1+8k+4+7=4k^2+12k+12=2(2k^2+6k
 
 -----------------------
 
-## Proof by contrapositive  | $P\implies Q \equiv \text{~}Q \implie \text{~}P$
+## Proof by contrapositive  | $P\implies Q \equiv \text{~}Q \implies\text{~}P$
 
 claim: If $x^2-8x+11$ is even then $x$ is odd
 
