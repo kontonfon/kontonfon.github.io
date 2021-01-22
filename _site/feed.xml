@@ -61,38 +61,5 @@ Link: https://tanphong.wordpress.com/latex/mot-so-lenh-latex-thuong-su-dung/
         <guid isPermaLink="true">http://localhost:4000/2020-03-01-ok/</guid>
       </item>
     
-      <item>
-        <title>Welcome</title>
-        <description>
-          Welcome to Em0t3t' Blog - 
-          Xin chào các bạn, mình tên là Ngô Tấn Trí, đến từ team Em0t3t của trường đại học Bách Khoa - Đại học Đà Nẵng Mình rất vui khi được làm quen với tất cả các bạn Chúc các bạn dồi dào sức khỏe và năm mới gặp nhiều may...
-        </description>
-        <pubDate>Sat, 29 Feb 2020 00:00:00 -0500</pubDate>
-        <link>http://localhost:4000/2020-02-29-ctf-test/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020-02-29-ctf-test/</guid>
-      </item>
-    
-      <item>
-        <title>Sample blog post</title>
-        <description>
-          Each post also has a subtitle - 
-          This is a demo post to show you how to write blog posts with markdown. I strongly encourage you to take 5 minutes to learn how to write in markdown - it’ll teach you how to transform regular text into bold/italics/headings/tables/etc. Here is some bold text Here is a secondary...
-        </description>
-        <pubDate>Fri, 28 Feb 2020 00:00:00 -0500</pubDate>
-        <link>http://localhost:4000/2020-02-28-test-markdown/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020-02-28-test-markdown/</guid>
-      </item>
-    
-      <item>
-        <title>Flake it till you make it</title>
-        <description>
-          Excerpt from Soulshaping by Jeff Brown - 
-          Under what circumstances should we step off a path? When is it essential that we finish what we start? If I bought a bag of peanuts and had an allergic reaction, no one would fault me if I threw it out. If I ended a relationship with a woman who...
-        </description>
-        <pubDate>Wed, 26 Feb 2020 00:00:00 -0500</pubDate>
-        <link>http://localhost:4000/2020-02-26-flake-it-till-you-make-it/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020-02-26-flake-it-till-you-make-it/</guid>
-      </item>
-    
   </channel>
 </rss>
