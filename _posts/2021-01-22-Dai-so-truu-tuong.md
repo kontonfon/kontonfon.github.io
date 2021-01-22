@@ -67,7 +67,26 @@ proof: Suppose that $a$ is odd. So we can write $a=2k+1$ for $k\in \mathbb{Z}$
 
 Notice that: $a^2+4a+7=(2k+1)^2+4(2k+1)+7=4k^2+4k+1+8k+4+7=4k^2+12k+12=2(2k^2+6k+6)=2k'$, which is even.
 
+-----------------------
 
+## Proof by contrapositive  | $P\implies Q \equiv \text{~}Q \implie \text{~}P$
 
+claim: If $x^2-8x+11$ is even then $x$ is odd
+
+$P:x^2-8x+11$ is even
+
+$\text{~}P: x^2-8x+11$ is odd
+
+$Q: x$ is odd
+
+$Q: x$ is even
+
+Proof: Suppose that $x$ is even 
+
+Thus $x=2k$ for $k\in \mathbb{Z}$
+
+Notice: $x^2-8x+11=(2k)^2-8(2k)+11=4k^2-16k+10+1=2(2k^2-8k+5)+1=2k'+1$
+
+which is odd. 
 
 
