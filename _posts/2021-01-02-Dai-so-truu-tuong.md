@@ -176,6 +176,29 @@ So $3\mid 5^{2n}-1$.
 
 --------------------------------------------
 
+## A relation on a set
+
+Def: A relation on a set A is a subset $R\subseteq A\text{x} A$
+
+write 
+
+ - $(x,y)\in R$ as $xRy$
+
+ - $(x,y)\notin R$ as $x\not R y$ 
+
+ ex: $A$ = any set, $R$ is equality 
+
+ $(x,y)\in R\iff x=y$
+
+ R = {$(a,a)\mid a\in A$}
+
+ A = {1,2,3}, R = {(1,1),(2,2),(3,3)}
+
+ ex: A= {1,2,3}, R is less than or equal
+
+ $1\le 1\implies (1,1)\in R,1\le 2\implies (1,2)\in R,1\le 3\implies (1,3)\in R,..$
+
+ R={(1,1),(1,2),(1,3),(2,2),(2,3),(3,3)}
 
 
 
