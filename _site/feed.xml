@@ -34,6 +34,17 @@
       </item>
     
       <item>
+        <title>x86 Crash Course</title>
+        <description>
+          Assembly and C - 
+          Quá trình thực thi file C – Ảnh 1. Quá trình thực thi file C – Ảnh 2 – Ảnh 3 – Ảnh 4. Sơ đồ heap – Ảnh 5. Sơ đồ register – Ảnh 6. Sơ đồ stack - push – Ảnh 7. Sơ đồ stack - pop –...
+        </description>
+        <pubDate>Fri, 01 Jan 2021 00:00:00 -0500</pubDate>
+        <link>http://localhost:4000/2021-01-01-x86-Crash-course/</link>
+        <guid isPermaLink="true">http://localhost:4000/2021-01-01-x86-Crash-course/</guid>
+      </item>
+    
+      <item>
         <title>Những câu lệnh markdown đơn giản</title>
         <description>
           Welcome to Em0t3t' Blog - 
@@ -42,6 +53,40 @@
         <pubDate>Fri, 01 Jan 2021 00:00:00 -0500</pubDate>
         <link>http://localhost:4000/2021-01-01-ok/</link>
         <guid isPermaLink="true">http://localhost:4000/2021-01-01-ok/</guid>
+      </item>
+    
+      <item>
+        <title>Những tool phổ biến trong Kali</title>
+        <description>
+          Tools for Kali - 
+          
+
+
+
+
+
+
+
+
+
+Ảnh 1. Tools for Kali Linux
+
+
+
+Ảnh 2. Kali as Platform
+
+
+
+Ảnh 3. Kernels
+
+
+
+Ảnh 4.
+
+        </description>
+        <pubDate>Fri, 01 Jan 2021 00:00:00 -0500</pubDate>
+        <link>http://localhost:4000/2021-01-01-Tools-for-Kali/</link>
+        <guid isPermaLink="true">http://localhost:4000/2021-01-01-Tools-for-Kali/</guid>
       </item>
     
       <item>

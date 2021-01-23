@@ -9,13 +9,13 @@
 
   
 
-  <title>Đại số trừu tượng</title>
+  <title>x86 Crash Course</title>
 
   
   <meta name="author" content="Ngô Tấn Trí">
   
 
-  <meta name="description" content="Abstract Algbra">
+  <meta name="description" content="Assembly and C">
 
   
 
@@ -72,8 +72,8 @@
 
   
   <meta property="og:site_name" content="Em0t3t">
-  <meta property="og:title" content="Đại số trừu tượng">
-  <meta property="og:description" content="Abstract Algbra">
+  <meta property="og:title" content="x86 Crash Course">
+  <meta property="og:description" content="Assembly and C">
 
   
   <meta property="og:image" content="http://localhost:4000/assets/img/path.jpg">
@@ -82,9 +82,9 @@
   
   <meta property="og:type" content="article">
   <meta property="og:article:author" content="Ngô Tấn Trí">
-  <meta property="og:article:published_time" content="2021-01-02T00:00:00-05:00">
-  <meta property="og:url" content="http://localhost:4000/2021-01-02-Dai-so-truu-tuong/">
-  <link rel="canonical" href="http://localhost:4000/2021-01-02-Dai-so-truu-tuong/">
+  <meta property="og:article:published_time" content="2021-01-01T00:00:00-05:00">
+  <meta property="og:url" content="http://localhost:4000/2021-01-01-x86-Crash-course/">
+  <link rel="canonical" href="http://localhost:4000/2021-01-01-x86-Crash-course/">
   
 
   
@@ -93,8 +93,8 @@
   <meta name="twitter:site" content="@daattali">
   <meta name="twitter:creator" content="@daattali">
 
-  <meta property="twitter:title" content="Đại số trừu tượng">
-  <meta property="twitter:description" content="Abstract Algbra">
+  <meta property="twitter:title" content="x86 Crash Course">
+  <meta property="twitter:description" content="Assembly and C">
 
   
   <meta name="twitter:image" content="http://localhost:4000/assets/img/path.jpg">
@@ -178,15 +178,15 @@
     <div class="row">
       <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
         <div class="post-heading">
-          <h1>Đại số trừu tượng</h1>
+          <h1>x86 Crash Course</h1>
           
             
-              <h2 class="post-subheading">Abstract Algbra</h2>
+              <h2 class="post-subheading">Assembly and C</h2>
             
           
 
           
-            <span class="post-meta">Posted on January 2, 2021</span>
+            <span class="post-meta">Posted on January 1, 2021</span>
             
             
           
@@ -202,15 +202,15 @@
     <div class="row">
       <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
         <div class="post-heading">
-          <h1>Đại số trừu tượng</h1>
+          <h1>x86 Crash Course</h1>
           
             
-              <h2 class="post-subheading">Abstract Algbra</h2>
+              <h2 class="post-subheading">Assembly and C</h2>
             
           
 
           
-            <span class="post-meta">Posted on January 2, 2021</span>
+            <span class="post-meta">Posted on January 1, 2021</span>
             
             
           
@@ -256,188 +256,109 @@ MathJax.Hub.Queue(function() {
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML-full"></script>
 
 <hr />
+<h2 id="quá-trình-thực-thi-file-c">Quá trình thực thi file C</h2>
 
-<h2 id="direct-proof">Direct Proof</h2>
+<p><img src="https://i.imgur.com/M5DW3Z1.png" alt="Imgur" /></p>
 
-<p>claim: if $P$ then $Q$</p>
+<p>– Ảnh 1. Quá trình thực thi file C</p>
 
-<p>proof: Suppose $P$ … then $Q$</p>
+<p><img src="https://i.imgur.com/g3XPbKQ.png" alt="Imgur" /></p>
 
-<hr />
+<p>– Ảnh 2</p>
 
-<p>claim: if $m$ and $n$ are odd then $mn$ is odd</p>
+<p><img src="https://i.imgur.com/ApBt074.png" alt="Imgur" /></p>
 
-<p>proof: Suppose that $m$ and $n$ are odd .</p>
+<p>– Ảnh 3</p>
 
-<p>Thus: $m=2x+1$ and $n=2y+1$ for $x,y\in \mathbb{Z}$</p>
+<p><img src="https://i.imgur.com/Mjlt1uU.png" alt="Imgur" /></p>
 
-<p>Notice that: $mn=(2x+1)(2y+1) = 4xy+2x+2y+1$ then $mn$ is odd</p>
+<p>– Ảnh 4. Sơ đồ heap</p>
 
-<hr />
+<p><img src="https://i.imgur.com/3IeaCPU.png" alt="Imgur" /></p>
 
-<p>claim: If $f(x)$ is differentiable at $a\in \mathbb{R}$ then it is continuous at $a$</p>
+<p>– Ảnh 5. Sơ đồ register</p>
 
-<p>proof: Suppose $f(x)$ is differentiable at $a$</p>
+<p><img src="https://i.imgur.com/LHCNL01.png" alt="Imgur" /></p>
 
-<p>So $\lim\limits_{x\rightarrow} \frac{f(x)-f(a)}{x-a}=f’(a)$ exists and is finite</p>
+<p>– Ảnh 6. Sơ đồ stack - push</p>
 
-<p>$0=\lim\limits_{x\rightarrow a}f’(a)(x-a)=(\lim\limits_{x\rightarrow a} x-a)(\lim\limits_{x\rightarrow a} \frac{f(x)-f(a)}{x-a})=\lim\limits_{x\rightarrow a} (f(x)-f(a))$</p>
+<p><img src="https://i.imgur.com/b1lTA1V.png" alt="Imgur" /></p>
 
-<p>So, $\lim\limits_{x\rightarrow a} f(x)=f(a)$ so $f(x)$ is continuous at $a$</p>
+<p>– Ảnh 7. Sơ đồ stack - pop</p>
 
-<hr />
+<p><img src="https://i.imgur.com/ZnzBdaL.png" alt="Imgur" /></p>
 
-<p>claim: If $a$ is odd then $a^2+4a+7$ is even.</p>
+<p>– Ảnh 8</p>
 
-<p>proof: Suppose that $a$ is odd. So we can write $a=2k+1$ for $k\in \mathbb{Z}$</p>
+<p><img src="https://i.imgur.com/nHL932X.png" alt="Imgur" /></p>
 
-<p>Notice that: $a^2+4a+7=(2k+1)^2+4(2k+1)+7=4k^2+4k+1+8k+4+7=4k^2+12k+12=2(2k^2+6k+6)=2k’$, which is even.</p>
+<p>– Ảnh 9</p>
 
-<hr />
+<p><img src="https://i.imgur.com/emc702o.png" alt="Imgur" /></p>
 
-<h2 id="proof-by-contrapositive---pimplies-q-equiv-textq-impliestextp">Proof by contrapositive  | $P\implies Q \equiv \text{~}Q \implies\text{~}P$</h2>
+<p>– Ảnh 10</p>
 
-<p>claim: If $x^2-8x+11$ is even then $x$ is odd</p>
+<p><img src="https://i.imgur.com/AVaLja6.png" alt="Imgur" /></p>
 
-<p>$P:x^2-8x+11$ is even</p>
+<p>– Ảnh 11</p>
 
-<p>$\text{~}P: x^2-8x+11$ is odd</p>
+<p><img src="https://i.imgur.com/jo0MfpZ.png" alt="Imgur" /></p>
 
-<p>$Q: x$ is odd</p>
+<p>– Ảnh 12. Phép gán</p>
 
-<p>$\text{~}Q: x$ is even</p>
+<p><img src="https://i.imgur.com/j2s7LXh.png" alt="Imgur" /></p>
 
-<p>Proof: Suppose that $x$ is even</p>
+<p>– Ảnh 13. Phép cộng</p>
 
-<p>Thus $x=2k$ for $k\in \mathbb{Z}$</p>
+<p><img src="https://i.imgur.com/BAwGCbZ.png" alt="Imgur" /></p>
 
-<p>Notice: $x^2-8x+11=(2k)^2-8(2k)+11=4k^2-16k+10+1=2(2k^2-8k+5)+1=2k’+1$</p>
+<p>– Ảnh 14. Phép trừ</p>
 
-<p>which is odd.</p>
+<p><img src="https://i.imgur.com/FMeVs3T.png" alt="Imgur" /></p>
 
-<hr />
+<p>– Ảnh 15. Push/pop</p>
 
-<p>claim: If 	$3\nmid xy$ then $3 \nmid x$ and $3 \nmid y$</p>
+<p><img src="https://i.imgur.com/E9YPRWh.png" alt="Imgur" /></p>
 
-<p>$P:3\nmid xy $</p>
+<p>– Ảnh 16</p>
 
-<p>$Q:3\nmid x\text{ and } 3\nmid y$</p>
+<p><img src="https://i.imgur.com/xpVsMa3.png" alt="Imgur" /></p>
 
-<p>$\text{~}P:3\mid xy$</p>
+<p>– Ảnh 17</p>
 
-<p>$\text{~}Q:3\mid \text{ or } 3\mid y$</p>
+<p><img src="https://i.imgur.com/rCOf7rs.png" alt="Imgur" /></p>
 
-<p>proof: Suppose that: $3\mid x \text{ or }3\mid y$. Without loss of generality assume $3\mid x$. So, $x=3k$ for $k\in \mathbb{Z}$. Thus $xy=(3k)y=3k’$. So $3 \mid xy$</p>
+<p>– Ảnh 18</p>
 
-<hr />
+<p><img src="https://i.imgur.com/iMbSVbr.png" alt="Imgur" /></p>
 
-<h2 id="proof-by-contradiction">Proof by contradiction</h2>
+<p>– Ảnh 19</p>
 
-<p>claim: if $a,b\in \mathbb{Z}$ then $a^2-9b\ne 3$</p>
+<p><img src="https://i.imgur.com/DDgHYs1.png" alt="Imgur" /></p>
 
-<p>proof: Suppose that $a,b\in \mathbb{Z}$ such that $a^2-9b=3$</p>
+<p>– Ảnh 20</p>
 
-<p>So $a^2=9b+3=3(3b+1)$</p>
+<p><img src="https://i.imgur.com/Pt4Sif6.png" alt="Imgur" /></p>
 
-<p>and thus $3\mid a^2$</p>
+<p>– Ảnh 21</p>
 
-<p>So $3\mid a$ and we can write $a=3k$ for $k\in \mathbb{Z}$</p>
+<p><img src="https://i.imgur.com/LMznspQ.png" alt="Imgur" /></p>
 
-<p>$\implies (3k)^2=3(3b+1)\implies 3k^2=3b+1$</p>
+<p>– Ảnh 22</p>
 
-<p>Thus $1=3(k^2-b)$ and $3\mid 1$, a contradiction</p>
+<p><img src="https://i.imgur.com/CeS222P.png" alt="Imgur" /></p>
 
-<hr />
+<p>– Ảnh 23</p>
 
-<p>Theorem: There are infinitely many primes</p>
+<p><img src="https://i.imgur.com/r73s09f.png" alt="Imgur" /></p>
 
-<p>Proof: Suppose there are finitely many primes $p_1,…,p_n$</p>
+<p>– Ảnh 24</p>
 
-<p>Consider: $\frac{1}{1-\frac{1}{p_1}}.\frac{1}{1-\frac{1}{p_2}}…\frac{1}{1-\frac{1}{p_n}}=(1+\frac{1}{p_1}+\frac{1}{p_1^2}+…)…(1+\frac{1}{p_n}+\frac{1}{p_n^2}+…)=1+\frac{1}{2}+\frac{1}{3}+\frac{1}{4}+\frac{1}{5}+\frac{1}{6}+…=\sum\limits_{n=1}^{\infty} \frac{1}{n}$, so the harmonic series converges, a contradiction</p>
+<p><img src="https://i.imgur.com/V6vAmBb.png" alt="Imgur" /></p>
 
-<hr />
+<p>– Ảnh 25</p>
 
-<h2 id="principles-of-mathematical-induction">Principles of Mathematical Induction</h2>
-
-<p>$1=1=1^2$</p>
-
-<p>$1+3=4=2^2$</p>
-
-<p>$1+3+5=9=3^2$</p>
-
-<p>$1+3+5+7=16=4^2$</p>
-
-<p>prop: For all $n\in \mathbb{N}$, we have $1+3+5+…+(2n-1)=n^2$</p>
-
-<p>Proof: (PMI)</p>
-
-<p>Base case: $(n=1)$ Observe that $1=1^2$</p>
-
-<p>Induction hypothesis</p>
-
-<p>Suppose for $k\ge 1$, we have $1+3+…+(2k-1)=k^2$</p>
-
-<p>Consider $1+3+5+…+(2k-1)+(2k+1)=k^2+2k+1 = (k+1)^2$</p>
-
-<hr />
-
-<p>claim: For all $n\in \mathbb{N}$, we have: $3\mid 5^{2n}-1$</p>
-
-<p>proof: (PMI)</p>
-
-<p>Base: $(n=1)$ notice that $5^2-1=24=3.8$ so $3\mid 5^{2.1}-1$</p>
-
-<p>Induction hypothesis:</p>
-
-<p>Suppose for some $k\ge 1$, we have $3\mid 5^{2k}-1 \iff 5^{2k}-1=3m$</p>
-
-<p>Consider: $5^{2(k+1)}-1=5^{2k}.5^{2}-1=5^{2k}.5^{2}-5^2+5^2-1=5^2(5^{2k}-1)+5^2-1=5^2.3m+3.8=3(25m+8)$</p>
-
-<p>$\implies 5^{2(k+1)}-1=3(25m+8)=3m’$</p>
-
-<p>$\implies 3\mid 5^{2(k+1)}$</p>
-
-<p>So $3\mid 5^{2n}-1$.</p>
-
-<hr />
-
-<h2 id="a-relation-on-a-set">A relation on a set</h2>
-
-<p>Def: A relation on a set A is a subset $R\subseteq A\text{x} A$</p>
-
-<p>write</p>
-
-<ul>
-  <li>
-    <p>$(x,y)\in R$ as $xRy$</p>
-  </li>
-  <li>
-    <p>$(x,y)\notin R$ as $x\not R y$</p>
-  </li>
-</ul>
-
-<p>ex: $A$ = any set, $R$ is equality</p>
-
-<p>$(x,y)\in R\iff x=y$</p>
-
-<p>R = {$(a,a)\mid a\in A$}</p>
-
-<p>A = {1,2,3}, R = {(1,1),(2,2),(3,3)}</p>
-
-<p>ex: A= {1,2,3}, R is less than or equal</p>
-
-<p>$1\le 1\implies (1,1)\in R,1\le 2\implies (1,2)\in R,1\le 3\implies (1,3)\in R,..$</p>
-
-<p>R={(1,1),(1,2),(1,3),(2,2),(2,3),(3,3)}</p>
-
-<p>ex: $A=\mathbb{N}$, $R$ is divides</p>
-
-<p>$(m,n)\in R\iff m\mid n,n=md,d\in \mathbb{N}$</p>
-
-<p>$(1,n)\in R$ b/c $1\mid n$</p>
-
-<p>$(2,10)\in R$ b/c $2\mid 10,10=2.5$</p>
-
+<p>Nguồn: <a href="https://www.youtube.com/watch?v=75gBFiFtAb8">Tại đây</a></p>
 
       </article>
 
@@ -445,7 +366,9 @@ MathJax.Hub.Queue(function() {
         <div class="blog-tags">
           <span>Tags:</span>
           
-            <a href="/tags#abstract algebra">abstract algebra</a>
+            <a href="/tags#Assembly">Assembly</a>
+          
+            <a href="/tags#C">C</a>
           
         </div>
       
@@ -462,7 +385,7 @@ MathJax.Hub.Queue(function() {
   <span class="sr-only">Share: </span>
 
   
-    <a href="https://twitter.com/intent/tweet?text=%C4%90%E1%BA%A1i+s%E1%BB%91+tr%E1%BB%ABu+t%C6%B0%E1%BB%A3ng&url=http%3A%2F%2Flocalhost%3A4000%2F2021-01-02-Dai-so-truu-tuong%2F"
+    <a href="https://twitter.com/intent/tweet?text=x86+Crash+Course&url=http%3A%2F%2Flocalhost%3A4000%2F2021-01-01-x86-Crash-course%2F"
       class="btn btn-social-icon btn-twitter" title="Share on Twitter">
       <span class="fab fa-fw fa-twitter" aria-hidden="true"></span>
       <span class="sr-only">Twitter</span>
@@ -470,7 +393,7 @@ MathJax.Hub.Queue(function() {
   
 
   
-    <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F2021-01-02-Dai-so-truu-tuong%2F"
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F2021-01-01-x86-Crash-course%2F"
       class="btn btn-social-icon btn-facebook" title="Share on Facebook">
       <span class="fab fa-fw fa-facebook" aria-hidden="true"></span>
       <span class="sr-only">Facebook</span>
@@ -478,7 +401,7 @@ MathJax.Hub.Queue(function() {
   
 
   
-    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2F2021-01-02-Dai-so-truu-tuong%2F"
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2F2021-01-01-x86-Crash-course%2F"
       class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
       <span class="fab fa-fw fa-linkedin" aria-hidden="true"></span>
       <span class="sr-only">LinkedIn</span>
@@ -496,12 +419,12 @@ MathJax.Hub.Queue(function() {
       <ul class="pagination blog-pager">
         
         <li class="page-item previous">
-          <a class="page-link" href="/2021-01-01-x86-Crash-course/" data-toggle="tooltip" data-placement="top" title="x86 Crash Course">&larr; Previous Post</a>
+          <a class="page-link" href="/2021-01-01-ok/" data-toggle="tooltip" data-placement="top" title="Những câu lệnh markdown đơn giản">&larr; Previous Post</a>
         </li>
         
         
         <li class="page-item next">
-          <a class="page-link" href="/2021-01-03-ECC/" data-toggle="tooltip" data-placement="top" title="Tản mạn về hệ mật mã khóa công khai dựa trên đường cong Elliptic - Tổng quan về hệ mật mã khóa công khai">Next Post &rarr;</a>
+          <a class="page-link" href="/2021-01-02-Dai-so-truu-tuong/" data-toggle="tooltip" data-placement="top" title="Đại số trừu tượng">Next Post &rarr;</a>
         </li>
         
       </ul>

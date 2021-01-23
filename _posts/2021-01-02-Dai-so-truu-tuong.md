@@ -200,5 +200,15 @@ write
 
  R={(1,1),(1,2),(1,3),(2,2),(2,3),(3,3)}
 
+ ex: $A=\mathbb{N}$, $R$ is divides
+
+ $(m,n)\in R\iff m\mid n,n=md,d\in \mathbb{N}$
+
+ $(1,n)\in R$ b/c $1\mid n$
+
+ $(2,10)\in R$ b/c $2\mid 10,10=2.5$
+
+ 
+
 
 
