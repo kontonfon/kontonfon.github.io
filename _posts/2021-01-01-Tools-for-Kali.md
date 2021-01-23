@@ -46,3 +46,19 @@ MathJax.Hub.Queue(function() {
 ![Imgur](https://i.imgur.com/hujyCbz.png)
 
 Ảnh 4.
+
+![Imgur](https://i.imgur.com/y2vaNry.png)
+
+Ảnh 5.
+
+![Imgur](https://i.imgur.com/4n6qTB0.png)
+
+Ảnh 6.
+
+![Imgur](https://i.imgur.com/HRShptl.png)
+
+Ảnh 7.
+
+![Imgur](https://i.imgur.com/UW6RnjM.png)
+
+Ảnh 8
