@@ -50,6 +50,15 @@ Cú pháp:
 $\mathbb{N}$
 ~~~
 
-### 3. Khác
+### 3. Dấu không chia hết
+
+$3 \nmid xy$
+
+Cú pháp: 
+
+~~~
+$3 \nmid xy$
+~~~
+### N. Khác
 
 Xem thêm tại [Link](https://tanphong.wordpress.com/latex/mot-so-lenh-latex-thuong-su-dung/)
