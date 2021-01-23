@@ -9,13 +9,13 @@
 
   
 
-  <title>Tập tành latex</title>
+  <title>Một số lệnh thường gặp khi debub C hoặc C++ sang Assembly trong Linux</title>
 
   
   <meta name="author" content="Ngô Tấn Trí">
   
 
-  <meta name="description" content="Một số lệnh latex cơ bản">
+  <meta name="description" content="GDB">
 
   
 
@@ -72,8 +72,8 @@
 
   
   <meta property="og:site_name" content="Em0t3t">
-  <meta property="og:title" content="Tập tành latex">
-  <meta property="og:description" content="Một số lệnh latex cơ bản">
+  <meta property="og:title" content="Một số lệnh thường gặp khi debub C hoặc C++ sang Assembly trong Linux">
+  <meta property="og:description" content="GDB">
 
   
   <meta property="og:image" content="http://localhost:4000/assets/img/path.jpg">
@@ -82,9 +82,9 @@
   
   <meta property="og:type" content="article">
   <meta property="og:article:author" content="Ngô Tấn Trí">
-  <meta property="og:article:published_time" content="2021-01-01T00:00:00-05:00">
-  <meta property="og:url" content="http://localhost:4000/2021-01-01-Test-Latex/">
-  <link rel="canonical" href="http://localhost:4000/2021-01-01-Test-Latex/">
+  <meta property="og:article:published_time" content="2020-12-01T00:00:00-05:00">
+  <meta property="og:url" content="http://localhost:4000/2020-12-01-gdb-assembly/">
+  <link rel="canonical" href="http://localhost:4000/2020-12-01-gdb-assembly/">
   
 
   
@@ -93,8 +93,8 @@
   <meta name="twitter:site" content="@daattali">
   <meta name="twitter:creator" content="@daattali">
 
-  <meta property="twitter:title" content="Tập tành latex">
-  <meta property="twitter:description" content="Một số lệnh latex cơ bản">
+  <meta property="twitter:title" content="Một số lệnh thường gặp khi debub C hoặc C++ sang Assembly trong Linux">
+  <meta property="twitter:description" content="GDB">
 
   
   <meta name="twitter:image" content="http://localhost:4000/assets/img/path.jpg">
@@ -178,15 +178,15 @@
     <div class="row">
       <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
         <div class="post-heading">
-          <h1>Tập tành latex</h1>
+          <h1>Một số lệnh thường gặp khi debub C hoặc C++ sang Assembly trong Linux</h1>
           
             
-              <h2 class="post-subheading">Một số lệnh latex cơ bản</h2>
+              <h2 class="post-subheading">GDB</h2>
             
           
 
           
-            <span class="post-meta">Posted on January 1, 2021</span>
+            <span class="post-meta">Posted on December 1, 2020</span>
             
             
           
@@ -202,15 +202,15 @@
     <div class="row">
       <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
         <div class="post-heading">
-          <h1>Tập tành latex</h1>
+          <h1>Một số lệnh thường gặp khi debub C hoặc C++ sang Assembly trong Linux</h1>
           
             
-              <h2 class="post-subheading">Một số lệnh latex cơ bản</h2>
+              <h2 class="post-subheading">GDB</h2>
             
           
 
           
-            <span class="post-meta">Posted on January 1, 2021</span>
+            <span class="post-meta">Posted on December 1, 2020</span>
             
             
           
@@ -256,35 +256,113 @@ MathJax.Hub.Queue(function() {
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML-full"></script>
 
 <hr />
-<h3 id="1-phân-số">1. Phân số</h3>
 
-<p>$\frac{x^2}{y^2}$</p>
-
-<p>Cú pháp:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$\frac{x^2}{y^2}$
-</code></pre></div></div>
-
-<h3 id="2-tên-tập-hợp">2. Tên tập hợp</h3>
-
-<p>$\mathbb{N}$</p>
+<h2 id="1tạo-một-file-bất-kì">1.Tạo một file bất kì</h2>
 
 <p>Cú pháp:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$\mathbb{N}$
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nano exv.c
 </code></pre></div></div>
 
-<h3 id="3-dấu-không-chia-hết">3. Dấu không chia hết</h3>
+<p><img src="https://i.imgur.com/fmaqjzw.png" alt="Imgur" /></p>
 
-<p>$3 \nmid xy$</p>
+<h2 id="2-thực-thi-file-đã-tạo">2. Thực thi file đã tạo</h2>
 
 <p>Cú pháp:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$3 \nmid xy$
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gcc -g exv.c -o t
 </code></pre></div></div>
-<h3 id="n-khác">N. Khác</h3>
 
-<p>Xem thêm tại <a href="https://tanphong.wordpress.com/latex/mot-so-lenh-latex-thuong-su-dung/">Link</a></p>
+<h2 id="3-chạy-file-đã-thực-thi">3. Chạy file đã thực thi</h2>
+
+<p>Cú pháp :</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>./t
+</code></pre></div></div>
+
+<h2 id="4-liệt-kê-các-thư-mục">4. Liệt kê các thư mục</h2>
+
+<p>Cú pháp:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ls -la
+</code></pre></div></div>
+
+<h2 id="5-thực-hiện-debug">5. Thực hiện Debug</h2>
+
+<p><img src="https://i.imgur.com/iUz0s05.png" alt="Imgur" /></p>
+
+<p>Cú pháp:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>gdb t
+</code></pre></div></div>
+
+<hr />
+
+<h2 id="các-lệnh-trong-quá-trình-debug">Các lệnh trong quá trình debug</h2>
+
+<h3 id="1-liệt-kê-các-câu-lệnh-c">1. Liệt kê các câu lệnh C</h3>
+
+<p><img src="https://i.imgur.com/xYivOmA.png" alt="Imgur" /></p>
+
+<p>Cú pháp:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>list
+</code></pre></div></div>
+
+<h3 id="2-đặt-breakpoint">2. Đặt breakpoint</h3>
+
+<p>Cú pháp:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>b main
+</code></pre></div></div>
+
+<h3 id="3-xem-thông-tin-breakpoint">3. Xem thông tin breakpoint</h3>
+
+<p>Cú pháp:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>info b
+</code></pre></div></div>
+
+<h3 id="4-triển-khai-sang-assembly">4. Triển khai sang assembly</h3>
+
+<p><img src="https://i.imgur.com/3SHXOEw.png" alt="Imgur" /></p>
+
+<p>Cú pháp:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>disass
+</code></pre></div></div>
+
+<h3 id="5-chuyển-con-trỏ-debug-sang-dòng-tiếp-theo">5. Chuyển con trỏ debug sang dòng tiếp theo</h3>
+
+<p>Cú pháp :</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>nextin
+</code></pre></div></div>
+
+<h3 id="6--in-giá-trị-các-biến-ra-xem-kiểm-tra">6 . In giá trị các biến ra xem kiểm tra</h3>
+
+<p><img src="https://i.imgur.com/AuWgMEa.png" alt="Imgur" /></p>
+
+<p>Cú pháp :</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>print a
+</code></pre></div></div>
+
+<h3 id="7-hiển-thị-thông-tin-của-các-thanh-ghi">7. Hiển thị thông tin của các thanh ghi</h3>
+
+<p><img src="https://i.imgur.com/njooF9W.png" alt="Imgur" /></p>
+
+<p>Cú pháp:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>info reg
+</code></pre></div></div>
+
+<h3 id="8-thoát-khỏi-debug">8. Thoát khỏi debug</h3>
+
+<p>Cú pháp:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>q
+</code></pre></div></div>
 
       </article>
 
@@ -292,7 +370,9 @@ MathJax.Hub.Queue(function() {
         <div class="blog-tags">
           <span>Tags:</span>
           
-            <a href="/tags#latex">latex</a>
+            <a href="/tags#debug">debug</a>
+          
+            <a href="/tags#gdb">gdb</a>
           
         </div>
       
@@ -309,7 +389,7 @@ MathJax.Hub.Queue(function() {
   <span class="sr-only">Share: </span>
 
   
-    <a href="https://twitter.com/intent/tweet?text=T%E1%BA%ADp+t%C3%A0nh+latex&url=http%3A%2F%2Flocalhost%3A4000%2F2021-01-01-Test-Latex%2F"
+    <a href="https://twitter.com/intent/tweet?text=M%E1%BB%99t+s%E1%BB%91+l%E1%BB%87nh+th%C6%B0%E1%BB%9Dng+g%E1%BA%B7p+khi+debub+C+ho%E1%BA%B7c+C%2B%2B+sang+Assembly+trong+Linux&url=http%3A%2F%2Flocalhost%3A4000%2F2020-12-01-gdb-assembly%2F"
       class="btn btn-social-icon btn-twitter" title="Share on Twitter">
       <span class="fab fa-fw fa-twitter" aria-hidden="true"></span>
       <span class="sr-only">Twitter</span>
@@ -317,7 +397,7 @@ MathJax.Hub.Queue(function() {
   
 
   
-    <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F2021-01-01-Test-Latex%2F"
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F2020-12-01-gdb-assembly%2F"
       class="btn btn-social-icon btn-facebook" title="Share on Facebook">
       <span class="fab fa-fw fa-facebook" aria-hidden="true"></span>
       <span class="sr-only">Facebook</span>
@@ -325,7 +405,7 @@ MathJax.Hub.Queue(function() {
   
 
   
-    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2F2021-01-01-Test-Latex%2F"
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2F2020-12-01-gdb-assembly%2F"
       class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
       <span class="fab fa-fw fa-linkedin" aria-hidden="true"></span>
       <span class="sr-only">LinkedIn</span>
@@ -342,13 +422,9 @@ MathJax.Hub.Queue(function() {
 
       <ul class="pagination blog-pager">
         
-        <li class="page-item previous">
-          <a class="page-link" href="/2020-12-01-gdb-assembly/" data-toggle="tooltip" data-placement="top" title="Một số lệnh thường gặp khi debub C hoặc C++ sang Assembly trong Linux">&larr; Previous Post</a>
-        </li>
-        
         
         <li class="page-item next">
-          <a class="page-link" href="/2021-01-01-ok/" data-toggle="tooltip" data-placement="top" title="Những câu lệnh markdown đơn giản">Next Post &rarr;</a>
+          <a class="page-link" href="/2021-01-01-Test-Latex/" data-toggle="tooltip" data-placement="top" title="Tập tành latex">Next Post &rarr;</a>
         </li>
         
       </ul>
