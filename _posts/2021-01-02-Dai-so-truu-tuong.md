@@ -208,7 +208,47 @@ write
 
  $(2,10)\in R$ b/c $2\mid 10,10=2.5$
 
- 
+ -------------------------------------------------
 
+## Equivalence Relations  
+
+Def: A relation $R \subset A\text{x}A$ is called an equivalence relation if 
+
+1. $(a,a)\in R$ for all $a\in A$
+
+2. if $(a,b)\in R$ then $(b,a)\in R$
+
+3. if $(a,b)\in R$ and $(b,c)\in R$ then $(a,c)\in R$
+
+Ex: 
+- $R$ is equality 
+
+$(a,b)\in R \iff a=b$
+
+- $R$ is nothing
+
+$(a,b)\in R$ for all $a,b\in A$
+
+- $R=A\text{x}A$
+
+$A=${all differentiable functions: $R\rightarrow R$} 
+
+$fRG\iff f'=g'$
+
+Def: Given an equiv relation on $R\subseteq A\text{x}A$. The equiv class of $a\in A$ is $[a]=${$b\in A\mid (a,b)\in R$}
+
+Ex:
+
+- A,=
+
+$[a]=${$b\in A\mid a=b$}={$a$}
+
+- A,nothing
+
+$[a]=${$b\in A\mid (a,b)\in R=A\text{x}A$}=A
+
+- A,diffirentiable function $fRG\iff f'=g'$
+
+$[f]=${$g\in A\mid f'=g'$}={$g\in A\mid (f-g)'=0$}={$f+c\mid c\in \mathbb{R}$}
 
 
