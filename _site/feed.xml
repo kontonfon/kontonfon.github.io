@@ -23,55 +23,6 @@
       </item>
     
       <item>
-        <title>Duan ban</title>
-        <description>
-          Duan t3 - 
-          
-
-
-
-
-
-
-1. Phân số
-
-$\frac{x^2}{y^2}$
-
-Cú pháp:
-
-$\frac{x^2}{y^2}$
-
-
-2. Tên tập hợp
-
-$\mathbb{N}$
-
-Cú pháp:
-
-$\mathbb{N}$
-
-
-3. Dấu không chia hết
-
-$3 \nmid xy$
-
-Cú pháp:
-
-$3 \nmid xy$
-
-N. Khác
-
-Xem thêm tại Link
-
-hoặc tại đây: Link
-
-        </description>
-        <pubDate>Sat, 02 Jan 2021 00:00:00 -0500</pubDate>
-        <link>http://localhost:4000/2021-01-02-Duan-ban/</link>
-        <guid isPermaLink="true">http://localhost:4000/2021-01-02-Duan-ban/</guid>
-      </item>
-    
-      <item>
         <title>Đại số trừu tượng</title>
         <description>
           Abstract Algbra - 
@@ -162,6 +113,17 @@ hoặc tại đây: Link
         <pubDate>Fri, 01 Jan 2021 00:00:00 -0500</pubDate>
         <link>http://localhost:4000/2021-01-01-Test-Latex/</link>
         <guid isPermaLink="true">http://localhost:4000/2021-01-01-Test-Latex/</guid>
+      </item>
+    
+      <item>
+        <title>Học jsp và servlet cơ bản</title>
+        <description>
+          jsp và servlet - 
+          Bài 1. Giới thiệu về Java Servlet Hình 1. Hình 2. Hình 3. Hình 4. Bài 2. Thiết lập môi trường Java Servlet - Tomcat 8 Hình 1. Search google Tomcat và chọn Tomcat 8 Hình 2. Chọn phiên bản 8.0.41 HÌnh 3. Chọn file zip để tải về Hình...
+        </description>
+        <pubDate>Fri, 01 Jan 2021 00:00:00 -0500</pubDate>
+        <link>http://localhost:4000/2021-01-01-Hoc-jsp-servlet-co-ban/</link>
+        <guid isPermaLink="true">http://localhost:4000/2021-01-01-Hoc-jsp-servlet-co-ban/</guid>
       </item>
     
       <item>
