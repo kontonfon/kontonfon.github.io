@@ -102,9 +102,87 @@ Hình 10. Chọn thư mục đã giải nén sau đó bấm open và chọn fini
 
 Hình 11. Khi đó chúng ta sẽ thấy folder server đã xuất hiện
 
+## 3. Chu kỳ sống của Servlet và ví dụ Hello Servlet 
 
+![Imgur](https://i.imgur.com/cTb34nu.png)
 
+Hình 1. Mô tả chu kỳ sống của servlet
 
+![Imgur](https://i.imgur.com/gMlJUQ0.png)
+
+Hình 2. Tạo một dynamic Web Project
+
+![Imgur](https://i.imgur.com/aElgCI9.png)
+
+Hình 3. Chọn tên project và bấm next
+
+![Imgur](https://i.imgur.com/Oif6bom.png)
+
+Hình 4. Bấm next
+
+![Imgur](https://i.imgur.com/g1MOVv2.png)
+
+Hình 5. Bấm tick và ô generate.... (phải bấm) sau đó bấm Finish
+
+![Imgur](https://i.imgur.com/yUJjad9.png)
+
+Hình 6. Mở file web.xml
+
+![Imgur](https://i.imgur.com/j8NKnRY.png)
+
+Hình 7. Vào src -> Tạo một package có tên là com.trungtamjava
+
+![Imgur](https://i.imgur.com/l8SPF1j.png)
+
+Hình 8. Trong package tạo class có tên HelloServlet.java
+
+![Imgur](https://i.imgur.com/xgs7HLo.png)
+
+Hình 9. Trong file HelloServlet.java chúng ta extends HttpServlet 
+
+![Imgur](https://i.imgur.com/JaYcj9t.png)
+
+Hình 10. Tạo hàm init()
+
+![Imgur](https://i.imgur.com/UEWwiLX.png)
+
+Hình 11. Tạo thêm hàm destroy
+
+![Imgur](https://i.imgur.com/MJa05mG.png)
+
+Hình 12. Gọi các hàm service và doget 
+
+![Imgur](https://i.imgur.com/htY3CKp.png)
+
+Hình 13. Vào file web.xml để cấu hình thêm cho file servlets
+
+![Imgur](https://i.imgur.com/DE63Eie.png)
+
+Hình 14. Chúng ta nhân giữ phím Ctrl và click chuột để hiển thị file class tương ứng
+
+![Imgur](https://i.imgur.com/ClPeVZ8.png)
+
+Hình 15. Tạo servlet mapping 
+
+![Imgur](https://i.imgur.com/aXrXhtl.png)
+
+Hình 16. Click chuột phải vào Tomcat 8 và chọn Add and remove
+
+![Imgur](https://i.imgur.com/dlY7lDK.png)
+
+Hình 17. Chọn HelloServlet -> Add -> Finish
+
+![Imgur](https://i.imgur.com/CFrGy4K.png)
+
+Hình 18. Sau đó ta click chuột phải vào Tomcat 8 --> Clean
+
+![Imgur](https://i.imgur.com/1TPtuM8.png)
+
+Hình 19. click chuột phải vào Tomcat 8 --> start
+
+![Imgur](https://i.imgur.com/IAAzp4g.png)
+
+Hình 20. Lên trình duyệt và gõ link như hình vẽ ta sẽ thấy được kết quả như mong muốn 
 
 
 
