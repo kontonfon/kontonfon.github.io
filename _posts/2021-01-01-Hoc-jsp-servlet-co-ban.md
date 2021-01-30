@@ -31,170 +31,127 @@ MathJax.Hub.Queue(function() {
 
 ----------------
 
-## Bài 1. Giới thiệu về Java Servlet
+## Bài 1. Client and Server Architecture - Part 1
 
+![Imgur](https://i.imgur.com/CK1hSQ4.png)
 
-![Imgur](https://i.imgur.com/4l8xhZP.png)
+Hình 1. Mô hình mô tả Client Server
 
-Hình 1. 
+## Bài 2. Overview of JSP and Servlet - Part 2
 
-![Imgur](https://i.imgur.com/huX6C5y.png)
+![Imgur](https://i.imgur.com/WqVWvQ3.png)
 
-Hình 2.
+Hình 2. Request tĩnh 
 
-![Imgur](https://i.imgur.com/Npwwgvm.png)
+![Imgur](https://i.imgur.com/AZsEoAD.png)
 
-Hình 3.
+Hình 3. Request động 
 
-![Imgur](https://i.imgur.com/rqMhZhj.png)
+## Bài 3. Setting up the Development Environment - Part 3
 
-Hình 4.
+![Imgur](https://i.imgur.com/7HG6IUm.png)
 
-![Imgur](https://i.imgur.com/W11zHoa.png)
+Hình 4. Requires Tools
 
-## Bài 2. Thiết lập môi trường Java Servlet - Tomcat 8
+![Imgur](https://i.imgur.com/0zMDVgd.png)
 
-![Imgur](https://i.imgur.com/xMuUc6y.png)
+Hình 5. Mở cửa sổ server 
 
-Hình 1. Search google Tomcat và chọn Tomcat 8
+![Imgur](https://i.imgur.com/InVlGJ0.png)
 
-![Imgur](https://i.imgur.com/Puyf4Ll.png)
+Hình 6.
 
-Hình 2. Chọn phiên bản 8.0.41
+![Imgur](https://i.imgur.com/AiQESiS.png)
 
-![Imgur](https://i.imgur.com/N34LjDN.png)
+Hình 7.
 
-HÌnh 3. Chọn file zip để tải về
+![Imgur](https://i.imgur.com/BV6DfeZ.png)
 
-![Imgur](https://i.imgur.com/YOgfDGc.png)
+Hình 8.
 
-Hình 4. Vào Window -> Show View -> Others 
+![Imgur](https://i.imgur.com/eHf9IFa.png)
 
-![Imgur](https://i.imgur.com/ivY3q6d.png)
+Hình 9. 
 
-Hình 5. Tiếp theo gõ server -> Chọn Servers
+![Imgur](https://i.imgur.com/T06MVJd.png)
 
-![Imgur](https://i.imgur.com/WhdaZBd.png)
+Hình 10.
 
-Hình 6. Khi đó sẽ hiện thị mục servers như trên ảnh
+![Imgur](https://i.imgur.com/N7QrpR1.png)
 
-![Imgur](https://i.imgur.com/qThywsQ.png)
+Hình 11.
 
-HÌnh 7. Click chuột phải -> Chọn New -> Chọn Servers -> 
+![Imgur](https://i.imgur.com/ibIH6JZ.png)
 
-![Imgur](https://i.imgur.com/DgNOcS8.png)
+Hình 12.
 
-Hình 8. Chọn Tomcat v8.0 Server
+![Imgur](https://i.imgur.com/PKn1dT7.png)
 
-![Imgur](https://i.imgur.com/Y23RiYx.png)
+Hình 13.
 
-Hình 9. Chọn tên cho Server's host name và Server name  và bấm next
+![Imgur](https://i.imgur.com/PIaA263.png)
 
-![Imgur](https://i.imgur.com/JWIHtSv.png)
+Hình 14. Click đôi vào tomcat
 
-Hình 10. Sau đó chúng ta sẽ bấm vào Browser để chọn file Tomcat vừa mới tải lúc nãy (file đã giải nén nhé !)
+![Imgur](https://i.imgur.com/kWmfUgF.png)
 
-![Imgur](https://i.imgur.com/nIn49zY.png)
+Hình 15. 
 
-Hình 10. Chọn thư mục đã giải nén sau đó bấm open và chọn finish
+![Imgur](https://i.imgur.com/tiFbY11.png)
 
-![Imgur](https://i.imgur.com/oZ3LFeg.png) 
+Hình 16. Bấm save 
 
-Hình 11. Khi đó chúng ta sẽ thấy folder server đã xuất hiện
+![Imgur](https://i.imgur.com/UpUS6VE.png)
 
-## 3. Chu kỳ sống của Servlet và ví dụ Hello Servlet 
+Hình 17. Chạy lại
 
-![Imgur](https://i.imgur.com/cTb34nu.png)
+![Imgur](https://i.imgur.com/xnge0ds.png)
 
-Hình 1. Mô tả chu kỳ sống của servlet
+Hình 18.
 
-![Imgur](https://i.imgur.com/gMlJUQ0.png)
+![Imgur](https://i.imgur.com/h0V6eRd.png)
 
-Hình 2. Tạo một dynamic Web Project
+Hình 19.
 
-![Imgur](https://i.imgur.com/aElgCI9.png)
+![Imgur](https://i.imgur.com/yG86sIR.png)
 
-Hình 3. Chọn tên project và bấm next
+Hình 20.
 
-![Imgur](https://i.imgur.com/Oif6bom.png)
+![Imgur](https://i.imgur.com/8NpHRzq.png)
 
-Hình 4. Bấm next
+Hình 21.
 
-![Imgur](https://i.imgur.com/g1MOVv2.png)
+![Imgur](https://i.imgur.com/A0i1PqC.png)
 
-Hình 5. Bấm tick và ô generate.... (phải bấm) sau đó bấm Finish
+Hình 22.
 
-![Imgur](https://i.imgur.com/yUJjad9.png)
+![Imgur](https://i.imgur.com/siC5kFN.png)
 
-Hình 6. Mở file web.xml
+Hình 23.
 
-![Imgur](https://i.imgur.com/j8NKnRY.png)
+![Imgur](https://i.imgur.com/JmimQaO.png)
 
-Hình 7. Vào src -> Tạo một package có tên là com.trungtamjava
+Hình 24.
 
-![Imgur](https://i.imgur.com/l8SPF1j.png)
+![Imgur](https://i.imgur.com/zj5pbhE.png)
 
-Hình 8. Trong package tạo class có tên HelloServlet.java
+Hình 25.
 
-![Imgur](https://i.imgur.com/xgs7HLo.png)
+![Imgur](https://i.imgur.com/5M795lT.png)
 
-Hình 9. Trong file HelloServlet.java chúng ta extends HttpServlet 
+Hình 26.
 
-![Imgur](https://i.imgur.com/JaYcj9t.png)
+![Imgur](https://i.imgur.com/JulUGNv.png)
 
-Hình 10. Tạo hàm init()
+Hình 27.
 
-![Imgur](https://i.imgur.com/UEWwiLX.png)
+![Imgur](https://i.imgur.com/y1CkDaP.png)
 
-Hình 11. Tạo thêm hàm destroy
+Hình 28
 
-![Imgur](https://i.imgur.com/MJa05mG.png)
+![Imgur](https://i.imgur.com/Kh17jOh.png)
 
-Hình 12. Gọi các hàm service và doget 
+Hình 29
 
-![Imgur](https://i.imgur.com/htY3CKp.png)
-
-Hình 13. Vào file web.xml để cấu hình thêm cho file servlets
-
-![Imgur](https://i.imgur.com/DE63Eie.png)
-
-Hình 14. Chúng ta nhân giữ phím Ctrl và click chuột để hiển thị file class tương ứng
-
-![Imgur](https://i.imgur.com/ClPeVZ8.png)
-
-Hình 15. Tạo servlet mapping 
-
-![Imgur](https://i.imgur.com/aXrXhtl.png)
-
-Hình 16. Click chuột phải vào Tomcat 8 và chọn Add and remove
-
-![Imgur](https://i.imgur.com/dlY7lDK.png)
-
-Hình 17. Chọn HelloServlet -> Add -> Finish
-
-![Imgur](https://i.imgur.com/CFrGy4K.png)
-
-Hình 18. Sau đó ta click chuột phải vào Tomcat 8 --> Clean
-
-![Imgur](https://i.imgur.com/1TPtuM8.png)
-
-Hình 19. click chuột phải vào Tomcat 8 --> start
-
-![Imgur](https://i.imgur.com/IAAzp4g.png)
-
-Hình 20. Lên trình duyệt và gõ link như hình vẽ ta sẽ thấy được kết quả như mong muốn 
-
-![Imgur](https://i.imgur.com/HDNLMYS.png)
-
-Hình 21. Phương trình request là GET
-
-![Imgur](https://i.imgur.com/wauxlb9.png)
-
-Hình 22. Khi ta stop server thì hàm destroy sẽ được gọi
-
-
-
-
-
-
+![Imgur](https://i.imgur.com/JFiK9Fq.png)
 
