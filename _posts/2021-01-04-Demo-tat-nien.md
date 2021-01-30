@@ -30,6 +30,9 @@ MathJax.Hub.Queue(function() {
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML-full"></script>
 
 ----------------
+
+## Phần 1: Giới thiệu
+
 ### Tạo tài khoản trên cryptohack.org
 
 Khi click vào Register trên trang [Cryptohack.org](Cryptohack.org) thì chúng ta sẽ thấy một bài toán kinh điển trong crypto đó là:
@@ -76,3 +79,98 @@ int main(){
 Và đây là kết quả của bài toán trên:
 
 ![Imgur](https://i.imgur.com/HMn3wqS.png)
+
+------------------------------------------------------
+
+## Phần 2. Introduction
+
+Trong phần này chúng ta sẽ có 3 challenges, ở mức giới thiệu để ta làm quen với crypto
+
+### Bài 1. Finding Flags
+
+Bài này đơn giản ta copy: crypto{y0ur_f1rst_fl4g} vào và submit là xong
+
+### Bài 2. Great Snakes
+
+Bài này, ta tải file great_snakes.py về và sau đó chạy trên terminal là xong
+
+![Imgur](https://i.imgur.com/oAtewVS.png)
+
+### Bài 3. Network Attacks
+
+Đối với bài này, ta tải file python về là thay đổi value trong file đó thành flag là xong
+
+![Imgur](https://i.imgur.com/sTyWulL.png)
+
+Và sau đó ta chạy file này là sẽ hiện ra cờ (mình chạy trên Kali Linux nhé )
+
+![Imgur](https://i.imgur.com/w7PeJG1.png)
+
+Như vậy là ta đã hoàn tất 3 bài của phần Introduction, tiếp theo ta sẽ đến phần General 
+
+-------------------------------------------------------------------
+
+## Phần 3. General
+
+### Phần 3.1 ENCODING 
+
+#### Bài 1. ASCII
+
+Ở bài này, nhiệm vụ của chúng ta là phải đưa list đã cho thành chuỗi ASCII tương ứng
+
+Code:
+
+~~~py
+l = [99, 114, 121, 112, 116, 111, 123, 65, 83, 67, 73, 73, 95, 112, 114, 49, 110, 116, 52, 98, 108, 51, 125]
+res=""
+for p in l:
+	res=res+chr(p)
+print(res)
+~~~
+
+và ta được kết quả là : 
+
+![Imgur](https://i.imgur.com/3PXixW7.png)
+
+#### Bài 2. Hex
+
+Đối với bài này, chúng ta sẽ chuyển chuổi hex sang bytes và khi đó sẽ lấy được cờ:
+
+Code:
+
+~~~py
+hex_string = "63727970746f7b596f755f77696c6c5f62655f776f726b696e675f776974685f6865785f737472696e67735f615f6c6f747d"
+res = bytes.fromhex(hex_string)
+print(res)
+~~~
+
+và ta được kết quả là :
+
+![Imgur](https://i.imgur.com/JIhs9Zh.png)
+
+#### Bài 3. Base64
+
+Đối với bài này, ta chuyển hex sang bytes và sau đó từ bytes chuyển sang base64 và xong
+
+và ta được kết quả là :
+
+![Imgur](https://i.imgur.com/QvfoA5U.png)
+
+#### Bài 4.  Bytes and Big Integers
+
+Đối với bài này, ta chỉ cần sử dụng hai thư viện đã gợi ý là xong
+
+Code:
+
+~~~cpp
+from Crypto.Util.number import bytes_to_long
+from Crypto.Util.number import long_to_bytes
+s = "11515195063862318899931685488813747395775516287289682636499965282714637259206269"
+res = long_to_bytes(s)
+print(res)
+
+~~~
+
+và kết quả là :
+
+![Imgur](https://i.imgur.com/nvmsEY2.png)

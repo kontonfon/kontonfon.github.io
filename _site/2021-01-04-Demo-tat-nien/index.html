@@ -256,6 +256,9 @@ MathJax.Hub.Queue(function() {
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML-full"></script>
 
 <hr />
+
+<h2 id="phần-1-giới-thiệu">Phần 1: Giới thiệu</h2>
+
 <h3 id="tạo-tài-khoản-trên-cryptohackorg">Tạo tài khoản trên cryptohack.org</h3>
 
 <p>Khi click vào Register trên trang <a href="Cryptohack.org">Cryptohack.org</a> thì chúng ta sẽ thấy một bài toán kinh điển trong crypto đó là:</p>
@@ -301,6 +304,98 @@ MathJax.Hub.Queue(function() {
 <p>Và đây là kết quả của bài toán trên:</p>
 
 <p><img src="https://i.imgur.com/HMn3wqS.png" alt="Imgur" /></p>
+
+<hr />
+
+<h2 id="phần-2-introduction">Phần 2. Introduction</h2>
+
+<p>Trong phần này chúng ta sẽ có 3 challenges, ở mức giới thiệu để ta làm quen với crypto</p>
+
+<h3 id="bài-1-finding-flags">Bài 1. Finding Flags</h3>
+
+<p>Bài này đơn giản ta copy: crypto{y0ur_f1rst_fl4g} vào và submit là xong</p>
+
+<h3 id="bài-2-great-snakes">Bài 2. Great Snakes</h3>
+
+<p>Bài này, ta tải file great_snakes.py về và sau đó chạy trên terminal là xong</p>
+
+<p><img src="https://i.imgur.com/oAtewVS.png" alt="Imgur" /></p>
+
+<h3 id="bài-3-network-attacks">Bài 3. Network Attacks</h3>
+
+<p>Đối với bài này, ta tải file python về là thay đổi value trong file đó thành flag là xong</p>
+
+<p><img src="https://i.imgur.com/sTyWulL.png" alt="Imgur" /></p>
+
+<p>Và sau đó ta chạy file này là sẽ hiện ra cờ (mình chạy trên Kali Linux nhé )</p>
+
+<p><img src="https://i.imgur.com/w7PeJG1.png" alt="Imgur" /></p>
+
+<p>Như vậy là ta đã hoàn tất 3 bài của phần Introduction, tiếp theo ta sẽ đến phần General</p>
+
+<hr />
+
+<h2 id="phần-3-general">Phần 3. General</h2>
+
+<h3 id="phần-31-encoding">Phần 3.1 ENCODING</h3>
+
+<h4 id="bài-1-ascii">Bài 1. ASCII</h4>
+
+<p>Ở bài này, nhiệm vụ của chúng ta là phải đưa list đã cho thành chuỗi ASCII tương ứng</p>
+
+<p>Code:</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">l</span> <span class="o">=</span> <span class="p">[</span><span class="mi">99</span><span class="p">,</span> <span class="mi">114</span><span class="p">,</span> <span class="mi">121</span><span class="p">,</span> <span class="mi">112</span><span class="p">,</span> <span class="mi">116</span><span class="p">,</span> <span class="mi">111</span><span class="p">,</span> <span class="mi">123</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">83</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">73</span><span class="p">,</span> <span class="mi">73</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">112</span><span class="p">,</span> <span class="mi">114</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">110</span><span class="p">,</span> <span class="mi">116</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">98</span><span class="p">,</span> <span class="mi">108</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">125</span><span class="p">]</span>
+<span class="n">res</span><span class="o">=</span><span class="s">""</span>
+<span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">l</span><span class="p">:</span>
+	<span class="n">res</span><span class="o">=</span><span class="n">res</span><span class="o">+</span><span class="nb">chr</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>và ta được kết quả là :</p>
+
+<p><img src="https://i.imgur.com/3PXixW7.png" alt="Imgur" /></p>
+
+<h4 id="bài-2-hex">Bài 2. Hex</h4>
+
+<p>Đối với bài này, chúng ta sẽ chuyển chuổi hex sang bytes và khi đó sẽ lấy được cờ:</p>
+
+<p>Code:</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">hex_string</span> <span class="o">=</span> <span class="s">"63727970746f7b596f755f77696c6c5f62655f776f726b696e675f776974685f6865785f737472696e67735f615f6c6f747d"</span>
+<span class="n">res</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">.</span><span class="n">fromhex</span><span class="p">(</span><span class="n">hex_string</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>và ta được kết quả là :</p>
+
+<p><img src="https://i.imgur.com/JIhs9Zh.png" alt="Imgur" /></p>
+
+<h4 id="bài-3-base64">Bài 3. Base64</h4>
+
+<p>Đối với bài này, ta chuyển hex sang bytes và sau đó từ bytes chuyển sang base64 và xong</p>
+
+<p>và ta được kết quả là :</p>
+
+<p><img src="https://i.imgur.com/QvfoA5U.png" alt="Imgur" /></p>
+
+<h4 id="bài-4--bytes-and-big-integers">Bài 4.  Bytes and Big Integers</h4>
+
+<p>Đối với bài này, ta chỉ cần sử dụng hai thư viện đã gợi ý là xong</p>
+
+<p>Code:</p>
+
+<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">from</span> <span class="n">Crypto</span><span class="p">.</span><span class="n">Util</span><span class="p">.</span><span class="n">number</span> <span class="n">import</span> <span class="n">bytes_to_long</span>
+<span class="n">from</span> <span class="n">Crypto</span><span class="p">.</span><span class="n">Util</span><span class="p">.</span><span class="n">number</span> <span class="n">import</span> <span class="n">long_to_bytes</span>
+<span class="n">s</span> <span class="o">=</span> <span class="s">"11515195063862318899931685488813747395775516287289682636499965282714637259206269"</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">long_to_bytes</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="n">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<p>và kết quả là :</p>
+
+<p><img src="https://i.imgur.com/nvmsEY2.png" alt="Imgur" /></p>
 
       </article>
 
