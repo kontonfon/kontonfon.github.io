@@ -162,7 +162,7 @@ và ta được kết quả là :
 
 Code:
 
-~~~cpp
+~~~py
 from Crypto.Util.number import bytes_to_long
 from Crypto.Util.number import long_to_bytes
 s = "11515195063862318899931685488813747395775516287289682636499965282714637259206269"
@@ -174,3 +174,77 @@ print(res)
 và kết quả là :
 
 ![Imgur](https://i.imgur.com/nvmsEY2.png)
+
+--------------------------------------------------------------
+
+#### Bài 5. Encoding Challenge
+
+Đây là bài toán tổng hợp tất cả các bài toán trên, mình đánh giá bài này khá hay vì nó tổng hợp đầy đủ những kĩ thuật liên quan đến encoding của 4 bài trước đó, dưới đây là code 
+
+~~~py
+from pwn import * # pip install pwntools
+import json
+import base64
+import codecs
+from Crypto.Util.number import bytes_to_long
+from Crypto.Util.number import long_to_bytes
+rot13 = lambda s : codecs.getencoder("rot-13")(s)[0]
+
+r = remote('socket.cryptohack.org', 13377, level = 'debug')
+
+def json_recv():
+    line = r.recvline()
+    return json.loads(line.decode())
+
+def json_send(hsh):
+    request = json.dumps(hsh).encode()
+    r.sendline(request)
+
+for _ii in range(0,100):
+    print(_ii+1)
+    received = json_recv()
+    #print(received)
+    #print("Received type: ")
+    _type =received["type"] 
+    #print(received["type"])
+    #print("Received encoded value: ")
+    #print(received["encoded"])
+    _encoded = received["encoded"]
+    res=""
+    if(_type=="utf-8"):
+        print("Hello UTF-8")
+        for p in _encoded:
+            res=res+chr(p)
+    if(_type=="base64"):
+        print("Hello BASE64")
+        ans = base64.b64decode(_encoded)
+        res = ans.decode("utf-8")
+    if(_type=="hex"):
+        print("HELLO HEX")
+        ans=bytes.fromhex(_encoded)
+        res = ans.decode("utf-8")
+    if(_type=="bigint"):
+        print("HELLO BIGINT")
+        tmp=""
+        for _ in range(0,len(_encoded)):
+            if(_!=0 and _!= 1):tmp=tmp+_encoded[_]
+        ans =bytes.fromhex(tmp)
+        #res.decode("utf-8")
+        res = ans.decode("utf-8")
+    if(_type=="rot13"):
+        print("HELLO ROT13")
+        ans=rot13(_encoded)
+        #res.decode("utf-8")
+        res = ans
+    print("Ket qua la: ")
+    print(res)
+    to_send = {
+        "decoded": res
+    }
+    json_send(to_send)
+s=json_recv()
+print(s)
+~~~
+Và kết quả là :
+
+![Imgur](https://i.imgur.com/pI8CJUI.png)

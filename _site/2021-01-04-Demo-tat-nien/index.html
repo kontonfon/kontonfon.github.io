@@ -385,17 +385,90 @@ MathJax.Hub.Queue(function() {
 
 <p>Code:</p>
 
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">from</span> <span class="n">Crypto</span><span class="p">.</span><span class="n">Util</span><span class="p">.</span><span class="n">number</span> <span class="n">import</span> <span class="n">bytes_to_long</span>
-<span class="n">from</span> <span class="n">Crypto</span><span class="p">.</span><span class="n">Util</span><span class="p">.</span><span class="n">number</span> <span class="n">import</span> <span class="n">long_to_bytes</span>
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">Crypto.Util.number</span> <span class="kn">import</span> <span class="n">bytes_to_long</span>
+<span class="kn">from</span> <span class="nn">Crypto.Util.number</span> <span class="kn">import</span> <span class="n">long_to_bytes</span>
 <span class="n">s</span> <span class="o">=</span> <span class="s">"11515195063862318899931685488813747395775516287289682636499965282714637259206269"</span>
 <span class="n">res</span> <span class="o">=</span> <span class="n">long_to_bytes</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
-<span class="n">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
 
 </code></pre></div></div>
 
 <p>và kết quả là :</p>
 
 <p><img src="https://i.imgur.com/nvmsEY2.png" alt="Imgur" /></p>
+
+<hr />
+
+<h4 id="bài-5-encoding-challenge">Bài 5. Encoding Challenge</h4>
+
+<p>Đây là bài toán tổng hợp tất cả các bài toán trên, mình đánh giá bài này khá hay vì nó tổng hợp đầy đủ những kĩ thuật liên quan đến encoding của 4 bài trước đó, dưới đây là code</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">pwn</span> <span class="kn">import</span> <span class="o">*</span> <span class="c1"># pip install pwntools
+</span><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">base64</span>
+<span class="kn">import</span> <span class="nn">codecs</span>
+<span class="kn">from</span> <span class="nn">Crypto.Util.number</span> <span class="kn">import</span> <span class="n">bytes_to_long</span>
+<span class="kn">from</span> <span class="nn">Crypto.Util.number</span> <span class="kn">import</span> <span class="n">long_to_bytes</span>
+<span class="n">rot13</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">s</span> <span class="p">:</span> <span class="n">codecs</span><span class="p">.</span><span class="n">getencoder</span><span class="p">(</span><span class="s">"rot-13"</span><span class="p">)(</span><span class="n">s</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">remote</span><span class="p">(</span><span class="s">'socket.cryptohack.org'</span><span class="p">,</span> <span class="mi">13377</span><span class="p">,</span> <span class="n">level</span> <span class="o">=</span> <span class="s">'debug'</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">json_recv</span><span class="p">():</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">r</span><span class="p">.</span><span class="n">recvline</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">json</span><span class="p">.</span><span class="n">loads</span><span class="p">(</span><span class="n">line</span><span class="p">.</span><span class="n">decode</span><span class="p">())</span>
+
+<span class="k">def</span> <span class="nf">json_send</span><span class="p">(</span><span class="n">hsh</span><span class="p">):</span>
+    <span class="n">request</span> <span class="o">=</span> <span class="n">json</span><span class="p">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">hsh</span><span class="p">).</span><span class="n">encode</span><span class="p">()</span>
+    <span class="n">r</span><span class="p">.</span><span class="n">sendline</span><span class="p">(</span><span class="n">request</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">_ii</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">100</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">_ii</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">received</span> <span class="o">=</span> <span class="n">json_recv</span><span class="p">()</span>
+    <span class="c1">#print(received)
+</span>    <span class="c1">#print("Received type: ")
+</span>    <span class="n">_type</span> <span class="o">=</span><span class="n">received</span><span class="p">[</span><span class="s">"type"</span><span class="p">]</span> 
+    <span class="c1">#print(received["type"])
+</span>    <span class="c1">#print("Received encoded value: ")
+</span>    <span class="c1">#print(received["encoded"])
+</span>    <span class="n">_encoded</span> <span class="o">=</span> <span class="n">received</span><span class="p">[</span><span class="s">"encoded"</span><span class="p">]</span>
+    <span class="n">res</span><span class="o">=</span><span class="s">""</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">_type</span><span class="o">==</span><span class="s">"utf-8"</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Hello UTF-8"</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">_encoded</span><span class="p">:</span>
+            <span class="n">res</span><span class="o">=</span><span class="n">res</span><span class="o">+</span><span class="nb">chr</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">_type</span><span class="o">==</span><span class="s">"base64"</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"Hello BASE64"</span><span class="p">)</span>
+        <span class="n">ans</span> <span class="o">=</span> <span class="n">base64</span><span class="p">.</span><span class="n">b64decode</span><span class="p">(</span><span class="n">_encoded</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">ans</span><span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="s">"utf-8"</span><span class="p">)</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">_type</span><span class="o">==</span><span class="s">"hex"</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"HELLO HEX"</span><span class="p">)</span>
+        <span class="n">ans</span><span class="o">=</span><span class="nb">bytes</span><span class="p">.</span><span class="n">fromhex</span><span class="p">(</span><span class="n">_encoded</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">ans</span><span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="s">"utf-8"</span><span class="p">)</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">_type</span><span class="o">==</span><span class="s">"bigint"</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"HELLO BIGINT"</span><span class="p">)</span>
+        <span class="n">tmp</span><span class="o">=</span><span class="s">""</span>
+        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">_encoded</span><span class="p">)):</span>
+            <span class="k">if</span><span class="p">(</span><span class="n">_</span><span class="o">!=</span><span class="mi">0</span> <span class="ow">and</span> <span class="n">_</span><span class="o">!=</span> <span class="mi">1</span><span class="p">):</span><span class="n">tmp</span><span class="o">=</span><span class="n">tmp</span><span class="o">+</span><span class="n">_encoded</span><span class="p">[</span><span class="n">_</span><span class="p">]</span>
+        <span class="n">ans</span> <span class="o">=</span><span class="nb">bytes</span><span class="p">.</span><span class="n">fromhex</span><span class="p">(</span><span class="n">tmp</span><span class="p">)</span>
+        <span class="c1">#res.decode("utf-8")
+</span>        <span class="n">res</span> <span class="o">=</span> <span class="n">ans</span><span class="p">.</span><span class="n">decode</span><span class="p">(</span><span class="s">"utf-8"</span><span class="p">)</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">_type</span><span class="o">==</span><span class="s">"rot13"</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"HELLO ROT13"</span><span class="p">)</span>
+        <span class="n">ans</span><span class="o">=</span><span class="n">rot13</span><span class="p">(</span><span class="n">_encoded</span><span class="p">)</span>
+        <span class="c1">#res.decode("utf-8")
+</span>        <span class="n">res</span> <span class="o">=</span> <span class="n">ans</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">"Ket qua la: "</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+    <span class="n">to_send</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s">"decoded"</span><span class="p">:</span> <span class="n">res</span>
+    <span class="p">}</span>
+    <span class="n">json_send</span><span class="p">(</span><span class="n">to_send</span><span class="p">)</span>
+<span class="n">s</span><span class="o">=</span><span class="n">json_recv</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+</code></pre></div></div>
+<p>Và kết quả là :</p>
+
+<p><img src="https://i.imgur.com/pI8CJUI.png" alt="Imgur" /></p>
 
       </article>
 
