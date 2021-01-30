@@ -184,6 +184,14 @@ Hình 19. click chuột phải vào Tomcat 8 --> start
 
 Hình 20. Lên trình duyệt và gõ link như hình vẽ ta sẽ thấy được kết quả như mong muốn 
 
+![Imgur](https://i.imgur.com/HDNLMYS.png)
+
+Hình 21. Phương trình request là GET
+
+![Imgur](https://i.imgur.com/wauxlb9.png)
+
+Hình 22. Khi ta stop server thì hàm destroy sẽ được gọi
+
 
 
 
