@@ -150,8 +150,18 @@ và ta được kết quả là :
 
 #### Bài 3. Base64
 
-Đối với bài này, ta chuyển hex sang bytes và sau đó từ bytes chuyển sang base64 và xong
+Đối với bài này, ta chuyển hex sang bytes và sau đó từ bytes chuyển sang base64 là xong
 
+Code:
+
+~~~py
+import base64
+hex_string = "72bca9b68fc16ac7beeb8f849dca1d8a783e8acf9679bf9269f7bf"
+tmp = bytes.fromhex(hex_string)
+aka = "ZW50b21iX3B1cHBlZF9MZWlwemlncw=="
+res = base64.b64decode(aka)
+print(res)
+~~~
 và ta được kết quả là :
 
 ![Imgur](https://i.imgur.com/QvfoA5U.png)
@@ -248,3 +258,67 @@ print(s)
 Và kết quả là :
 
 ![Imgur](https://i.imgur.com/pI8CJUI.png)
+
+---------------------------------------------------
+### Phần 3.2 XOR
+
+#### Bài 1. XOR start
+
+Bài này yêu cầu ta lấy mỗi phần tử của xâu "label" xor với 13 và sau đó lấy chuỗi kết quả làm flag
+
+Code:
+
+~~~py
+s ="label"
+res=""
+for _ in range(0,len(s)):
+    res=res+chr(ord(s[_])^13)
+print('crypto{{{0}}}'.format(res))
+~~~
+
+Ta được kết quả là:
+
+![Imgur](https://i.imgur.com/cwINeeq.png)
+
+#### Bài 2. XOR Properties
+
+Bài này yêu cầu chúng ta sử dụng 4 tính chất đặc biệt của phép xor chuỗi đó là:
+
+$1. A\oplus B = B \oplus A$
+
+$2. A\oplus (B \oplus C) = (A \oplus B) \oplus C$
+
+$3. A\oplus 0 = A$
+
+$4.A\oplus A =0$
+
+Code:
+
+~~~py
+from pwn import xor
+# xor two string
+def f(s1,s2):
+    if len(s1) != len(s2):
+        raise "XOR EXCEPTION: Strings are not of equal length!"
+
+    return ''.join(format(int(a, 16) ^ int(b, 16), 'x') for a,b in zip(s1,s2))
+key1= "a6c8b6733c9b22de7bc0253266a3867df55acde8635e19c73313"
+
+key2_xor_key1="37dcb292030faa90d07eec17e3b1c6d8daf94c35d4c9191a5e1e"
+
+key2_xor_key3="c1545756687e7573db23aa1c3452a098b71a7fbf0fddddde5fc1"
+
+flag_xor_key1_xor_key3_xor_key1="04ee9855208a2cd59091d04767ae47963170d1660df7f56f5faf"
+
+flag =f(f(flag_xor_key1_xor_key3_xor_key1,key2_xor_key3),key1)
+#print(len(flag_xor_key1_xor_key3_xor_key1))
+#print(len(key2_xor_key3))
+res =bytes. fromhex(flag)
+print(res)
+
+
+~~~ 
+
+và kết quả thu được là:
+
+![Imgur](https://i.imgur.com/osLPq9t.png)

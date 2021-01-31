@@ -373,8 +373,17 @@ MathJax.Hub.Queue(function() {
 
 <h4 id="bài-3-base64">Bài 3. Base64</h4>
 
-<p>Đối với bài này, ta chuyển hex sang bytes và sau đó từ bytes chuyển sang base64 và xong</p>
+<p>Đối với bài này, ta chuyển hex sang bytes và sau đó từ bytes chuyển sang base64 là xong</p>
 
+<p>Code:</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">base64</span>
+<span class="n">hex_string</span> <span class="o">=</span> <span class="s">"72bca9b68fc16ac7beeb8f849dca1d8a783e8acf9679bf9269f7bf"</span>
+<span class="n">tmp</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">.</span><span class="n">fromhex</span><span class="p">(</span><span class="n">hex_string</span><span class="p">)</span>
+<span class="n">aka</span> <span class="o">=</span> <span class="s">"ZW50b21iX3B1cHBlZF9MZWlwemlncw=="</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">base64</span><span class="p">.</span><span class="n">b64decode</span><span class="p">(</span><span class="n">aka</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+</code></pre></div></div>
 <p>và ta được kết quả là :</p>
 
 <p><img src="https://i.imgur.com/QvfoA5U.png" alt="Imgur" /></p>
@@ -469,6 +478,68 @@ MathJax.Hub.Queue(function() {
 <p>Và kết quả là :</p>
 
 <p><img src="https://i.imgur.com/pI8CJUI.png" alt="Imgur" /></p>
+
+<hr />
+<h3 id="phần-32-xor">Phần 3.2 XOR</h3>
+
+<h4 id="bài-1-xor-start">Bài 1. XOR start</h4>
+
+<p>Bài này yêu cầu ta lấy mỗi phần tử của xâu “label” xor với 13 và sau đó lấy chuỗi kết quả làm flag</p>
+
+<p>Code:</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">s</span> <span class="o">=</span><span class="s">"label"</span>
+<span class="n">res</span><span class="o">=</span><span class="s">""</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)):</span>
+    <span class="n">res</span><span class="o">=</span><span class="n">res</span><span class="o">+</span><span class="nb">chr</span><span class="p">(</span><span class="nb">ord</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="n">_</span><span class="p">])</span><span class="o">^</span><span class="mi">13</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">'crypto}'</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">res</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>Ta được kết quả là:</p>
+
+<p><img src="https://i.imgur.com/cwINeeq.png" alt="Imgur" /></p>
+
+<h4 id="bài-2-xor-properties">Bài 2. XOR Properties</h4>
+
+<p>Bài này yêu cầu chúng ta sử dụng 4 tính chất đặc biệt của phép xor chuỗi đó là:</p>
+
+<p>$1. A\oplus B = B \oplus A$</p>
+
+<p>$2. A\oplus (B \oplus C) = (A \oplus B) \oplus C$</p>
+
+<p>$3. A\oplus 0 = A$</p>
+
+<p>$4.A\oplus A =0$</p>
+
+<p>Code:</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">pwn</span> <span class="kn">import</span> <span class="n">xor</span>
+<span class="c1"># xor two string
+</span><span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span><span class="n">s2</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">s1</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">s2</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="s">"XOR EXCEPTION: Strings are not of equal length!"</span>
+
+    <span class="k">return</span> <span class="s">''</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="nb">format</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span> <span class="o">^</span> <span class="nb">int</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="mi">16</span><span class="p">),</span> <span class="s">'x'</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">s1</span><span class="p">,</span><span class="n">s2</span><span class="p">))</span>
+<span class="n">key1</span><span class="o">=</span> <span class="s">"a6c8b6733c9b22de7bc0253266a3867df55acde8635e19c73313"</span>
+
+<span class="n">key2_xor_key1</span><span class="o">=</span><span class="s">"37dcb292030faa90d07eec17e3b1c6d8daf94c35d4c9191a5e1e"</span>
+
+<span class="n">key2_xor_key3</span><span class="o">=</span><span class="s">"c1545756687e7573db23aa1c3452a098b71a7fbf0fddddde5fc1"</span>
+
+<span class="n">flag_xor_key1_xor_key3_xor_key1</span><span class="o">=</span><span class="s">"04ee9855208a2cd59091d04767ae47963170d1660df7f56f5faf"</span>
+
+<span class="n">flag</span> <span class="o">=</span><span class="n">f</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">flag_xor_key1_xor_key3_xor_key1</span><span class="p">,</span><span class="n">key2_xor_key3</span><span class="p">),</span><span class="n">key1</span><span class="p">)</span>
+<span class="c1">#print(len(flag_xor_key1_xor_key3_xor_key1))
+#print(len(key2_xor_key3))
+</span><span class="n">res</span> <span class="o">=</span><span class="nb">bytes</span><span class="p">.</span> <span class="n">fromhex</span><span class="p">(</span><span class="n">flag</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+
+
+</code></pre></div></div>
+
+<p>và kết quả thu được là:</p>
+
+<p><img src="https://i.imgur.com/osLPq9t.png" alt="Imgur" /></p>
 
       </article>
 
