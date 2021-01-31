@@ -138,6 +138,17 @@ hoặc tại đây: Link
       </item>
     
       <item>
+        <title>Aloha Wifi</title>
+        <description>
+          
+          Bước 1: ifconfig Bước 2: sudo su Bước 3: airmon-ng start wlan0 Bước 4: airodump-ng wlan0mon Bước 5: airodump-ng --bssid 9C:65:EE:E7:77:17 -c 1 -w /usr/share/wordlists/rockyou.txt wlan0mon Chú ý: Số 1: CH Bước 6: Copy Card mạng cần điều tra Bước 7: Tạo terminal mới -&amp;gt; sudo su và nhập lệnh...
+        </description>
+        <pubDate>Tue, 01 Dec 2020 00:00:00 -0500</pubDate>
+        <link>http://localhost:4000/2020-12-01-wifi-tim/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020-12-01-wifi-tim/</guid>
+      </item>
+    
+      <item>
         <title>Một số lệnh thường gặp khi debub C hoặc C++ sang Assembly trong Linux</title>
         <description>
           GDB - 
