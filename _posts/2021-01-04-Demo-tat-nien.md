@@ -322,3 +322,144 @@ print(res)
 và kết quả thu được là:
 
 ![Imgur](https://i.imgur.com/osLPq9t.png)
+
+#### Bài 3. Favourite byte
+
+Đề bài của bài này như sau: Cho một chuỗi hex đã được encode , nhiệm vụ của chúng ta là đem dãy đó xor với 1 bytes để có được flag 
+
+Code:
+
+~~~py
+def f(s1,s2):
+    if len(s1) != len(s2):
+        raise "XOR EXCEPTION: Strings are not of equal length!"
+
+    return ''.join(format(int(a, 16) ^ int(b, 16), 'x') for a,b in zip(s1,s2))
+s = "73626960647f6b206821204f21254f7d694f7624662065622127234f726927756d"
+print('Do dai cua s la {0}'.format(len(s)))
+s_b = bytes.fromhex(s)
+lala=""
+for j in range(0,16): lala = lala+str(j)
+tmp=""
+ans =""
+ll=[]
+print(lala)
+for i in range(0,16):
+    for j in range(0,16):
+        ans
+        if(i<10):
+            fi = str(i)
+        if(j<10):
+            se=str(j)
+        if(i>=10):
+            fi=chr(ord('a')+(i%10))
+        if(j>=10):
+            se=chr(ord('a')+(j%10))
+        tmp = fi+se
+        ll.append(tmp)
+for aka in ll:
+    ans=""
+    for i in range(0,33):
+        tmp = s[2*i]+s[2*i+1]
+        ans = ans + f(aka,tmp)
+    print(bytes.fromhex(ans))
+
+~~~
+
+Và thu được kết quả là:
+
+![Imgur](https://i.imgur.com/GfAJ3Q7.png)
+
+#### Bài 4. You either know, XOR you don't
+
+Đây là bài toán theo mình khá hay, vì nó rất mẹo. Bài toán này đơn giản chỉ là , giả sử ta có $A\oplus B=C$. Cho $A$ và $C$. Nhiệm vụ của ta là phải tìm $B$.
+
+Thì để tìm $B$ đơn giản ta lấy $A\oplus C$ vì $A\oplus C=A\oplus A\oplus B = B$
+
+Từ đó ta rút ra thêm một tính chất khá hay nữa là nếu $A\oplus B = C$ thì ta suy ra được $A \oplus C = B$
+
+Code:
+
+~~~py
+import binascii
+###############
+def f(s1,s2):
+    if len(s1) != len(s2):
+        raise "XOR EXCEPTION: Strings are not of equal length!"
+
+    return ''.join(format(int(a, 16) ^ int(b, 16), 'x') for a,b in zip(s1,s2))
+###############
+key_tam = "crypto{"
+
+## Lenh chuyen tu bytes sang hex 
+key_tam_hex = binascii.hexlify(key_tam.encode('utf8')).decode("utf-8")
+
+print("{0}---{1}".format(key_tam_hex,len(key_tam_hex)))
+
+data = "0e0b213f26041e480b26217f27342e175d0e070a3c5b103e2526217f27342e175d0e077e263451150104"
+
+key_7_dau = ""
+for _ in range(0,len(key_tam_hex)):
+    key_7_dau = key_7_dau + data[_]
+
+print("key 7 dau {0}".format(key_7_dau))
+key = f(key_tam_hex,key_7_dau)
+
+print("key that la: {0}".format(bytes.fromhex(key)))
+
+## Suy ra ket that la: 
+
+key_that = "myXORkey"
+
+print("Key that la: {0}".format(key_that))
+
+print("Do dai cua data o che do bytes la: {0}".format(len(bytes.fromhex(data))))
+
+# Chuoi ket can ma hoa la: myXORkeymyXORkeymyXORkeymyXORkeymyXORkeymy
+
+key_can_ma_hoa = "myXORkeymyXORkeymyXORkeymyXORkeymyXORkeymy"
+
+key_can_ma_hoa_hex = binascii.hexlify(key_can_ma_hoa.encode("utf8")).decode("utf-8")
+
+ketqua = f(key_can_ma_hoa_hex,data)
+
+print(bytes.fromhex(ketqua))
+
+
+
+~~~
+
+và ta thu được kết quả là :
+
+![Imgur](https://i.imgur.com/DW4W2ww.png)
+
+#### Bài 5. Lemur XOR
+
+Đây là bài toán khá hay, 2 hay bức ảnh và nhiệm vụ của chúng ta là tìm ra bức ảnh key
+
+Code:
+
+~~~py
+#!/usr/local/bin/python3
+import numpy as np
+from PIL import Image
+
+# Open images
+im1 = Image.open("anh1.png")
+im2 = Image.open("anh2.png")
+
+# Make into Numpy arrays
+im1np = np.array(im1)*255
+im2np = np.array(im2)*255
+
+# XOR with Numpy
+result = np.bitwise_xor(im1np, im2np).astype(np.uint8)
+
+# Convert back to PIL image and save
+Image.fromarray(result).save('result.png')
+~~~
+
+và kết quả là:
+
+![Imgur](https://i.imgur.com/km4pfKg.png)
+
