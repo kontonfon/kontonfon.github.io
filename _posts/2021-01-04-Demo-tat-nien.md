@@ -463,3 +463,46 @@ và kết quả là:
 
 ![Imgur](https://i.imgur.com/km4pfKg.png)
 
+-------------------------------------------------------
+
+### Phần 3.3. MATHEMATICS
+
+#### Bài 1. Greatest Common Divisor
+
+Bài này đơn giản tìm UCLN của hai số là xong
+
+Code:
+
+~~~py
+def gcd(a,b):
+    if(a==0 or b==0):
+        return a+b
+    return gcd(b%a,a)
+print(gcd(66528,52920))
+~~~  
+
+#### Bài 2. Extended GCD
+
+Bài này là cho hai số nguyên tố $p$ và $q$. Tìm hai số $u,v$ sao cho $p*u+q*v = gcd(p,q)$
+
+Code trâu:
+
+~~~py
+def gcd(a,b):
+    if(a==0 or b==0):
+        return a+b
+    return gcd(b%a,a)
+#print(gcd(66528,52920))
+print(gcd(26513,32321))
+
+# u * 26513 + v * 32321 = 1
+u=0
+for v in range(-26514,26514):
+    u = 1 - v*32321
+    if(abs(u)%26513==0):
+        u=u//26513
+        print(u)
+        print(v)
+        print("{0}--{1}".format(u,v))
+        break
+~~~

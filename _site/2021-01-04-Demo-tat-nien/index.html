@@ -678,6 +678,47 @@ MathJax.Hub.Queue(function() {
 
 <p><img src="https://i.imgur.com/km4pfKg.png" alt="Imgur" /></p>
 
+<hr />
+
+<h3 id="phần-33-mathematics">Phần 3.3. MATHEMATICS</h3>
+
+<h4 id="bài-1-greatest-common-divisor">Bài 1. Greatest Common Divisor</h4>
+
+<p>Bài này đơn giản tìm UCLN của hai số là xong</p>
+
+<p>Code:</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">a</span><span class="o">==</span><span class="mi">0</span> <span class="ow">or</span> <span class="n">b</span><span class="o">==</span><span class="mi">0</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span>
+    <span class="k">return</span> <span class="n">gcd</span><span class="p">(</span><span class="n">b</span><span class="o">%</span><span class="n">a</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">gcd</span><span class="p">(</span><span class="mi">66528</span><span class="p">,</span><span class="mi">52920</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h4 id="bài-2-extended-gcd">Bài 2. Extended GCD</h4>
+
+<p>Bài này là cho hai số nguyên tố $p$ và $q$. Tìm hai số $u,v$ sao cho $p<em>u+q</em>v = gcd(p,q)$</p>
+
+<p>Code trâu:</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">a</span><span class="o">==</span><span class="mi">0</span> <span class="ow">or</span> <span class="n">b</span><span class="o">==</span><span class="mi">0</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">a</span><span class="o">+</span><span class="n">b</span>
+    <span class="k">return</span> <span class="n">gcd</span><span class="p">(</span><span class="n">b</span><span class="o">%</span><span class="n">a</span><span class="p">,</span><span class="n">a</span><span class="p">)</span>
+<span class="c1">#print(gcd(66528,52920))
+</span><span class="k">print</span><span class="p">(</span><span class="n">gcd</span><span class="p">(</span><span class="mi">26513</span><span class="p">,</span><span class="mi">32321</span><span class="p">))</span>
+
+<span class="c1"># u * 26513 + v * 32321 = 1
+</span><span class="n">u</span><span class="o">=</span><span class="mi">0</span>
+<span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">26514</span><span class="p">,</span><span class="mi">26514</span><span class="p">):</span>
+    <span class="n">u</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">v</span><span class="o">*</span><span class="mi">32321</span>
+    <span class="k">if</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">%</span><span class="mi">26513</span><span class="o">==</span><span class="mi">0</span><span class="p">):</span>
+        <span class="n">u</span><span class="o">=</span><span class="n">u</span><span class="o">//</span><span class="mi">26513</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">"{0}--{1}"</span><span class="p">.</span><span class="nb">format</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">))</span>
+        <span class="k">break</span>
+</code></pre></div></div>
 
       </article>
 
