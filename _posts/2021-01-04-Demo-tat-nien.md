@@ -506,3 +506,39 @@ for v in range(-26514,26514):
         print("{0}--{1}".format(u,v))
         break
 ~~~
+
+#### Bài 3. Modular Arithmetic 1
+
+Bài này yêu cầu chúng ta tìm min của $11\text{ % }6 $ và $8146798528947\text{ % }17$
+
+Code:
+
+~~~py
+print(min(8146798528947%17,11%6))
+~~~
+
+#### Bài 4. Modular Arithmetic 2
+
+Bài này yêu cầu chúng ta tính : $273246787654^{65536}\text{ mod }65537$. Biết rằng $65537$ là số nguyên tố.
+
+Bài này đơn giản ta tìm dư của $273246787654$ cho $65537$ ta được $31167$, do $(31167,65537)=1$ và $65537$ là số nguyên tố nên theo định lý Fermat bé ta có đáp án bài toán đã cho là $1$.
+
+#### Bài 5. Modular Inverting
+
+Bài này yêu cầu chúng ta tìm $d$ sao cho $3.d \equiv 1 \text{ mod } 13$
+
+Code:
+
+~~~py
+# 3*d = 1 mod 13
+# => d = 3^(-1) mod 13 = 3^(-1).3^12 mod 13 (Vi 3^12 =1 mod 13)
+# => d = 3^11 mod 13
+ans = 1
+for _ in range(0,11):
+    ans = ans * 3 %13
+print(ans)
+
+~~~
+
+Chú ý: Ở đây dấu = thể hiện đồng dư trong đoạn comment trong code
+
