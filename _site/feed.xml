@@ -5,7 +5,7 @@
     <title>Em0t3t</title>
     
     
-    <description>This website is a virtual proof that I'm awesome</description>
+    <description>This website is a virtual proof that I&apos;m awesome</description>
     
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
@@ -17,7 +17,7 @@
           Trên cryptohack.org - 
           Phần 1: Giới thiệu Tạo tài khoản trên cryptohack.org Khi click vào Register trên trang Cryptohack.org thì chúng ta sẽ thấy một bài toán kinh điển trong crypto đó là: Thì bài toán này , theo cách thông thường trong dân gian, chúng ta sẽ sử dụng một công cụ...
         </description>
-        <pubDate>Mon, 04 Jan 2021 00:00:00 -0500</pubDate>
+        <pubDate>Mon, 04 Jan 2021 00:00:00 +0000</pubDate>
         <link>http://localhost:4000/2021-01-04-Demo-tat-nien/</link>
         <guid isPermaLink="true">http://localhost:4000/2021-01-04-Demo-tat-nien/</guid>
       </item>
@@ -28,7 +28,7 @@
           ECC - 
           Lời mở đầu Tháng 3 năm 2016, Bộ Ngoại Giao Hoa Kỳ, đứng đầu là bộ trưởng John , đã dẫn một đoàn đại biểu tới các nước ASEAN trong đó có Việt Nam để thảo luận về phát triển Fintech và đặc biệt là về công nghệ Blockchain. Tháng...
         </description>
-        <pubDate>Sun, 03 Jan 2021 00:00:00 -0500</pubDate>
+        <pubDate>Sun, 03 Jan 2021 00:00:00 +0000</pubDate>
         <link>http://localhost:4000/2021-01-03-ECC/</link>
         <guid isPermaLink="true">http://localhost:4000/2021-01-03-ECC/</guid>
       </item>
@@ -39,7 +39,7 @@
           Abstract Algbra - 
           Direct Proof claim: if $P$ then $Q$ proof: Suppose $P$ … then $Q$ claim: if $m$ and $n$ are odd then $mn$ is odd proof: Suppose that $m$ and $n$ are odd . Thus: $m=2x+1$ and $n=2y+1$ for $x,y\in \mathbb{Z}$ Notice that: $mn=(2x+1)(2y+1) = 4xy+2x+2y+1$ then $mn$ is odd claim:...
         </description>
-        <pubDate>Sat, 02 Jan 2021 00:00:00 -0500</pubDate>
+        <pubDate>Sat, 02 Jan 2021 00:00:00 +0000</pubDate>
         <link>http://localhost:4000/2021-01-02-Dai-so-truu-tuong/</link>
         <guid isPermaLink="true">http://localhost:4000/2021-01-02-Dai-so-truu-tuong/</guid>
       </item>
@@ -50,7 +50,7 @@
           Assembly and C - 
           Quá trình thực thi file C – Ảnh 1. Quá trình thực thi file C – Ảnh 2 – Ảnh 3 – Ảnh 4. Sơ đồ heap – Ảnh 5. Sơ đồ register – Ảnh 6. Sơ đồ stack - push – Ảnh 7. Sơ đồ stack - pop –...
         </description>
-        <pubDate>Fri, 01 Jan 2021 00:00:00 -0500</pubDate>
+        <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
         <link>http://localhost:4000/2021-01-01-x86-Crash-course/</link>
         <guid isPermaLink="true">http://localhost:4000/2021-01-01-x86-Crash-course/</guid>
       </item>
@@ -58,10 +58,10 @@
       <item>
         <title>Những câu lệnh markdown đơn giản</title>
         <description>
-          Welcome to Em0t3t' Blog - 
+          Welcome to Em0t3t&apos; Blog - 
           1.Tạo bảng Number Next number Previous number Five Six Four Ten Eleven Nine Seven Eight Six Two Three One Cú pháp: Number | Next number | Previous number | | :------ |:--- | :--- | | Five | Six | Four | | Ten | Eleven | Nine | |...
         </description>
-        <pubDate>Fri, 01 Jan 2021 00:00:00 -0500</pubDate>
+        <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
         <link>http://localhost:4000/2021-01-01-ok/</link>
         <guid isPermaLink="true">http://localhost:4000/2021-01-01-ok/</guid>
       </item>
@@ -72,7 +72,7 @@
           Tools for Kali - 
           Ảnh 1. Tools for Kali Linux Ảnh 2. Kali as Platform Ảnh 3. Kernels Ảnh 4. Ảnh 5. Ảnh 6. Ảnh 7. Ảnh 8 Ảnh 9 Ảnh 10 Ảnh 11 Ảnh 12 Ảnh 13 Ảnh 14 Ảnh 15 Ảnh 16 Ảnh 17 Ảnh 18 Ảnh 19 Ảnh 20 Ảnh 21...
         </description>
-        <pubDate>Fri, 01 Jan 2021 00:00:00 -0500</pubDate>
+        <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
         <link>http://localhost:4000/2021-01-01-Tools-for-Kali/</link>
         <guid isPermaLink="true">http://localhost:4000/2021-01-01-Tools-for-Kali/</guid>
       </item>
@@ -121,7 +121,7 @@ Xem thêm tại Link
 hoặc tại đây: Link
 
         </description>
-        <pubDate>Fri, 01 Jan 2021 00:00:00 -0500</pubDate>
+        <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
         <link>http://localhost:4000/2021-01-01-Test-Latex/</link>
         <guid isPermaLink="true">http://localhost:4000/2021-01-01-Test-Latex/</guid>
       </item>
@@ -132,7 +132,7 @@ hoặc tại đây: Link
           jsp và servlet - 
           Bài 1. Client and Server Architecture - Part 1 Hình 1. Mô hình mô tả Client Server Bài 2. Overview of JSP and Servlet - Part 2 Hình 2. Request tĩnh Hình 3. Request động Bài 3. Setting up the Development Environment - Part 3 Hình 4. Requires Tools Hình...
         </description>
-        <pubDate>Fri, 01 Jan 2021 00:00:00 -0500</pubDate>
+        <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
         <link>http://localhost:4000/2021-01-01-Hoc-jsp-servlet-co-ban/</link>
         <guid isPermaLink="true">http://localhost:4000/2021-01-01-Hoc-jsp-servlet-co-ban/</guid>
       </item>
@@ -143,7 +143,7 @@ hoặc tại đây: Link
           
           Bước 1: ifconfig Bước 2: sudo su Bước 3: airmon-ng start wlan0 Bước 4: airodump-ng wlan0mon Bước 5: airodump-ng --bssid 9C:65:EE:E7:77:17 -c 1 -w /usr/share/wordlists/rockyou.txt wlan0mon Chú ý: Số 1: CH Bước 6: Copy Card mạng cần điều tra Bước 7: Tạo terminal mới -&amp;gt; sudo su và nhập lệnh...
         </description>
-        <pubDate>Tue, 01 Dec 2020 00:00:00 -0500</pubDate>
+        <pubDate>Tue, 01 Dec 2020 00:00:00 +0000</pubDate>
         <link>http://localhost:4000/2020-12-01-wifi-tim/</link>
         <guid isPermaLink="true">http://localhost:4000/2020-12-01-wifi-tim/</guid>
       </item>
@@ -154,7 +154,7 @@ hoặc tại đây: Link
           GDB - 
           1.Tạo một file bất kì Cú pháp: nano exv.c 2. Thực thi file đã tạo Cú pháp: gcc -g exv.c -o t 3. Chạy file đã thực thi Cú pháp : ./t 4. Liệt kê các thư mục Cú pháp: ls -la 5. Thực hiện Debug Cú pháp: gdb t...
         </description>
-        <pubDate>Tue, 01 Dec 2020 00:00:00 -0500</pubDate>
+        <pubDate>Tue, 01 Dec 2020 00:00:00 +0000</pubDate>
         <link>http://localhost:4000/2020-12-01-gdb-assembly/</link>
         <guid isPermaLink="true">http://localhost:4000/2020-12-01-gdb-assembly/</guid>
       </item>

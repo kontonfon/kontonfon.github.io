@@ -15,7 +15,7 @@
   <meta name="author" content="Ngô Tấn Trí">
   
 
-  <meta name="description" content="{% assign date_format = site.date_format | default: &quot;%B %-d, %Y&quot; %} {%- capture site_tags -%} {%- for tag in site.tags -%} {{- tag | first -}}{%- unless forloop.last -%},{%- endunless -%} {%- endfor -%} {%- endcapture -%} {%- assign tags_list = site_tags | split:',' | sort -%} {%- for tag...">
+  <meta name="description" content="{% assign date_format = site.date_format | default: &quot;%B %-d, %Y&quot; %} {%- capture site_tags -%} {%- for tag in site.tags -%} {{- tag | first -}}{%- unless forloop.last -%},{%- endunless -%} {%- endfor -%} {%- endcapture -%} {%- assign tags_list = site_tags | split:&apos;,&apos; | sort -%} {%- for tag...">
 
   
 
@@ -73,7 +73,7 @@
   
   <meta property="og:site_name" content="Em0t3t">
   <meta property="og:title" content="Tag Index">
-  <meta property="og:description" content="{% assign date_format = site.date_format | default: &quot;%B %-d, %Y&quot; %} {%- capture site_tags -%} {%- for tag in site.tags -%} {{- tag | first -}}{%- unless forloop.last -%},{%- endunless -%} {%- endfor -%} {%- endcapture -%} {%- assign tags_list = site_tags | split:',' | sort -%} {%- for tag...">
+  <meta property="og:description" content="{% assign date_format = site.date_format | default: &quot;%B %-d, %Y&quot; %} {%- capture site_tags -%} {%- for tag in site.tags -%} {{- tag | first -}}{%- unless forloop.last -%},{%- endunless -%} {%- endfor -%} {%- endcapture -%} {%- assign tags_list = site_tags | split:&apos;,&apos; | sort -%} {%- for tag...">
 
   
   <meta property="og:image" content="http://localhost:4000/assets/img/LOGODUT.png">
@@ -92,7 +92,7 @@
   <meta name="twitter:creator" content="@daattali">
 
   <meta property="twitter:title" content="Tag Index">
-  <meta property="twitter:description" content="{% assign date_format = site.date_format | default: &quot;%B %-d, %Y&quot; %} {%- capture site_tags -%} {%- for tag in site.tags -%} {{- tag | first -}}{%- unless forloop.last -%},{%- endunless -%} {%- endfor -%} {%- endcapture -%} {%- assign tags_list = site_tags | split:',' | sort -%} {%- for tag...">
+  <meta property="twitter:description" content="{% assign date_format = site.date_format | default: &quot;%B %-d, %Y&quot; %} {%- capture site_tags -%} {%- for tag in site.tags -%} {{- tag | first -}}{%- unless forloop.last -%},{%- endunless -%} {%- endfor -%} {%- endcapture -%} {%- assign tags_list = site_tags | split:&apos;,&apos; | sort -%} {%- for tag...">
 
   
   <meta name="twitter:image" content="http://localhost:4000/assets/img/LOGODUT.png">
@@ -192,7 +192,7 @@
     <div class="post-list"><div class="tag-entry">
                 <a href="/2021-01-01-x86-Crash-course/">x86 Crash Course</a>
                 <div class="entry-date">
-                    <time datetime="2021-01-01T00:00:00-05:00">January 1, 2021</time>
+                    <time datetime="2021-01-01T00:00:00+00:00">January 1, 2021</time>
                 </div>
             </div></div><h2 id="C" class="linked-section">
         <i class="fas fa-tag" aria-hidden="true"></i>
@@ -201,7 +201,7 @@
     <div class="post-list"><div class="tag-entry">
                 <a href="/2021-01-01-x86-Crash-course/">x86 Crash Course</a>
                 <div class="entry-date">
-                    <time datetime="2021-01-01T00:00:00-05:00">January 1, 2021</time>
+                    <time datetime="2021-01-01T00:00:00+00:00">January 1, 2021</time>
                 </div>
             </div></div><h2 id="ECC" class="linked-section">
         <i class="fas fa-tag" aria-hidden="true"></i>
@@ -210,7 +210,7 @@
     <div class="post-list"><div class="tag-entry">
                 <a href="/2021-01-03-ECC/">Tản mạn về hệ mật mã khóa công khai dựa trên đường cong Elliptic - Tổng quan về hệ mật mã khóa công khai</a>
                 <div class="entry-date">
-                    <time datetime="2021-01-03T00:00:00-05:00">January 3, 2021</time>
+                    <time datetime="2021-01-03T00:00:00+00:00">January 3, 2021</time>
                 </div>
             </div></div><h2 id="abstract algebra" class="linked-section">
         <i class="fas fa-tag" aria-hidden="true"></i>
@@ -219,7 +219,7 @@
     <div class="post-list"><div class="tag-entry">
                 <a href="/2021-01-02-Dai-so-truu-tuong/">Đại số trừu tượng</a>
                 <div class="entry-date">
-                    <time datetime="2021-01-02T00:00:00-05:00">January 2, 2021</time>
+                    <time datetime="2021-01-02T00:00:00+00:00">January 2, 2021</time>
                 </div>
             </div></div><h2 id="debug" class="linked-section">
         <i class="fas fa-tag" aria-hidden="true"></i>
@@ -228,7 +228,7 @@
     <div class="post-list"><div class="tag-entry">
                 <a href="/2020-12-01-gdb-assembly/">Một số lệnh thường gặp khi debub C hoặc C++ sang Assembly trong Linux</a>
                 <div class="entry-date">
-                    <time datetime="2020-12-01T00:00:00-05:00">December 1, 2020</time>
+                    <time datetime="2020-12-01T00:00:00+00:00">December 1, 2020</time>
                 </div>
             </div></div><h2 id="gdb" class="linked-section">
         <i class="fas fa-tag" aria-hidden="true"></i>
@@ -237,7 +237,7 @@
     <div class="post-list"><div class="tag-entry">
                 <a href="/2020-12-01-gdb-assembly/">Một số lệnh thường gặp khi debub C hoặc C++ sang Assembly trong Linux</a>
                 <div class="entry-date">
-                    <time datetime="2020-12-01T00:00:00-05:00">December 1, 2020</time>
+                    <time datetime="2020-12-01T00:00:00+00:00">December 1, 2020</time>
                 </div>
             </div></div><h2 id="jsp" class="linked-section">
         <i class="fas fa-tag" aria-hidden="true"></i>
@@ -246,7 +246,7 @@
     <div class="post-list"><div class="tag-entry">
                 <a href="/2021-01-01-Hoc-jsp-servlet-co-ban/">Học jsp và servlet cơ bản</a>
                 <div class="entry-date">
-                    <time datetime="2021-01-01T00:00:00-05:00">January 1, 2021</time>
+                    <time datetime="2021-01-01T00:00:00+00:00">January 1, 2021</time>
                 </div>
             </div></div><h2 id="latex" class="linked-section">
         <i class="fas fa-tag" aria-hidden="true"></i>
@@ -255,27 +255,27 @@
     <div class="post-list"><div class="tag-entry">
                 <a href="/2021-01-04-Demo-tat-nien/">Luyện tập Crypto</a>
                 <div class="entry-date">
-                    <time datetime="2021-01-04T00:00:00-05:00">January 4, 2021</time>
+                    <time datetime="2021-01-04T00:00:00+00:00">January 4, 2021</time>
                 </div>
             </div><div class="tag-entry">
                 <a href="/2021-01-01-ok/">Những câu lệnh markdown đơn giản</a>
                 <div class="entry-date">
-                    <time datetime="2021-01-01T00:00:00-05:00">January 1, 2021</time>
+                    <time datetime="2021-01-01T00:00:00+00:00">January 1, 2021</time>
                 </div>
             </div><div class="tag-entry">
                 <a href="/2021-01-01-Tools-for-Kali/">Những tool phổ biến trong Kali</a>
                 <div class="entry-date">
-                    <time datetime="2021-01-01T00:00:00-05:00">January 1, 2021</time>
+                    <time datetime="2021-01-01T00:00:00+00:00">January 1, 2021</time>
                 </div>
             </div><div class="tag-entry">
                 <a href="/2021-01-01-Test-Latex/">Tập tành latex</a>
                 <div class="entry-date">
-                    <time datetime="2021-01-01T00:00:00-05:00">January 1, 2021</time>
+                    <time datetime="2021-01-01T00:00:00+00:00">January 1, 2021</time>
                 </div>
             </div><div class="tag-entry">
                 <a href="/2020-12-01-wifi-tim/">Aloha Wifi</a>
                 <div class="entry-date">
-                    <time datetime="2020-12-01T00:00:00-05:00">December 1, 2020</time>
+                    <time datetime="2020-12-01T00:00:00+00:00">December 1, 2020</time>
                 </div>
             </div></div><h2 id="markdown" class="linked-section">
         <i class="fas fa-tag" aria-hidden="true"></i>
@@ -284,7 +284,7 @@
     <div class="post-list"><div class="tag-entry">
                 <a href="/2021-01-01-ok/">Những câu lệnh markdown đơn giản</a>
                 <div class="entry-date">
-                    <time datetime="2021-01-01T00:00:00-05:00">January 1, 2021</time>
+                    <time datetime="2021-01-01T00:00:00+00:00">January 1, 2021</time>
                 </div>
             </div></div><h2 id="mathematic" class="linked-section">
         <i class="fas fa-tag" aria-hidden="true"></i>
@@ -293,7 +293,7 @@
     <div class="post-list"><div class="tag-entry">
                 <a href="/2021-01-01-ok/">Những câu lệnh markdown đơn giản</a>
                 <div class="entry-date">
-                    <time datetime="2021-01-01T00:00:00-05:00">January 1, 2021</time>
+                    <time datetime="2021-01-01T00:00:00+00:00">January 1, 2021</time>
                 </div>
             </div></div><h2 id="servlet" class="linked-section">
         <i class="fas fa-tag" aria-hidden="true"></i>
@@ -302,7 +302,7 @@
     <div class="post-list"><div class="tag-entry">
                 <a href="/2021-01-01-Hoc-jsp-servlet-co-ban/">Học jsp và servlet cơ bản</a>
                 <div class="entry-date">
-                    <time datetime="2021-01-01T00:00:00-05:00">January 1, 2021</time>
+                    <time datetime="2021-01-01T00:00:00+00:00">January 1, 2021</time>
                 </div>
             </div></div></div>
 
