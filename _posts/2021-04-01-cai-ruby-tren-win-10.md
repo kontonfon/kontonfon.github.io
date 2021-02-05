@@ -30,37 +30,32 @@ MathJax.Hub.Queue(function() {
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML-full"></script>
 
 ----------------
-### 1. Phân số 
+Bước 1: 
 
-$\frac{x^2}{y^2}$
+Làm như video này để cài ruby trên window: [Link](https://www.youtube.com/watch?v=HlfvhkDuicc)
 
-Cú pháp:
+Bước 2: 
 
-~~~
-$\frac{x^2}{y^2}$
-~~~
+Tài git về (Nếu chưa có): [Link](https://www.youtube.com/watch?v=nbFwejIsHlY&t=205s)
 
-### 2. Tên tập hợp
+Bước 3: 
 
-$\mathbb{N}$
+Add gem "tzinfo-data" vào file gemfile
 
-Cú pháp:
+Bước 4: Chạy
 
 ~~~
-$\mathbb{N}$
+bundle exec jekyll serve
 ~~~
 
-### 3. Dấu không chia hết
-
-$3 \nmid xy$
-
-Cú pháp: 
+Ps: Những lệnh git thông dụng trong Window 10 như sau:
 
 ~~~
-$3 \nmid xy$
+git add *
+git config --global user.email "kontonfon@gmail.com"
+git config --local user.name "kontonfon"
+git commit -m "Gioi thieu OK"
+git push origin main
 ~~~
-### N. Khác
 
-Xem thêm tại [Link](https://tanphong.wordpress.com/latex/mot-so-lenh-latex-thuong-su-dung/)
-
-hoặc tại đây: [Link](https://oeis.org/wiki/List_of_LaTeX_mathematical_symbols)
+Ps: Còn lại cái không biết cứ tra google Debug lỗi là được 
