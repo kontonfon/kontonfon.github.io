@@ -33,6 +33,10 @@
 <lastmod>2021-01-02T00:00:00+00:00</lastmod>
 </url>
 <url>
+<loc>http://localhost:4000/2021-01-03-Anh-Duc/</loc>
+<lastmod>2021-01-03T00:00:00+00:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:4000/2021-01-03-ECC/</loc>
 <lastmod>2021-01-03T00:00:00+00:00</lastmod>
 </url>
@@ -51,5 +55,8 @@
 </url>
 <url>
 <loc>http://localhost:4000/page2/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/page3/</loc>
 </url>
 </urlset>
