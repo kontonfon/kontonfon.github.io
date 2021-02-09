@@ -932,6 +932,54 @@ print(z)
         break
 </code></pre></div></div>
 
+<hr />
+
+<p>### LATTICES</p>
+
+<p>#### Vectors</p>
+
+<p>Trước khi định nghĩa a lattice hay nói về làm thế nào lattices xuất hiện trong cryptography, hãy để chúng tôi review một vài kiến thức cơ bản về linear algebra. Những bài tập dưới đây được xem như là bài tập ôn tập, nếu điều này hoàn toàn mới với bạn, có lẻ bạn nên đọc một chút về kiến thức nền. Thông thường, chúng tôi khuyến nghị “An Introduction to Mathematical Cryptography” by Hoffstein, Pipher, Silverman cũng như thử thách này và những ứng dụng của nó.</p>
+
+<p>Một không gian vector V trên trường F là một tập được định nghĩa với hai phép toán nhị phân. Với mỗi vector $v\in V$ và một scalar $a\in F$, vector addition takes two vectors and produces another vector: $v+w=z$ for $v,w,z\in V$ and scalar multiplication takes a vector and a scalar and produces a vector: $a*v=w$ for $v,w\in V,a\in F$.</p>
+
+<p>Ghi chú: Có thể bạn sẽ thấy vector lần đầu tiên của không gian vector hai chiều được xác định trên thực. Chúng tôi sẽ sử dụng điều này để làm ví dụ.</p>
+
+<p>Chúng ta xét một không gian vector 2 chiều trên số thực. Một vector $v\in V$ có thể được xem như một cặp số: $v=(a,b)$ với $a,b\in \mathbb{R}$. Vector addition hoạt động như sau: $v+w=(a,b)+(c,d)=(a+c,b+d)$, và scalar multiplication được xác định như sau: $c\text{ * }v=c*(a,b)=(c * a,c * b)$</p>
+
+<p>Một phép toán có thể định nghĩa đó là inner product (also called dot product), cái mà khi ta nhân hai vector với nhau sẽ cho ra một scalar. Một cách hình thức, chúng ta nghĩ về việc đó như sau: $v . w = a$ for $v,w \in V,a\in F$. Ở ví dụ 2 chiều này của chúng ta, the inner product hoạt động như sau: $v.w = (a,b)*(c,d) = a * c + b * d$.</p>
+
+<p>Bây giờ là đến tìm flag ! Cho không gian vector 3 chiều trên miền số thực, với $v=(2,6,3),w=(1,0,0)$ và $u=(7,7,2)$. Tính $3\text{ * }(2\text{ * }v-w) \cdot 2 \text{ * } u$</p>
+
+<p>Code:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>def sum(x,y):
+    res=[0,0,0]
+    for _ in range(0,3):
+        res[_]=x[_]+y[_]
+    return res
+def inner_product(x,y):
+    res=0
+    for _ in range(0,3):
+        res=res+x[_]*y[_]
+    return res
+def scalar_product(x,z):
+    res = [0,0,0]
+    for _ in range(0,3):
+        res[_] = z * x[_]
+    return res
+v=[2,6,3]
+w=[1,0,0]
+u=[7,7,2]
+
+#print(scalar_product(v,3))
+fi = scalar_product(sum(scalar_product(v,2),scalar_product(w,-1)),3)
+se = scalar_product(u,2)
+ans = inner_product(fi,se)
+print(ans)
+</code></pre></div></div>
+
+<hr />
+
 
       </article>
 
