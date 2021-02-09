@@ -673,3 +673,49 @@ z = po(a,k+1)
 
 print(z)
  ~~~
+
+ ---------------------------------------------------------------
+ 
+ #### Chinese Remainder Theorem
+
+ Định lý thặng dư Trung Hoa sẽ cho một nghiệm duy nhất cho tập hợp các đồng dư tuyến tính nếu moduli của chúng nguyên tố cùng nhau từng đôi một.
+
+ Điều này có nghĩa là, có một tập $a_i$ bất kì, và một tập $n_i$ nguyên tố với nhau từng đôi một bất kì thoả mãn hệ đồng dư sau: 
+
+ $x\equiv a_1 \text{ mod }n_1$
+
+ $x\equiv a_2 \text{ mod }n_2$
+
+ ...
+ 
+ $x\equiv a_n \text{ mod }n_n$
+
+ Thì chỉ có duy nhất một nghiệm $x\equiv a \text{ mod }N$ với $N=n_1*n_2...n_n$.
+
+ Trong cryptograph, chúng ta thường sử dụng CRT (Chinese Remainder Theorem) để giúp chúng ta giảm thiểu việc tính toán số lớn thành một tập các số nhỏ hơn, dễ tính toán.
+
+ Cho một hệ đồng dư tuyến tính sau:
+
+ $x\equiv 2 \text{ mod }5$
+
+ $x\equiv 3 \text{ mod }11$
+
+ $x\equiv 5 \text{ mod }17$
+
+ Tìm số nguyên $a$ thoả mãn $x\equiv a \text{ mod }935$
+
+ Ghi chú:
+
+ Để giải bài này, chúng ta sẽ bắt đầu với modulus lớn nhất, sử dụng $x\equiv a \text{ mod }p$, chúng ta có thể viết lại $x=a+k*p$ với $k$ bất kì.
+
+ Lời giải: Bài này, đơn giản ta chỉ việc duyệt trâu $a$ từ $1$ đến $934$ và kiếm tra xe chúng có thoả mãn hệ trên hay không là được
+
+ Code:
+
+ ~~~
+ for z in range(1,935):
+    if(z%5==2 and z%11==3 and z%17==5):
+        print(z)
+        break
+ ~~~
+
