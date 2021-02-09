@@ -542,3 +542,134 @@ print(ans)
 
 Chú ý: Ở đây dấu = thể hiện đồng dư trong đoạn comment trong code
 
+----------------------------------------------
+
+## MATHEMATICS
+
+### MODULAR MATH
+
+#### Quadratic Residues 
+
+Chúng ta đã học qua phép nhân và phép chia trong Modular Arithmetic, nhưng căn bậc hai modulo của một số nguyên là gì ? 
+
+Chúng ta sẽ trao đổi chúng ở dưới đây, Xét modulo $p=29$. Chúng ta có thể lấy số nguyên $a=11$ và tính được $a^2=5 \text{ mod }19$
+
+Bởi vì $a=11,a^2=5$ nên ta nói căn bậc hai của $5$ modulo $29$ là $11$.
+
+Điều này có vẻ có gì đó hay ho, nhưng bây giờ chúng ta sẽ suy nghĩ một chút về căn bậc hai của $18$ modulo $29$. Từ điều trên, chúng ta cần tìm số nguyên $a$ sao cho $a^2=18$ modulo $29$.
+
+Ý tưởng của chúng ta sẽ bắt đầu từ $a=1$ và lặp cho đến $a=p-1$. Trong bài này, $p$ không quá lớn và chúng ta có thể nhanh chóng tìm được $a$.
+
+Với những gì chúng ta thấy, có nghĩa là với mỗi phần tử của $\mathbb{F}_p^{*}$, không phải phần tử nào cũng có căn bậc hai. Thực tế, những gì chúng ta tìm thấy rằng, đối với khoảng một nữa số phần tử của $\mathbb{F}_p^{ * }$, không có căn bậc hai.
+
+Ghi chú:
+
+Chúng ta nói $x$ là Quadratic Residue nếu tồn tại số $a$ thoả mãn $a^2 = x \text{ mod }p$. Nếu không tồn tại nghiệm, vì số nguyên đó gọi là Quadratic Non-Residue.
+
+Hay nói cách khác, $x$ là một quadratic residue khi nó có thể lấy căn bậc hai của $x$ theo modulo $p$.
+
+Danh sách dưới đây có hai non-quadratic residues và một quadratic residue.
+
+Tìm quadratic residue và sau đó tính căn bậc hai của nó. Bởi vì có hai nghiệm thoả mãn, nên ta lấy nghiệm bé hơn làm cờ.
+
+Chú ý:
+
+Nếu $a^2=x$ thì $(-a)^2=x$. Vì vậy nếu $x$ là quadratic residue ở trường hữu hạn nào đó, thì luôn có hai nghiệm đối với $a$.
+
+Code : 
+~~~
+p = 29
+ints = [14,6,11]
+
+def check_quadratic_residue(x):
+    for z in range(1,29):
+        tmp=(z*z)%p
+        if(tmp==x):
+            print('Dap an la : {0} voi so quadratic residue tuong ung la : {1}'.format(z,x))
+            break
+for _ in ints:
+    check_quadratic_residue(_)
+~~~
+
+------------------------------------------------
+
+#### Legendre Symbol
+
+Trong phần Quadratic Residues, chúng ta đã học được những cái mà nó có nghĩa là lấy căn bậc bậc hai modulo của một số nguyên. Chúng ta còn nhận ra rằng một căn bậc hai không phải lúc nào cũng tồn tại.
+
+May mắn thay cho chúng ta, chúng ta có một cách để kiểm tra liệu rằng một số nguyên có phải là quadratic residures với một phép tính đơn giản dựa vào Legendre. Ở dưới đây, chúng ta giả sử rằng chúng ta làm việc với một số nguyên tố $p$.
+
+Trước khi nhìn vào Legendre's symbol, chúng ta sẽ tóm tắt những tính chất quan trọng của quadratic residues và quadratic non-residues.
+
+~~~
+Quadratic Residue * Quadratic residue = Quadratic Residue
+Quadratic Residue * Quadratic Non-Residue = Quadratic Non-residue
+Quadratic Non-residue * Quadratic Non-residue = Quadratic Residue
+~~~
+
+Ghi chú: Để thuận tiện cho việc ghi nhớ , cũng ta thay thế "Quadratic Residue" với +1 và "Quadratic Non-residue" với -1, tất cả ba kết quả trên đều như nhau.
+
+Vì vậy, mẹo ở đây là gì ? Legendre Symbol sẽ cho chúng ta cách hiệu quả để xác định liệu rằng một số nguyên có phải là quadratic residue modulo một số nguyên tố lẻ $p$ hay không ?
+
+Legendre's Sybmol: $(\frac{a}{p})\equiv a^{\frac{(p-1)}{2}}\text{ mod }p$, với :
+
+ + $(\frac{a}{p})=1$ nếu $a$ là quadratic residue và $a\not \equiv 0(\text{ mod }p)$
+
+ + $(\frac{a}{p})=-1$ nếu $a$ là quadratic non-residue mod
+
+ + $(\frac{a}{p})=0$ nếu $a\equiv 0\text{ mod }p$
+
+ Điều này có nghĩa là với mọi số nguyên $a$, tính $pow(a,(p-1)\text{/}2,p)$ là đủ để xác định $a$ là quadratic residue hay không . 
+
+ Bây giờ là vì flag. Cho một số nguyên tố gồm $1024$ bit và $10$ số nguyên, tìm quadratic residue và tính căn bậc hai của nó, căn bậc hai của nó chính là cờ của bạn. Bởi vì có hai nghiệm có thể nên ta in ra nghiệm lớn hơn.
+
+ Ghi chú:
+
+ Vì Legendre's symbol cho chúng ta biết số nào là quadratic residue, nhưng làm thế nào để chúng ta tìm căn bậc hai của chúng ? Số nguyên tố cho ta biết số đó có dạng $p=3 \text{ mod }4$, điều này cho phép chúng ta dễ dàng tính toán căn bậc hai của chúng. Đáp án là online, nhưng bạn có thể nghĩ đến định lý Fermat bé.
+
+ Lời giải của bài này như sau:
+
+ Gọi $a$ là số thoả mãn $(\frac{a}{p})=1$ trong $10$ số nguyên đề cho, khi đó nhiệm vụ còn lại của ta là đi tìm căn bậc 2 của $a$ mod p. Và ta tìm như sau :
+
+ Vì $(\frac{a}{p})=1\implies a^{\frac{(p-1)}{2}}\equiv 1(\text{ mod } p )\implies a^{\frac{(p+1)}{2}}\equiv a(\text{ mod } p )(1)$ 
+
+ Và nhiệm vụ của ta bây giờ là tìm số $z$ sao cho $z^2\equiv a(\text{ mod } p )$
+
+ Ta nhận thấy rằng, vì đề cho $p$ có dạng $p=4k+3$ nên từ $(1)\implies a^{\frac{(p+1)}{2}}\equiv a(\text{ mod } p )\iff a^{\frac{(4k+4)}{2}}\equiv a(\text{ mod } p )\iff a^{2k+2}\equiv a(\text{ mod } p )$
+
+ Đến đây ta dễ dàng suy ra được $z\equiv a^{k+1}(\text{ mod } p )$
+
+ Đến đây nhiệm vụ của ta là đi tìm $k$ và tính $a^{k+1}(\text{ mod } p )$ là xong.
+
+ Code:
+
+ ~~~
+ p = 101524035174539890485408575671085261788758965189060164484385690801466167356667036677932998889725476582421738788500738738503134356158197247473850273565349249573867251280253564698939768700489401960767007716413932851838937641880157263936985954881657889497583485535527613578457628399173971810541670838543309159139
+
+ints = [25081841204695904475894082974192007718642931811040324543182130088804239047149283334700530600468528298920930150221871666297194395061462592781551275161695411167049544771049769000895119729307495913024360169904315078028798025169985966732789207320203861858234048872508633514498384390497048416012928086480326832803, 45471765180330439060504647480621449634904192839383897212809808339619841633826534856109999027962620381874878086991125854247108359699799913776917227058286090426484548349388138935504299609200377899052716663351188664096302672712078508601311725863678223874157861163196340391008634419348573975841578359355931590555, 17364140182001694956465593533200623738590196990236340894554145562517924989208719245429557645254953527658049246737589538280332010533027062477684237933221198639948938784244510469138826808187365678322547992099715229218615475923754896960363138890331502811292427146595752813297603265829581292183917027983351121325, 14388109104985808487337749876058284426747816961971581447380608277949200244660381570568531129775053684256071819837294436069133592772543582735985855506250660938574234958754211349215293281645205354069970790155237033436065434572020652955666855773232074749487007626050323967496732359278657193580493324467258802863, 4379499308310772821004090447650785095356643590411706358119239166662089428685562719233435615196994728767593223519226235062647670077854687031681041462632566890129595506430188602238753450337691441293042716909901692570971955078924699306873191983953501093343423248482960643055943413031768521782634679536276233318, 85256449776780591202928235662805033201684571648990042997557084658000067050672130152734911919581661523957075992761662315262685030115255938352540032297113615687815976039390537716707854569980516690246592112936796917504034711418465442893323439490171095447109457355598873230115172636184525449905022174536414781771, 50576597458517451578431293746926099486388286246142012476814190030935689430726042810458344828563913001012415702876199708216875020997112089693759638454900092580746638631062117961876611545851157613835724635005253792316142379239047654392970415343694657580353333217547079551304961116837545648785312490665576832987, 96868738830341112368094632337476840272563704408573054404213766500407517251810212494515862176356916912627172280446141202661640191237336568731069327906100896178776245311689857997012187599140875912026589672629935267844696976980890380730867520071059572350667913710344648377601017758188404474812654737363275994871, 4881261656846638800623549662943393234361061827128610120046315649707078244180313661063004390750821317096754282796876479695558644108492317407662131441224257537276274962372021273583478509416358764706098471849536036184924640593888902859441388472856822541452041181244337124767666161645827145408781917658423571721, 18237936726367556664171427575475596460727369368246286138804284742124256700367133250078608537129877968287885457417957868580553371999414227484737603688992620953200143688061024092623556471053006464123205133894607923801371986027458274343737860395496260538663183193877539815179246700525865152165600985105257601565]
+
+def po(a,n):
+    res=a
+    ans=1
+    while(n>0):
+        if(n%2==1):
+            ans=ans*res%p 
+        res=res*res%p 
+        n=n//2
+    return ans
+
+mu = (p-1)//2
+dem=0
+a=0
+for z in ints:
+    if(po(z,mu)==1):
+        a=z
+        dem+=1
+print('Dem la: {0}'.format(dem))
+
+k = (p-3)//4
+
+z = po(a,k+1)
+
+print(z)
+ ~~~
