@@ -768,4 +768,24 @@ print(ans)
 
 -------------------------------------------------------
 
+#### Size and Basis
 
+Chúng ta nói một tập vectors $v_1,v_2,...,v_k\in V$ là linearly independent nếu chỉ có một nghiệm xảy ra với phương trình sau:
+
+$a_1 * v_1 + a_2 * v_2 + ... + a_k * v_k = 0$
+
+đó là nghiệm $a_1=a_2=...=a_k=0$
+
+Ghi chú:
+
+~~~
+Để hình dùng điều này, hãy nghĩ về một vector chỉ ra một điểm. Cho một tập các vector độc lập tuyến tính, cách duy nhất để quay trở lại điểm ban đầu là di chuyển deo theo vector ban đầu, không có sự kết hợp nào của bất kỳ vector nào khác sẽ đưa bạn đến đó.
+~~~
+
+A basis là một tập các vectors độc lập tuyến tính $v_1,v_2,...,v_n\in V$ thoả mãn bất kỳ vector $w\in V$ đều có thể viết được dưới dạng : 
+
+$w = a_1 * v_1 + a_2 * v_2 + ... + a_k * v_n$
+
+Số lượng phần tử trong basis cũng là chiều của không gian vector.
+
+Chúng ta định nghĩa size of vector,kí hiệu là  $\lvert \lvert v \rvert \rvert$
