@@ -788,4 +788,92 @@ $w = a_1 * v_1 + a_2 * v_2 + ... + a_k * v_n$
 
 Số lượng phần tử trong basis cũng là chiều của không gian vector.
 
-Chúng ta định nghĩa size of vector,kí hiệu là  $\lvert \lvert v \rvert \rvert$
+Chúng ta định nghĩa size of vector,kí hiệu là  $\lVert v \rVert$, sử dụng inner product ta có: $\lVert v \rVert ^ 2 = v \cdot v$
+
+A basis is orthogonal if for a vector basis $v_1,v_2,...,v_n\in V$, the inner product between any two different vectors is zero: $v_i\cdot v_j=0,i\ne j$
+
+A basis is orthonormal if it is orthogonal and $\lVert v_i \rVert=1$, for all $i$.
+
+That's a lot of stuff, but we'll be needing it. 
+
+Bây giờ là thời gian để bắt cờ. Cho vector $v=(4,6,2,5)$. Tính size của nó.
+
+Code:
+
+~~~
+import math
+v = [4,6,2,5]
+
+res = 0
+
+for _ in v:
+    res += _*_
+print(res)
+print(int(math.sqrt(res)))
+~~~
+
+----------------------------------------------------------------
+
+#### Gram Schmidt 
+
+Ở challenge trước, chúng ta nhận thấy rằng có một loại basis đặc biệt được gọi là orthogonal basis. Cho một basis $v_1,v_2,...,v_n\in V$ trong không gian vector, thuật toán Gram-Schmidt tính một orthogonal basis $u_1,u_2,...,u_n\in V$
+
+In "An Introduction to Mathematical Cryptography", Jeffrey Hoffstein, Jill Pipher, Joseph H. Silverman, the Gram-Schmidt algorithm is given as:
+
+Thuật toán của Gram-Schmidt
+
+$u_1=v_1$
+
+Loop $i=2,3,...,n$
+
+Compute $\mu_{ij} = v_i \cdot u_j / \lVert u_j \rVert ^ 2,1\le j < i $
+
+Set $u_i = v_i -\sum\limits_{1\le j< i } \mu_{ij} * u_j$ 
+
+End loop
+
+Để kiểm tra code của bạn, cho một basis sau:
+
+$v1 = (4,1,3,-1), v2 = (2,1,-3,4), v3 = (1,0,-2,7), v4 = (6, 2, 9, -5)$
+
+sử dụng thuật toán Gram-Schmidt để xác định orthogonal basis. Cờ là giá trị thập phân của thành phần thứ hai của $u_4$ chính xác đến chữ số thập phân thứ 5.
+
+Code:
+
+~~~
+from array import *
+def inner_product(x,y):
+    res = 0
+    for _ in range(4):
+        res=res+x[_]*y[_]
+    return res
+def size_of_vector(v):
+    return inner_product(v,v)
+def add_vector(x,y):
+    res = [0]*4
+    for _ in range(4):
+        res[_]=x[_]+y[_]
+    return res
+def scalar_multiple(scala,v):
+    for _ in range(4):
+        v[_]*=scala
+    return v 
+fi = [1,2,3,4]
+se = [1,2,3,4]
+
+v=[[4,1,3,-1],[2,1,-3,4],[1,0,-2,7],[6, 2, 9, -5]]
+u=[[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]
+muy = [[0,0,0,0],[0,0,0,0],[0,0,0,0],[0,0,0,0]]
+u[0] = [4,1,3,-1]
+print(u)
+for i in range(1,4):
+    for j in range(0,i):
+        muy[i][j] = inner_product(v[i],u[j]) / size_of_vector(u[j])
+    tmp=[0,0,0,0]
+    for j in range(0,i):
+        tmp = add_vector(tmp,scalar_multiple(muy[i][j],u[j]))
+    tmp = scalar_multiple(-1,tmp)
+    u[i]=add_vector(v[i],tmp)
+print(u[3])
+
+~~~
