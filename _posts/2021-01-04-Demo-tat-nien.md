@@ -933,3 +933,71 @@ The SVP is hard for a generic lattice, but for simple enough cases there are eff
 
 Gauss developed his algorithm to find an optimal basis for a two-dimensional lattice given an arbitrary basis. Moreover, the output $v_1$ of the algorithm is a shortest nonzero vector in $L$, and so solves the $SVP$.
 
+Ghi chú: 
+
+~~~
+For higher dimensions, there's a basis lattice reduction algorithm called the LLL algorithm, named after Lenstra, Lenstra and Lovasz. If you play CTFs regularly, you'll already know about it. The LLL algorithm runs in polynomial time. For now though, lets stay in two dimensions.
+~~~
+
+Gauss's algorithm roughly works by suntracting multiples of one basis vector from the other until it's no longer possible to make them any smaller. As this works in two-dimensions, it's nice to visualise. Here's a description of the algorithm from "An introduction to Mathematical Cryptography",  Jeffrey Hoffstein, Jill Pipher, Joseph H. Silverman:
+
+Algorithm for Gaussian Lattice reduction
+
+Loop
+
+(a) If $\lVert v1 \rVert < \lVert v2 \rVert$, swap v1,v2
+
+(b) Compute m = floor(v1.v2/v1.v1)
+
+(c) If m=0, return v1,v2
+
+(d) v2 = v2 - m*v1
+
+Continue Loop
+
+Note the similarity to Euclid's GCD algorithm with the "swap" and "reduction" steps, and that we have to use the floor, as on a lattice we may only use integer cofficients for our basis vectors.
+
+For the flag, take the two vectors $v=(846835985, 9834798552),u=(87502093, 123094980)$ and by applying Gauss's algorithm, find the optimal basis. The flag is the inner product of the new basis vectors.
+
+This is my code:
+
+~~~
+import math
+def inner_product(x,y):
+    res = 0
+    for _ in range(2):
+        res=res+x[_]*y[_]
+    return res
+def size_of_vector(v):
+    return inner_product(v,v)
+
+def add_vector(x,y):
+    res = [0]*2
+    for _ in range(2):
+        res[_]=x[_]+y[_]
+    return res
+def scalar_multiple(scala,v):
+    for _ in range(2):
+        v[_]*=scala
+    return v 
+def compute_m(x,y):
+    return inner_product(x,y)//inner_product(x,x)
+# Thuat toan khu Gauss
+v1 = [846835985,9834798552]
+v2 = [87502093,123094980]
+while(True):
+    if size_of_vector(v2)<size_of_vector(v1):
+        tmp = v1
+        v1 = v2
+        v2 = tmp
+    m = compute_m(v1,v2)
+    if(m==0):
+        break 
+    else:
+        v2[0] = v2[0] - m*v1[0]
+        v2[1] = v2[1] - m*v1[1]
+ans = inner_product(v1,v2)
+print(ans)
+~~~
+
+
