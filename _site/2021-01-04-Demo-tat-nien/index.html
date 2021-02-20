@@ -1205,6 +1205,32 @@ ans = inner_product(v1,v2)
 print(ans)
 </code></pre></div></div>
 
+<hr />
+
+<p>Find the lattice</p>
+
+<p>As we’ve seen, lattices contain hard problem which can form trapdoor functions for cryptosystems. We also find that in cryptanalysis, lattices can break cryptographic protocols which seem at first to be unrelated to lattices.</p>
+
+<p>This challenges uses modular arithmetic to encrypt the flag, but hidden within the protocol is a two-dimensional lattice. We highly recommend spending time with this challenge and finding how you can break it with a lattice. This is a famous example with plenty of resources available, but knowing how to sport the lattice within a system is often the key to breaking it.</p>
+
+<p>As a hint, you will be able to break this challenge using Gaussian reduction from the previous challenge</p>
+
+<p>Chua giai duoc</p>
+
+<hr />
+
+<h3 id="block-ciphers">BLOCK CIPHERS</h3>
+
+<h4 id="keyed-permutations">Keyed Permutations</h4>
+
+<p>AES (Advanced Encryption Standard), like all good ciphers, performs a “keyed permutation”. This means that it maps every possible input block to a unique output block, with a key determining w
+Đáp án của bài này là:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>crypto{bijection}
+</code></pre></div></div>
+
+<h4 id="resisting-bruteforce">Resisting Bruteforce</h4>
+
 
       </article>
 

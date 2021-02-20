@@ -370,5 +370,56 @@ The center represents the fiberglass core, and the blue represents the reflectiv
 
 These are two examples of multimode fiber cables
 
+The center represents the fiberglass core, and the blue represents the reflective cladding that refects light down the cable 
+
+![Imgur](https://i.imgur.com/8WoVhQW.png)
+
+![Imgur](https://i.imgur.com/Sg7WeX0.png)
+
+![Imgur](https://i.imgur.com/eB0GXEW.png)
+
+![Imgur](https://i.imgur.com/IwDIXKG.png)
+
+![Imgur](https://i.imgur.com/aTC3pfg.png)
+
+Quiz 1:
+
+![Imgur](https://i.imgur.com/Onr2VQh.png)
+
+![Imgur](https://i.imgur.com/pMbO4xz.png)
+
+![Imgur](https://i.imgur.com/x5O2BTb.png)
+
+![Imgur](https://i.imgur.com/K7zVVhq.png)
+
+![Imgur](https://i.imgur.com/cUe75yM.png)
+
+![Imgur](https://i.imgur.com/GwQBPPw.png)
+
+![Imgur](https://i.imgur.com/YUre684.png)
+
+![Imgur](https://i.imgur.com/ByuLJC0.png)
+
+![Imgur](https://i.imgur.com/o3QMMqX.png)
+
+![Imgur](https://i.imgur.com/hIOqLuS.png)
+
+![Imgur](https://i.imgur.com/uvfQqP2.png)
+
+![Imgur](https://i.imgur.com/4SJlD3O.png)
+
+![Imgur](https://i.imgur.com/DgsVjz9.png)
+
+![Imgur](https://i.imgur.com/RwFmwnU.png)
+
+![Imgur](https://i.imgur.com/71B7oVF.png)
+
+![Imgur](https://i.imgur.com/TGyjEZp.png)
+
+![Imgur](https://i.imgur.com/69Vgqpt.png)
+
+![Imgur](https://i.imgur.com/TsziWZ8.png)
+
+![Imgur](https://i.imgur.com/7YXeIRf.png)
 
 
