@@ -422,4 +422,30 @@ Quiz 1:
 
 ![Imgur](https://i.imgur.com/7YXeIRf.png)
 
+----------------------------------------------------
+
+#### LABS 02
+
+PCs transmit data on pins 1 and 2, and receive data on pins 3 and 6
+
+Switches are the opposite, they transmit data on pins 3 and 6 and receive data on pins 1 and 2
+
+So, we can use a straight-through cable to connect all of these PCs, as well as SRV1, to the switches
+
+Devices of the same type require crossover cables, or else the transmit pins will be connected to the transmit pins, and the receive pins will be connected to the receive pins, which will not allow data to be sent successfully between the devices
+
+Next, let's connect these switches to the routers
+
+Routers are like PCs, they transmit on pins 1 ans 2 and receive on pins 3 and 6 
+
+So let's connect them to the switches with straight-through cables
+
+So, I'll connect R2 to R1 with a crossover cable. R1 and R3 are 3 kilometers apart, so clearly, we will have to use a fiber-optic connection here, although packet tracer doesnt diffentiate between single-mode and multimode, which is appropriate here ? Well, multimode fiber allows distance up to 550 meters, which is more than UTP, but not enough for this connection. Single-mode allows much longer distances, 30 km, 40 km, even more, so in this case we would use single-mode fiber 
+
+Finally, R3 and R4 are separated by 250 meters. That's too long for a UTP cable, but also not so long that we need single-mode fiber. A multimode fiber cable would be sufficient. Let's connect them together... Okay
+
+That's all for this lab 
+
+
+
 
