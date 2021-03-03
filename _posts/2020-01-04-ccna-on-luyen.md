@@ -447,5 +447,339 @@ Finally, R3 and R4 are separated by 250 meters. That's too long for a UTP cable,
 That's all for this lab 
 
 
+-----------------------------------------------------------------
+
+#### Day 3. OSI Model & TCP/IP Suite
+
+This third lesson is about two networking models
+
+The first is the OSI Model, and the second is the TCP/IP suite
+
+Note that the TCP/IP suite is a networking model, too, but it's usually referred as the TCP/IP suite, or just TCP/IP
+
+Unless you're familiar with networking, you probably haven't heard of the OSI model.
+
+However, you probably have heard of TCP/IP, or at least the second part of that name, IP, the Internet Protocol, for example you've probably heard of an IP address before. So, what is a networking model ?
+
+Well, networking models categorize and provide a structure for networking protocols and standards 
+
+Do you remember what a networking protocol is ?
+
+I talked a bit about Ethernet, and various standards for copper and fiber-optic cables in the Day 2 video
+
+That's an example of a protocol
+
+A networking protocol is a set of rules defining how network devices and software should work, including how they should work together
+
+By the way, protocols refer to logical rules about how devices should communicate, not physical standards.
+
+So, you could visualize it like this
+
+This is a networking model, and it categozies and provides a structure for various networking protocols like this
+
+![Imgur](https://i.imgur.com/6Aowjai.png)
+
+The different colors represent different categories of protocols and standards.
+
+These protocols and standards could define something like the structure and usage of IP addresses, or maybe physical details like electrical voltage used on copper cables when transmitting data.
+
+Let's talk about the OSI model first, and then we'll look at the TCP/IP suite after.
+
+So, what if there were no standard networking models and protocols ?
+
+Here's a few Dell PCs and a few iMacs 
+
+If Dell and Apple each made their own networking model, each with own set of networking protocols, these Dells would be able to communicate with each other, and these iMacs would be able to communicate with each other, but because the Dells and IMacs would speek a different language than each other, with a different set of rules about how to communicate, the Dell wouldn't be to communicate with the imacs
+
+![Imgur](https://i.imgur.com/grsEBZl.png)
+
+![Imgur](https://i.imgur.com/nyjkB0h.png)
+
+This is obviously a problem in modern networks, such as the Internet, where we expect devices from various makers in various countries to be able to communicate with each other. 
+
+The OSI model is one attempt at standardizing network communications 
+
+Although it isn't actually in use today, it has had a big impact on how network engineers think about networking, and we still refer to it today.
+
+OSI stand for 'open system interconnection' model. Open, means that it is an open standard, not a proprietary model developed and used by an invidual company 
+
+It is a conceptual model that categorizes and standardizes the different functions in a network.
+
+It was created by the international organization for standardization, the ISO, in the late 1970s and early 1980s
+
+Network functions are divided into 7 'layers'
+
+From example, look at the bottom layer , layer 1.
+
+It is the physical layer. The standards for cables and interfaces we learned about in the Day 2 video all fit into the physical layer of the OSI model, but there are 6 more layers on top of that to make the network operate properly .
+
+Let's examine each layer one by one, starting at Layer 7, the application layer.
+
+![Imgur](https://i.imgur.com/iBLge3s.png)
+
+- This layer is closest to the end user
+
+- The application layer interacts with software applications that have some communication component, such as your web browser, whether that's Brave, Firefox, Chrome, or whatever
+
+- For example HTTP and HTTPs are Layer 7 protocols
+(https://www.cisco.com)
+
+Notice https before cisco.com, indicating that https is being used to get this website and view it in the browser
+
+Keep in mind that Layer 7 doesn't include the application itself, like Chrome or Firefox, but rather the protocols that interact with the application, like http or https
+
+- A couple functions of Layer 7 are: identifying communication partners and synchronizing communication
+
+Let me explain how it does this 
+
+![Imgur](https://i.imgur.com/IN0tXtI.png)
+
+Here I have two OSI model stacks, representing two computer that will communicate with eachother
+
+The software application, maybe a web browser, interacts with Layer 7, the application layer, and wants to send some data to the system on the right.
+
+This data is processed through the OSI stack, each layer adding something to the original 
+
+![Imgur](https://i.imgur.com/ruVAGqZ.png)
+
+This is called "encapsulation", because the original data is encapsulated inside this addiional information which is added on 
+
+By the time it reaches the physical layer, it is electrical signals on a wire, and is sent to the neighboring system.
+
+Then, the neighboring system performs the opposite process, the additionals of each layer are stripped off until the data reaches the application layer of the neighboring system 
+
+![Imgur](https://i.imgur.com/MlPmFcW.png)
+
+This process is called 'de-encapsulation', as the additional information is removed as the data is processed up the stack 
+
+Both the encapsulation and de-encapsulation processes are examples of 'Adjacent-layer interaction', interaction between the different layers of the OSI model 
+
+![Imgur](https://i.imgur.com/cvUlrsr.png)
+
+However, the communication between the appication layers of the two different systems, is called same-layer interaction 
+
+![Imgur](https://i.imgur.com/h6E4bUq.png)
+
+This same-layer interaction between application Layers is what allows the application layer to perform its functions of identifying communication partners, synchronizing communications, etc.
+
+Layer 6 of the OSI is the presentation layer 
+
+Data in the application is in an 'application format', a format that applications understand.
+
+It needs to be translated to a different format to be sent over the network.
+
+The presentation layer's job is to translate between application and network formats.
+
+One example of a function of the presentation layer is encryption of data as it is sent,  so that only intended recipient can read it and of course decryption as it is received 
+
+The presentation layer also translates between different application-layer formats, to ensure that the data is in a format the receiving host can understand. To summarize, the presentation layer translates data to the appropriate format. That's all you really need to know about the presentation layer.
+
+![Imgur](https://i.imgur.com/0ImFLyJ.png)
+
+Layer 5 of the OSI model is the session layer
+
+The session layer controls dialogues, also known as sessions, between communicatings hosts. 
+
+It establishes, manages, and terminates connections between the local application (for example your web browser) and the remote application, for example, Youtube
+
+Youtube's servers  are being used by countless people at evert moment, and there has to be a way to manage all of these sessions. 
+
+That's the purpose of the session layer of the OSI model 
+
+![Imgur](https://i.imgur.com/TLJMQJT.png)
+
+So, we've looked at the top 3 layers of the OSI model. From top to bottom, application, presentation, and session.
+
+It's important to know what the functions of these layers are, but actually network engineers don't really work with these layers of the OSI model.
+
+That is the job of application developers. 
+
+Application developers work with the top layers of the OSI model to connect their applications over networks.
+
+Let's return to this diagram
+
+![Imgur](https://i.imgur.com/OBQY7t0.png)
+
+Remember what I said about encapsulation ?
+
+Well, data prepared at the top 3 layers is then sent over to the bottom 4 layers, which actually do the work of sending it over the network. After the top 3 layer hand data over to the bottom 4 layers, the next step before sending is that Layer 4, the transport layer, adds a header in front of the data, like this 
+
+![Imgur](https://i.imgur.com/tgMfB1z.png)
+
+So, let's look into the Transport layer a little bit
+
+Layer 4 of the OSI model is the transport layer.
+
+It segments and reassembles data for communications between end hosts
+
+To reword that, it breaks large pieces of data into smaller segments which can be easily sent over the network and are less likely to cause transmission problems if errors occur
+
+For example, if data wasn't segmented and you were trying to watch a video, if an error occured that prevented the video from reaching your computer, you wouldn't be able to watch the video at all.
+
+However, if the data is segmented into many small units, and only one fails to reach the destination, that's not a big problem. The video might skip for a second, but then will continue on just fine.
+
+Also, the transport layer provides host-to-host communication, also known as end-to-end communication 
+
+This also provide process-to-process communications for applications 
+
+Not let's review 
+
+Data is prepared by the top 3 layers 
+
+a Layer 4 header is added on
+
+Note that at this point in the process, this unit of data plus Layer 4 header is called a segment 
+
+Remember, if the data being sent is large enough, it will actually be segmented into smaller parts, and a Layer 4 header will be added on to each segment.
+
+Next, that segment is passed on to Layer 3 .
+
+and another header is added on to the end, like this 
+
+![Imgur](https://i.imgur.com/XyZ5PET.png)
+
+Layer 3 of the OSI model is the Network Layer 
+
+The network layer provides connectivity between end hosts on different networks, for example ,
+
+outside of the local area network, or LAN, which we mentioned briefly in the Day 1 video
+
+Layer 3 provides logical addressing, in the form of IP addresses, something you've probably heard of before 
+
+Layer 3 also provides path selection between source and destination 
+
+Often there are many possible paths which which data can take to reach its destination, especially over a huge network like the Internet 
+
+Layer 3 provides the means of selecting the best path
+
+Routers operate at Layer 3
+
+Remember in Day 1's video I said that routers are used when end hosts need to reach a destination outside of their LAN ?
+
+That's because routers are Layer 3 devices. Let's view the encapsulation process again 
+
+Data is prepared by the upper layers, the transport layer adds a layer 4 header, and this combination of data plus layer 4 header is called a segment, next the network layer adds a layer 3 header, including information like the source and destination IP address, to the segment. 
+
+This combination of data, layer 4 header, and layer 3 header, is called a packet.
+
+Next, the packet is further encapsulated at Layer 2, this time with both a Layer 2 header
+
+![Imgur](https://i.imgur.com/NfiVna0.png)
+
+and a layer 2 trailer 
+
+Layer 2 of the OSI model is the Data Link Layer 
+
+The data link layer provides node-to-node connectively and data transfer 
+
+For example, direct connections between a PC and a switch, or a switch and a router, or a router and a router. Because Layer 2 is adjacent to Layer 1, the physical layer, it also defines how data is formatted for transmission over a physical medium, like copper UTP cables.
+
+Layer 2 also detects, and possibly corrects, errors that occur on the physical layer 
+
+Like layer 3, layer 2 also uses an addressing system, however it separate and different from layer 3 addressing. Finally, swiches operate at Layer 2.
+
+![Imgur](https://i.imgur.com/qyf1Z2D.png)
+
+Switches look at the destination Layer 2 address to determine where to send the data, let's look at the encapsulation process once more.
+
+Data is prepared by the application layer 
+
+A layer 4 header is added to the data to make a segment
+
+A layer 3 header is added to the segment to make a packet
+
+Remember, the IP address is included in this Layer 3 header.
+
+Then, a layer 2 header and layer 2 trailer are added to the packet
+
+At this point, the comnination of data, layer 4 header, layer 3 header, layer 2 header and layer 2 trailer is called a frame.
+
+Now, the data is not further encapsulated at Layer 1. This frame is then sent over the connecion, whether it's electrical signals over a wire or wireless signals in the case of wifi, to the neighboring system
+
+Let's look at layer 1 of the OSI model a bit before moving on
+
+Layer 1 of the OSI model is the physical layer
+
+The physical layer defines physical characteristics of the medium used to transfer data between devices
+
+For example, voltages levels, maximum transmission distances, like the maximum cable lengths, mentioned in Day 2's video, physical connectors, cable specifications, etc..
+
+Digital bits are converted into electrical signals, for wired connections, or radio signals, for wireless connections, like Wi-fi as I mentioned before, all of the information in Day 2'video, such as cables and pin layouts, is related to the physical layer of the OSI model. 
+
+Okay, now we've got a complete frame, and that frame will be sent from the local device over this cable, let's say its an ethernet cable, 
+
+![Imgur](https://i.imgur.com/ALRYZwH.png)
+
+Once it reaches the remote device, the reverse process of encapsulation, de-encapsulation takes place, the data link layer translates the raw physical data into a complete frame once again
+
+
+Then the layer 2 header and trailer are removed, leaving the layer 3 packet. 
+
+The layed 3 header is removed, leaving the layer 4 segment.
+
+Finally, the layer 4 header is removed and we are left with original data prepared by the upper layers of the ogirinal device
+
+That's the process of de-encapsulation 
+
+Before moving on, I want to review some terms
+
+So, when an application wants to send data to another system, it interacts with the application layer of the OSI stack and the data is prepared to be sent.
+
+When the layer 4 header is added at the transport layer, what is this combination of data plus . Layer 4 header called ?
+
+It's called a Segment.
+
+Then, the Layer 3 header is added on at the Network layer, remember that includes the IP address.
+
+What's this now called ?
+
+It's called a packet 
+
+Finally, a Layer 2 header and trailer are added 
+
+What's this complete unit called ? It's called a frame
+
+Now, there is one new term that is used to refer to all of these 
+
+These are all called Protocol Data Units or PDUs
+
+![Imgur](https://i.imgur.com/G0EUFrr.png)
+
+For example, segment is the term for a layer 4 PDU, packet is the term for a layer 3 PDU, etc.
+
+By the way, at Layer 1, the physical layer, the name for for the PDU is bit, referring to the bits being transferred on the wire.
+
+So, that's a lot of information 
+
+If you need help remembering the order of the OSI model layers, the flashcards included in the description should be a big help, but here are a couple acronyms too. 
+
+I don't use acronyms to remember things myself, but many people like them, so here are a few examples to help you remember 
+
+The first one goes from layer 7 to layer 1, All People Seem To Need Data Processing.
+
+Here's another one, from layer 1 to layer 7 this time, Please Do Not Teach Students PointLess Acronyms.
+
+If you know any other good ones post them in the comment section !
+
+Now let's move on from the OSI model, to the TCP/IP suite.
+
+Like the OSI model, it is a conceptual model and set of communications protocols, and in TCP/IPs case it is used in the Internet and other networks.
+
+It is known as TCP/IP because those are two of the foundational protocols in the suite.
+
+It was developed by the United States Department of Defense through DARPA, which is the Defense Advanced Research Projects Agency.
+
+It has a similar structure to the OSI model, but with fewer layers.
+
+
+
+
+
+
+
+
+
+
+
 
 
