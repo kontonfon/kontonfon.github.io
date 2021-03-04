@@ -771,7 +771,155 @@ It was developed by the United States Department of Defense through DARPA, which
 
 It has a similar structure to the OSI model, but with fewer layers.
 
+And, it is the model actually in use in modern networks, NOT OSI.
 
+Note, however , that the OSI model still influences how network engineers think and talk about network today, which is why it's important to learn
+
+Now, let's compare the two
+
+On the left is the OSI model, you're familiar with by now, and on the right is the TCP/IP.
+
+Suite's networking model.
+
+The application,presentation,session layers of the OSI model are essentially equivalent to the Application Layer of the TCP/IP model.
+
+Combining them into one actually represents how network engineers tend to think about networks, since we don't work much with anything above the Transport Layer, however, when talking about networks, we use the OSI numbering
+
+For example, if you say 'there is a Layer 4 problem in the network', network engineers will think of OSI's Layer 4, the transport layer, not TCP/IP's Layer 4, the Application Layer of OSI's Layer 4, the transport layer, not TCP/IP's Layer 4, the Application Layer.
+
+Moving on, the OSI model and the TCP/IP model both share the transport Layer.
+
+The network layer of the OSI model maps to the Internet layer of the TCP/IP model.
+
+Finally, the data link and Physical layers of the OSI model are equivalent to the Link layer of the TCP/IP model.
+
+Once again, though, if people say, for example, there is a Layer 2 problem in the network, they are referring to the OSI Model's Layer 2, the Data Link Layer, not TCP/IP's layer 2, the Internet Layer.
+
+Keep that in mind 
+
+Although TCP/IP is the model actually in use in modern day network, we still talk about networks using the OSI model language
+
+Now, you might hear different names used for these layers.
+
+![Imgur](https://i.imgur.com/dw63Zw8.png)
+
+This is a chart off of Wikipedia showing different naming systems used.
+
+Don't worry about memorizing all of these, but just keep in mind you might here different names than the ones I taught you 
+
+For example, the Link layer might be called the network interface, or network access layer. 
+
+![Imgur](https://i.imgur.com/LqZZIIf.png)
+
+I actually like this 5 layer model, because it combines the top 3 layers that we, network engineer, don't really think about into one, but it keeps the data link and physical layers separate, and I think its good to think of them as two separate layers.
+
+Before finishing up this lesson and moving on to the quiz, I want to show you this excellent diagram which I found on Wikipedia.
+
+![Imgur](https://i.imgur.com/EYho39g.png)
+
+It demonstrates the process of a host, Host A, sending data to Host B, with two routers in between.
+
+Here you see the four devices Host A, connected to A router, connected to another router, connected to Host B. Here is the TCP/IP stack on each device.
+
+Note that, for forwarding data from host to host, these routers don't need to be aware of the higher layers, so only the Internet and Link layers are present here.
+
+So, let's walk through the process.
+
+An application on Host A wants to communicate with an application on Host B. Let's say it's a Skype conversation, so Host A is sending a little bit of video and audio data to Host B. Skype interacts with the application Layer, and the data is encapsulated via the Transport, Internet, and Link Layers, then, it is forwarded over to the Router, probably via Ethernet UTP copper cabling. Remember, Routers are layer 3 devices, so they want to know the Layer 3 IP address to know where to forward the data next.
+
+So, de-encapsulation occurs at the Link layer, and then at the Internet Layer the router looks at the destination IP address to know where to send the packet.
+
+Then, the packet is once again encapsulated to make a Frame. From here it is sent to another router, perhaps over long-distance fiber cabling.
+
+At the link layer of this second router, de-encapsulation occurs again, and this router also checks the destination IP address 
+
+Once it knows where to send the packer, it is once again encapsulated, and sent over some medium, Ethernet cabling in this case, to Host B. Now de-encapsulation takes place once more. Here at the link layer it is a frame. The header and trailer are removed, and it becomes a packet. 
+
+The header is removed, and it becomes a segment
+
+Finally, the transport layer header is removed, and the application layer on Host B receives the data and interacts with the application on Host B. So, this has achieved process-to-process communication, between Skype on Host A and Skype on Host B. Of course, this process will happen many many times in both directions during of duration of a skype call.
+
+As I mentioned before, this is known as same-layer interaction. Also, I mentioned the transport layer providers host-to-host communication before. 
+
+This diagram indicates that as well 
+
+This transport layer segment was never changed during this whole process, it is as if it's direct communication between the two hosts 
+
+Finally, remember that, because the TCP/IP protocols are all industry standard protocols used by all makers, it doesn't matter what kind of PCs or router you're using.
+
+An Apple IMac can communicate with a Cisco router, which can communicate with a Juniper router, which can communicate with a Dell PC.
+
+That's the importance of having industry standards.
+
+Okay, that was another lesson with a lot of information.
+
+Once again, there will be supplementary materials to help you remember everything 
+
+There, will , of course, be an end-of-video quiz, coming up from the next slide.
+
+There will also be premade flash cards to help you memorize what you need to remember, check the link the description.
+
+Finally, for this video I will again include a Packet Tracer practice lab, which will use an interesting feature of packet tracer called 'simulation mode' to analyze network traffic.
+
+Now let's go to the quiz
+
+![Imgur](https://i.imgur.com/95HGwbb.png)
+
+![Imgur](https://i.imgur.com/7YionkJ.png)
+
+Explain:
+
+![Imgur](https://i.imgur.com/unDshRF.png)
+
+![Imgur](https://i.imgur.com/vo3PL3T.png)
+
+![Imgur](https://i.imgur.com/5JAghVe.png)
+
+![Imgur](https://i.imgur.com/Unys9Fb.png)
+
+Explain:
+
+![Imgur](https://i.imgur.com/9UpheFZ.png)
+
+![Imgur](https://i.imgur.com/dgiK2IZ.png)
+
+![Imgur](https://i.imgur.com/uurGUu8.png)
+
+![Imgur](https://i.imgur.com/M8ZKKaq.png)
+
+![Imgur](https://i.imgur.com/tHHlLiV.png)
+
+Explain:
+
+![Imgur](https://i.imgur.com/tHHlLiV.png)
+
+![Imgur](https://i.imgur.com/oYn9OgH.png)
+
+![Imgur](https://i.imgur.com/NZYcSMX.png)
+
+![Imgur](https://i.imgur.com/a4kyonU.png)
+
+![Imgur](https://i.imgur.com/OpvOz7W.png)
+
+![Imgur](https://i.imgur.com/rWiYO0U.png)
+
+![Imgur](https://i.imgur.com/U1fkpdn.png)
+
+![Imgur](https://i.imgur.com/uAKVtgA.png)
+
+![Imgur](https://i.imgur.com/VLu8Tbr.png)
+
+![Imgur](https://i.imgur.com/ikXoLZC.png)
+
+![Imgur](https://i.imgur.com/ajlR0p8.png)
+
+![Imgur](https://i.imgur.com/w8FC0H9.png)
+
+---------------------------------------------
+
+### Lab 03 - OSI Model
+
+In this lab we will examine some network traffic using packet tracer's simulation mode feature
 
 
 
