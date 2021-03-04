@@ -921,6 +921,130 @@ Explain:
 
 In this lab we will examine some network traffic using packet tracer's simulation mode feature
 
+But first, let's take a look at the network diagram
+
+There are two routers, R1 and R2, two switches, SW1 and SW2, and one server and one PC
+
+The G0/0,G0/1,G0/2 and F0/1 labels indicate the network interfaces used to connect the devices
+
+G means gigabit ethernet, so these interfaces operate at a speed of one gigabit per second 
+
+You might also see it written as Gi, or Gig, but I usually just use G.F means fastethernet, so these interfaces operate at 100 megabits per second. 
+
+You might also see it written as Fa, instead of just F. Now these two series of numbers here, 192.168.1.0/24 and 10.0.0.0/24, are network addresses.
+
+Routers are used to connect different networks.
+
+There are two networks displayed here in this diagram, the one on the left here includes SRV1, PC1, SW1,SW2 and R1's G0/0 interface
+
+They are all in a single network, or subnet, a term you will learn about soon.
+
+So, that's the 192.168.1.0/24 network, and the .100 for SRV1 means that its IP address is 192.168.1.100 and the .1 by R1 means that its address is 192.168.1.1
+
+Wait for the lesson about IP addresses coming up soon for more information on this topic
+
+The other network is 10.0.0.0/24, consisting of R1's G0/1 interface, and R2's G0/0
+
+interface.
+
+![Imgur](https://i.imgur.com/AVqEFgI.png)
+
+Notice the .1 and .2, so R1 is 10.0.0.1 and R2 is 10.0.0.2
+
+Hopefully that helps you understand a little bit about how to read a network diagram
+
+Don't worry if you have no idea how IP addresses work, or what that /24 next to the network addresses means, that will all be explained in a video coming soon.
+
+So let's get started on today's main topic
+
+I'm going to use packet tracer's simulation mode, which you can activate here, in the bottom right.
+
+Now, I can click through here, and you can see various network traffic being sent around.
+
+Let's take a look at some.
+
+At Device SW2 means that SW2 is the one sending out the data, it says, STP 
+
+STP is spanning-tree protocol, a layer 2 protocol you'll learn a lot about in this course. Let's click on it, and notice that the 7 layers of the OSI model, and STP has information in the bottom two
+
+![Imgur](https://i.imgur.com/iNsUMPY.png)
+
+Let's look at the Layer 2 header
+
+Notice it says Layer 2: IEEE 802.3 header.
+
+You might remember that IEEE 802.3 is the standard number for Ethernet, so this is an Ethernet Layer 2 header.
+
+Let's look at some of the information here. 
+
+Down here it shows some information about the process, and notice here at number 2: The device encapsulates the PDU into an Ethernet frame.
+
+![Imgur](https://i.imgur.com/c6sqW8r.png)
+
+There's the encapsulation process I talked about in the lecture video.
+
+Let's take a look at the Layer 1 info
+
+Notice that the information is the two interfaces that it sends the frame out of.
+
+Information like the physical ports, or interfaces, on a device are Layer 1 information, because it is the physical layer.
+
+Now let's look at another bit of network traffic, this time AT device R1, and the type is OSPF
+
+OSPF is a layer 3 protocol, it's used to discover the best paths to different network.
+
+You'll learn a lot about it, too, in this course.
+
+STP only had layer 2 and layer 1 information, but OSPF has layer 3, layer 2, and Layer 1.
+
+Notice in the Layer 3 header, source IP address, and destination IP address.
+
+Remember, IP addresses are layer 3 information.
+
+Next, to look at some traffic that includes information all the way up to Layer 7, I will go on PC1.
+
+![Imgur](https://i.imgur.com/yhzHMhF.png)
+
+PC1 is using a protocol called DHCP to automatically receive an IP address 
+
+To generate some DHCP traffic, and DHCP is a layer 7 protocol, I'll get PC1 to release its current IP address, and then renew it
+
+When you click on a PC in packet tracer you'll see this screes.
+
+Click on desktop, then command prompt, to access the PC's command prompt, which functions like a windows command prompt.
+
+Type ipconfig, and you can see the current IP address here ... to release the IP address, type ipconfig /release.
+
+![Imgur](https://i.imgur.com/FTsRssQ.png)
+
+And now you can see already a DHCP message on PC1
+
+![Imgur](https://i.imgur.com/VnEYeQX.png)
+
+I'll type the next command to, to renew the IP address 
+
+![Imgur](https://i.imgur.com/OqHuubs.png)
+
+Now let's check one of these DHCP messages.
+
+Notice information all the way up to Layer 7, except layers 5 and 6.
+
+That's because in the TCP/IP model, which is the model actually in use, layers 5,6 and 7 are all combined into a single layer called the application layer, so you're not going to see any layer 5 or 6 information, but you can consider it to be part of the layer 7 information.
+
+Then there is layer 4 information, if you click on it, it says the device encapsulates the PDU into a UDP segment, remember the Layer 4 PDU is called a segment.
+
+Layer 3, Layer 2, and Layer 1 information is present as well.
+
+Now, if I just press the play button in the middle, it will slowly play through all of the different messages being sent through the network.
+
+That's all for this lab, I just wanted to show you the OSI and TCP/IP models at work on a network.
+
+Your understanding of the functions of these layers might still be a little unclear, but trust me, you'll understand things better as we start to actually learn about these diffrent protocols that operate at each layer.
+
+
+
+
+
 
 
 
