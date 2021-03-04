@@ -1041,6 +1041,52 @@ That's all for this lab, I just wanted to show you the OSI and TCP/IP models at 
 
 Your understanding of the functions of these layers might still be a little unclear, but trust me, you'll understand things better as we start to actually learn about these diffrent protocols that operate at each layer.
 
+------------------------------------------------------------------
+
+### Day 4. Intro to the CLI
+
+In this fourth lesson, we will finally get started actually configuring some Cisco devices.
+
+This lesson is about the Cisco IOS CLI
+
+Cisco IOS is the operating system used on Cisco devices, like Windows on a PC, or macOS on an imac.
+
+Keep in mind, Cisco's IOS is not related to Apple's iOS for iPhones.
+
+Now, what is a CLI ?
+
+CLI stands for command-line interface 
+
+It's the interface you use to configure Cisco devices, like routers, switches, and firewalls.
+
+Here's an image of the Cisco IOS CLI
+
+![Imgur](https://i.imgur.com/vWdIlNK.png)
+
+The color scheme can be changed, this is just the default color scheme with the software
+
+I used when taking this screenshot.
+
+Now, there is also something called a GUI, which means graphical user interface.
+
+Here's an example of a Cisco GUI, from Cisco's ASDM which can be used to configure Cisco's Firewalls.
+
+However, we won't cover GUIs in this course, and most network engineers prefer to use the CLI over a GUI.
+
+Now, how exactly do you connect to a Cisco device to configure it with the CLI ?
+
+There are a couple methods, but I'm going to talk about connecting via the console port.
+
+Connecting to a device via the console port typically involves bringing your laptop to the device and connecing to the console port of the device. There are also methods to connect to a device remotely, but we'll cover that later
+
+In any case, when you first configure a device, you have to connect to the console 
+
+This is an image of a Cisco catalyst switch, and notice the two console ports.
+
+![Imgur](https://i.imgur.com/vgavMl6.png)
+
+
+
 
 
 
