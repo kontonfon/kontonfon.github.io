@@ -1079,25 +1079,250 @@ There are a couple methods, but I'm going to talk about connecting via the conso
 
 Connecting to a device via the console port typically involves bringing your laptop to the device and connecing to the console port of the device. There are also methods to connect to a device remotely, but we'll cover that later
 
-In any case, when you first configure a device, you have to connect to the console 
+In any case, when you first configure a device, you have to connect to the console port
 
 This is an image of a Cisco catalyst switch, and notice the two console ports.
 
 ![Imgur](https://i.imgur.com/vgavMl6.png)
 
+one of them is an RJ45 port, just like the switch's network ports
 
+The other is a USB mini-b-connector.
 
+You can connect to either of these, but let's say we're going to connect to the RJ45 port.
 
+You're going to need the proper cable.
 
+![Imgur](https://i.imgur.com/JqTwAnl.png)
 
+This is the kind of cable you will use
 
+Notice one end has an RJ45 connector, just like the Ethernet UTP cables we looked at.
 
+The other end is a D89 connector.
 
+However, most laptops these days no longer have a serial port to plug the cable into
 
+So you'll probably need an adapter, like this, to connect to a USB port on your laptop.
 
+![Imgur](https://i.imgur.com/lpMpmo1.png)
 
+The actual name of the cable on the left is 'rollover cable'
 
+![Imgur](https://i.imgur.com/HbJ5a96.png)
 
+The name is similar to crossover cable, but it's different than an Ethernet UTP
 
+Like is an Ethernet UTP cables, there are 8 pins on each end that are used.
+
+However, they connect like this: pin 1 to pin 8, pin 2 to pin 7, pin 3 to pin 6, pin 4 to pin 5, pin 5 to pin 4, pin 6 to pin 3,pin 7 to pin 2, and pin 8 to pin 1.
+
+So, once you've connected your computer to the device, how do actually access the CLI ?
+
+Well, you need to use a terminal emulator, this one here, PuTTy, is a popular choice. 
+
+You can get it at putty.org.select serial, here, and then click open and you should be connected to the CLI
+
+![Imgur](https://i.imgur.com/84QTOIg.png)
+
+You should be able to connect with the default settings, but click serial down here, and you can view and edit the default settings for the serial connection. 
+
+![Imgur](https://i.imgur.com/TKsTNyN.png)
+
+Note that these settings match the defaults on Cisco devices, so you'll probably never have to change them, but it's good to be aware of them, and try to remember them for the test.
+
+The speed, also known as baud ratem is 9600 bits per second.
+
+There are 8 data bits and 1 stop bit
+
+Understanding data bits and stop bit is outside of the scope of the CCNA, but basically it means that for each 8 bits of data one stop bit is sent, to mark the end of the 8 bits. Parity is set to none.
+
+Parity is used to detect errors.
+
+And finally, flow control is set to none.
+
+Flow control is exactly what it sounds like, controlling the flow of data from transmitter to receiver, but again you don't have to worry about the details for the exam.
+
+Just remember Cisco's defaults
+
+Speed of 9600 bits per second, 8 data bits, 1 stop bit, no parity, and no flow control.
+
+Once you connect to the device, you will be greeted with a screen like this.
+
+![Imgur](https://i.imgur.com/vRy9LmB.png)
+
+Since this is the first time booting up the devices, I am asked if I would like to enter the initial configuration dialog, and I answer no. Then I pressed the enter key to get started, and I'm now free to type commands into the CLI.
+
+When you first enter the CLI, you will by default be in what's called 'user EXEC mode'
+
+User EXEC mode is indicated by the 'greater than sign' next to the host name of the device. 
+
+![Imgur](https://i.imgur.com/17vyWWh.png)
+
+Note that the dedault host name for this device is 'Router'
+
+The text displayed here always indicates the hostname of the device
+
+All devices have a hostname, and for a Cisco router the default name is Router.
+
+User EXEC mode is very limited.
+
+Users can look at some things, but can't make any changes to the configuration.
+
+Usually you don't do anything in this mode 
+
+You also might hear it called just 'user mode'
+
+So, let's move to a mode with a little more power to make changes to the device
+
+If you enter the 'enable' command in user EXEC mode, you will be placed in privileged exec mode
+
+In privileged exec mode, a pound sign, or hashtag, whatever you want to call, it displayed
+
+Privileged EXEC mode provides complete access to view the device's configuration, restart the device, etc
+
+This is not the mode in which you actually change the configuration, however you can change the time on the device, and also save the current configuration file, among many other things.
+
+![Imgur](https://i.imgur.com/TQOuO3y.png)
+
+This is a comparison of the command available in user EXEC mode, on the left, and privileged EXEC mode, on the right.
+
+Also, I'm taking these screenshots from Cisco Packet Tracer software.
+
+![Imgur](https://i.imgur.com/tyJ1s2n.png)
+
+Packet Tracer is a network simulator.
+
+It is a fantastic resource for the CCNA, but it is limited beyond the CCNA.
+
+There are many things which Packet Tracer doesn't support, so if I were to show these commands on a real device, you would probably see even more commands available here.
+
+I want to repeat, however, that Packet Tracer is an excellent resource for the CCNA and you don't really need to use anything else for your CCNA.
+
+One more thing, notice the command I used to view the available commands.
+
+You can use a question mark to view the commands that are available to you.
+
+Now I want to show you a convenient feature of the CLI
+
+That is the tab key
+
+In the sample output here, notice the first line says en, the second says enable, and then I entered privileged exec mode.
+
+Well, if you press tab, the CLI will automatically complete the word for you, and display the complete word on a new line
+
+However, another convenient thing is that you don't even need to complete the command 
+
+![Imgur](https://i.imgur.com/Mozs8vg.png)
+
+Here i just typed 'en', and hit enter, and I was brought to privileged EXEC mode. This can really save you a lot of typing when you're entering many commands.
+
+There are limits to this, however Although 'en' was enough for the router to understand that I meant to use the command 'enable', that's because it's the only command that begins with EN that can be entered in user EXEC mode. If i type just 'e', however, we are told that it is an ambiguous command. That's because there's more than one command that begins with e.
+
+How can we view the commands that begin with e ?
+
+Well, remember the question mark from before ?
+
+If i type e, followed by a question mark, it displays the possible commands that begin with e.
+
+![Imgur](https://i.imgur.com/Q4N1w1Y.png)
+
+There are two, enable and exit, so if I type just 'e' and hit enter, the router doesn't know which command I want to use
+
+So, the shortest form of the enable command is 'en'
+
+And, the shortest form of the exit command is 'ex'
+
+Now let's actually make some changes to the router's configuration
+
+To do so, we enter 'global configuration mode'
+
+The command to enter configuration mode is configure terminal
+
+When in global configuration mode, config is inserted after the hostname
+
+![Imgur](https://i.imgur.com/Y9UG7kd.png)
+
+Once again, you don't have to type the whole word
+
+Notice I type con, followed by the question mark , and there are two option, configure and connect .
+
+![Imgur](https://i.imgur.com/36lQJuO.png)
+
+So, the shortest possible command for configure is conf, c-o-n-f
+
+However, terminal is the only option beginning with T, so all I need to type CONF T to enter global configuration mode.
+
+From now on, in all of my lab demonstrations and such, I will probably be typing conf t instead of configure terminal
+
+Try to remember that the full command is configure terminal, but also feel free to use the shortcuts.
+
+Now, we don't want just anyone to be able to make changes to the network configuration, or even able to just look at the configuration, because that could be a security risk.
+
+We can protect privileged exec mode with a password, so that if a user enters the 'enable' command from user EXEC mode, they are asked for the password 
+
+That is done with the command 'enable password' in global configuration mode  
+
+First, i want to clarify the use of the question mark 
+
+Notice that I used the question mark with no space after password
+
+here is the output 
+
+If you use the question mark with no space, it shows you all possible completions of that word
+
+I already typed the full word password, so it just displays the word again, and there are no other words that begin with p-a-s-s-w-o-r-d
+
+Next I used the question mark again, this this time with a space after password 
+
+Notice the difference in the output
+
+This time it shows all possible options we could enter next in the command 
+
+![Imgur](https://i.imgur.com/D4DQSRc.png)
+
+In this case, I used the middle one
+
+Notice that LINE is in all capital letters
+
+That means that you don't actually type LINE, you type a line which will become the password
+
+I typed CCNA in all capitals as the password 
+
+Note that Password ARE case-sensitive, so CCNA in capital letters and ccna in lower-case letters different passwords
+
+Once again I typed the question mark to check if there are any further options.
+
+This cr means that there are no further options, the only option is to press enter to enter the command 
+
+I pressed enter, and now the password is set.
+
+Let's test it
+
+So, let's test out our password
+
+I type exit to return to privileged EXEC mode. 
+
+From privileged exec mode, if I type exit again I am logged out of the device and see the starting screen again.
+
+![Imgur](https://i.imgur.com/8XKrGbK.png)
+
+If I press enter here
+
+I am brought back to user exec mode
+
+If I enter the enable command, I am asked for a password. No password displays here, but i am brought to priveleged exec mode
+
+That's because the password does not display as you type it, for security purposes.
+
+Also, note that if you enter the wrong password 3 times, you will denied access for having bad screts 
+
+I think everyone has bad secrets of some kind, but in this case it means an incorrect password 
+
+Let's review what we've done so far 
+
+In my experience it was difficult to get used to operating in the CLI when I first started learning, so we'll take it slow and review along the way.
+
+Also, make sure to check out the next video after you finish this, which will have you doing these same tasks
 
 
