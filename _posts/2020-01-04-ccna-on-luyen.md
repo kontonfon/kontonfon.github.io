@@ -1323,6 +1323,542 @@ Let's review what we've done so far
 
 In my experience it was difficult to get used to operating in the CLI when I first started learning, so we'll take it slow and review along the way.
 
-Also, make sure to check out the next video after you finish this, which will have you doing these same tasks
+Also, make sure to check out the next video after you finish this, which will have you doing these same tasks in packet tracer.
+
+Hands-on practice is absolutely essential to get comfortable with the CLI
+
+So, I use the enable command to enter privileged exec mode, From privileged exec mode, I use configure terminal to enter global configuration mode.
+
+In global configuration mode, I use the command enable password CCNA to protect privileged exec mode with a password
+
+Remember, this password is case-sensitive. Then I type exit to return privileged exec mode and exit again to return user exec mode. I type enable again then I enter the password, which isn't displayed as I type it, and I am brought back into privileged 
+
+![Imgur](https://i.imgur.com/4d0krvN.png)
+
+We confirmed the function of the password, but let's take a look at the configuraion file itself to check it
+
+First I want to explain the two configuration files kept on the device. As I said, there are two separate configuration files kept on the device at once 
+
+One is the running-config. This is the current, active configuration file on the device. As you enter commands in the CLI, you edit the active configuration 
+
+The startup-config is the configuration file that will loaded upon restart of the device 
+
+![Imgur](https://i.imgur.com/i3oLthF.png)
+
+If you reload the device, or shut it down and then turn it on later, the startup-config will be loaded.
+
+So let's take a look at the configuration files 
+
+![Imgur](https://i.imgur.com/3IdPtfh.png)
+
+Use the 'show running-config' command in global configuration mode to view the running configuration file. 
+
+There is lots of data in the file by default so I only included the output up to the command we entered.
+
+Here's the command, enable password CCNA, in the running-config 
+
+How about the startup-config ?
+
+You can view it with the show startup-config command, however as you can see, at this point it just displays the message 'startup-config' is not present.
+
+This is because we haven't saved the running configuration yet, so every time we restart the router it will load a default configuration, not the startup-configuration. 
+
+Let's save the configuration file 
+
+![Imgur](https://i.imgur.com/BKAGvqr.png)
+
+There are actually three ways you can save the running-configuration, to make it the startup-configuration 
+
+All three of these commands are executed from privileged exec mode.
+
+The first is 'write'
+
+![Imgur](https://i.imgur.com/XzAc2Wi.png)
+
+It says building configuration, and then an OK message to indicate that the configuration was saved.
+
+The second method is write memory, it performs the same function.
+
+The third command is copy running-config startup-config
+
+This tells the router to copy the running-config file to the startup-config file, again performing the same function as the previous two commands.
+
+Now if use the show startup-config command again, it displays the same configuration as the show running-config command.
+
+Once again, however, this is only the beginning of the output, there is more below.
+
+We'll check it out in the packet tracer lab video coming up text.
+
+Now, you can see the enable password right here, in plain text.
+
+This is a security risk, because anyone who simply takes a glance at this password knows how to get into privileged exec mode, and then global configuration mode to make changes to the device.
+
+Let's level up the security a bit.
+
+You can do so with the 'service password-encryption' command in global configuration mode.
+
+![Imgur](https://i.imgur.com/k1S0kEG.png)
+
+Notice I used the short version of configure terminal, conf t, to enter global configuration mode. Remember that all of these commands have shortcuts. I'll usually use the full command for these instructional videos, but in the labs when I enter the commands live you'll see me using shortcuts a lot.
+
+Any way, the service password-encryption command will encrypt all passwords in a jumble of numbers and letters, so that they cannot be easily read.
+
+If I enter the show running-config command again, notice that the password 'CCNA' has become 08026F6028
+
+![Imgur](https://i.imgur.com/CrWioFs.png)
+
+The password itself hasn't changed, it is still CCNA, only the way it is displayed in the configuration has changed.
+
+Also, you may notice that a 7 has appeared before the password. This number '7' indicates the type of encryption used to encrypt the password. The number 7 means it is using Cisco's proprietary encryption algorithm, from the service password-encryption command. 
+
+Later in this video, you will see another number in that place .
+
+While using the 'service password-encryption' command is more secure than not using it, it's still not very secure.
+
+![Imgur](https://i.imgur.com/LCjgVxT.png)
+
+In this screenshot I simply searched for a cisco type 7 password cracker on google [Link](https://www.ifm.net.nz/cookbooks/passwordcracker.html), found this website, and was able to crack the password in a few seconds.
+
+The good news, though, is that there is a more secure enable password that can be used on Cisco devices, with a tougher type of encryption. The more secure method is to use the enable secret command, instead of the enable password command
+
+![Imgur](https://i.imgur.com/MtGT8uj.png)
+
+This time I used a password of Cisco, with an upper-case C. Once again, this is case-sentitive.
+
+Then I view the running configuration once more.
+
+However, since I was still in global configuration mode, I typed 'do' in the front of the command.
+
+This is a convenient trick that allows you to execute privileged exec mode commands like show running-config or show startup-config, in other configuration levels.
+
+Also notice I used shortcuts, sh instead if show and run instead of running-config.
+
+Now you can see the enable secret in the running-configuration.
+
+~[Imgur](https://i.imgur.com/MC2JtIs.png)
+
+Notice the number 5 before the encrypted password .
+
+Number 5 indicates MD5 type encryption, which is much more secure than what we got with the service password-encryption command.
+
+![Imgur](https://i.imgur.com/CUE7lKt.png)
+
+It can still be cracked, no password is invicible, but its much better.
+
+Also notice that the enable password command remains, it isn't replaced.
+
+However, if both the enable secret and enable password commands are configured, the enable password will be ignored, only the enable secret will be valid.
+
+One final note, the 'service password-encryption' command has NO effect on the enable secret command.
+
+The enable secret is always encrypted, wheather or not you entered the service password-encryption command.
+
+So, really you should always use the enable secret, instead of the enable password, as it is more secure.
+
+Now I want to show you one more thing in the CLI before we move on to the quiz for today's video. 
+
+That is , how you cancel, or delete, a command that you entered.
+
+That is done by typing 'no' in front of the command.
+
+For example, if I type 'no' in front of the service password encryption command, future passwords will no longer be encrypted.
+
+However, as you can see here, passwords which are already encrypted will NOT be decrypted by disabling service password-encryption.
+
+If I enter a new password, however, it will be in clear text, NOT encrypted.
+
+So, let me summarize the service-password encryption command.
+
+If you enable service password-encryption current passwords will be encrypted, future passwords will also be encrypted. 
+
+Once again, however, the enable secret will not be affected, it is always ecrypted.
+
+If you disable service password-encryption current passwords will not be decrypted, they will remain encrypted. Future passwords will not be encrypted, they will remain in clear-text.
+
+![Imgur](https://i.imgur.com/P0xwCXh.png)
+
+The enable secret will not be effected, once again it is always encrypted.
+
+Let's review all of the commands and such we learned in this lesson.
+
+![Imgur](https://i.imgur.com/UxkCEX4.png)
+
+ First, the different modes of the Cisco CLI we looked at today.
+
+ Router> ----- = user EXEC mode.
+
+ Router# ----- = privileged EXEC mode
+
+ Router(config)# = global configuration mode
+
+ Finally is global configuration mode, indicated by config in brackets, plus the hashtag.
+
+ ![Imgur](https://i.imgur.com/Xnap3Kh.png)
+
+ Now let's review some commands.
+
+ Router>enable
+
+ ## used to enter privileged exec mode
+
+ Router# configure terminal
+
+ ## used to enter global configuration mode
+
+ Router(config)# enable password password
+
+ ## configures a password to protect privileged exec mode
+
+ ![Imgur](https://i.imgur.com/ynRvmi8.png)
+
+ Router(config)# service password-encryption
+
+ ## encrypts the enable password (and other passwords)
+
+ Router(config)# enable secret password
+
+ ## configures a more secure, always-encrypted enable password.
+
+ Router(config)# run privileged-exec-level-command
+
+ ## executes a privileged-exec level command from global configuration mode
+
+ ![Imgur](https://i.imgur.com/sOV77n4.png)
+
+Router(config)# no command
+
+## removes the command
+
+Router(config)# show running-config
+
+## displays the current, acitve configuration file
+
+Router(config)# show startup-config
+
+## displays the saved configuration file which will be loaded if the device is restarted
+
+![Imgur](https://i.imgur.com/ShOHJe1.png)
+
+Router(config)# write
+
+## saves the configuration
+
+Router(config)# write memory
+
+## saves the configuration
+
+Router(config)# conpy running-config startup-config
+
+## saves the configuration
+
+![Imgur](https://i.imgur.com/enU2NRI.png)
+
+#### QUIZ
+
+Okay, let's move on to this video's quiz, first up, question 1
+
+![Imgur](https://i.imgur.com/gQlCd8U.png)
+
+![Imgur](https://i.imgur.com/gTWTDPq.png)
+
+![Imgur](https://i.imgur.com/pqhb974.png)
+
+![Imgur](https://i.imgur.com/6ZrQMsB.png)
+
+![Imgur](https://i.imgur.com/U8Dw6uK.png)
+
+![Imgur](https://i.imgur.com/Tb8FlMI.png)
+
+![Imgur](https://i.imgur.com/M5GA6IO.png)
+
+![Imgur](https://i.imgur.com/moTqPcn.png)
+
+![Imgur](https://i.imgur.com/qSiHMxS.png)
+
+![Imgur](https://i.imgur.com/AEeAC9Z.png)
+
+![Imgur](https://i.imgur.com/xkicgH1.png)
+
+![Imgur](https://i.imgur.com/hRlF8Nf.png)
+
+![Imgur](https://i.imgur.com/nJeXn13.png)
+
+----------------------------------------------------------------
+
+### Basic Device Security - Day 4 Lab
+
+In this lab, we'll finally get hands on in the Cisco IOS CLI, the command line interface.
+
+If you're already watched the Day 4 lecture video, you should be able to complete these tasks on your own.
+
+Even if you can, I recommand watching this video after to check and get any additional explanations.
+
+So, we've got a small network here with a few PCs, and switch, and a router.
+
+Our tasks involve some basic configurations on the router and switch.
+
+For this video, I will only configure the router.
+
+However, I recommend that you go through the steps on both devices.
+
+Repetition is essential to get used to all the commands you need to know, so remember to configure both devices.
+
+Step 1 is to set the approriate host name for each device, R1 and SW1.
+
+We didn't cover the command in the main video, but to do so you use the 'hostname' command in global configuration mode.
+
+![Imgur](https://i.imgur.com/ZV0gkNR.png)
+
+Now, in the lecture video, I explained about how to connect to the console port of a device.
+
+In packer tracer, you can actually do that, connect a PC to the console port of the device and then use the PC to do the configurations. However, simply clicking on the device itself is much more convenient, so that's what we'll be doing for these labs. Just keep in mind that in real life, you can't configure the device directly on the device itself, you have to connect to it with a computer. The current hostname for each device is displayed here.
+
+As you can see, by default the hostname is router. To change the hostname, we must enter 'Global configuration' mode.
+
+However to get there, we must first enter 'Privileged exec' mode.
+
+This is achieved by using the 'enable' command. 
+
+To demonstrate a shortcut, I will use the 'exit' command to return to the previous exec mode.
+
+Notice that you can enter privileged exec mode by simply typing 'en' and then use tab to auto-complete it to 'enable', but this isn't necessary.
+
+'en' alone is fine.
+
+'e', however, is too short, and we are told this is an ambiguous command. This is because there are other potential commands that begin with 'e', which we can see by tying 'e' and then a question mark.
+
+As you can see, there are two potential commands; enable and exit.
+
+![Imgur](https://i.imgur.com/oPzyCCv.png)
+
+So, if you just enter 'e', the router doesn't know which command you mean.
+
+However, 'enable' is the only command beginning with 'en', so 'en' is all the router needs to know which command you mean.
+
+Now that we are in privileged exec mode, we can use the 'configure terminal' command to get to 'global configuration' mode.
+
+If you want to use shortcuts again as we did with enable and 'en', the shortest version of the 'configure terminal' command is 'conf t'.
+
+From here we can set the hostname of the router.
+
+This is done with the hostname command.
+
+I will enter 'hostname' R1
+
+Step 2 is to set the uncrypted enable password on each router to CCNA
+
+The 'enable password' is used to privileged exec mode, which is also called enable mode.
+
+Previously we had no password set, so we were able to hear privileged exec mode without any password.
+
+Now we are going to protect privileged exec mode so that only administrators can access it.
+
+The command is simple, and it done in 'global configuration' mode, which we are already in.
+
+Type 'enable password CCNA'.
+
+Now let's test it out, which is step 3
+
+From here  I will use exit command twice, once to bring me back to privileged exec mode.
+
+and then once again to bring me back to user exec mode.
+
+Now I will use the enable command again, however this time I am asked for a password.
+
+The character do not appear as I type, however if I type the password 'CCNA' correctly and press enter I am brought to privileged exec mode.
+
+Now let's see what happens if I fail to enter the correct password.
+
+I enter the wrong password once, twice, and then three times before being rejected for having 'bad secret'.
+
+![Imgur](https://i.imgur.com/ubHf6OE.png)
+
+Now I will try again with the correct password, and I'm in
+
+Step 3 is now complete.
+
+Step 4 is simply to view the password in the running configuration.
+
+The running configuration is the current active configuration of the router, whether or not you have actually saved it.
+
+If you turn off the router without saving the running configuration you will lose any changes.
+
+If you want to keep your changes you have to save them to the startup configuration.
+
+To view the running configurationm, use the show running-config command from privileged exec mode, which we are already in.
+
+You can abbreviate it too, for example sh run.
+
+As you can see it is not encrypted, it is written in clear text right.
+
+Let's solve that in step 5.
+
+So step 4 is now complete.
+
+Step 5 is to enable password encryption on the device.
+
+We can protects passwords by encrypting them to render them unreadable.
+
+This is done from global configuration mode with the command 'service password-encryption'
+
+Okay, that's all for step 5
+
+![Imgur](https://i.imgur.com/g8ruYCq.png)
+
+Step 6 is to once again view the running config
+
+I will use the same command as before, and now lets check the password.
+
+However the command doesn't work
+
+That is because we are currently in global configuration mode, and show running-config must be entered from privileged exec mode.
+
+Now, I could type exit to drop back to privileged exec mode and then enter the command.
+
+![Imgur](https://i.imgur.com/MHQFJNX.png)
+
+But there is no more way, which I demonstrated in the lecture video.
+
+If I type 'do' in front of the command, I can enter it from global configuration mode.
+
+'do sh run (do show running-config)'. There we go.
+
+![Imgur](https://i.imgur.com/MHQFJNX.png)
+
+You can see here 'enable password', followed by a 7 and then a string of other numbers.
+
+The password has successfully been encrypted.
+
+Although we didn't type this 7 when we entered the command, it refers to the type of encryption used.
+
+There are other types as well.
+
+The string of numbers that follow are the password 'CCNA', encrypted to be unreadable so that anyone looking over out shouder can't read the password.
+
+Keep in mind that the encryption used in the 'service password-encryption' isn't vety secure and can be cracked, but this at least renders the password safe from someone simply glancing over your shoulder.
+
+Step 6 is now complete.
+
+Step 7 is to configure a more secure, encrypted enable password of 'Cisco'.
+
+That can be DONE with the 'enable secret' command.
+
+The enable secret uses MD5 encryption, which is more secure that what you get with the service password-encryption command.
+
+Since we're already in global configuration mode, let's enter the command.
+
+Enable secret Cisco.
+
+Now let's go on Step 8, which is to exit back to user EXEC mode and try to login.
+
+Okay, now let's try to get back to privileged EXEC mode.
+
+Let's try our original password of 'CCNA' .. it doesn't work anymore
+
+How about our newly configired enable secret ?
+
+As you can see, if both an enable secret and enable password are configured, only the enable secret can be used.
+
+The enable password becomes invalid
+
+Step 9 is to once again view the passwords in the running configuration
+
+Show running - config
+
+There they are
+
+Once again, the enable password with service password-encryption uses type 7 encryption, indicated by this 7 here.
+
+The enable secret uses type 5 encryption, which is MD5 encryption.
+
+![Imgur](https://i.imgur.com/mZ7devz.png)
+
+Step 10 is to save the running configuration to the startup configuration.
+
+There are threes way to do this
+
+One is write ... another is write memory ... and the third is copy running-config startup-config.
+
+![Imgur](https://i.imgur.com/r6ZOsFA.png)
+
+There's the config, and you can see the passwords we configured here.
+
+If I scroll through you can see lots of other default settings for the device here.
+
+Step 10 is now complete.
+
+--------------------------------------------------------------------------
+
+### Ethernet LAN Switching (Part 1)
+
+This is the fifth lesson, and now we're going to get more into the details of how data travels through a network.
+
+This time we'll focus on Ethernet LAN switching, So if we look simple network consisting of a few PCs, a switch, and a router, connected to the Internet, today we'll be looking at how data moves around between the switches and the end hosts connected to them, and to their router.
+
+![Imgur](https://i.imgur.com/ueX3iWL.png)
+
+How data is sent from the router to other networks will be a topic for another video, but let's start small.
+
+First let's review
+
+This is slide from Day 3's video of describing the physical layer of OSI model, The physical layer defines physical characteristics of the medium used to transfer data between devices.
+
+For example voltage levels, maximum transmission distances (like Ethernet UTP cables' 100 meter limit), physical connectors, cable specifications, etc.
+
+Digitals bits are converted into electrical (for wired connections) or radio(for wireless connections) signals.
+
+All of the information in Day 2's video (cables,pin layouts) is related to the Physical Layer.
+
+So, we've covered a good amount about the physical layer, learning about cropper UTP cables, fiber-optic cables, RJ45 connectes, etc.
+
+![Imgur](https://i.imgur.com/HbIfzCm.png)
+
+Let's go review this silde about Layer 2, the Data Link layer, from Day 3's video.
+
+Layer 2 provides node-to-node connectivity and data transfer, for example PC to switch, or switch to router, or router to router, etc,...It defines how data is formatted for transmission over a physical medium (for example, copper UTP cables) 
+
+It detects and possibly corrects Physical Layer errors.
+
+It uses layer 2 addressing, which is separate from Layer 3 addressing.
+
+Remember IP, IP address are Layer 3 addresses, not Layer 2
+
+Switches operate at Layer 2.
+
+So, in this video we'll be talking about Ethernet LAN switching, and Ethernet involves Layer 1 and Layer 2 of the OSI model.
+
+Since we've already covered the Layer 1 Ethernet standards like UTP cables, this video will be about Layer. Then, as we continue with this series, we'll move up the layers of the OSI model, until you get a complete image of how data is sent and received over networks.
+
+![Imgur](https://i.imgur.com/tXkMSp9.png)
+
+Now, let's talk about what a LAN, or Local Area Network is.
+
+![Imgur](https://i.imgur.com/bAxZhX5.png)
+
+There are different ways of defining a LAN, and your understanding of a LAN will become more complete as you learn more and more about networking.
+
+But basically, it's a network contained within a relatively small area, like an office floor, or your home network.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
 
 
