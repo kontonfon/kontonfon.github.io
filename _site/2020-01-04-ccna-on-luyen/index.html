@@ -2070,6 +2070,144 @@ MathJax.Hub.Queue(function() {
 
 <p>But basically, it’s a network contained within a relatively small area, like an office floor, or your home network.</p>
 
+<p>Routers are used to connect separate LANs.</p>
+
+<p>Looking at this diagram, how many LANs do you think there are ?</p>
+
+<p>Well, by the definition I’m using, this green network, consisting of three PCs, one switch, and the router interface they are connect to, is one LAN. This red network is also one LAN. Although there are two switches, it is all one LAN.</p>
+
+<p>Swithces do not separate LANs, but adding more switches can be used to expand an exsiting LAN.</p>
+
+<p>So these red devices are part of one large LAN.</p>
+
+<p>Now, what do you think about the blue devices ?</p>
+
+<p>There’s the same devices as in the red network, but instead of the switches being connected to each other, they are connected to different router interfaces.</p>
+
+<p>So, that means they are two separate LANs. One for this switch, it’s end hosts and their router interface, and one for this switch, it’s end hosts, and the router interface they connect to.</p>
+
+<p>So, in this lesson we’ll look at at how traffic is sent and received within LANs like these, for example this PC in LAN 2 to another PC in LAN. But, we’ll leave the topic of sending data between LANs for a later video.</p>
+
+<p>Here’s one more bit of review.</p>
+
+<p>This shows the encapsulation process as data is prepared to be sent over a network.</p>
+
+<p>At the top, the data prepared by the upper layers of the OSI model is simply called data.</p>
+
+<p>A layer 4 header is added, and this combination of data and layer 4 header is called a segment.</p>
+
+<p>A layer 3 header is added to the segment, and it is now called a packet.</p>
+
+<p>Finally, a Layer 2 header and trailer are added to the packet, and it becomes a frame</p>
+
+<p>Once again, these different stages of preparing data to be forwarded are called ‘protocol data units’ or PDUs. For example, the Layer 2 PDU is a frame.</p>
+
+<p><img src="https://i.imgur.com/cs2NHQk.png" alt="Imgur" /></p>
+
+<p>Today we’re going to focus on how switches receive and forward frames, specifically Ethernet frames. Since it’s the layer 2 protocol used in virtually every LAN in existence today.</p>
+
+<p>Let’s take a look at the actual contents of this Ethernet header and trailer.</p>
+
+<p>So, here’s an Enthernet frame, encapsulating the packet with a header and trailer.</p>
+
+<p>Note that I put the header on the left and the trailer on the right, opposite of previous slide</p>
+
+<p>Let’s look at the header.</p>
+
+<p>Don’t worry, I’ll cover these in more detail, but here’s a quick rundown</p>
+
+<p>There are five fields in the header. First, the preamble and SFD, which means start frame delimeter, these are used for synchronization and to allow the receiving device to be prepared to receive the rest of the data in the frame.</p>
+
+<p>Next is the destination,the Layer 2 address to which the frame is being sent , next is the source, the Layer 2 address of the device which sent the frame. The final field in the Ethernet header is the type.</p>
+
+<p>It indicates the Layer 3 protocol used in the encapsulated Packet, which is almost always Internet Protocol, or IP, or IP version 6.</p>
+
+<p>However, sometimes this is a length field, indicating the length of of the encapsualted data, depending on the version of Ethernet.</p>
+
+<p>Now, the Ethernet trailer has only one field . That’s is FCS, which stands for frame check sequence. It’s used by the receiving device to detect any errors that might occurred in transmission.</p>
+
+<p>Okay, now let’s take a look at these fields in more detail, starting with the preamble and start frame delimeter</p>
+
+<p><img src="https://i.imgur.com/59eqivQ.png" alt="Imgur" /></p>
+
+<p>Here are the first two fields, the Preamble and SFD, which I like to think of as a set. Let’s look at the preamble first. It’s 7 bytes long. How many bits is that ?</p>
+
+<p>If you remember, there are 8 bits in 1 bute, so , 7 times 8 is equal to 56 bits</p>
+
+<p>It’s a series of alternating 1s and 0s. Like this 10101010 * 7 , which is one bytem seven times</p>
+
+<p>The purpose of this is that it allows devices to synchronize their receiver clocks, to make sure they’re ready to receive the rest of the frame and the data inside.</p>
+
+<p>Okay, that’s the preamble, now the SFD.</p>
+
+<p>SFD stands for ‘start frame delimeter’ It’s length 1 byte, or 8 bits.</p>
+
+<p>It’s bit pattern is 10101011, similar to each byte of the preamble but the last bit is a 1, not a 0.</p>
+
+<p>It indicates the end of preamble and the begining of the rest of the frame.</p>
+
+<p><img src="https://i.imgur.com/G9kg41R.png" alt="Imgur" /></p>
+
+<p>Now let’s look at the next two fields, the destination and source fields.</p>
+
+<p>They indicate the devices sending and receiving the frame, like when you send an email both the destination and source email address are included in the email, or when you send a letter in the mail, although that’s getting less and less common these days.</p>
+
+<p>The addresses used in Ethernet are the destination and source ‘MAC addresses’</p>
+
+<p>MAC stands for media access control.</p>
+
+<p>The MAC address is a 6-byte, or 48 bit, address of the physical device.</p>
+
+<p>This is separate from a logical address like an IP address, the MAC address is actually assigned to the device when it is made.</p>
+
+<p><img src="https://i.imgur.com/4BwJe63.png" alt="Imgur" /></p>
+
+<p>I’ll talk more about MAC addresses in a few slides, but let’s move on to the remaining fields of the Ethernet frame.</p>
+
+<p>The last field of the Ethernet header is the Type or Length field.</p>
+
+<p>It is 2-bytes, or 16-bits, in length.</p>
+
+<p>It can be used to represent either the type of the encapsulated packet, or the length of the encapsulated packet.</p>
+
+<p>What do I mean by that ?</p>
+
+<p>Well, if the value in the field is 1500 or less, that means it is indicating of the LENGTH of the encapsulated packet in bytes.</p>
+
+<p>For example, if the value in this field is 1400, it means that the encapsualted packet is 1400 bytes in length. However, a value of 1536 or greater in this field indicates the TYPE of the encapsulated packet, which is usually internet protocol version 4 or version 6, and then the length is determined via other methods.</p>
+
+<p>For example, a value of 0x0800, which is written in hexadecimal, and is equal to 2048 in decimal</p>
+
+<p><img src="https://i.imgur.com/p1WXy85.png" alt="Imgur" /></p>
+
+<p>The 0x in front of 0800 is used to indicate hexadecimal, by the way. I’ll talk more about hexadecimal in a few slides when I talk in detail about MAC addresses.</p>
+
+<p>2048 is greater than 1536, of course, and its used to identify that the encapsulated packet is an IPv4 packet.</p>
+
+<p>0x86DD, which is equal to 34525 in decimal, is used to indicate that the encapsulated packet is an IPv6</p>
+
+<p><img src="https://i.imgur.com/4Y8gT8q.png" alt="Imgur" /></p>
+
+<p>Okay, so those are all of the fields in an Ethernet header.</p>
+
+<p>Try to remember the lengths of each field</p>
+
+<p>Now let’s take a brief look at the only field of the Ethernet trailer, the FCD, or frame check sequence</p>
+
+<p><img src="https://i.imgur.com/7W01GdC.png" alt="Imgur" /></p>
+
+<p>The only field of the Ethernet trailer is the FCS, which as I mentioned stands for frame check sequece.</p>
+
+<p>‘Frame Check Sequence’.</p>
+
+<p>It is 4 bytes ,or 32-bits in length.</p>
+
+<p>It’s purpose is to detect corrupted data by running a ‘CRC’ algorithm over the received data</p>
+
+<p>CRC means cyclic redundancy check.</p>
+
+<p>Cyclic refers to something called ‘cyclic codes’, ‘redundancy’ refers to the fact that these 4 bytes at the end of the message enlarge the message without adding any new information, so they are redundant and check refers to the fact that is CHECKS, or verifies, the data for errors.</p>
+
 
       </article>
 
