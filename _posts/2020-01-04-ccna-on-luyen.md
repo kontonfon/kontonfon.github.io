@@ -1977,6 +1977,270 @@ CRC means cyclic redundancy check.
 
 Cyclic refers to something called 'cyclic codes', 'redundancy' refers to the fact that these 4 bytes at the end of the message enlarge the message without adding any new information, so they are redundant and check refers to the fact that is CHECKS, or verifies, the data for errors. 
 
+Don't worry about the details of CRC too much, just be aware of the term, and remember that the Ethernet frame's Frame Check Sequence is a Cyclic Redundancy Check.
+
+If you remember that, you should be good for the CCNA.
+
+Feel free to read around on Wikipedia if you're curious to learn more about Cyclic Redundancy Checks.
+
+Okay, now we know all of the fields of an Ethernet frame, both the header and the trailer.
+
+Try to recall the length of each field again.
+
+![Imgur](https://i.imgur.com/sXydspI.png)
+
+This brings the total size, including header and trailer, to 26 bytes.
+
+=26 bytes (header + trailer)
+
+So, there's an overview of each field of an Ethernet frame.
+
+However, the fields I really want to focus on in this video are the source and destination MAC address fields.
+
+I mentioned a little bit about MAC addresses, but let's dig a little deeper
+
+So let's spend a few slides looking into MAC addresses.
+
+As I mentioned before, a MAC address is a 6-byte, or 48-bit,physical address assigned to the device when it is made.
+
+This is different than an IP address, which you assign in the CLI when you config the device.
+
+You might also hear the term 'burned in address', or BIA, to refer to a MAC address.
+
+This is because the address in 'burned-in' to the device as it is made.
+
+The MAC address is globally unique, no two devices in the world should have the same MAC address.
+
+Although, there are MAC addresses known as 'locally-unique' MAC address, which don't have to be globally throughtout the world, however in almost all cases MAC addresses are globally unique.
+
+The first 3 bytes of the MAC address are the OUI, which stands for organizationally unique identifier, and it's assigned to the company making the device.
+
+So cisco, for example, will have various OUIs which only Cisco can use, and other makers will have their own OUIs which only they can use.
+
+The last 3 bytes, the second half of the address , are unique to the device itself. MAC addresses are written as a series of 12 hexadecimal characters.
+
+For those of you who aren't sure what hexadecimal is, let's check it out a little bit.
+
+Before explaining hexadecimal, I want to make sure we all understand how the decimal system works.
+
+I don't mean to insult anyone's intelligence, I'm sure you all know how to count, but let's just review the system so we can compare it to hexadecimal.
+
+![Imgur](https://i.imgur.com/7GAh5Qv.png)
+
+So, that's how the decimal system works.
+
+Let's look at hexadecimal.
+
+![Imgur](https://i.imgur.com/xVaWN51.png)
+
+We already saw the hexadecimal numbers up to F, which is equal to decimal 15.
+
+Notice how the numbers are written after F.
+
+Let's move on
+
+So here's a simple network, just three PCs connected to a switch.
+
+![Imgur](https://i.imgur.com/zItrqnR.png)
+
+Notice the interface names for the swith, F0/1,F0/2 and F0/3. F means fastethernet ,so these are 100 megabit per second interfaces. I've also written the MAC address for each PC. you're probably not going to see any MAC addresses like these, I've just simplified them for this demonstration.
+
+Notice each MAC address is a series of 12 hexadecimal digits, separated by periods.
+
+You may also see periods after every other digit, so for example PC1's MAC address would be AAAA.AA00.0001. But I tend to write them after every fourth character The OUI, or organizationally unique identifier, which is the first half of the MAC address, is AAAAAA for each device, so we know that these PCs are all from the same maker.
+
+The second half of the MAC address of each device, however, is different for each PC, as the second half identifiers the device itself. Now, let's say PC1 wants to send some data to PC2. Due to lack of space I've just written an abbreviated form of the destination and source MAC addresses here.
+
+By the way, this kind of frame is called a 'unicast frame', a frame destined for a single target, PC2 in this case. There are other kinds of frames, like broadcast frames, which we'll learn as we go along.
+
+![Imgur](https://i.imgur.com/4w4ZokJ.png)
+
+But for now, remember this term, unicast 
+
+PC1 sends the frame through it's network interface card, which is connected to SW1, and SW1 receives the frame. After SW1 receives the frame, it looks at the source MAC address field of the frame and then uses that information to LEARN where PC1 is. As you can see here, it adds the MAC address AAAA.AA00.0001 to it's MAC Address table and it associates that MAC address with its F0/1 interface.
+
+![Imgur](https://i.imgur.com/hVeGHcf.png)
+
+This is known as a 'dynamically learned' MAC address, or just 'dynamic MAC address', because it wasn't manually configured on the switch, the switch learned it self. 
+
+Every switch will keep a MAC address table like this, and they fill the MAC address table dynamically by looking at the source MAC address of frames it receives.
+
+Since SW1 received a fram from source source MAC Address AAAA.AA00.0001 on it's F0/1 interfaces.
+
+It knowns that I can reach that MAC addresses on that interfaces, and adds it to the MAc address table.
+
+This is a very important concept, so I'll probably repeat it multiples times.
+
+This is how switches dynamically learn where each device on the network is, by looking at the source MAC address of the frame. Now, there is one problem
+
+The destination of the frame is AAAA.AA0000.0002, but SW1 doesn't know where that is.
+
+This, by the way is called an 'unknown unicast' frame, a frame for which the switch doesn't have any entry in its MAC address table.
+
+Because the switch doesn't know how to reach the destination, it has only one option.
+
+That is to FLOOD the frame.
+
+![Imgur](https://i.imgur.com/apJPkVd.png)
+
+Flood means to forward the frame out of ALL of its interfaces, except the one it received the packet on.
+
+So, that would like this.
+
+![Imgur](https://i.imgur.com/xy1Ulcc.png)
+
+SW1 copies the frame and sends it out its F0/2 and F0/3 interfaces.
+
+It doesn't send it out of its F0/1 interfaces, because that's the interface it received the frame on
+
+So, what happens next ?
+
+Well, PC3 ignores the packet, because the destination MAC address doesn't match its own MAC address, it simply drops the packet.
+
+PC2, however, receives the packet and then processes it normally , up the OSI stack.
+
+![Imgur](https://i.imgur.com/ddVY92T.png)
+
+However, unless PC2 send a reply of some sort, it stops there.
+
+SW1 never receives a packer from PC2, so it can't learn PC2's MAC address and use it to populate the MAC address table.
+
+So, let's say PC1 sends another frame to PC2. Once again, it is received by SW1 and it already knows PC1's MAC address, so it doesn't have to add it to the MAC address table again.
+
+However, it still doesn't know where PC2 is, so it once again floods the frame.
+
+PC3 drops the frame, and PC2 receives it and processes it normally.
+
+Now, let's say PC2 then wants to send some data to PC1, maybe a reply to what PC1 sent to PC2.
+
+Notice the destination and source addresses of the frame are reversed
+
+PC2 sends the frame out of its network interface, and SW1 receives it 
+
+SW1 looks at the source MAC address of the frame, and the add its to its MAC address table, associating it with the F0/2 interface.
+
+This time, however, it doesn't flood the frame. This is knowns as a known unicast frame, because the destination is already in its MAC address table. Whereas UNKNOWN unicast frames are flooded, known unicast frames are simply forwarded to the destination, like this.
+
+![Imgur](https://i.imgur.com/Y4pkmuL.png)
+
+and PC1 then processes the frame up the OSI stack, through the de-encapsulation process which we learned about in day 3's video.
+
+One more point about these dynamic MAC address.
+
+On Cisco switches, these MAC addresses are removed from the MAC address table after 5 minutes of inactivity.
+
+So, if PC1 didn't send any traffic for over 5 minutes, SW1 would remove the MAC address to clean out the MAC address table. 
+
+Of course, if PC1 sent traffic again, SW1 would dynamically learn its MAC address again.
+
+Let's look at another example, this time with two switches.
+
+Notice the MAC address table of each switch.
+
+![Imgur](https://i.imgur.com/GaEPNbf.png)
+
+Currently they are empty, so once again we will see the process of MAC address learning and flooding .
+
+So, PC1 wants to send some information to PC3.
+
+The source MAC address of the packet is AAAA.AA00.0001 and the destination is AAAA.AA00.0003.
+
+So, PC1 sends the frame out of its network interface and it arrives at SW1.
+
+SW1 learns PC1's MAC address from the source address field of the frame, and associates it with the interface on which it was received, F0/1. I'll say once more, I'm only writing a short version of the MAC address due to the lack of space here, really the frame and the MAC address table would include the whole MAC address, of course.
+
+Once again, a MAC address learned in this way is called a 'dynamically learned MAC address, or more often' , a'dynamic' MAC address. Now, SW1 has learned that PC1 can be reached via it's F0/1 interface, but it still doesn't know where PC3 is. Do you remember the name for this kind of frame ? It's called an 'unknown unicast frame'. And what does a switch do with an unknown unicast frame ? It floods it out all of its ports, except the one is was received on. In this case, it will flood the frame out of F0/2 and F0/3 , but not F0/1, because it received the frame on F0/1.
+
+PC2 drops the frame because the destination MAC address doesn't match its own MAC address. Now, what will SW2 do ?
+
+Well, the exact same rules apply.
+
+Just like SW1 did, it uses the source MAC address field of the frame to dynamically learn PC's MAC address and the interface it can use to reach PC1.
+
+Note that, unlike on SW1, PC1 isn't actually directly connected to the interface SW2 enters in its own MAC address table. However, this is the interface which SW2 will use to reach PC1. That's the meaning of the interface in the MAC address table, it doesn't mean the device is directly connected to this interface.
+
+Now, SW2 received a unicast frame, that is a frame destined for a single device, but it doesn't know how to reach that device because its not in its MAC address table.
+
+It doesn't know how to reach that device, because its not in its MAC address table.
+
+One last time, what is this kind of frame called ?
+
+It's an unknown unicast frame .
+
+And what does the switch do with it ?
+
+It floods it out all interfaces, except the one it was received on.
+
+So, which interfaces will it send the frame out of ?
+
+Well, it received the frame on F0/3, so it won't be flooded out of that interface, but it will be sent out of all other interfaces, F0/1 and F0/2 in this case. 
+
+PC4 drops the frame because the destination MAC address doesn't match its own.
+
+PC3, however, receives the frame, as the destination MAC address matches its own MAC address.
+
+Let's say that PC3 is going to send a reply back to PC1.
+
+Notice the destination and source MAC address fields of the frame are reserved.
+
+PC3 sends the frame out of its network interface, and it is received by SW2.
+
+SW2 learn PC3's MAC address, and enters the MAC address and the corresponding interface in its MAC address table.
+
+![Imgur](https://i.imgur.com/O5Iz1ix.png)
+
+Just so we're clear, the switch uses the SOURCE MAC ADDRESS field to fill its MAC address table because, if it receives a frame from that source on the interface, it knows that it can reach that MAC address via that interface.
+
+So, let's continue.
+
+SW2 already has an entry for the destination MAC address, AAAA.AAAA00.0001, in its MAC address table, so there is no need to flood the frame.
+
+Instead, it is forwarded normally out of the corresponding interface in the MAC address table, which is F0/3.
+
+The frame is received by SW1, which adds an entry for PC3's MAC address in its MAC address table, with the interface F0/3, since that's where it received the frame. 
+
+Fianlly, since SW1 already has an entry for the destination MAC address in its own MAC address table, SW1 forwards the frame out of the corresponding interface, and it reaches its destination, PC1.
+
+Okay, so that was a lot of information.
+
+QUIZ.
+
+I was actually planning to cover the Ethernet LAN switching topics in a single video, but I've decided to split it up into two videos.
+
+So, let's move on to the quiz for today's video, here's question 1.
+
+![Imgur](https://i.imgur.com/W1EiA2Y.png)
+
+![Imgur](https://i.imgur.com/arGfVBX.png)
+
+![Imgur](https://i.imgur.com/ijwYHE1.png)
+
+![Imgur](https://i.imgur.com/iC4ZQAj.png)
+
+![Imgur](https://i.imgur.com/brjjTGj.png)
+
+![Imgur](https://i.imgur.com/DfGOoIT.png)
+
+![Imgur](https://i.imgur.com/ZcX2UTP.png)
+
+![Imgur](https://i.imgur.com/ehjg8En.png)
+
+![Imgur](https://i.imgur.com/gg8vt2Y.png)
+
+![Imgur](https://i.imgur.com/XoySFru.png)
+
+![Imgur](https://i.imgur.com/dLDiej1.png)
+
+![Imgur](https://i.imgur.com/LrMlzQp.png)
+
+![Imgur](https://i.imgur.com/7v7mdQy.png)
+
+![Imgur](https://i.imgur.com/cRnGsvC.png)
+
+![Imgur](https://i.imgur.com/6tw71Pg.png)
+
+![Imgur](https://i.imgur.com/KBNQUIV.png)
+
 
 
 
