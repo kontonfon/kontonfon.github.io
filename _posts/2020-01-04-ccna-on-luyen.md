@@ -2241,6 +2241,194 @@ So, let's move on to the quiz for today's video, here's question 1.
 
 ![Imgur](https://i.imgur.com/KBNQUIV.png)
 
+-----------------------------------------------------------------------
+
+### Day 6 - Ethernet LAN Switching  (Part 2)
+
+Once again, we're talking about sending traffic a LAN, like between these three PCs in this small network here.
+
+The topic of how these PCs could send traffic out beyond the router to other network is for a future lesson, let's start locally first, with LAN switching.
+
+Before I get started, I want to speak a little bit more on Ethernet frames which we talked about in the last video.
+
+The preamble + SFD is usually not considered part of the Ethernet header, although it is sent with every Ethernet frame.
+
+So, the Ethernet header consists of these three field, destination, source and type.
+
+![Imgur](https://i.imgur.com/kFxn6gN.png)
+
+Therefore, the size of the Ethernet header + trailer is 18 bytes, if you don't include the preamble + SFD. Now, there is also a minimum size for an Ethernet frame. The minimum size is 64 bytes, including the encapsulated payload, the packet. 64 bytes minus the 18 bytes of the header equal 46 bytes. Therefore, the minimum payload size is 46 bytes. If the payload is less than 46 bytes, padding bytes are added, and these bytes are all 0s by the way.
+
+For example, if you send a 34-byte packet, 12 bytes of padding will be added.
+
+Remember that the Preamble and SFD might not be included as part of Ethernet header, depending on how you define it, but they are included with every Ethernet frame.
+
+Also, remember the minimum size of the frame, 64 bytes, and that doesn't include the preamble and SFD, by the way.
+
+That means that the minimum payload is 46 bytes, and padding will be addes if the payload is less than that.
+
+Now let's get started with the main topics for today's video.
+
+![Imgur](https://i.imgur.com/gXPrYM3.png)
+
+So, here's the same small network we saw in the previous video. There are a couple change,however 
+
+First, I changed the interfaces from FastEthernet to Gigabit ethernet , hence the G0/0,G0/1, and G0/2 for each switch.
+
+Secondly, look at the MAC addresses in the precious video I used AAAA.AA00.0001, for PC1, or .0002 for PC2,etc.
+
+This time, let's use some more realistic MAC addresses. 
+
+Notice once again that the OUI, the first half of the MAC address that identifies the maker of the device, is the same for each PC, 0C2F.B, so that means that the PCs were all made by the same company.
+
+Of course, the second half of each device's MAC address is unique, since that represents the device itself. 
+
+When I refer to these MAC addresses I'll just use the last 4 diits, to keep things simple.
+
+For example, I'll just say PC1's MAC address is 9D00, or PC2's MAC address is 6200. Now, let's add one more thing to this network topology.
+
+Let's add some IP addresses.
+
+We won't actually talk about the details of IP addresses in this video, but we'll nees IP addresses to explain something else in this video.
+
+So, this number here, 192.168.1.0/24, represents this whole network here
+
+Then .1 represents PC1's IP address.
+
+This is just short version, PC1's real IP address is 192.168.1.1
+
+PC2's IP address is 192.168.1.2, PC3's IP address is 192.168.1.3, and PC4's IP address is 192.168.1.4
+
+Now, in the last video I only really showed you part of the picture of how these PCs can communicate with this network.
+
+When a device sends some data to another device, it doesn't just include a source and destination MAC address. Encapsulated within that frame is an Internet Protocol, known as IP , packet and that IP packet include a source and destination IP address. For example, if PC1 wants to send data to PC3, the source IP will be 192.168.1.1 and the destination IP will be 192.168.1.3. The source MAC will be 0C2F.B011.9D00, however PC1 doesn't actually know PC3's MAC address. When you send data to another computer, you enter the IP address, not the MAC address. So, the user entered the IP address 192.168.1.3 as the destination, but PC1 has to discover PC3's MAC address by itself. Remember, these switches are Layer 2 devices, they don't operate at Layer 3, so they need to use MAC addresses, not IP addresses. So, PC1 wants to send this Ethernet frame to PC3, but first it has to learn PC3's MAC address. To do so, it uses something called ARP, the address resolution protocol. 
+
+![Imgur](https://i.imgur.com/xtP3c54.png)
+
+Let's take a look at ARP
+
+ARP stands for Address Resolution Protocol.
+
+It is used to discover the Layer 2 address, meaning the MAC address, of a known layer 3 address, meaning the IP address.
+
+For example, in our example here PC1 known PC3's Layer 3 address, 192.168.1.3, but it doesn't know the Layer 2 address, its MAC address, yet. 
+
+The ARP process consists of two messages:
+
+The ARP request, sent by the device that wants to know the MAC address of the other device.
+
+And the ARP reply, which is sent to inform the requesting device of the MAC address.
+
+In our example, PC1 would send the ARP request, and PC3 would send the ARP reply.
+
+The ARP request is sent as a broadcast ethernet frame. Broadcast means it is sent to all hosts on the network. Because the Layer 2 address of the destination host is unknown, it broadcasts the request and waits for a reply from the correct device.
+
+The ARP reply is unicast. We learned about unicast frames in the last video.
+
+A unicast frame is sent to only one host, in this case its the host that sent the ARP request. Let's take a look at how this works on our network.
+
+![Imgur](https://i.imgur.com/TtIfriO.png)
+
+Here at the bottom is the original frame that PC1 wants to send to PC3. But first, it has to send this frame. This is an ARP request frame. The source and destination IP addresses, as well as the source MAC address, are the same. However, look at the destination MAC address FFFF.FFFF.FFFF is the broadcast MAC Address. This is the destination MAC address used when a device wants to send ethernet frames to all other devices on the local network. So, PC1 has prepared the ARP request to be sent. it sends the frame out of its network interface, and it is received by SW1. SW1 then adds PC1's MAC address to its MAC address table.
+
+When a MAC address is learned in this way, what is it called ? It's called dynamic MAC address, which we learned in the last video. So, since the destination MAC address is all Fs, SW1 broadcasts the frame out of all its interfaces, except the one it was received on.
+
+This is very much like what a switch does with an unknown unicast frame, which we also learned about last video.
+
+It sends the frame out of G0/1 and G0/2, but not G0/0 because it received the frame on that interfaces.
+
+PV2 received it, but it ignores the frame.
+
+That's because the destination IP address doesn't match PC2's IP address, so it knows that the ARP request is meant for a different PC, so it just ignores the request.
+
+Of course, then SW2 learns PC1's MAC address and adds it to the MAC address table, associating it with the G0/2 since that's the frame was received on.
+
+Since the destination MAC address is the broadcast MAC address, SW2 also sends the frame out of all interfacem except the one the frame was received on. So, that means it sends the frame out of G0/0 and G0/1. PC4 ignores the frame, because the destination IP address doesn't match its own.
+
+However, PC3 recognize that the destination IP address does match its own IP address, What it does is send the other ARP message I mentioned briefly, the ARP reply. 
+
+![Imgur](https://i.imgur.com/admmqXJ.png)
+
+![Imgur](https://i.imgur.com/ALBxMlx.png)
+
+Here you can see the ARP reply packet.
+
+The source IP is PC3's IP, and the destination is PC1's Ip.
+
+The source MAC is PC3's MAC address, and the destination is PC1's
+
+Although the ARP request message was a broadcast message, because PC1's MAC address was used as the source MAC address of the ARP request messeage, PC3 now knows PC1's MAC address so it can send the ARP reply directly to PC1, without having to broadcast the frame.
+
+PC3 sends the frame out of its network interface, and it is received by SW2.
+
+SW2 learns PC3's MAC address and enters it into the MAC address table, associting it with the G0/0 interfaces. Since this is a unicast frame, and SW2 already has an entry for the destination MAC address in its MAC address table, what kind of frame is this, and what does SW2 do with it ?
+
+It's a known unicast frame, and SW2 will simply forward it out of the interface in the MAC table, it will not flood it like an unknown unicast frame or a broadcast frame.
+
+Because SW2 learned PC1's MAC address on the G0/2 interface, it will send the frame out of that interface toward SW1. 
+
+SW1 receives the frame, and since it has already learned PC1's MAC address on the G0/0 interface, it simply forwards the frame out of the interface, and PC1 finally receives the ARP reply.
+
+![Imgur](https://i.imgur.com/RNzFBz3.png)
+
+PC1 will then use that information to add an entry for PC3 to its ARP table, which is used to store these IP address to MAC address associations.
+
+Let's take a look at an ARP table.
+
+This is a screenshot of part of the ARP table from my PC
+
+![Imgur](https://i.imgur.com/eDWczlQ.png)
+
+I use Windows on my PC, but you can the arp -a command to view the ARP table, whether you run Windows, macOS, or Linux on your computer. 
+
+The Internet address column displays IP addresses. The physical address column displays the MAC addresses that correspond to the IP addresses. If the type column displays static, it means that it is a default entry, it wasn't actually learned by sending an ARP request.
+
+However, if the type column displays dynamic, that means that the entry was learned by sending an ARP request and receiving an ARP reply. You can see one entry like that here, with an IP address of 192.168.0.1 and its MAC address next to it.
+
+That's the address of my home router, by the way. Now let's take a deeper look at the MAC address table that is kept on these switches, and some additional information. I recreated the same topology in the network emulator software GNS3. GNS3 is similar to packet tracer in that it allows you to create network and practice configurations on Cisco devices, but its also diffrent in some key ways. 
+
+Packet tracer is a network simulator, it's a piece of software designed to simulate the operation of a real network. 
+
+GNS3, however, runs actual Cisco IOS software, so these are real Cisco switches running virually.
+
+However, GNS3 requires you to purchases your own copies of Cisco IOS, although GNS3 itself is free, using Cisco IOS with GNS3 is not. That's why I choose to use packet tracer for the lab videos in this series, its totally free, and it lets you practice just about everything you need for the CCNA.
+
+I also want to show you GNS3 sometimes in these videos, however, since you'll probably want to use it later as you progress in your networking studies.
+
+Don' worry about using GNS3 for now though, unless you really want to try it out.
+
+You can get it at gns3.com
+
+So, here's our topology, and notice this magnifying glass here.
+
+This is a cool feature of GNS3, it integrates with another piece of software called wireshark, and we'll use it to analyze exactly what traffic passes between PC1 and SW1.
+
+I'm going to send a ping from PC1 to PC3.
+
+![Imgur](https://i.imgur.com/S4AAmSs.png)
+
+The process is the same, but let me just run down one more time what happens.
+
+Just like our example before, PC1 doesn't know the destination MAC address, so has to send an ARP request. The ARP request is sent to all other hosts on the network. 
+
+PC3 responds to the ARP request, since it's IP address matches the destination IP address in the ARP request.
+
+PC1 then learn the MAC request Address of PC3, adds it to its ARP table, and uses that information to add the destination MAC address to the ping it wants to send 
+
+Now, before I move on, you may have heard of ping before, but let me explain how it works.
+
+Ping is somethings you're going to be using a lot. It's a network utility that is used to test reachability, for example, to test if two computers can reach each other. It measures the round-trip time, for example the time from PC1 to PC3, then back to PC1. Muck like ARP, ping uses two messages: ICMP Echo request, and ICMP echo reply. Again, this is similar to an ARP request and ARP reply. However, the PC won't broadcast the ICMP echo request, it is sent to a specific host.
+
+So, it has to know MAC address of the destination host, which is why ARP must be used first.
+
+The command to use ping us ping , followed by the IP address you want to ping to, for example, 192.168.1.3 for PC3 in our network.
+
+Let's take a look at the ping process.
+
+So, I'm on PC1 here [16:38]
+
+
+
 
 
 
