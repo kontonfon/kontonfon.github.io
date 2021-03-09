@@ -2425,8 +2425,299 @@ The command to use ping us ping , followed by the IP address you want to ping to
 
 Let's take a look at the ping process.
 
-So, I'm on PC1 here [16:38]
+So, I'm on PC1 here 
 
+![Imgur](https://i.imgur.com/vpB1vol.png)
+
+Note that this is actually the Cisco IOS CLI.
+
+I'm using Cisco routers to simulate PCs, since it easier than setting up virtual PCs to ping in GNS3
+
+I use the command ping 192.168.1.3, so send an ICMP echo request to PC3
+
+Tale a look at this message here. Sending 5, 100-byte ICMP echos to 192.168.1.3
+
+By default, a ping in Cisco IOS sends 5 icmp echo requests, and then you should get 5 icmp echo replies back, and the default size of each ping is 100 bytes.
+
+The period indicates a failed ping, and the exclamation points indicate a successful ping. As it says here, success rate is 80 percent, 4 out of 5.
+
+It also shows the round trip time, giving the minimum, average and maximum time of the 4 succesful pings. Now, why did that first ping fail ?
+
+Well, that's because of ARP.
+
+PC1 didn't know the destination MAC address, so it had to use ARP, and in that time the first ping failed.
+
+After PC1 learned PC3's MAC address, however, the pings succeeded.
+
+Let's take a quick look at the table here.
+
+The command for windows, macos, and linux was arp -a.
+
+However, in Cisco IOS its show arp, from privileged exec mode. Here's the ARP table.
+
+![Imgur](https://i.imgur.com/eRGYAOO.png)
+
+Notice there is an entry for 192.168.1.1, which is PC1 itself, and then below it 192.168.1.3, which is PC3.
+
+This is a screenshot from Wireshark, which I mentioned earlier.
+
+![Imgur](https://i.imgur.com/xvnnDpA.png)
+
+Wiresharks allows you to perform what are called 'packet captures', to analyze the contents of network traffic.
+
+Notice the Protocol column.
+
+ARP, followed by ICMP, which is ping.
+
+Here's the first ARP packet
+
+The source MAC is 0c:2f:b0:11:9d:00, which is PC'1 MAC
+
+The destination is broadcast, which is all Fs.
+
+Look at the info on the end. Who has 192.168.1.3? Tell 192.168.1.1.
+
+This describe what purpose of ARP is.
+
+The ARP request is asking which MAC address has an IP address of 192.168.1.3, and to send the reply to itself, 192.168.1.1
+
+Next is the ARP reply. The sourse address is 0c:2f:b0:6a:39:00 , PC3's MAC, and the destination is PC1's MAC. Look at the info section again here, 192.168.1.3 is 0c:2f:b0:6a:39:00, it's telling PC1 its MAC address. After that there are 4 ICMP echo requests, and 4 ICMP echo replies. Note that the ICMP echo requests have a source IP of PC1 and destination of PC3, and the ICMP echo replies have a source of PC3 and destination of PC1
+
+I'll use wireshark at various point throughout this course, but I think you can see how useful it can be in analyzing networks.
+
+Okay, hopefully you understand this process a little better now.
+
+Basically, if device A wants to send traffic to device B. Which is on the same network, device A first has to use ARP to learn device B's MAC address, and then it can send traffic to device B. Now, let's finally 
+
+Here it is This is the command to view it, show mac SPACE address HYPHEN table.
+
+![Imgur](https://i.imgur.com/OoEL2sQ.png)
+
+Old versions of Cisco IOS use show mac hyphen address hyphen table, but newer versions got rid of the first hyphen, and now its this, show mac space address hyphen table.
+
+Now let's look at each section of the MAC address table, before I only showed the MAC address and interface. VLAN means Virtual local area network. We'll learn about those later, but as is displayed here the default is 1.
+
+Next is the MAC address column, you can see PC1 up top and PC3 on the bottom, Next is the type. Remember what I said about dynamic mac address ? Well it displayed in the MAC address table as well.
+
+Both of these MAC addresses we learned dynamically, I did not manually configure them on the switch.
+
+Finally, ports, which is another word for interface.
+
+So, you can see that this matches the small MAC address table I put here in this diagram.
+
+![Imgur](https://i.imgur.com/rPHqKsM.png)
+
+Here's the entry for PC1, and here's the entry to PC2
+
+Now, I mentioned in the previous video that these dynamic MAC addresses are removed from the MAC address table after 5 minutes. If the switch doesn't get any traffic from the MAC address for 5 minutes, it will remove the entry from the MAC address table.
+
+However, you can also manually remove MAC address from the table. Here I used the show mac address table command and you can see the entries for PC1 and PC3
+
+![Imgur](https://i.imgur.com/NCj0e7x.png)
+
+Then I used the command clear mac address-table dynamic
+
+As you can see, all of the dynamic MAC address have been cleared.
+
+Remember this command clear mac address-table dynamic.
+
+![Imgur](https://i.imgur.com/8sLFtj6.png)
+
+Now, if you don't want to clear all of the mac address from the table, you can add some additional options to the command
+
+Once again, I used show mac address-table and you can see both entries, for PC1 and PC3.
+
+This time I used a different command, clear mac address-table dynamic address, followed by PC1's MAC address. Then if I use show mac address-table again, only PC3's MAC address can be seen
+
+Here's the command once more
+
+![Imgur](https://i.imgur.com/ysTkZAF.png)
+
+Clear mac address-table dynamic address, then the mac address
+
+Again, show mac address-table shows both PC1 and PC3's MAC addresses.
+
+This time I use the command clear mac address-table dynamic interface gi0/0. This clear all mac address table entries for a specific interface. As you can see, once again PC1's mac address is removed , because it is conneted to the G0/0 interface.
+
+Clear mac address-table dynamic interface, and then the interface.
+
+Before we move on to the quiz,  I want to show you a little more in wireshark, regarding what I said in the beginning of the video about the Ethernet frame.
+
+![Imgur](https://i.imgur.com/O2VR69t.png)
+
+In this packet tracer I sent a 36-size ping with the command 'ping 192.168.1.3' SIZE 
+
+First, notice the TYPE field down here
+
+![Imgur](https://i.imgur.com/YCfs1IO.png)
+
+As I mentioned in the last video, IPv4's ethernet type is 0x8000. The 0x just means its using hexadecimal, so really its 0800.
+
+Remember, the minimum payload size for an ethernet frame is 46 bytes, and I sent 36 byte pings, so these should be 10 bytes of padding Each hexadecimal digit is 4 bits, so 2 digits equal 8bits, 1 byte
+
+If you count the zeroes, there are 20 zeroes, so that means 10 bytes of padding. If I zoom out a bit you can also see the padding down here. These ten pairs of zeroes are the 10 bytes of padding added to the 36-bytes pings to make them meet the 46-byte payload minimum size
+
+![Imgur](https://i.imgur.com/rvp8lud.png)
+
+One last thing in wireshark. This time look at ARP. Remember, the IPv4 ethernet type is 0800, and the IPv6 ethernet type is 86DD. 
+
+![Imgur](https://i.imgur.com/dxXd9hq.png)
+
+As you can see here, the ARP ethernet type of 0806. This indicate that an ARP packet is inside of this ethernet frame. Okay, so we covered a lot of important stuff in this video.
+
+![Imgur](https://i.imgur.com/M2IwfaH.png)
+
+QUIZ
+
+![Imgur](https://i.imgur.com/ljM9upN.png)
+
+![Imgur](https://i.imgur.com/j2t3tNS.png)
+
+![Imgur](https://i.imgur.com/2rftL5A.png)
+
+![Imgur](https://i.imgur.com/dTMIOV0.png)
+
+![Imgur](https://i.imgur.com/gCt3aT5.png)
+
+![Imgur](https://i.imgur.com/NytcPEk.png)
+
+![Imgur](https://i.imgur.com/QFV1aKl.png)
+
+![Imgur](https://i.imgur.com/kfPZV14.png)
+
+![Imgur](https://i.imgur.com/Ul6QMEK.png)
+
+![Imgur](https://i.imgur.com/Y0OUKVj.png)
+
+![Imgur](https://i.imgur.com/XWbA0fH.png)
+
+![Imgur](https://i.imgur.com/zxhugVU.png)
+
+------------------------------------------------------------------------
+
+### Day 5,6 - Lab Analyzing Ethernet Switching 
+
+As you can see, the network topology we will use in this lab is like the example network.
+
+I used in those previous lecture videos , with two switches, each with 2 PCs connected to them
+
+![Imgur](https://i.imgur.com/UtZVKCW.png)
+
+Let's get started and go through the steps.
+
+First off, there is a note saying that both switches have an empty MAC address table, and all PCs have an empty ARP table
+
+Keep that in mind as you try to answer step 1, which asks us, if PC1 pings to PC3, what messages will be sent over the network, and which devices will receive them ?
+
+So, if PC1 wants to send a ping to PC3, it has to know PC3's MAC address. We can type ping 192.168.1.3 on PC1 to send a ping, but until PC1 knows PC3's MAC address, it can't send the ping. So, that's the first message. Now, which devices will receive the ARP request ? 
+
+Well, the ARP request is a broadcast message, so ALL devices on the local network will receive it, except for PC1 of course, which sends the message. 
+
+PC2 and PC4 will ignore the message, but then PC3 will send an ARP reply, which is the second message.
+
+Unlike the ARP request, which is a broadcast message, the ARP reply is a unicast message,
+
+so the message will be sent through SW2 and SW1, and then be received by PC1 only,no copies of the message will be sent to PC2 or PC4.
+
+Then, PC1 will be able to add PC3's MAC address to its ARP table, and use that information as the destination address of its ping
+
+So, the third message that will be sent is an ICMP echo request, from PC1.
+
+This is a unicast message that will be received by PC3 only
+
+Then , PC3 will send an ICMP echo reply, which is also a unicast message that will be received by PC1 only, after passing through SW2 and SW1 of course.
+
+So, that's it, those are the message that will be sent over the network if PC1 pings PC3.
+
+Now, there won't be just one ping, PC1 will send muiltiple pings, 4 by default from a windows 
+
+![Imgur](https://i.imgur.com/AxvXmQk.png)
+
+Step 2 asks us to send the ping and use Packet tracer's simulation mode to verify our answer.
+
+First, let me click on simulation mode here in the bottom right.
+
+Then, to send a ping from a PC in packet tracer, click on the PC, click on Desktop, and click on command prompt.
+
+Immediately, you can see that both an ICMP message, the ping, and an ARP message appear.
+
+I'll click on the ICMP message, and then click on Layer 2 . The next-hop address is unicast. The ARP process looks it up in the ARP table, but the next-hop IP address is not in the ARP table. The ARP process tries to send an ARP request for that IP address and buffers this packet.
+
+Buffers means it holds the packet, so it can send it later.
+
+Now, let's click on the ARP message, and look here at the information. This time, I'll click on 'Outbound PDU details', which shows us detailed information about the frame. Do you recognize these fields ?
+
+![Imgur](https://i.imgur.com/QVb7Rfs.png)
+
+Preamble, SFD, destination address, source address, type, data, which is the encapsulated packet, and the FCS.
+
+If you watched my last two videos, you should recognize all of these fields of the Ethernet.
+
+Notice in particular the TYPE field of 0806, which indicates ARP, and the destination MAC address of all F's, which is the broadcast address.
+
+Okay, now I'll exit from here and click through the process.. the ARP reaches SW1, is broadcast to PC2 and SW2, and then broadcast to PC3 and PC4. 
+
+Only PC3 replies, this time with a unicast message which arrives at SW2, then SW1, and PC1 can then, finally, send its ICMP echo request, which is unicast and goes to SW1, PC3 then sends the ICMP echo reply back through SW2,SW1, and then arriving at PC1.
+
+I'll just press this play button, and you can see the rest of the pings being sent between PC1 and PC3.
+
+There should be 4 in total, as thess Packet Tracer PCs operate like window PCs.
+
+Cisco devices, however, send 5 pings by default.
+
+Now, step 3 tells us to generate network traffic and allow the switches to learn all MAC address of the PCs
+
+Remember, switches dynamically learn and enter MAC addresses into their MAC address table by looking at the source address field of frames they receive
+
+So, since we just pinged between PC1 and PC3, both swithces should know their MAC addresses, but just in case i'll switch back to realtime mode... and send one more ping from PC1 to PC3.
+
+Because sometimes Packet Tracer has problems with simulation mode.
+
+Okay, next let's send a ping from PC2 to PC4 so that the switches can learn their MAC addresses.
+
+Step 4 asks us to use show commands on the switches to identify the MAC address of each PC.
+
+Because the interface each PC is connected to is displayed on the network diagram, if we look for that interface in the MAC table we will be able to identify the MAC address of each PC.
+
+I'll go on SW1.
+
+We have to be in privileged exec mode to view the MAC address table.
+
+![Imgur](https://i.imgur.com/h7v5AGa.png)
+
+Okay, first of all let's find PC1, which is attached to the fastethernet 0/1 interface.
+
+Here it is, and you can see the MAC address here.
+
+![Imgur](https://i.imgur.com/hhXgBTb.png)
+
+Note that the MAC address in your lab maybe different,I'm not sure if packet tracer keeps the MAC address consistent if you load the labs up on another computer. Well, its connected to Fastethernet 0/2, so here is PC2's MAC address.
+
+Now , as for PC3 and PC4, we have a problem
+
+![Imgur](https://i.imgur.com/BRNU78Y.png)
+
+SW1 only knows that it can reach these two MAC addresses via gigabit ethernet 0/1.
+
+Just by looking at this MAC table, we don't know which address belongs to PC3 and which belongs to PC4,
+
+So let's go in SW2. Once again, I'll enter privileged exec mode, enable. 
+
+PC3 is connected to fastethernet 0/1, so this must be its MAC address, and PC4 is connected to fasterthernet 0/2, so this must be its MAC address of each PC.
+
+Now let's do step 5, which is to clear the dynamic MAC address from the mac address table. Since i'm already on SW2, I'll start here . The command is clear mac address-table dynamic, but before I hit enter, I want to show you something
+
+I'll use the question mark, which is also known as 'context-sensitive' help
+
+As you can see, it doesn't display any additional options here.
+
+If you remember from the day 6 lecture video when I did the demonstration in GNS3 I could clear specific MAC addresses by specifying the addres or interface.
+
+Packet tracer,  however, does not support this option, you have to clear all MAC addresses.
+
+So I enter the command, then i'll use the up arrow on the keyboard to go to back the show mac address-table command, enter it once more, and you can see the mac address-table is now empty. Clear mac address-table dynamic . Press the up arrow twice to go back the show mac address-table command, hit enter, and there we go, the address table is now empty. 
+
+-------------------------------------------------------
 
 
 
