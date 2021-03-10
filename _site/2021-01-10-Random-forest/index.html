@@ -9,7 +9,7 @@
 
   
 
-  <title>Random Forst Algorithm</title>
+  <title>Random Forest Algorithm</title>
 
   
   <meta name="author" content="Ngô Tấn Trí">
@@ -72,7 +72,7 @@
 
   
   <meta property="og:site_name" content="Em0t3t">
-  <meta property="og:title" content="Random Forst Algorithm">
+  <meta property="og:title" content="Random Forest Algorithm">
   <meta property="og:description" content="Random Forest Algorithm">
 
   
@@ -93,7 +93,7 @@
   <meta name="twitter:site" content="@daattali">
   <meta name="twitter:creator" content="@daattali">
 
-  <meta property="twitter:title" content="Random Forst Algorithm">
+  <meta property="twitter:title" content="Random Forest Algorithm">
   <meta property="twitter:description" content="Random Forest Algorithm">
 
   
@@ -178,7 +178,7 @@
     <div class="row">
       <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
         <div class="post-heading">
-          <h1>Random Forst Algorithm</h1>
+          <h1>Random Forest Algorithm</h1>
           
             
               <h2 class="post-subheading">Random Forest Algorithm</h2>
@@ -202,7 +202,7 @@
     <div class="row">
       <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
         <div class="post-heading">
-          <h1>Random Forst Algorithm</h1>
+          <h1>Random Forest Algorithm</h1>
           
             
               <h2 class="post-subheading">Random Forest Algorithm</h2>
@@ -278,7 +278,97 @@ MathJax.Hub.Queue(function() {
 
 <p>The good news is that random forest combine the simplicit of decision tree with flexibility. Resulting in a vast improvement in accuracy.</p>
 
-<p>[1:11]</p>
+<p>So let’s make a random forest</p>
+
+<p><img src="https://i.imgur.com/k20IcOV.png" alt="Imgur" /></p>
+
+<p>Step 1: Create a “bootstrapped” dataset.</p>
+
+<p>Imagine that these 4 samples are the entire data set that we are going to build a tree from I know it’s crazy small, but just pretend for now. To create a bootstrap data set that is the same size as the original. We just randomly select samples from the original data set. The important detail is that we’re allowed to pick the same sample more than once. This is the firs sample that we randomly select</p>
+
+<p><img src="https://i.imgur.com/r0pNF1U.png" alt="Imgur" /></p>
+
+<p>So it’s the first sample in our bootstrap data set. This is the second randomly selected sample from the original data set. So it’s the second sample in our bootstrap data set. Here’s the third randomly selected sample. So here it is in the bootstrap data set</p>
+
+<p><img src="https://i.imgur.com/kxIxXh7.png" alt="Imgur" /></p>
+
+<p>Lastly here’s the fourth randomly selected sample note. It’s the same as the third and here it is.</p>
+
+<p><img src="https://i.imgur.com/msov6fs.png" alt="Imgur" /></p>
+
+<p>Bam ! We’ve created a bootstrap data set</p>
+
+<p>Step 2: For creating a random forest is to create a decision tree using the bootstrap dataset. But only use a random subset of variables or columns at each step.</p>
+
+<p>In this example, we will only consider two variables or columns at each step.</p>
+
+<p>Note, we’ll talk more abour how to determin the optimal number of variables to consider later.</p>
+
+<p>Thus instead of considering all four variables to figure out how to split the root node . We randomly select two in .</p>
+
+<p>In this case, we randomly selected good blood circulation and blocked arteties as candidates for the root node.</p>
+
+<p>Just the sake of the example assume that good blood circulation. Did the best job separating the sample ?</p>
+
+<p>Since we used a good blood circulation. I’m going to gray it out so that we focus on the remaining variables</p>
+
+<p><img src="https://i.imgur.com/6s0GSi7.png" alt="Imgur" /></p>
+
+<p>Now we need to figure out how to split samples at this node , just like for the route we randomly select two variables as candidates instead of all three remaining columns and we just build the tree as usual, but only considering a random subset of variables at each step</p>
+
+<p>Double bound, we built a tree one using a bootstrap data set and two only considering a random subset of variables at each step. Here’s tree we just made, Now, go back to step on and repeat. Make a new bootstrap data set and build a tree considering a subset of variables at each step. Ideally, you do this hundreds of times, but we only have space to show six, but you get the idea. Using a bootstrap sample and considering only a subset of variables at each step results in a wide variety of trees . The variety is what makes random forests more effective than individual trees. Sweet, now that we’ve created a random forest. How do we use it ?</p>
+
+<p><img src="https://i.imgur.com/HTfVMp9.png" alt="Imgur" /></p>
+
+<p>Well first we get a new patient, We’ve got all measurement and now we want to know if they heart disease or not. So we take the data and run it down the first tree that we made.</p>
+
+<p>The first tree says yes, the patient has heart disease and we keep track of that here.</p>
+
+<p>Now, we run the data down the second tree that we made the second tree also says yes and we keep track of that here. And then we repeat for all the trees we made. After running the data down all of the trees in the random forest. We see which option received more votes . In this case, yes received the most votes so we will conclude that this patient has heart disease</p>
+
+<p>BAM !!!</p>
+
+<p><img src="https://i.imgur.com/KqpWXib.png" alt="Imgur" /></p>
+
+<p>No terminology Alert !</p>
+
+<p>Bootstrapping the data plus using the aggregate to make a decision is called bagging</p>
+
+<p>Okay, now we’ve seen how to create and use a random forest. How do we know if it’s any good. Remember when we created the bootstrapped data set. We allow duplicates in trees in the bootstrapped data set as a result. This entry was not included in the bootstrap data set. Typically about one third of the original data does not end up in the bootstrap data set.</p>
+
+<p>Here’s the entry that didn’t end up in the bootstrapped dataset. If the original dataset were larger, we’d have more than just one entry over here . This is called the out-of-bag dataset . If it were up to me, I would have named it three out of boot data set since it’s the entries that didn’t make it into the bootstrap dataset.</p>
+
+<p>Since the out-of-bag data was not used to create this tree. We can run it through and see if it correctly classifies the sample as no heart disease.</p>
+
+<p>In this case, the tree correctly labels the out of bag sample. No</p>
+
+<p>Then we run this Out-of-Bag sample through all of the other trees that were built without it … This tree incorrectly labeled the ouf of bag sample. Yes</p>
+
+<p><img src="https://i.imgur.com/F1BKmEE.png" alt="Imgur" /></p>
+
+<p>These trees correctly labeled the Out-Of-Bag sample “No” . Since the label with the most votes wins, it is the label that we assign this Out-of-simple sample.</p>
+
+<p>In this case, the Out-of-Bag sample is correctly labeled by the Random Forest.</p>
+
+<p>We then do the same thing for all of the other Out-Of-Bag samples for all of the trees. This out of Bag sample was not also correctly labeled. This out-of-Bag sample was incorrectly labeled, etc.</p>
+
+<p>Ultimately, we can measure how accurate our random forest is by the proportion of out-of-bag samples that were correctly classified by the random forest.</p>
+
+<p>The proportion of out-of-bag samples that were incorrectly classified is the out of bag error,</p>
+
+<p>Okay, we now know how to one build a random forest to use a random forest and three Estimate the accuracy of a Random Forest.</p>
+
+<p>However, now that we know how to do this… . We can talk a little more about how to do this.</p>
+
+<p><img src="https://i.imgur.com/msDwHaX.png" alt="Imgur" /></p>
+
+<p>Remember when we built our first tree and we only use two variables column of data to make a decision at each step. Now we can compare the out-of-bag error for a random forest built using only two variables per step to a random forest built using three variables per step and we test a bunch of different settings and choose the most accurate random forest. In other words one we build a random forest and then two we estimate the accuracy of a random forest.</p>
+
+<p>1) Build a Random Forest</p>
+
+<p>2) Estimate the accuracy of a Random Forest</p>
+
+<p>then we change the number of variables used per step and we do this a bunch of times and then choose the one that is the most accurate. Typically, we start by using the square of the number of variables and then try a few settings above and below that value</p>
 
       </article>
 
@@ -303,7 +393,7 @@ MathJax.Hub.Queue(function() {
   <span class="sr-only">Share: </span>
 
   
-    <a href="https://twitter.com/intent/tweet?text=Random+Forst+Algorithm&url=http%3A%2F%2Flocalhost%3A4000%2F2021-01-10-Random-forest%2F"
+    <a href="https://twitter.com/intent/tweet?text=Random+Forest+Algorithm&url=http%3A%2F%2Flocalhost%3A4000%2F2021-01-10-Random-forest%2F"
       class="btn btn-social-icon btn-twitter" title="Share on Twitter">
       <span class="fab fa-fw fa-twitter" aria-hidden="true"></span>
       <span class="sr-only">Twitter</span>
