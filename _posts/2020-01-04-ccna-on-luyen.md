@@ -2733,7 +2733,133 @@ Now I've put R1 in between the two switches. Now instead of one network, the PCs
 
 Actually, they are used to tell what part of the address represents the network, and which part represent the end hosts, the PCs. /24 means that the first 3 groups of numbers represent the network. In this video, I'm going to go in depth about how these IP addresses work. But first, there's one more thing missing in this network diagram. The router needs an IP address. Actually, not just one IP address, it needs an IP address for each network it is connected to. So, let's give R1's G0/0 interface an IP address of 192.168.1.254, and it's G0/1 interface an IP address of 192.168.2.254.
 
-This time, if R1 sends a frame to the broadcast MAC address of all Fs, SW1 will receive the frame, and it will forward it out of all of interfaces except the one the frame was received on. So, it sends the frame out of G0/1 and G0/2, and PC2 and R1 receive the frame. However, that's where it ends. The broadcast is limited to the local network, it doesn't cross the router and go to SW2,PC3 and PC4. I'll go more into detail about routing and layer 3 forwarding, but as I said, this video will focus on IP addresses themselves, so let's take a look.[6:23]
+This time, if R1 sends a frame to the broadcast MAC address of all Fs, SW1 will receive the frame, and it will forward it out of all of interfaces except the one the frame was received on. So, it sends the frame out of G0/1 and G0/2, and PC2 and R1 receive the frame. However, that's where it ends. The broadcast is limited to the local network, it doesn't cross the router and go to SW2,PC3 and PC4. I'll go more into detail about routing and layer 3 forwarding, but as I said, this video will focus on IP addresses themselves, so let's take a look.
+
+This is a chart from Wikipedia showing the IP version 4 header or Internet Protocol, is the primary 3 protocol in use today and version 4 is the version in use of most network
+
+![Imgur](https://i.imgur.com/ZjzCfn5.png)
+
+As you can see, there are a lot of different fields in the IPv4 header, more than in the Ethernet header. We'll talk more about the IPv4 header in another video, so today let's look at these two fields, the source IP address and destination IP address. These field are both 32-bits in length, as you can see thet stretch from 0 to 31 in this chart. So, IP address are 32-bits, or 4 bytes, in length. 
+
+![Imgur](https://i.imgur.com/um4Oiav.png)
+
+Let's take a look at this IPv4 address, 192.168.1.254. An IPv4 address is 32 bits long. 192 represents 8 bits, 168 represents 8 bits, and 254 also represents 8 bits. If we write these 8 bits out as 1s and 0s, 192 is 11 00 00 00, 168 is 10 10 10 00, 1 is 00 00 00 01, and 254 is 11 11 11 10. This way of writing numbers using just 0s and 1s is called binary. However, binary is difficult to read and understand for us humans, so IP addresses are written using what's called dotted decimal, because they are four decimal number, 192,168,1 and 254, separated by dots, or periods. Let's spend some time learning about binary, which is important to understand IPv4 addresses.
+
+![Imgur](https://i.imgur.com/SqaLKTX.png)
+
+Before looking at binary, let's review decimal and hexadecimal. In decimal, also known as base 10, each digit by a factor of 10. For example, this number 3294 consists of 1 unit of 4, 9 units of 10, 2 units of 100, 3 units of 1000. Notice that they increase by a factor of 10.
+
+![Imgur](https://i.imgur.com/VrAKZfS.png)
+
+So, looking back at this IP address 192.168.1.254, let's look at how each of these number is written in binary, starting with 192, which is 11 00 00 00. Binary is base 2, meaning each digit increases by a factor of 2, it doubles. So, that means that this 11 00 00 00 really is 0 1s, then 1*2 is 2, so 0 2s, then 2 x 2 is 4, ...
+
+![Imgur](https://i.imgur.com/jQ8GTbI.png)
+
+Next, let's look at how 168 is converted to binary, which is 10 10 10 00. So, 10 10 10 00 is binary means 1 unit of 128, 1 unit of 8,...
+
+...
+
+So, hopefully you have an idea of how binary works now. Before we do some practice converting between decimal and binary, I want to teach you more term. Yoo'll often hear each of these 8 bit groups referred to as 'octets'. 
+
+![Imgur](https://i.imgur.com/85ZFIy1.png)
+
+Now, let's get some practice converting binary octets to decimal.
+
+Here's an example. We have a binary octet of 10 00 11 11 . How can we go about converting this to decimal ? First, I recommend writing the value of each binary digit over the binary numbers. You can start with 1 on the right, and then multiply by 2 for each digit as you move to the left. Or if you prefer, start by writing 128 over the digit on the left, and devide by 2 as you move to the right. Once you have written these value, simply add up the value of each 1, and you get the answer. 128+8+4+2+1 equals 143. So, binary 10 00 11 11 is equal to decimal 143. Let's do another example.
+
+![Imgur](https://i.imgur.com/NOTXHLA.png)
+
+Đoạn này nói về chuyển đổi giữa số thập phân và số nhị phân
+
+![Imgur](https://i.imgur.com/ULOtK8I.png)
+
+However, you may remember there was this /24 that I said was used to identify which part of the IP address represents the network and which represents the end host. Since an IP address is 32 bits, can you guess what this /24 means? It means that the first 24 bits of this IP address represent the network portion of the address, and the remaining 8 represent the end host. So, the first 24 bits is equal to the first 3 octets, because 8+8+8 equals 24. So 192.168.1 is the network portion of the address, and 254 is the host portion. 
+
+Here's a quick look back at our small network. The IP address of PC1, PC2 and R1's G0/0, interface are 192.168.1.1/24,192.168.1.2/24,192.168.1.254/24. Notice that the network portion of each IP address the same, because they are all part of the same local network, only the host portion is different. Like wise, the IP address of PC3, PC4 and R1's G0/1 interface are 192.168.2.1/24, 192.168.2.2/24, and 192.168.2.254/24, only the host portion of the address is different because they are on the same local area network.
+
+![Imgur](https://i.imgur.com/aPIW6fc.png)
+
+Let's follow the same process as before with another IP address. If you want some extra practice, try to convert these 32 binary bits into an IPv4 address. Pause the video if you want to try to find the answer on your own. Okay, so the 32 bits can be split into 4 octec like this. Then the four octets can be converted into dotted decimal like this. 
+
+![Imgur](https://i.imgur.com/oD5BH0f.png)
+
+This time, /16 is used instead of /24. Which portion is the network portion and which is the host portion? Well, /16 means the first 16 bits, or the first half, are the network portion. So, the first two octets are the network portion, and the last two octets are the host portion. Therefore, 154.78 is the network portion, and 111.32 is the host portion. 
+
+![Imgur](https://i.imgur.com/eBCKiO2.png)
+
+Let's do one more example.
+
+Here's another IPv4 address. Try to convert these 32 bits into dotted decimal. Pause the video now if you want to try. Okay, so you can devide the 32 bits into 4 octets like this, and then convert the octets into dotted decimal like this. This time, it's /8. So which part of the address is the network portion, and which is the host portion ?
+
+Since the first 8 bits are the network portion, that means the first octet is the network portion, and the last three octets are the host portion. So 12 is the network portion, and 128.251.23 is the host portion.
+
+![Imgur](https://i.imgur.com/i20Lp03.png)
+
+Now, IPv4 addresses are split up into 5 different classes. The class of an IPv4 address is determined by the first octet of the address. The first is class A, which has a first octet beginning with 0. If the first octet begins with 0 , that means that the numeric range of the first octet is from 0 to 127, because 64+32+16+8+4+2+1 gives a maximum of 127. The second class is class B, which has a first octet beginning with 10, and therefore a numeric range of 128 to 191. The third class is class C, which has a first octet beginning with 110, and therefore the numeric range of the first octet is 192 to 223. ...
+
+![Imgur](https://i.imgur.com/jKbNGJr.png)
+
+However, the classes of address we'll be focusing on are A,B and C. Addresses in class D are reserved for 'multicast' addresses. Multicast is another type of address, separate from the unicast and broadcast addresses we talked about in the previous videos. We will talk about them, but that will be later in the course. Class E addresses are reserved for experimental uses, and we don't talk about them in this course. Now, one more thing about the class A range. The end of the class A is usually considered to be 126, not 127. Why is that ? Let's take a look.
+
+The 127 range is reserved for 'loopback' addresses. The range is anything with a first octet os 127, so 127.0.0.0 to 127.255.255.255. These addresses are used to test the 'network stack' of the local device. If a device sends any network traffic to an address in this range, it is simply processes back up the TCP/IP stack as if it were traffic received from another device. In this image, I pinged 127.0.0.1 on my windows PC, and you can see the response. My PC is responding to its own pings. 
+
+![Imgur](https://i.imgur.com/3gyrkcB.png)
+
+In this image, I sent to a random IP address in the 127 range, 127.23.68.241, and again my PC responds back to its own ping.
+
+![Imgur](https://i.imgur.com/GmWbRZU.png)
+
+Notice, the round trip times, all 0 milliseconds. That's because the traffic isn't going anywhere, my PC is just sending and receving these pings to and from itself.
+
+So, here's the chart again with just classes A,B and C. I've also added one more column, the prefix length which is /8,/16 and /24 which is used to identify the length of net network portion of the address. Class A addresses use a /8 prefix, Class B addresses use a /16 prefix, and Class C addresses use a /24 prefix.
+
+![Imgur](https://i.imgur.com/qbiS8W7.png)
+
+Actually, if you look back at these three addresses we used in our examples, you can see they are, Class A, Class B and Class C addresses, and their prefix lengths match the table. ./8 for class A, /16 for class B, and /24 for class C. In class A, there are fewer possible network addresses, however because the network (*host) portion is very long, there can be many hosts on each network. Class C is the opppsite, there are many more possible networks, but because the host portion is smaller there are fewer hosts on each network. So, this is another chart I've taken off of wikipedia. The leadning bits column refers to the first bits of the first octet, which I displayed in my previous table. The size of network number bit field displayed the number of bits in the network portion of the IP address, which as I mentioned is 8 for class A, 16 for class B, and 24 for class C. Size of rest bit field indicates the remaining number of bits in the address, which is the host portion of the addresses. 24 bits for class A, 16 for class B, and 8 for class C.
+
+Now, this part here displays the number of possible networks in each class. As I said, class A has fewer potential networks, but more hosts in each network, class C is the opposite, and class B is in between. Class A has 128 possible networks, Class B has about 16000 networks and class C has about 2 million networks. Class A allows about 16.7 million hosts in each network. Class B allow about 65000 hosts in each network, and Class C allows 256 hosts in each network. However, because the first address in each network is the network address, it can be assigned to hosts. Also the last address of the network is the broadcast address, the Layer 3 address used when you want to send traffic to all hosts, and it also can't be assigned to hosts, so really the host count is two less, for example 254 in class C. 
+
+![Imgur](https://i.imgur.com/UMUqS6b.png)
+
+Now I want to briefly talk about another way of writing these prefix lengths. Using a slash, followed by the length of the prefix, is a newer and easier way of writing the prefix length. On Juniper network devices, for example, you write prefix lengths using this slash notation. However, Cisco devices still use an older, slightly more complicated way of writing the prefix length. That is using a dotted decimal netmask. A netmask is written in dotted decimal like an IP address, where the network portion is all 1s and the host portion is all 0s. For example, the network mask of a class A address is 255.0.0.0. That's the dotted decimal version of 11 11 11 11 , followed by 24 zeros. So, what do you think the netmask of a class B is ? ... It's 255.255.0.0, which is two octets of 1s, followed by two octecs of zeroes, written in dotted decimal. Finally, what do you think the netmask of a class C address is? It's 255.255.255.0, which is three octets of 1s, followed by 1 octet of zeroes, again written in dotted decimal notation. So, these prefix lengths and these netmask are the same thing, just written in different ways. 
+
+![Imgur](https://i.imgur.com/xiDiFLe.png)
+
+Ip addresses which I briefly mentioned before, the network and broadcast addresses. If the host portion of an IP address is all 0's , it means it is the network address, the identifier of the network itself. In our diagram here, you can see 192.168.1.0/24. We know that /24 means the first three octets are the network portion, and the last octet is the host portion. Since, the host portion is 0, it means the last octet, the host portion, is all 0s. Therefore, this address, 192.168.1.0/24 is the network address. Keep in mind, the network address cannot be assigned to a host. The network address is the first address of the network, but the first USABLE address is one above the network address, in this case it's 192.168.1.1, which is assigned to PC1. So, the network address is the first address, with a host portion of all 0s. However, the last address in a network, with a host portion of all 1s, is the broadcast address for the network. Like the network address, the broadcast address cannot be assigned to a host. So although it's the last address in the network the last USABLE address is actually 1 under the broadcast address, in this case, that's 192.168.1.254, the address assigned to R1's , So, the broadcast address is the layer 3 address used to send a packet to all hosts on the local network. If a packet is sent with this destination IP address, what do you think will be the destination MAC address of the frame it is encapsulated in ? Think about the Ethernet LAN switching videos .. it will be all F's, the broadcast MAC address. If PC1, for example, sent a ping to 192.168.1.255, it would be received by PC2 and R1's G0/0 interface.
+
+Once again, I think we've covered a lot of ground in this video. Let's list what we covered before moving on to today's quiz. First, I talked about dotted decimal and binary. Binary is how computers think, but 32 bit Ipv4 addresses are difficult to remember for us humans, so we convert IPv4 address to dotted decimal form to make them eaiser to read and remember. You learned that IPv4 addresses consist of a network portion and a host portion . Hosts on the same network will have the same network portion, but a unique host portion of their IP addresses. You learned about the IPv4 address classes. We looked at the different ways of indicating the length of the network prefix, by writing the prefix length with a slash or by using a netmask. And finally, you learned about the network address, which as a host portion of all 0s, and to identify the network itself, not any particular host on the network. Also, the broadcast address, which has a host portion of all 1s, which is used to send network traffic to all hosts on the network. 
+
+![Imgur](https://i.imgur.com/XKNELxq.png)
+
+QUIZ
+
+![Imgur](https://i.imgur.com/4OMEpjE.png)
+
+![Imgur](https://i.imgur.com/iWPr6FG.png)
+
+![Imgur](https://i.imgur.com/UT2n96N.png)
+
+![Imgur](https://i.imgur.com/vxXepEM.png)
+
+![Imgur](https://i.imgur.com/x9E882g.png)
+
+![Imgur](https://i.imgur.com/CFNsQCW.png)
+
+![Imgur](https://i.imgur.com/d0O6VP5.png)
+
+![Imgur](https://i.imgur.com/6JBxRrD.png)
+
+![Imgur](https://i.imgur.com/1amKBMF.png)
+
+![Imgur](https://i.imgur.com/Zn6lHF6.png)
+
+
+
+
+
+
+
+
 
 
 

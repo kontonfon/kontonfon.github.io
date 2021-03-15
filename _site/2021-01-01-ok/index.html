@@ -234,7 +234,27 @@
       
 
       <article role="main" class="blog-post">
-        
+        <style type="text/css">
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+</style>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'] // removed 'code' entry
+    }
+});
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML-full"></script>
+
 <h2 id="1tạo-bảng">1.Tạo bảng</h2>
 
 <table>
@@ -450,6 +470,63 @@ MathJax.Hub.Queue(function() {
 <h3 id="13-cách-git-chung-với-bạn-bè">13. Cách git chung với bạn bè</h3>
 
 <p><img src="https://i.imgur.com/OUvlm9z.png" alt="Imgur" /></p>
+
+<h3 id="14-token-for-acc1">14. Token for acc1</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>vscode://vscode.github-authentication/did-authenticate?windowid=3&amp;code=9afad43850e897eb5616&amp;state=85c3260d-ec8a-40da-b9f6-1a7d3cd38e8b
+</code></pre></div></div>
+
+<h3 id="15-các-bước-song-song-hoá-trên-python-sử-dụng-jit-của-numba">15. Các bước song song hoá trên python sử dụng jit của numba</h3>
+
+<ul>
+  <li>
+    <p>Đối với windown và dùng VS Code, thì các bạn làm những bước như sau:</p>
+  </li>
+  <li>
+    <p>Vào trang <a href="https://docs.anaconda.com/anaconda/install/windows/">Anaconda</a> sao đó các bạn download “Download the Anaconda Installer” về.</p>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/DG1PPYt.png" alt="Imgur" /></p>
+
+<ul>
+  <li>
+    <p>Và khi cài đặt các bạn nhớ tick vào add to path environment</p>
+  </li>
+  <li>
+    <p>Sau khi cài xong, chúng ta restart lại máy</p>
+  </li>
+  <li>
+    <p>Tiếp theo ta sẽ kiểm tra version của conda bằng câu lệnh:</p>
+  </li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>conda --version
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>Tiếp theo ta sẽ cài numba theo đường link sau: <a href="https://numba.pydata.org/numba-doc/latest/user/installing.html">Link</a></p>
+  </li>
+  <li>
+    <p>Sau khi cài numba xong chúng ta đã có thể chạy code bình thường  !</p>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/TyBqAGK.png" alt="Imgur" /></p>
+
+<hr />
+
+<p>Tìm nghiệm các phương trình sau:</p>
+
+<p>a) $5x^2-6x+1=0$</p>
+
+<p>b) $(3x-1)-(1-3x)(x^2+2x-1)=0$</p>
+
+<p>c) $-8x+7x^2-15=0$</p>
+
+<p>d) $(2x-3)(2x-1)-(1-2x)(4-7x)=0$</p>
+
 
       </article>
 
