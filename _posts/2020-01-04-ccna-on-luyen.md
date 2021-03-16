@@ -2853,8 +2853,55 @@ QUIZ
 
 ![Imgur](https://i.imgur.com/Zn6lHF6.png)
 
+------------------------------------------------------------------------------------------------------
 
+### Day 8 - IPv4 Addressing - P2
 
+Let's go over what we'll cover in this video. I'll do a quick review of IPv4 classes, and clarify some things I didn't explain well in the previous video. I'll explain how to find the maximum number of hosts, the network address, the broadcast address, the first usable address, and the last usable address of a particular network. I introduced some of these in the previuous video, but its worth explaining in more detail. Finally, I will outline how to configure IP address on Cisco devices, which we'll then practice in packet tracer, in the next video.
+
+![Imgur](https://i.imgur.com/bouYg9j.png)
+
+![Imgur](https://i.imgur.com/Fzex2pF.png)
+
+So this is the chart of the IPv4 address classes I showed you in the last video. I taugh you that the 127 range is reserved for loopback addresses, so its generally not considered part of the Class A range.
+
+![Imgur](https://i.imgur.com/dZEyXk4.png)
+
+So some might say class A really begins at 1, making the range 1-126. Different sources say different things, so I recommend that you remember class A as 0-127, but also keep in mind that 0 and 127 are reserved, so really the usable range is 1-126. 
+
+We also saw this chart from wikipedia in the last video. Leading bits of 0 for class A, 10 for class B, and 110 for class C. A network number bit field size, also known as prefix length, 0f 8 class A, 16 for class B, and 24 for class C. A size of 'rest bit field' also known as the host portion of the address, of 24 bits for class A, 16 for class B, and 8 for class C. The number of networks available in each class. And finally, the number of address pernetwork. This is the maximum number of addresses, including the network address and broadcast address. Notice, how it's calculated .2, to the power, of 8,16 or 24 that being the length of the host portion. But let's look at how to calculate the maximum number of USABLE addresses, the number of addresses that can be assigned to hosts. So, let's take this class C newwork 192.168.1.0/24. Because it's class C, it uses a /24 prefix length, and therefore the last octet, the last 8 bits, are the host portion. That means that host portion can be 0 to 255. So, 0 to 255 gives us a total of 256 addresses which is 2 to the power of 8, because there are 8 bits. But, remember those two special address types I mentioned in the last video ? If th host portion is all 0s, it represents the network address, sometimes called the network ID. It can't be assigned to a host. Also, if the host portion is all 1s, it is the network broadcast address, the address used to send a message to all hosts on the network. It also can't be assigned to a host. So, actually the maximum hosts per network is 2 to the power of 8, minus 2, which is 254 for a class C network like this.
+
+![Imgur](https://i.imgur.com/6heci91.png)
+
+Now let's take a look at this class B network, 172.16.0.0/16, through 172.16.255.255. The host portion is 16 bits, giving 65536 possible addresses. However, this address with a host portion of all 0s is the network address, and this address with a host portion of all 1s is the broadcast address, so really the maximum number of hosts in the network, or any class B network, is 65534. 
+
+![Imgur](https://i.imgur.com/rprAil6.png)
+
+Now, let's do one more example, with a class A address. 10.0.0.0/8, through 10.255.255.255. The host portion is 24 bits, so that gives 16777216 possible addresses. This network address and this broadcast address can't be assigned to hosts, however, so the maximum number of hosts in this network or any class A network is really 16777214. So, the formula for determing the number of hosts on a network is 2 to the power of N, minus 2. N is equal to the number of host bits.
+
+![Imgur](https://i.imgur.com/V7UUGFR.png)
+
+Now let's calculate the first and last usable addresses for this class C network, 192.168.1.0/24. So, this address with a host portion of all 0s is the network address, or network ID. Add 1 by changing the last bit of the host portion to 1 and you get 192.168.1.1, and that is first usable address in the network. So, that's how you do it. Add one to the network address to get the first usable address. How about the last usable address ? Well, this address with a host portion of all 1s is the broadcast address. Subtract 1 from this address by switching the last bit to 0, and you get 192.168.1.254, which is the last usable address. 
+
+![Imgur](https://i.imgur.com/3YzBUWb.png)
+
+Next let's do the same for this class B network, 172.16.0.0/16. This address with a host portion of all 0s is the network address. Add 1 and you get 172.16.0.1, and that is the first usable address on the network. How about the last usable address ? This address with a host portion of all 1s is the broadcast address. Subtract 1 from this address, and you get 172.16.255.254, and that is the last usable address.
+
+![Imgur](https://i.imgur.com/pkdKHcN.png)
+
+Finally let's do the same for this class. A network, 10.0.0.0/8. This address is the network address. Add 1 and, you get 10.0.0.1, and that is the first usable address on the network. Next let's find the last usable address. This address with a host portion of all 1s is the broadcast address. Subtract 1, and you get 10.255.255.254, which is the last usable address. Okay, so hopefully you understand both how to calculate the number of usable addresses in a network, and the first and last usable address in a network. Really, we covered this matetial in the last video, but I wanted to make it clear. Now let's move on actually configuring a Cisco router with IP addresses !
+
+![Imgur](https://i.imgur.com/jtIaj2X.png)
+
+![Imgur](https://i.imgur.com/CW6sDbw.png)
+
+So here's a small network I put together in GNS3, with three small networks connected to a single router, R1. Keep in mind that, it's not really realistics to have only a single PC connected to each switch, in a real network there would many more hosts and possibly more switches in each local area network. So, we have one class A network here, 10.0.0.0/8.PC1 has the first usable address in the network, 10.0.0.1 and we will assign the last usable address, 10.255.255.254, to R1's gigabit 0/0 interface. We have this class B network, 172.16.0.0/16. PC2 has the first the usable IP address, 172.16.0.1, and we will assign the last usable address, 172.16.255.254, to R1's gigabit 0/1 interfaces. We also have a class C network, 192.168.0.0/24. PC3 has the first usable address, 192.168.0.1 and we will assign the last usable address, 192.168.0.254, to R1's gigabit 0/2 inteface. Let's go into the CLI of R1 and make the configurations. So, I logged on to the CLI of R1, and as you can see I used 'EN'; the shortcut of the enable command, to enter privileged exec mode. Now, let me show you a great command you can use to confirm the status of interface on the device, as well as their IP addresses. That is the 'show ip interface brief' command. Let's check out the info this command gives us. First off, the interface column lists the network interfaces on the device. As you can see, this router has four interfaces, gigabiterthernet 0/0,0/1,0/2 and 0/3. The next column lists the IP address of each interface. As you can see, they are all unassigned at the moment, but we will soon assign IP address to the top three interfaces. We'll use this command again afterward to check. Next is the 'OK' column. I think this is a legacy feature of the command, its not relevant anymore. Basically, it says whether or not the IP address is valid or not. On moderm devices, the device won't let you assign invalid addresses, so you should never see 'NO' in this column. The interface currently have no IP addresses assigned, and as you can see, that is considered a valid state. Next is the method column. This indicates the method by which the interface was assigned an IP address. Currently the status is unset, but let's check what it is after we assign IP addresses. Next is the status column. Basically, you can consider this the Layer 1 status of the interface. If the interface is enabled, there is a cable connected, and the other end of the cable os properly connected to another device, you should see 'up' here. However, here it displays 'administratively down'. This means the interface has been disabled with the 'shutdown' command. However, I haven't done any configuration on the interfaces yet.
+
+![Imgur](https://i.imgur.com/CKRZfGQ.png)
+
+So, this is the default status of Cisco router interfaces. We haven't looked at switch interfaces yet, but Cisco switch interfaces are NOT administratively down by default. They will either be up, if they are connected to another device, or down, if they are not connected. Notice that, even though gigabit ethernet 0/0,0/1 and 0/2 on this router are connected to switches, the interfaces remain administratively down because the 'shutdown' command is applied to them by default. The final field of the output is 'protocol'. While the 'status' column referred to the Layer 1 status of the interface, this is the Layer2 status. Because the interfaces are down at Layer 1, layer 2 can't operate. So all of these interfaces are down at Layer 2. You'll never see an interface with a 'down' in the status column and 'up' in the protocol column, although the reserve is possible. Once we configure these interfaces and enable them, we should see up in both the status and protocol columns. So, remember these point, the 'status' column refers to the Layer 1 status, for example is the interface shutdown, is there a cable attached, etc.
+
+The protocol column refers to the layer 2 status, for example is Ethernet functioning properly between this device and the device it's connected to. Expect both of these columns to show up. So, let's configure the gigabitethernet 0/0 interface first. I use conf t, the shortcut of the 'configure terminal' command to enter global config mode. Next, to configure the interface itself, I have to enter interface config mode. So, I use the command 'interface', followed by the name of the interface, gigabitethernet 0/0. As you can see, it now displays config-if beside the hostname of the device. Now , before we move on, let me show you some other ways to enter interface configuration mode. First off [13:56]
 
 
 
