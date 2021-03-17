@@ -2955,6 +2955,134 @@ QUIZ
 
 ![Imgur](https://i.imgur.com/7EcpwjJ.png)
 
+-----------------------------------------------------------------------
+
+### Day 8 - Lab - Configuring IP Addresses.
+
+This is like the demo topology I used in Day 8's main video, I just changed the IP addresses. We still have one class A network, 15.0.0.0/8, one class B network, 182.98.0.0/16, and one class C network, 201.191.20.0/24. Let's get started.
+
+I haven't done any configurations yet on R1, so it still has the default hostname of router. Let's go on to the CLI of R1.
+
+![Imgur](https://i.imgur.com/Mr7YSzY.png)
+
+Then, to configure the hostname, we have to be in global config mode, so 'conf t' . Now let's set the hostname 
+
+hostname R1
+
+Okay, you can see the prompt changes to display the new hostname
+
+That's all for step 1
+
+Step 2 is to use a 'show' command to view a list of R1's interfaces, their IP addresses.
+
+Do you remember what command that is ?
+
+It's a very helpful command which you'll use a lot as you configure Cisco routers.
+
+But as you can see, the command doesn't work. 
+
+Well, its because 'show' command are normally done from privileged exec mode.
+
+However, let me use the 'up' arrow to return to the previous command, then I'll use the shortcut 'control A', so hold the control key, so hold the control key and press A and then cursor returns to the beginning of the line. Then, type 'do' in front of the command, and now it lets me enter the command from global config mode. Now you can see a list of interfaces, their IP addresses, which are unset at the moment, and their statues. Remember, the 'status' column indicates the Layer 1 status.
+
+![Imgur](https://i.imgur.com/rKckwRx.png)
+
+Currently their status is administratively down, because Cisco router interfaces have the 'shutdown' command applied to them by default.
+
+The protocol column indicates the layer 2 status of the interface.
+
+Because layer 1 is shutdown, layer 2 can't operate, so they are all down. We will configure gigabitethernet 0/0,0/1, and 0/2 in this lab, so they should all become up, up afterwards. Step 3 is to configure the appropriate IP address on R1's interface, and enable them. Let's start on the gigabitethernet 0/0 interface. Interface gigabitethernet 0/0. There we go, as you can see the prompt has changed to show that I'm in interface configuration mode. Once again, I'll use the full commands for the first interface. Ip address 15.255.255.254, now what's the appropriate subnet mask for a /8 prefix length ?
+
+I'll indicate that this interface is connected to switch 1.
+
+![Imgur](https://i.imgur.com/SupoVPa.png)
+
+Description, I'll put two hashtags, to SW1, and then again, hashtags. You can use different description if you want, this is just how I do descriptions. 
+
+No shutdown
+
+Immediately, I get two message indicating that the interface has come up .
+
+Before checking on the status of the interface, I'll configure the other two interfaces.
+
+To switch to configuring another interface, I don't have to exit back to global config mode first. I can just type interface g0/1, and now I'm in interface config mode for gigabitethernet. Let's set the IP address. IP address 182.98.255.254. The subnet mask for a /16 prefix length is 255.255.0.0. Add the descrition 
+
+Description ## to SW2 ##. Let's enable it.
+
+Okay, now let's go to the last interface.
+
+Int g0/2
+
+Ip address 201.191.20.254 and the subnet mask for a /24 prefix length is 255.255.255.0. 
+
+Description ## to SW3 ##. Finally, let's enable it.
+
+OKay, since we're done with the configuration. I'll use the command 'end' to go back.
+
+Alternatively, I could have used the 'exit' command twice.
+
+Once to return to global config mode, and then a second time to return to privileged exec mode.
+
+![Imgur](https://i.imgur.com/1pFmWne.png)
+
+Now you can see the IP addresses we configured, the method lists 'manual' instead of unset, and the layer 1 and layer 2 of the interface are up and up.
+
+Now, step 5 says to view the running config to confirm the changes, and then save the show running-config
+
+You can see the description, and ip addresses we configured.
+
+Notice the default duplex auto and speed auto commands.
+
+![Imgur](https://i.imgur.com/H1o0Jvr.png)
+
+Also, if you look at the vlan1 interfac, you can see the shutdown command, which as I said is applied by default to cisco router interfaces. I mentioned in a previous video that there are a few ways to save the config.
+
+Copy running-config startup-config 
+
+write mem or just wr
+
+I like to use the shortcut version of write, WR. There we go
+
+Step 6 is to configure the IP address of PC1, PC2 and PC3.
+
+I'll go on PC1 first. To configure the IP address, click config up here.
+
+First, notice that I pre-configured the gateway here.
+
+![Imgur](https://i.imgur.com/OwCF9uc.png)
+
+I'll talk about the purpose of the gateway is when we talk more about routing, but notice that its R1's IP address.
+
+Now, to configure the PC's IP address, click on fastethernet0 here, that is PC1's network.
+
+And then here you can configure the IP address.
+
+And look at the subnet mask. It automaticlly fills in 255.0.0.0, since this is a class A address.
+
+![Imgur](https://i.imgur.com/RRSqFRc.png)
+
+Okay, now we can exit out of here. Click on PC2 , click on fastethernet0. The IP address is 182.98.0.1 and once again it automatically fills in the subnet mask, this time 255.255.0.0 because this is class B address.
+
+Click on PC3.
+
+IP address of 201.91.20.1. And this time the subnet mask is 255.255.255.0, for this class C address.
+
+Okay, finally let's go back to PC1 and try to ping. Click destop, then command prompt.
+
+![Imgur](https://i.imgur.com/tNOYAuw.png)
+
+Okay, looks like PC1 can reach PC2.
+
+How about PC3 ?
+
+Ping 201.191.20.1
+
+Great, PC1 can ping PC3 as well
+
+So, in this lab we looked at how to configure IP address on router interfaces, how to configure interface descriptions, and how to enable interfaces with the 'no shutdown' command. We also configured IP address on PCs in packet tracer and confirmed reachability. Thank you
+
+-----------------------------------------------------------------
+
 
 
 
