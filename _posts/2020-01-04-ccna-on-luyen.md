@@ -3083,6 +3083,85 @@ So, in this lab we looked at how to configure IP address on router interfaces, h
 
 -----------------------------------------------------------------
 
+### Day 9 - Switch Interfaces
+
+In this video, we'll take a break from IP addresses and take a look at switch interfaces.
+
+When we configured IP addresses, I talked about router interface a little bit. For example, we used the 'show ip interface brief' command to check the Layer 1 and I also talk about how router interfaces are disabled with the 'shutdown' command. This time we'll talk a look at switch interfaces and see how they are different from router interfaces, and also how they are the same.
+
+Specifically, we're going to talk about configuring Layer 1 characteristics of these interfaces, such as speed and duplex. I'll talk about interface speed and duplex.
+
+Speed refers to the data rate in bits per second, such as 10,100 or 1000 megabits per second.
+
+Duplex is something I mentioned briefly in a previuous video, basically it refers to whether a device is able to both send and receive data at the same time.
+
+I'll talk about speed and duplex autonegotiation, which allows two devices to negotiate speed and duplex settings without us having to manually configure them.
+
+I already talked about this in the previous video on configuring router interfaces, but I'll expand upon the topic. Finally, I'll talk about interface counters and errors.
+
+![Imgur](https://i.imgur.com/8JeiKwo.png)
+
+Cisco devices keep various counters regarding the traffic that passes through them, such as how many errors have occured, etc.
+
+I'll show you how to find and analyze these statistics, and what kinds of errors there are.
+
+![Imgur](https://i.imgur.com/BMAvMb8.png)
+
+Also let me review one point about switches that I mentioned in the very first video in up top is a photo of a Cisco ASR 1000-X router, and under it is a Cisco Catalyst 9200 switch. How about the number of interfaces ? 
+
+The router has 8 SFP interfaces for fiber-optic cables, and then a few RJ45 interfaces for the console port and such.
+
+The switch, on the other hand, has 4 SFP interfaces, plus 48 RJ45 interfaces. This ise because switches are used to connect end hosts to. This catalyst switch might have 48 PCs connected to the RJ45 ports, and then connect to a router. Next let me introduce the network topology. I'll use for this video.
+
+![Imgur](https://i.imgur.com/T5ZVNp1.png)
+
+This is a single LAN, 192.168.1.0/24, with one router R1, two switches , SW1 and SW2 and four PCs, PC1, 2,3 and 4
+
+In a real network with two switches these would be many more end hosts, but just for this demonstration I've attached just these four PCs. SW1 is the device we're going to focus on today, configuring its network interfaces, including f0/1,f0/2,f0/3 and f0/4 which are connected, as well as the remaining interfaces which are not connected at the moment.
+
+Let's go right into  the CLI of SW1.
+
+![Imgur](https://i.imgur.com/gDb79Hz.png)
+
+First I use 'enable' to enter privileged exec mode. After entering privileged exec mode, I entered the 'show ip interface brief', using shortcuts. As you can see, the four interfaces which are connected to devices, fastethernet 0/1, 0/2,0/3,0/4 have a status column, which is the Layer 1 status, and a protocol column, which is the Layer 2 status, of UP and UP. Keep in mind I haven't done any configuration on SW1 yet except set the hostname. So already we can see a different between Cisco router and switches What is that ?
+
+Router interfaces are in an administratively disabled state by default, meaning they have the 'shutdown' command applied. They don't have the shutdown command applied, so if you connect them to another device they'll usually be in the up/up state with no configuration required. 
+
+Now, the IP address is inassigned, and it will remain that way because these are layer 2 swithports, they don't need an IP address.
+
+The concept of multilayer switching, where you actually DO assign IP addresses to switches, will be for a future lesson.
+
+For this lesson, don't worry about the IP address column. Now take a look at the other interfaces, keep in mind I'm ignoring the 'VLAN1' virtual. These other interfaces aren't connected to any other devices, so their status is down/down. Keep in mind, down and down is different than administratively down and down. 
+
+Here's the show ip interface brief command on a router, notice administratively down and down, this is because of the 'shutdown command'. Down/Down doesn't mean the interfaces are shutdown, it means they aren't connected . So, to summarize, router interfaces have the shutdown command applied by default, so they will be in the administratively down/down state by default.
+
+![Imgur](https://i.imgur.com/kIgA7Ki.png)
+
+![Imgur](https://i.imgur.com/K9nkrFB.png)
+
+Switch interfaces do not have the shutdown command applied by default, so they will either be in the up/up state, if they are connected to another device, or the down/down state, if not connected. Now, let's look at another useful command to check on switch interfaces. Let's look at each field of the output.
+
+![Imgur](https://i.imgur.com/87ScCns.png)
+
+First, the port field simply lists each interface. Next, you might be wondering what this 'name' field is.
+
+I'm not sure why they called it 'name' and not 'description' , but we'll configure description on these interfaces and you'll see that it appears here.
+
+As you can see this is different than the status field of show ip interface brief.
+
+The four connected interfaces show a status of connected, and the unconnected interfaces. There are other possible statuses, we'll cover them as they come up in the course.
+
+Next is the VLAN field.
+
+VLANS will get their own video, basically they can be used to divide LANs into smaller LANS. The only one that does not show a VLAN of 1 is f0/2, which shows trunk. I won't explain trunks now, they'll be covered in the VLAN video. 
+
+Just take note of the fact that the interface connected to the other switch, SW2, is a trunk interface.
+
+Next is the duplex field, which as I mentioned before indicates whether the device is capable of both sending and receiving data at the same time, which is known as full-duplex, or if its not, which is called half-duplex.
+
+Duplex is auto by default on Cisco switches, meaning it will negotiate with the neighboring device and use full-duplex if possible. Notice that all of the unconnected interfaces have a duplex of auto, and the connected interfaces have a duplex of a dash full well, the a stands for auto, and it means that it automatically negotiated a duplex of auto with the neighboring device.
+
+Next is the speed field, which is also auto by default. These are fastethenet interfaces, so they are capable of speeds up to 100 megabuts per second. However, they are also capable of operating at 10 megabits per second. Auto means they are able to negotiate with the device they are connected to and use the fastest speed both devices are capable of [8:52]
 
 
 
