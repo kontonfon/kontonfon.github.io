@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Một số lệnh thường gặp khi debub C hoặc C++ sang Assembly trong Linux
+title: Một số lệnh thường gặp khi debug C hoặc C++ sang Assembly trong Linux
 subtitle: GDB
 cover-img: /assets/img/path.jpg
 thumbnail-img: /assets/img/lala.png
