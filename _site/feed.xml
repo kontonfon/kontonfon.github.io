@@ -23,7 +23,7 @@
       </item>
     
       <item>
-        <title>Tản mạn về hệ mật mã khóa công khai dựa trên đường cong Elliptic - Tổng quan về hệ mật mã khóa công khai</title>
+        <title>Tổng quan về ECC</title>
         <description>
           ECC - 
           Lời mở đầu Tháng 3 năm 2016, Bộ Ngoại Giao Hoa Kỳ, đứng đầu là bộ trưởng John , đã dẫn một đoàn đại biểu tới các nước ASEAN trong đó có Việt Nam để thảo luận về phát triển Fintech và đặc biệt là về công nghệ Blockchain. Tháng...
@@ -136,7 +136,7 @@ $\lVert v \rVert$
       </item>
     
       <item>
-        <title>Một số lệnh thường gặp khi debub C hoặc C++ sang Assembly trong Linux</title>
+        <title>Một số lệnh thường gặp khi debug C hoặc C++ sang Assembly trong Linux</title>
         <description>
           GDB - 
           1.Tạo một file bất kì Cú pháp: nano exv.c 2. Thực thi file đã tạo Cú pháp: gcc -g exv.c -o t 3. Chạy file đã thực thi Cú pháp : ./t 4. Liệt kê các thư mục Cú pháp: ls -la 5. Thực hiện Debug Cú pháp: gdb t...
