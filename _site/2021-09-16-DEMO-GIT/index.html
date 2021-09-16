@@ -277,57 +277,57 @@ MathJax.Hub.Queue(function() {
 
 <ul>
   <li>
-    <p>Bước 5: Làm quen với git add:</p>
+    <p>Bước 5: Làm quen với <code class="language-plaintext highlighter-rouge">git add</code>:</p>
 
     <ul>
       <li>
-        <p>git add . : Có nghĩa là add hết tất cả các file có trong thư mục DEMO-GIT lên không gian lưu trữ</p>
+        <p><code class="language-plaintext highlighter-rouge">git add .</code> : Có nghĩa là add hết tất cả các file có trong thư mục DEMO-GIT lên không gian lưu trữ</p>
       </li>
       <li>
-        <p>git add [filename] : Có nghĩa là add file có tên [filename] lên không gian lưu trữ</p>
+        <p><code class="language-plaintext highlighter-rouge">git add [filename]</code> : Có nghĩa là add file có tên [filename] lên không gian lưu trữ</p>
       </li>
     </ul>
   </li>
   <li>
-    <p>Bước 6: Làm quen với git status:</p>
+    <p>Bước 6: Làm quen với <code class="language-plaintext highlighter-rouge">git status</code>:</p>
 
     <ul>
-      <li>git status: Có nghĩa là thể hiện trạng thái các file trong thư mục có được đưa lên không gian lưu trữ hay chưa.</li>
+      <li><code class="language-plaintext highlighter-rouge">git status</code>: Có nghĩa là thể hiện trạng thái các file trong thư mục có được đưa lên không gian lưu trữ hay chưa.</li>
     </ul>
   </li>
   <li>
-    <p>Bước 7: Làm quen với git commit:</p>
+    <p>Bước 7: Làm quen với <code class="language-plaintext highlighter-rouge">git commit</code>:</p>
 
     <ul>
-      <li>git commit -m “comment”: Chính thức up file lên khu vực sẵn sàng</li>
+      <li><code class="language-plaintext highlighter-rouge">git commit -m "comment"</code>: Chính thức up file lên khu vực sẵn sàng</li>
     </ul>
   </li>
   <li>
     <p>Bước 8: Làm quen với git reset:</p>
 
     <ul>
-      <li>git reset HEAD~1: Quay về trạng thái trước đó 1 lần</li>
+      <li><code class="language-plaintext highlighter-rouge">git reset HEAD~1</code>: Quay về trạng thái trước đó 1 lần</li>
     </ul>
   </li>
   <li>
-    <p>Bước 9: Làm quen với git log</p>
+    <p>Bước 9: Làm quen với <code class="language-plaintext highlighter-rouge">git log</code></p>
 
     <ul>
-      <li>git log: Dùng để lưu lại lịch sử commit - Trong đó mỗi commit đều có mã riêng</li>
+      <li><code class="language-plaintext highlighter-rouge">git log</code>: Dùng để lưu lại lịch sử commit - Trong đó mỗi commit đều có mã riêng</li>
     </ul>
   </li>
   <li>
-    <p>Bước 10: Làm quen với git revert</p>
+    <p>Bước 10: Làm quen với <code class="language-plaintext highlighter-rouge">git revert</code></p>
 
     <ul>
-      <li>git revert + [mã commit] (Để lấy được mã commit ta dùng git log) : Cái này có chức năng quay lại các commit trong lịch sử</li>
+      <li><code class="language-plaintext highlighter-rouge">git revert + [mã commit]</code> (Để lấy được mã commit ta dùng <code class="language-plaintext highlighter-rouge">git log</code>) : Cái này có chức năng quay lại các commit trong lịch sử</li>
     </ul>
   </li>
   <li>
-    <p>Bước 11: git config –global user.name “kontonfon”</p>
+    <p>Bước 11: <code class="language-plaintext highlighter-rouge">git config --global user.name "kontonfon"</code></p>
   </li>
   <li>
-    <p>Bước 12: git config –global user.email “kontonfon@gmail.com”</p>
+    <p>Bước 12: <code class="language-plaintext highlighter-rouge">git config --global user.email "kontonfon@gmail.com"</code></p>
   </li>
 </ul>
 
@@ -348,20 +348,159 @@ MathJax.Hub.Queue(function() {
 
     <ul>
       <li>
-        <p>Ở gitbash ta nhập : git init</p>
+        <p>Ở gitbash ta nhập : <code class="language-plaintext highlighter-rouge">git init </code></p>
       </li>
       <li>
-        <p>git commit -M main : Để chuyển từ nhánh master sang nhánh main</p>
+        <p><code class="language-plaintext highlighter-rouge">git commit -M main</code> : Để chuyển từ nhánh master sang nhánh main</p>
       </li>
       <li>
-        <p>git remote set-url origin https://github.com/kontonfon/GIT-DEMO.git</p>
+        <p><code class="language-plaintext highlighter-rouge">git remote set-url origin https://github.com/kontonfon/GIT-DEMO.git</code></p>
       </li>
       <li>
-        <p>git push -u origin main</p>
+        <p><code class="language-plaintext highlighter-rouge">git push -u origin main</code></p>
       </li>
     </ul>
   </li>
 </ul>
+
+<h2 id="phần-3-add-file-readmemd-edit-file-readmemd-và-tương-tác-ngược-lại-với-local">Phần 3: Add file README.md edit file README.md và tương tác ngược lại với local</h2>
+
+<ul>
+  <li>
+    <p>Bước 1: Trên github, nếu đã có file README.md thì ta chỉ cần edit, còn nếu chưa có ta chỉ việc add README.md và edit nó và sau đó nhấn “commit new file”</p>
+  </li>
+  <li>
+    <p>Bước 2: Sử dụng câu lệnh <code class="language-plaintext highlighter-rouge">git pull origin main</code> để có thể có được bản update mới nhất từ github về local (cái này rất hữu ích khi bạn phải làm việc nhóm)</p>
+  </li>
+</ul>
+
+<h2 id="phần-4-mời-đồng-nghiệp-vào-cùng-một-dự-án-trong-git-invite-a-collaborator">Phần 4: Mời đồng nghiệp vào cùng một dự án trong GIT (Invite a collaborator)</h2>
+
+<ul>
+  <li>
+    <p>Bước 1: Vào github -&gt; Chọn mục setting -&gt; Manage access -&gt; Invite a collaborator</p>
+  </li>
+  <li>
+    <p>Bước 2: Nhập username (hoặc fullname, email) của đồng nghiệp bạn muốn tham gia cùng dự án -&gt; Add [username] vào dự án</p>
+  </li>
+</ul>
+
+<h2 id="phần-5-giả-sử-ta-có-đồng-nghiệp-tên-là-x-đã-tham-gia-vào-dự-án-và-bây-giờ-ta-bắt-đầu-làm-việc-chung">Phần 5: Giả sử ta có đồng nghiệp tên là X đã tham gia vào dự án, và bây giờ ta bắt đầu làm việc chung</h2>
+
+<ul>
+  <li>
+    <p>Bước 1: Vì mình chỉ có một máy thôi nên giả sử đồng nghiệp X đang ở máy ảo Kali còn mình là kontonfon làm việc trên máy chính</p>
+  </li>
+  <li>
+    <p>Bước 2: Đồng nghiệp X sẽ vào tài khoản github của mình, tiếp theo vào dự án DEMO-GIT, tạo một nhánh tên là <code class="language-plaintext highlighter-rouge">developer</code> (ở chỗ mục select nhánh trên github)</p>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/LG9MYce.png" alt="Imgur" /></p>
+
+<ul>
+  <li>Bước 3:  Ở nhánh <code class="language-plaintext highlighter-rouge">developer</code> ta tạo một file có tên là <code class="language-plaintext highlighter-rouge">test3.txt</code> có nội dung là : “this is a third file” -&gt; Commit new file. Sau đó ta sẽ thấy một dòng chữ xuất hiện đó là <code class="language-plaintext highlighter-rouge">Compare &amp; pull request</code></li>
+</ul>
+
+<p><img src="https://i.imgur.com/cGEzlPD.png" alt="Imgur" /></p>
+
+<ul>
+  <li>
+    <p>[Upgrade pro - không cần thiết] Bước 4: Ta vào lại setting -&gt; Branches -&gt; Upgrade</p>
+  </li>
+  <li>
+    <p>Bước 5: Quay lại nick của kontonfon,  vào settings -&gt; Kéo xuống cuối cùng tới phần Danger Zone -&gt; Change visibility -&gt; <code class="language-plaintext highlighter-rouge">Make public</code></p>
+  </li>
+  <li>
+    <p>Bước 6: Vào lại Settings -&gt; Branches -&gt; Nhập vào chỗ <code class="language-plaintext highlighter-rouge">Branch name pattern</code>: <code class="language-plaintext highlighter-rouge">main</code></p>
+  </li>
+  <li>
+    <p>Bước 7: Tại <code class="language-plaintext highlighter-rouge">Protect matching branches</code> -&gt; Tick chọn <code class="language-plaintext highlighter-rouge">Require pull request reviews before mergin</code> -&gt; Nhấn chọn <code class="language-plaintext highlighter-rouge">create</code>.</p>
+  </li>
+  <li>
+    <p>Bước 8: Quay lại Đồng nghiệp X, ta nhấn chọn <code class="language-plaintext highlighter-rouge">compare &amp; pull request</code>, sau đó ta comment vào , nó sẽ xuất hiện lỗi đó là cần <code class="language-plaintext highlighter-rouge">review required</code></p>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/W5ZeDWn.png" alt="Imgur" /></p>
+
+<ul>
+  <li>Bước 9: Quay lại nick kontonfon, vào chỗ <code class="language-plaintext highlighter-rouge">Pull requests</code> ta sẽ thấy được đoạn comment lúc nãy !</li>
+</ul>
+
+<p><img src="https://i.imgur.com/mYY9GhY.png" alt="Imgur" /></p>
+
+<ul>
+  <li>Bước 10: Kích chuột vào <code class="language-plaintext highlighter-rouge">Create test3.txt</code>, ta sẽ thấy được toàn bộ lỗi đó và kích vào <code class="language-plaintext highlighter-rouge">Add your review</code>, sau đó kích vào <code class="language-plaintext highlighter-rouge">Review changes</code>, sau đó nhập vào comment  “Approved” , tích chọn <code class="language-plaintext highlighter-rouge">Approve</code> và chọn <code class="language-plaintext highlighter-rouge">Submit review</code></li>
+</ul>
+
+<p><img src="https://i.imgur.com/4piTOQ9.png" alt="Imgur" /></p>
+
+<ul>
+  <li>
+    <p>Bước 11: Ta nhấn vào <code class="language-plaintext highlighter-rouge">Merge pull request</code> -&gt; <code class="language-plaintext highlighter-rouge">confirm merge</code></p>
+  </li>
+  <li>
+    <p>Bước 12: Lúc này ta đã thấy nhánh <code class="language-plaintext highlighter-rouge">developer</code> đã merge vào nhánh <code class="language-plaintext highlighter-rouge">main</code></p>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/kbMCbxp.png" alt="Imgur" /></p>
+
+<h2 id="phần-6-setting-ssh">Phần 6: Setting SSH</h2>
+
+<ul>
+  <li>
+    <p>Bước 1: Ở nick kontonfon, chúng ta vào profile -&gt; Settings -&gt; SSH và GPG Keys -&gt; Chọn <code class="language-plaintext highlighter-rouge">New SSH keys</code></p>
+  </li>
+  <li>
+    <p>Bước 2: Vào ổ đĩa C -&gt; User -&gt; Admin [ở đây tuỳ máy nhé] -&gt; .ssh</p>
+  </li>
+  <li>
+    <p>Bước 3: Tại thư mục .ssh -&gt; Nhấn nút phải chọn <code class="language-plaintext highlighter-rouge">git bash</code></p>
+  </li>
+  <li>Bước 4: Sau đó ta nhập <code class="language-plaintext highlighter-rouge">ssh-keygen -t rsa -b 4096 -C "kontonfon@gmail.com"</code>
+    <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Chú ý: -C : Từ C viết hoa nhé 
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Bước 5: Nếu bạn nào thích nhập password thì nhập, còn không thì cứ Enter là được</p>
+  </li>
+  <li>Lúc này ở thư mục .ssh nó sẽ tự động sinh key cho chúng ta</li>
+</ul>
+
+<p><img src="https://i.imgur.com/mTRprLr.png" alt="Imgur" /></p>
+
+<ul>
+  <li>Bước 6: Lúc này ta quay lại chỗ github, điển vào title: <code class="language-plaintext highlighter-rouge">ssh keys</code> và sau đó mở file <code class="language-plaintext highlighter-rouge">id_rsa.pub</code> để copy <code class="language-plaintext highlighter-rouge">key</code> vào chỗ key nhé ! và nhấn <code class="language-plaintext highlighter-rouge">Add SSH key</code> là xong</li>
+</ul>
+
+<p><img src="https://i.imgur.com/oajcIbY.png" alt="Imgur" /></p>
+
+<p><img src="https://i.imgur.com/lwf7KTp.png" alt="Imgur" /></p>
+
+<p><img src="https://i.imgur.com/ufo0eIW.png" alt="Imgur" /></p>
+
+<p><img src="https://i.imgur.com/D4ntAsX.png" alt="Imgur" /></p>
+
+<ul>
+  <li>Bước 7: Quay lại github ban đầu và vào thực mục DEMO, ta tạo một thư mục mới có tên là <code class="language-plaintext highlighter-rouge">sshkeytesting</code> để test SSH thử nhé !</li>
+</ul>
+
+<p><img src="https://i.imgur.com/J68MR6j.png" alt="Imgur" /></p>
+
+<ul>
+  <li>Bước 8: Tại thư mục này, ta mở <code class="language-plaintext highlighter-rouge">git bash</code> lên, sau đó nhập <code class="language-plaintext highlighter-rouge">git init</code>, sau đó ta vào lại github, lấy đường link clone theo <code class="language-plaintext highlighter-rouge">SSH</code>: <code class="language-plaintext highlighter-rouge">git@github.com:kontonfon/GIT-DEMO.git</code></li>
+</ul>
+
+<p><img src="https://i.imgur.com/Tt2uIUk.png" alt="Imgur" /></p>
+
+<p><img src="https://i.imgur.com/KvgvkEl.png" alt="Imgur" /></p>
+
+<p><img src="https://i.imgur.com/ZYvgvau.png" alt="Imgur" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>OK, như vậy là ta đã hoàn tất phần setting SSH
+</code></pre></div></div>
 
 
       </article>
