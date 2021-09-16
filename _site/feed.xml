@@ -12,6 +12,17 @@
     
     
       <item>
+        <title>Học GIT cơ bản</title>
+        <description>
+          Welcome to Em0t3t&apos; Blog - 
+          Phần 1: Làm quen với GIT ở local Bước 1: Lên mạng Download GIT và cài đặt Bước 2: Tạo thư mục DEMO-GIT Bước 3: Vào thư mục kích phải chuột chọn GIT BASH Bước 4: Tạo file sử dụng echo echo &quot;This is first file&quot; &amp;gt; file1.txt Bước 5:...
+        </description>
+        <pubDate>Thu, 16 Sep 2021 00:00:00 +0000</pubDate>
+        <link>http://localhost:4000/2021-09-16-DEMO-GIT/</link>
+        <guid isPermaLink="true">http://localhost:4000/2021-09-16-DEMO-GIT/</guid>
+      </item>
+    
+      <item>
         <title>Luyện tập Crypto</title>
         <description>
           Trên cryptohack.org - 
