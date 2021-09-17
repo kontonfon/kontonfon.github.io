@@ -502,7 +502,7 @@ MathJax.Hub.Queue(function() {
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>OK, như vậy là ta đã hoàn tất phần setting SSH
 </code></pre></div></div>
 
-<h2 id="phần-7">Phần 7:</h2>
+<h2 id="phần-7-thực-hiện-các-lệnh-tạo-branch-ở-local">Phần 7: Thực hiện các lệnh tạo branch ở local</h2>
 
 <ul>
   <li>
@@ -532,8 +532,74 @@ MathJax.Hub.Queue(function() {
     <p>Bước 7: Ta lại gõ lệnh <code class="language-plaintext highlighter-rouge">git checkout main</code>: Để quay lại nhánh main</p>
   </li>
   <li>
-    <p>Bước 8: Ta gõ lệnh <code class="language-plaintext highlighter-rouge">git branch feature1</code>: Để tạo nhanh feature1</p>
+    <p>Bước 8: Ta gõ lệnh <code class="language-plaintext highlighter-rouge">git branch feature1</code>: Để tạo nhanh feature1, nhưng mới ở chỉ local thôi nhé</p>
   </li>
+  <li>
+    <p>Bước 9: Gõ lệnh <code class="language-plaintext highlighter-rouge">git branch</code> để xem những nhánh ta đang hoạt động</p>
+  </li>
+  <li>
+    <p>Bước 10: Gõ lệnh <code class="language-plaintext highlighter-rouge">git switch feature1</code>: Để chuyển quyền thực thi sang nhánh feature1</p>
+  </li>
+  <li>
+    <p>Bước 11: Gõ lệnh <code class="language-plaintext highlighter-rouge">echo "this is feature1" &gt; f1.txt</code></p>
+  </li>
+  <li>
+    <p>Bước 12: Gõ lệnh <code class="language-plaintext highlighter-rouge">git switch developer</code> để chuyển sang nhánh <code class="language-plaintext highlighter-rouge">developer</code></p>
+  </li>
+  <li>
+    <p>Bước 13: Gõ lệnh <code class="language-plaintext highlighter-rouge">echo "this is developer branch first file" &gt; dev1.txt</code></p>
+  </li>
+  <li>
+    <p>Bước 14: Gõ lệnh <code class="language-plaintext highlighter-rouge">git add .</code></p>
+  </li>
+  <li>
+    <p>Bước 15: Gõ lệnh <code class="language-plaintext highlighter-rouge">git commit -m "dev first file"</code></p>
+  </li>
+  <li>
+    <p>Bước 16: Gõ lệnh <code class="language-plaintext highlighter-rouge">git status</code></p>
+  </li>
+  <li>
+    <p>Bước 17: Gõ lệnh <code class="language-plaintext highlighter-rouge">git switch feature1</code>. Sau đó gõ lệnh <code class="language-plaintext highlighter-rouge">ls</code></p>
+  </li>
+  <li>
+    <p>Bước 18: Gõ lệnh <code class="language-plaintext highlighter-rouge">git status</code>. Thì thấy file <code class="language-plaintext highlighter-rouge">f1.txt</code> chưa được . Nếu chưa thấy thì ta tạo thêm file <code class="language-plaintext highlighter-rouge">f2.txt</code> bằng câu lệnh <code class="language-plaintext highlighter-rouge">echo "this is f2" &gt; f2.txt</code></p>
+  </li>
+  <li>
+    <p>Bước 19: Gõ lệnh <code class="language-plaintext highlighter-rouge">git add .</code> Sau đó gõ lệnh <code class="language-plaintext highlighter-rouge">git commit -m "first feature file"</code>. Sau đó gõ lệnh <code class="language-plaintext highlighter-rouge">git status</code> để kiểm tra</p>
+  </li>
+  <li>
+    <p>Bước 20: Gõ lệnh <code class="language-plaintext highlighter-rouge">git switch developer</code> để chuyển sang nhánh <code class="language-plaintext highlighter-rouge">developer</code></p>
+  </li>
+  <li>
+    <p>Bước 21: Gõ lệnh <code class="language-plaintext highlighter-rouge">git branch -D feature1</code> để xoá nhánh <code class="language-plaintext highlighter-rouge">feature1</code></p>
+  </li>
+  <li>
+    <p>Bước 22: Gõ lệnh <code class="language-plaintext highlighter-rouge">git branch</code> để hiển thị lại thông tin các nhánh. Khi đó ta sẽ thấy những gì tạo ở nhánh <code class="language-plaintext highlighter-rouge">feature1</code> sẽ bị biến mất trong nhánh <code class="language-plaintext highlighter-rouge">developer</code></p>
+  </li>
+  <li>
+    <p>Bước 23: Gõ lệnh <code class="language-plaintext highlighter-rouge">echo "this is our second dev file" &gt; dev2.txt</code></p>
+  </li>
+  <li>
+    <p>Bước 24: Gõ lệnh <code class="language-plaintext highlighter-rouge">git add .</code> và sau đó gõ lệnh <code class="language-plaintext highlighter-rouge">git commit -m "second file"</code>, cuối cùng dùng lệnh <code class="language-plaintext highlighter-rouge">git status</code> để kiểm tra</p>
+  </li>
+  <li>
+    <p>Bước 25: Gõ lệnh <code class="language-plaintext highlighter-rouge">git log</code> để xem lịch sử</p>
+  </li>
+  <li>
+    <p>Bước 26: Gõ lệnh <code class="language-plaintext highlighter-rouge">git reset HEAD~1</code>: Để quay lại commit trước đó 1 lần, và sau đó dùng lệnh <code class="language-plaintext highlighter-rouge">git status</code> để kiểm tra. Lúc này ta sẽ thấy file <code class="language-plaintext highlighter-rouge">dev2.txt</code> chưa được đưa lên không gian lưu trữ</p>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/bXf49JG.png" alt="Imgur" /></p>
+
+<ul>
+  <li>Bước 27: Gõ lại lệnh <code class="language-plaintext highlighter-rouge">git add .</code> và sau đó gõ lệnh <code class="language-plaintext highlighter-rouge">git status</code> , lúc này file <code class="language-plaintext highlighter-rouge">dev2.txt</code> đã sẵn sàng trên khu vực dự trữ</li>
+</ul>
+
+<p><img src="https://i.imgur.com/HID2XFA.png" alt="Imgur" /></p>
+
+<ul>
+  <li>Bước 28: Gõ lệnh <code class="language-plaintext highlighter-rouge">git commit -m "second file"</code> và sau đó gõ lệnh <code class="language-plaintext highlighter-rouge">git status</code></li>
 </ul>
 
 
