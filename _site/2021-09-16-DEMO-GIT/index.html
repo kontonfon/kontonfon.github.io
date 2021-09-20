@@ -599,8 +599,73 @@ MathJax.Hub.Queue(function() {
 <p><img src="https://i.imgur.com/HID2XFA.png" alt="Imgur" /></p>
 
 <ul>
-  <li>Bước 28: Gõ lệnh <code class="language-plaintext highlighter-rouge">git commit -m "second file"</code> và sau đó gõ lệnh <code class="language-plaintext highlighter-rouge">git status</code></li>
+  <li>
+    <p>Bước 28: Gõ lệnh <code class="language-plaintext highlighter-rouge">git commit -m "second file"</code> và sau đó gõ lệnh <code class="language-plaintext highlighter-rouge">git status</code></p>
+  </li>
+  <li>
+    <p>Bước 29: Vào github của <code class="language-plaintext highlighter-rouge">kontonfon</code> sau đó vào nhánh <code class="language-plaintext highlighter-rouge">developer</code></p>
+  </li>
+  <li>
+    <p>Bước 30: Quay lại <code class="language-plaintext highlighter-rouge">git bash</code> sau đó gõ lệnh <code class="language-plaintext highlighter-rouge">git pull origin developer</code>, sau đó bấm <code class="language-plaintext highlighter-rouge">ls</code></p>
+  </li>
 </ul>
+
+<p><img src="https://i.imgur.com/9xMxVPF.png" alt="Imgur" /></p>
+
+<ul>
+  <li>Bước 31: Gõ lệnh <code class="language-plaintext highlighter-rouge">git push origin developer</code> và ta thấy hình ảnh này trên github</li>
+</ul>
+
+<p><img src="https://i.imgur.com/HWuo7NZ.png" alt="Imgur" /></p>
+
+<ul>
+  <li>Bước 32: Ta vào nhánh <code class="language-plaintext highlighter-rouge">developer</code> trên <code class="language-plaintext highlighter-rouge">github</code>. Tiếp theo ta gõ <code class="language-plaintext highlighter-rouge">git log</code> trên <code class="language-plaintext highlighter-rouge">git bash</code> copy <code class="language-plaintext highlighter-rouge">mã commit</code> của <code class="language-plaintext highlighter-rouge">second file</code></li>
+</ul>
+
+<p><img src="https://i.imgur.com/UfevsUH.png" alt="Imgur" /></p>
+
+<ul>
+  <li>Bước 33: Gõ lệnh <code class="language-plaintext highlighter-rouge">git revert</code> + <code class="language-plaintext highlighter-rouge">mã commit</code> và sao đó gõ lệnh <code class="language-plaintext highlighter-rouge">ls</code>, ta sẽ thấy được file <code class="language-plaintext highlighter-rouge">dev2.txt</code> đã biến mất</li>
+</ul>
+
+<p><img src="https://i.imgur.com/zSuRIrW.png" alt="Imgur" /></p>
+
+<ul>
+  <li>Bước 34: Gõ lệnh <code class="language-plaintext highlighter-rouge">git push origin developer</code>, sau đó quay lại github, lúc này ta thấy file <code class="language-plaintext highlighter-rouge">dev2.txt</code> trên github cũng đã mất !</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Trước khi revert
+</code></pre></div></div>
+
+<p><img src="https://i.imgur.com/tWcWcl8.png" alt="Imgur" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Sau khi revert
+</code></pre></div></div>
+
+<p><img src="https://i.imgur.com/HghcNed.png" alt="Imgur" /></p>
+
+<ul>
+  <li>Bước 35: Sau đõ gõ lệnh <code class="language-plaintext highlighter-rouge">echo "second file" &gt; dev2.txt</code> , sau đó gõ lệnh <code class="language-plaintext highlighter-rouge">status</code></li>
+</ul>
+
+<p><img src="https://i.imgur.com/Oyojqpa.png" alt="Imgur" /></p>
+
+<ul>
+  <li>
+    <p>Bước 36: Gõ lệnh <code class="language-plaintext highlighter-rouge">git add .</code> và sau đó gõ lệnh <code class="language-plaintext highlighter-rouge">git commit -m "second file"</code> và sau đó gõ lệnh <code class="language-plaintext highlighter-rouge">git status</code>. Cuối cùng gõ lệnh <code class="language-plaintext highlighter-rouge">ls</code></p>
+  </li>
+  <li>
+    <p>Bước 37: Gõ lệnh <code class="language-plaintext highlighter-rouge">git rm dev2.txt</code> , và gõ lệnh <code class="language-plaintext highlighter-rouge">ls</code></p>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/Z1eqzjB.png" alt="Imgur" /></p>
+
+<ul>
+  <li>Bước 38: Gõ lệnh <code class="language-plaintext highlighter-rouge">git status</code></li>
+</ul>
+
+<p><img src="https://i.imgur.com/wnDOVtQ.png" alt="Imgur" /></p>
 
 
       </article>
