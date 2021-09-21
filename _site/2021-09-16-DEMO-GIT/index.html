@@ -502,7 +502,7 @@ MathJax.Hub.Queue(function() {
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>OK, như vậy là ta đã hoàn tất phần setting SSH
 </code></pre></div></div>
 
-<h2 id="phần-7-thực-hiện-các-lệnh-tạo-branch-ở-local">Phần 7: Thực hiện các lệnh tạo branch ở local</h2>
+<h2 id="phần-7-thực-hiện-các-lệnh-tạo-branch-ở-local-và-làm-quen-với-git-base">Phần 7: Thực hiện các lệnh tạo branch ở local và làm quen với git base</h2>
 
 <ul>
   <li>
@@ -666,6 +666,211 @@ MathJax.Hub.Queue(function() {
 </ul>
 
 <p><img src="https://i.imgur.com/wnDOVtQ.png" alt="Imgur" /></p>
+
+<ul>
+  <li>
+    <p>Bước 39: Gõ lệnh <code class="language-plaintext highlighter-rouge">git commit -n "deleted dev2.txt"</code> và sau đó gõ <code class="language-plaintext highlighter-rouge">git status</code> rồi gõ lệnh <code class="language-plaintext highlighter-rouge">ls</code></p>
+  </li>
+  <li>
+    <p>Bước 40: Gõ lệnh <code class="language-plaintext highlighter-rouge">git branch</code> và tìm hiểu <code class="language-plaintext highlighter-rouge">git base</code></p>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/MxBob9I.png" alt="Imgur" /></p>
+
+<ul>
+  <li>Bước 41: Gõ lệnh <code class="language-plaintext highlighter-rouge">echo "second file" &gt; dev2.txt</code> và gõ lệnh <code class="language-plaintext highlighter-rouge">echo "third file" &gt; dev3.txt</code>, rồi gõ lệnh <code class="language-plaintext highlighter-rouge">git status</code></li>
+</ul>
+
+<p><img src="https://i.imgur.com/RUuR5fY.png" alt="Imgur" /></p>
+
+<ul>
+  <li>Bước 42: Gõ lệnh <code class="language-plaintext highlighter-rouge">git add .</code> và lệnh <code class="language-plaintext highlighter-rouge">git commit -m "second and third dev file"</code>, sau đó gõ lệnh <code class="language-plaintext highlighter-rouge">git status</code> và <code class="language-plaintext highlighter-rouge">ls</code></li>
+</ul>
+
+<p><img src="https://i.imgur.com/YWStisx.png" alt="Imgur" /></p>
+
+<ul>
+  <li>
+    <p>Bước 43: Gõ lệnh <code class="language-plaintext highlighter-rouge">git switch main</code> và gõ lệnh <code class="language-plaintext highlighter-rouge">ls</code></p>
+  </li>
+  <li>
+    <p>Bước 44: Gõ lệnh <code class="language-plaintext highlighter-rouge">git rebase developer</code> và gõ lệnh <code class="language-plaintext highlighter-rouge">ls</code></p>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/WnZnReZ.png" alt="Imgur" /></p>
+
+<ul>
+  <li>
+    <p>Bước 45: Gõ lệnh <code class="language-plaintext highlighter-rouge">git switch developer</code> và gõ <code class="language-plaintext highlighter-rouge">ls</code></p>
+  </li>
+  <li>
+    <p>Bước 46: Gõ lệnh <code class="language-plaintext highlighter-rouge">git push origin developer</code></p>
+  </li>
+  <li>
+    <p>Bước 47: Vào <code class="language-plaintext highlighter-rouge">github</code> và vào <code class="language-plaintext highlighter-rouge">pull requests</code> vào đó gõ comment <code class="language-plaintext highlighter-rouge">adding dev2 and dev3 file</code> và nhấn <code class="language-plaintext highlighter-rouge">Create pull request</code></p>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/ktH8OHj.png" alt="Imgur" /></p>
+
+<ul>
+  <li>
+    <p>Bước 48: Vào <code class="language-plaintext highlighter-rouge">Assignees</code> và thêm những thành viên được <code class="language-plaintext highlighter-rouge">merge</code></p>
+  </li>
+  <li>
+    <p>Bước 49: Kích vào <code class="language-plaintext highlighter-rouge">Merge pull request</code> , sau đó tích vào <code class="language-plaintext highlighter-rouge">Use your administrator privileges to merge this pull request</code> và nhấn <code class="language-plaintext highlighter-rouge">Confirm merge</code></p>
+  </li>
+  <li>
+    <p>Bước 50: Quay lại nhánh <code class="language-plaintext highlighter-rouge">main</code> ta thấy được mọi thứ đã được <code class="language-plaintext highlighter-rouge">merge</code> xong !</p>
+  </li>
+</ul>
+
+<h2 id="phần-8-làm-quen-với-merge-và-xử-lý-conflict-khi-merge-ở-local">Phần 8: Làm quen với merge và xử lý conflict khi merge ở local</h2>
+
+<ul>
+  <li>Bước 1: Xem sơ đồ <code class="language-plaintext highlighter-rouge">branching strategy</code></li>
+</ul>
+
+<p><img src="https://i.imgur.com/Fgmrcuv.png" alt="Imgur" /></p>
+
+<ul>
+  <li>
+    <p>Bước 2: Vào <code class="language-plaintext highlighter-rouge">github</code> của <code class="language-plaintext highlighter-rouge">kontonfon</code> và <code class="language-plaintext highlighter-rouge">git clone</code> về và di chuyển vào thư mục <code class="language-plaintext highlighter-rouge">GIT-DEMO</code></p>
+  </li>
+  <li>
+    <p>Bước 3: Xem sơ đồ thể hiện sự khác nhau giữa <code class="language-plaintext highlighter-rouge">merge</code> và <code class="language-plaintext highlighter-rouge">rebase</code></p>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/SOfUGGU.png" alt="Imgur" /></p>
+
+<ul>
+  <li>
+    <p>Bước 4: Mở <code class="language-plaintext highlighter-rouge">git bash</code> và gõ lệnh <code class="language-plaintext highlighter-rouge">git branch -a</code>. Sau đó gõ lệnh <code class="language-plaintext highlighter-rouge">git branch developer</code></p>
+  </li>
+  <li>
+    <p>Bước 5: Lại gõ lệnh <code class="language-plaintext highlighter-rouge">git branch -a</code> và gõ lệnh <code class="language-plaintext highlighter-rouge">git switch developer</code></p>
+  </li>
+  <li>
+    <p>Bước 6: Gõ lệnh <code class="language-plaintext highlighter-rouge">git switch main</code></p>
+  </li>
+  <li>
+    <p>Bước 7: Gõ lệnh <code class="language-plaintext highlighter-rouge">git branch feature</code> sau đó gõ lệnh  <code class="language-plaintext highlighter-rouge">git branch -a</code></p>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/RfyqhjL.png" alt="Imgur" /></p>
+
+<ul>
+  <li>Bước 8: Gõ lệnh <code class="language-plaintext highlighter-rouge">git switch feature</code> và gõ lệnh <code class="language-plaintext highlighter-rouge">ls</code></li>
+</ul>
+
+<p><img src="https://i.imgur.com/DxPczjX.png" alt="Imgur" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Một điều chú ý là khi ta tạo nhánh mới thì nhánh này sẽ chứa tất cả nội dung có trong nhánh main
+</code></pre></div></div>
+
+<ul>
+  <li>Bước 8: Gõ lệnh <code class="language-plaintext highlighter-rouge">notepad test3.txt</code> và edit lại nội dung của file này như sau:</li>
+</ul>
+
+<p><img src="https://i.imgur.com/JiWv2MT.png" alt="Imgur" /></p>
+
+<ul>
+  <li>Bước 9: Gõ lệnh <code class="language-plaintext highlighter-rouge">cat test3.txt</code> để có thể thấy được nội dung trực tiếp ở <code class="language-plaintext highlighter-rouge">git bash</code></li>
+</ul>
+
+<p><img src="https://i.imgur.com/2kfGnUV.png" alt="Imgur" /></p>
+
+<ul>
+  <li>Bước 10: Gõ <code class="language-plaintext highlighter-rouge">git status</code> , sau đó gõ <code class="language-plaintext highlighter-rouge">git add .</code> và kiểm tra lại bằng <code class="language-plaintext highlighter-rouge">git status</code></li>
+</ul>
+
+<p><img src="https://i.imgur.com/9jBDzLJ.png" alt="Imgur" /></p>
+
+<ul>
+  <li>
+    <p>Bước 11: Gõ lệnh <code class="language-plaintext highlighter-rouge">git commit -m "modified third file"</code> và <code class="language-plaintext highlighter-rouge">git status</code></p>
+  </li>
+  <li>
+    <p>Bước 12: Gõ lệnh <code class="language-plaintext highlighter-rouge">git switch main</code>  và <code class="language-plaintext highlighter-rouge">ls</code>. Sau đó gõ lệnh <code class="language-plaintext highlighter-rouge">notepad test3.txt</code> với nội dung:</p>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/WQTfPsj.png" alt="Imgur" /></p>
+
+<ul>
+  <li>Bước 13: Gõ lệnh <code class="language-plaintext highlighter-rouge">git status</code>, tiếp theo <code class="language-plaintext highlighter-rouge">git add .</code> và cuối cùng là <code class="language-plaintext highlighter-rouge">git commit -m "updated third file"</code></li>
+</ul>
+
+<p><img src="https://i.imgur.com/2jLJpxI.png" alt="Imgur" /></p>
+
+<ul>
+  <li>Bước 14: Gõ lệnh <code class="language-plaintext highlighter-rouge">git merge feature</code> , ta sẽ thấy thông báo xuất hiện <code class="language-plaintext highlighter-rouge">conflict</code></li>
+</ul>
+
+<p><img src="https://i.imgur.com/wkf9WMX.png" alt="Imgur" /></p>
+
+<ul>
+  <li>Bước 15: Vào trang <a href="https://meldmerge.org/">meldmerge.org</a> và tải <code class="language-plaintext highlighter-rouge">Meld Installer</code> về,</li>
+</ul>
+
+<p><img src="https://i.imgur.com/sxOuJE5.png" alt="Imgur" /></p>
+
+<ul>
+  <li>
+    <p>Bước 18: Ta tiến hành cài đặt <code class="language-plaintext highlighter-rouge">Meld Installer</code>, sau khi cài xong, ta mở <code class="language-plaintext highlighter-rouge">Meld</code> lên và sau đó tắt đi.</p>
+  </li>
+  <li>
+    <p>Bước 19: Ta vào ổ đĩa <code class="language-plaintext highlighter-rouge">C/User/Admin/</code> và mở file <code class="language-plaintext highlighter-rouge">.gitconfig</code> bằng <code class="language-plaintext highlighter-rouge">notepad</code>.</p>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/OCzunRS.png" alt="Imgur" /></p>
+
+<ul>
+  <li>Bước 20: Ta <code class="language-plaintext highlighter-rouge">config</code> file <code class="language-plaintext highlighter-rouge">.gitconfig</code> như sau:</li>
+</ul>
+
+<p><img src="https://i.imgur.com/ZrMwXHA.png" alt="Imgur" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Sau khi config xong ta sẽ thấy một điều vi diệu xuất hiện như sau:
+</code></pre></div></div>
+
+<p><img src="https://i.imgur.com/gX2N4cK.png" alt="Imgur" /></p>
+
+<ul>
+  <li>Bước 21: Ta gõ lệnh <code class="language-plaintext highlighter-rouge">git mergetool</code>, và giao diện <code class="language-plaintext highlighter-rouge">meld</code> sẽ xuất hiện.</li>
+</ul>
+
+<p><img src="https://i.imgur.com/A3yaa3w.png" alt="Imgur" /></p>
+
+<ul>
+  <li>Bước 22: Sau đó ta nhấn vào dấu mũi tên như hình vẽ:</li>
+</ul>
+
+<p><img src="https://i.imgur.com/UA1AVcb.png" alt="Imgur" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Và kết quả là:
+</code></pre></div></div>
+
+<p><img src="https://i.imgur.com/sozmSQ9.png" alt="Imgur" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>sau đó chúng ta nhấn nút save và tắt giao diện meld.
+Chú ý trước khi save, ta phải đưa con trỏ chút vào vùng giữa
+</code></pre></div></div>
+
+<ul>
+  <li>Bước 23: Ta gõ lệnh <code class="language-plaintext highlighter-rouge">git status</code> , tiếp theo là gõ lệnh <code class="language-plaintext highlighter-rouge">git commit -m "merge conflict"</code></li>
+</ul>
+
+<p><img src="https://i.imgur.com/amk49f8.png" alt="Imgur" /></p>
+
+<ul>
+  <li>Bước 24: Gõ lệnh <code class="language-plaintext highlighter-rouge">ls</code> và <code class="language-plaintext highlighter-rouge">cat test3.txt</code></li>
+</ul>
 
 
       </article>
