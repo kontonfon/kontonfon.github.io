@@ -872,6 +872,114 @@ Chú ý trước khi save, ta phải đưa con trỏ chút vào vùng giữa
   <li>Bước 24: Gõ lệnh <code class="language-plaintext highlighter-rouge">ls</code> và <code class="language-plaintext highlighter-rouge">cat test3.txt</code></li>
 </ul>
 
+<h2 id="phần-9-git-flow">Phần 9: GIT FLOW</h2>
+
+<ul>
+  <li>
+    <p>Bước 1: Vào nick <code class="language-plaintext highlighter-rouge">kontonfon</code>, tạo <code class="language-plaintext highlighter-rouge">new repository</code> với tên là <code class="language-plaintext highlighter-rouge">GIT-FLOW-DEMO</code>, sau đó bấm <code class="language-plaintext highlighter-rouge">craete reposity</code></p>
+  </li>
+  <li>
+    <p>Bước 2: Ta <code class="language-plaintext highlighter-rouge">git clone</code> reposity này về local</p>
+  </li>
+  <li>
+    <p>Bước 3: Ta mở <code class="language-plaintext highlighter-rouge">git bash</code> lên và gõ lệnh <code class="language-plaintext highlighter-rouge">git clone https://github.com/kontonfon/GIT-FLOW-DEMO.git</code></p>
+  </li>
+  <li>
+    <p>Bước 4: Ta vào thư mục <code class="language-plaintext highlighter-rouge">GIT-FLOW-DEMO</code> , và vào <code class="language-plaintext highlighter-rouge">git bash</code> gõ lệnh <code class="language-plaintext highlighter-rouge">git flow init</code> , sau đó ta liên tục bấm phím <code class="language-plaintext highlighter-rouge">Enter</code>, ta sẽ được ảnh như hình vẽ</p>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/Zl71yBs.png" alt="Imgur" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Ps: Chú ý lúc này ta đang ở nhánh develop
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>Bước 5: Gõ lệnh <code class="language-plaintext highlighter-rouge">git branch -a</code> trên <code class="language-plaintext highlighter-rouge">git bash</code></p>
+  </li>
+  <li>
+    <p>Bước 6: Gõ lệnh <code class="language-plaintext highlighter-rouge">git push --set-upstream origin develop</code></p>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/QYpIDzq.png" alt="Imgur" /></p>
+
+<p><img src="https://i.imgur.com/LBNut1m.png" alt="Imgur" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Ps: Lúc này ta thấy xuất hiện hai branch trên github
+</code></pre></div></div>
+
+<ul>
+  <li>Bước 7: Gõ lệnh <code class="language-plaintext highlighter-rouge">git flow feature start feature1.0</code></li>
+</ul>
+
+<p><img src="https://i.imgur.com/TARwf8y.png" alt="Imgur" /></p>
+
+<ul>
+  <li>
+    <p>Bước 8: Gõ lệnh <code class="language-plaintext highlighter-rouge">git branch -a</code></p>
+  </li>
+  <li>
+    <p>Bước 9: Gõ lệnh <code class="language-plaintext highlighter-rouge">echo "this is feature1.0 file" &gt; f1.html</code> và sau đó gõ lệnh <code class="language-plaintext highlighter-rouge">git status</code></p>
+  </li>
+  <li>
+    <p>Bước 10: Gõ lệnh <code class="language-plaintext highlighter-rouge">git add .</code></p>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/oqk9hwb.png" alt="Imgur" /></p>
+
+<ul>
+  <li>
+    <p>Bước 11: Gõ lệnh <code class="language-plaintext highlighter-rouge">git commit -m "feature branch commit"</code></p>
+  </li>
+  <li>
+    <p>Bước 12: Gõ lệnh <code class="language-plaintext highlighter-rouge">git flow feature finish feature1.0</code></p>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/t2YwYEG.png" alt="Imgur" /></p>
+
+<ul>
+  <li>Bước 13: Gõ lệnh <code class="language-plaintext highlighter-rouge">ls</code>  và sau đó gõ lệnh <code class="language-plaintext highlighter-rouge">git branch -a</code></li>
+</ul>
+
+<p><img src="https://i.imgur.com/vsa4yxT.png" alt="Imgur" /></p>
+
+<ul>
+  <li>Bước 14: Gõ lệnh <code class="language-plaintext highlighter-rouge">git switch main</code> và sau đó gõ lệnh <code class="language-plaintext highlighter-rouge">ls</code></li>
+</ul>
+
+<p><img src="https://i.imgur.com/DOIONiM.png" alt="Imgur" /></p>
+
+<ul>
+  <li>Bước 15: Gõ lệnh <code class="language-plaintext highlighter-rouge">git checkout develop</code> và gõ lệnh <code class="language-plaintext highlighter-rouge">git push origin</code></li>
+</ul>
+
+<p><img src="https://i.imgur.com/T6KDm8j.png" alt="Imgur" /></p>
+
+<ul>
+  <li>Bước 16: Gõ lệnh <code class="language-plaintext highlighter-rouge">git flow release start release1.0</code> và gõ lệnh <code class="language-plaintext highlighter-rouge">git branch -a</code></li>
+</ul>
+
+<p><img src="https://i.imgur.com/5cAkZsO.png" alt="Imgur" /></p>
+
+<ul>
+  <li>Bước 17: Gõ lệnh <code class="language-plaintext highlighter-rouge">git push --set-upstream origin release/release1.0</code></li>
+</ul>
+
+<p><img src="https://i.imgur.com/tGHYueF.png" alt="Imgur" /></p>
+
+<ul>
+  <li>
+    <p>Bước 18: Gõ lệnh <code class="language-plaintext highlighter-rouge">echo "release notes" &gt; release.txt</code>, sau đó gẽ lệnh <code class="language-plaintext highlighter-rouge">git add .</code></p>
+  </li>
+  <li>
+    <p>Bước 19: Gõ lệnh <code class="language-plaintext highlighter-rouge">git commit -m "release notes"</code></p>
+  </li>
+</ul>
+
 
       </article>
 
