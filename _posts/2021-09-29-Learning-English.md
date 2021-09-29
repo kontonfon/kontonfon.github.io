@@ -103,4 +103,19 @@ MathJax.Hub.Queue(function() {
 Khi nhìn một từ là động từ thì nó có khả năng là danh từ
 ~~~
 
+22. carburetor: bộ chế hòa khí
+
+23. tiller: máy xới đất
+
+24. transparent: trong suốt 
+
+25. choke: nghẹt thở, bóp lại, chỗ co lại
+
+26. throttle somebody to attack or kill somebody by pressing their throat in order to stop them from breathing
+
+27. stuff: chất liệu
+
+
+
+
 
