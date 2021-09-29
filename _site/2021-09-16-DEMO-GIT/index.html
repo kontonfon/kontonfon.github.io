@@ -978,6 +978,234 @@ Chú ý trước khi save, ta phải đưa con trỏ chút vào vùng giữa
   <li>
     <p>Bước 19: Gõ lệnh <code class="language-plaintext highlighter-rouge">git commit -m "release notes"</code></p>
   </li>
+  <li>
+    <p>Bước 20: Gõ lệnh <code class="language-plaintext highlighter-rouge">git push</code> và sau đó là lệnh <code class="language-plaintext highlighter-rouge">git push origin</code></p>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/jwjvzi4.png" alt="Imgur" /></p>
+
+<ul>
+  <li>Bước 21: Gõ lệnh <code class="language-plaintext highlighter-rouge">git flow release finish release1.0</code> và đó gõ <code class="language-plaintext highlighter-rouge">1.0</code></li>
+</ul>
+
+<p><img src="https://i.imgur.com/CSZufCD.png" alt="Imgur" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Ps: Khi kết thúc câu lệnh này, nhánh release sẽ merge vào nhánh developer
+</code></pre></div></div>
+
+<ul>
+  <li>Bước 22: Gõ lệnh <code class="language-plaintext highlighter-rouge">ls</code> và lệnh <code class="language-plaintext highlighter-rouge">git switch main</code> và sau đó lại gõ lệnh <code class="language-plaintext highlighter-rouge">ls</code></li>
+</ul>
+
+<p><img src="https://i.imgur.com/9IVEvy1.png" alt="Imgur" /></p>
+
+<ul>
+  <li>Bước 23: Gõ lệnh <code class="language-plaintext highlighter-rouge">git push origin</code></li>
+</ul>
+
+<p><img src="https://i.imgur.com/g1IDP7F.png" alt="Imgur" /></p>
+
+<ul>
+  <li>Bước 24: Gõ lệnh <code class="language-plaintext highlighter-rouge">git tag -l</code> và lệnh <code class="language-plaintext highlighter-rouge">git switch develop</code></li>
+</ul>
+
+<p><img src="https://i.imgur.com/56ux0zM.png" alt="Imgur" /></p>
+
+<ul>
+  <li>Bước 25: Gõ lệnh <code class="language-plaintext highlighter-rouge">git flow hotfix start hotfix1.0</code></li>
+</ul>
+
+<p><img src="https://i.imgur.com/FaykNN4.png" alt="Imgur" /></p>
+
+<ul>
+  <li>Bước 26: Gõ lệnh <code class="language-plaintext highlighter-rouge">git branch -a</code> và gõ <code class="language-plaintext highlighter-rouge">echo "application bug fixes" &gt; fix.html</code></li>
+</ul>
+
+<p><img src="https://i.imgur.com/5tq8xzk.png" alt="Imgur" /></p>
+
+<ul>
+  <li>Bước 27: Gõ lệnh <code class="language-plaintext highlighter-rouge">git status</code>, sau đó <code class="language-plaintext highlighter-rouge">git add .</code> và cuối cùng <code class="language-plaintext highlighter-rouge">git commit -m "hotfix"</code></li>
+</ul>
+
+<p><img src="https://i.imgur.com/hvIpBIY.png" alt="Imgur" /></p>
+
+<ul>
+  <li>Bước 28: Gõ lệnh <code class="language-plaintext highlighter-rouge">git flow hotfix finish hotfix1.0</code></li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Ps: Nếu dùng Vim bạn nên gõ :wq để lưu và thoát, còn ở đoạn gõ tag bạn có thể gõ 1.0
+</code></pre></div></div>
+
+<ul>
+  <li>Bước 29: Gõ lệnh <code class="language-plaintext highlighter-rouge">git branch -a</code> và lệnh <code class="language-plaintext highlighter-rouge">ls</code></li>
+</ul>
+
+<p><img src="https://i.imgur.com/yXyx7Df.png" alt="Imgur" /></p>
+
+<ul>
+  <li>Bước 30: Gõ lệnh <code class="language-plaintext highlighter-rouge">git switch main</code> và <code class="language-plaintext highlighter-rouge">ls</code>, cuối cùng là <code class="language-plaintext highlighter-rouge">git push origin</code></li>
+</ul>
+
+<p><img src="https://i.imgur.com/AgAJS1G.png" alt="Imgur" /></p>
+
+<ul>
+  <li>Bước 31: Gõ lệnh <code class="language-plaintext highlighter-rouge">git tag -l</code></li>
+</ul>
+
+<h2 id="phần-10-git-trong-vscode-và-intellij">Phần 10: GIT trong Vscode và Intellij</h2>
+
+<ul>
+  <li>
+    <p>Bước 1: Vào github nick <code class="language-plaintext highlighter-rouge">kontonfon</code> tạo <code class="language-plaintext highlighter-rouge">new repository</code> với tên <code class="language-plaintext highlighter-rouge">VSCODE-GIT-DEMO</code> sau đó ta copy link để clone <code class="language-plaintext highlighter-rouge">https://github.com/kontonfon/VSCODE-GIT-DEMO.git</code></p>
+  </li>
+  <li>
+    <p>Bước 2: Ta mở <code class="language-plaintext highlighter-rouge">vscode</code> lên và vào chỗ biểu tượng <code class="language-plaintext highlighter-rouge">git</code></p>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/jeajlXY.png" alt="Imgur" /></p>
+
+<ul>
+  <li>Bước 3: Ta chọn <code class="language-plaintext highlighter-rouge">clone Repository</code> sau đó copy link clone vào chỗ này:</li>
+</ul>
+
+<p><img src="https://i.imgur.com/RJyBgpD.png" alt="Imgur" /></p>
+
+<ul>
+  <li>Bước 4: Lúc này nó hiện ra ta chỗ để ta lưu, ở đây mình chọn thư mục <code class="language-plaintext highlighter-rouge">Dev</code></li>
+</ul>
+
+<p><img src="https://i.imgur.com/8VZd8gf.png" alt="Imgur" /></p>
+
+<p><img src="https://i.imgur.com/geCczux.png" alt="Imgur" /></p>
+
+<ul>
+  <li>Bước 5: Lúc này ta thấy được hình ảnh như thế này</li>
+</ul>
+
+<p><img src="https://i.imgur.com/2h8qBvO.png" alt="Imgur" /></p>
+
+<ul>
+  <li>
+    <p>Bước 6: Ta tạo file <code class="language-plaintext highlighter-rouge">sample1.txt</code> và file <code class="language-plaintext highlighter-rouge">sample2.txt</code> và sau đó ta mở <code class="language-plaintext highlighter-rouge">terminal</code> lên</p>
+  </li>
+  <li>
+    <p>Bước 7: Ta chọn chế độ <code class="language-plaintext highlighter-rouge">output</code> và <code class="language-plaintext highlighter-rouge">git</code></p>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/bzI1jCI.png" alt="Imgur" /></p>
+
+<ul>
+  <li>Bước 8: Sau đó ta chọn vào biểu tưởng <code class="language-plaintext highlighter-rouge">git</code></li>
+</ul>
+
+<p><img src="https://i.imgur.com/sWiSShy.png" alt="Imgur" /></p>
+
+<p><img src="https://i.imgur.com/kEGguHw.png" alt="Imgur" /></p>
+
+<ul>
+  <li>Bước 9: Ta chọn vào biểu tượng <code class="language-plaintext highlighter-rouge">tick</code> để bắt đầu commit</li>
+</ul>
+
+<p><img src="https://i.imgur.com/zj2aL8q.png" alt="Imgur" /></p>
+
+<ul>
+  <li>Bước 10: Sau đó ta bấm <code class="language-plaintext highlighter-rouge">yes</code> và gõ <code class="language-plaintext highlighter-rouge">first commit</code></li>
+</ul>
+
+<p><img src="https://i.imgur.com/Vp7UVpe.png" alt="Imgur" /></p>
+
+<ul>
+  <li>
+    <p>Bước 11: Sau khi bấm xong, mọi thứ đã được hoàn tất !</p>
+  </li>
+  <li>
+    <p>Bước 12: Ta chọn vào dấu <code class="language-plaintext highlighter-rouge">ba chấm</code> và chọn <code class="language-plaintext highlighter-rouge">push</code></p>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/u3uxERz.png" alt="Imgur" /></p>
+
+<ul>
+  <li>Bước 13: Lúc này ta quay lại nick <code class="language-plaintext highlighter-rouge">kontonfon</code> và thấy mọi thứ đã được update</li>
+</ul>
+
+<p><img src="https://i.imgur.com/mQYWwaM.png" alt="Imgur" /></p>
+
+<ul>
+  <li>Bước 14: Ta <code class="language-plaintext highlighter-rouge">add README</code> trên <code class="language-plaintext highlighter-rouge">github</code></li>
+</ul>
+
+<p><img src="https://i.imgur.com/5vUldO9.png" alt="Imgur" /></p>
+
+<ul>
+  <li>Bước 15: Ta quay lại chế độ <code class="language-plaintext highlighter-rouge">file</code></li>
+</ul>
+
+<p><img src="https://i.imgur.com/IS5wqWs.png" alt="Imgur" /></p>
+
+<ul>
+  <li>Bước 16: Ta quay lại chế độ <code class="language-plaintext highlighter-rouge">ba chấm</code> và chọn <code class="language-plaintext highlighter-rouge">pull</code></li>
+</ul>
+
+<p><img src="https://i.imgur.com/Zh28pO6.png" alt="Imgur" /></p>
+
+<ul>
+  <li>
+    <p>Bước 17: Lúc này ta tiếp tục tạo một file mới có tên là <code class="language-plaintext highlighter-rouge">sample3.txt</code></p>
+  </li>
+  <li>
+    <p>Bước 18: Ta tiếp tục lặp lại các hành động <code class="language-plaintext highlighter-rouge">commit</code> và <code class="language-plaintext highlighter-rouge">push</code> như bên trên</p>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/LktWQLN.png" alt="Imgur" /></p>
+
+<ul>
+  <li>Bước 19: Làm tương tự trên Intellj</li>
+</ul>
+
+<h2 id="phần-11-làm-qurn-gitlab">Phần 11: Làm qurn GITLAB</h2>
+
+<p><img src="https://i.imgur.com/6s46nue.png" alt="Imgur" /></p>
+
+<ul>
+  <li>
+    <p>Bước 1: Ta register một tài khoản trên <code class="language-plaintext highlighter-rouge">git lab</code></p>
+  </li>
+  <li>
+    <p>Bước 2: Sau khi tạo xong ta sẽ thấy giao diện sẽ như thế này</p>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/8Gr2iUG.png" alt="Imgur" /></p>
+
+<ul>
+  <li>Bước 3: Vào <code class="language-plaintext highlighter-rouge">menu</code> chọn <code class="language-plaintext highlighter-rouge">your project</code> và sau đó chọn <code class="language-plaintext highlighter-rouge">project</code> đâu tiên.</li>
+</ul>
+
+<p><img src="https://i.imgur.com/UQ9BhBy.png" alt="Imgur" /></p>
+
+<ul>
+  <li>
+    <p>Bước 4: Ta vào chỗ <code class="language-plaintext highlighter-rouge">Clone</code> và coply link <code class="language-plaintext highlighter-rouge">https://gitlab.com/jumptozero2/hoatien1.git</code></p>
+  </li>
+  <li>
+    <p>Bước 5: ta vào thư mục <code class="language-plaintext highlighter-rouge">dev</code> , mở <code class="language-plaintext highlighter-rouge">git bash</code> và sau đó <code class="language-plaintext highlighter-rouge">git clone https://gitlab.com/jumptozero2/hoatien1.git</code></p>
+  </li>
+  <li>
+    <p>Bước 6: Tiếp theo, ta di chuyển vào thư mục <code class="language-plaintext highlighter-rouge">hoatien1</code> sau đó gõ lệnh <code class="language-plaintext highlighter-rouge">git init</code> và <code class="language-plaintext highlighter-rouge">echo "this is the first sample file" &gt; sample1.txt</code></p>
+  </li>
+  <li>Bước 7: Ta gõ lệnh <code class="language-plaintext highlighter-rouge">git status</code>, <code class="language-plaintext highlighter-rouge">git add .</code> và <code class="language-plaintext highlighter-rouge">git commit -m "first sample file"</code></li>
+  <li>Bước 8: Gõ lệnh <code class="language-plaintext highlighter-rouge">git config --global user.name "tri ngo"</code> và <code class="language-plaintext highlighter-rouge">git config --global user.email "longtutrieu99@gmail.com"</code> và cuối cùng gõ lệnh <code class="language-plaintext highlighter-rouge">git config --list</code></li>
+</ul>
+
+<p><img src="https://i.imgur.com/UVBBs20.png" alt="Imgur" /></p>
+
+<ul>
+  <li>Bước 9: Gõ lệnh <code class="language-plaintext highlighter-rouge">git push origin main</code></li>
 </ul>
 
 
