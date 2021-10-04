@@ -183,6 +183,7 @@ Khi nhìn một từ là động từ thì nó có khả năng là danh từ
 
 30. realistic: thực tế 
 
+31. 
 
 
 

@@ -40,6 +40,28 @@ Solution:
 
 ![Imgur](https://i.imgur.com/qq8cRJa.png)
 
+### Ngày 1-10-2021
+
+Problem:
+
+![Imgur](https://i.imgur.com/w1s1L0u.png)
+
+Solution:
+
+![Imgur](https://i.imgur.com/LuHiVws.png)
+
+## Ngày 4-10-2021
+
+Problem:
+
+![Imgur](https://i.imgur.com/CeL5Mie.png)
+
+Solution:
+
+![Imgur](https://i.imgur.com/8qYsfOO.png)
+
+![Imgur](https://i.imgur.com/Oicdtn9.png)
+
 
 
 
