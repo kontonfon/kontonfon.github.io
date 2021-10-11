@@ -300,6 +300,114 @@ MathJax.Hub.Queue(function() {
 
 <p>Với việc triển khai DNS hiệu quả, các tổ chức thậm chí có thẻ đạt được hệ thống lọc thư rác email tốt hơn và cấu trúc liên kết mạng được tối ưu hoá. Đây chỉ là một số cách mà DNS đóng một vai trò quan trọng trong các tổ chức:</p>
 
+<ul>
+  <li>
+    <p>Chống thư rác (Anti-spam): Một số cơ chế DNS, bao gồm Khung chính sách người gửi (Sender policy Framework (SPF)) và Thư được xác định theo DomainKeys (DomainKeys Identified Mail (DKIM)), đảm bảo chỉ một danh sách miền được xác định trước mới được phép gửi email thay mặt cho một tổ chức cụ thể. Các cơ chế này có hiệu quả nếu DNS trong tổ chức đang hoạt động bình thường</p>
+  </li>
+  <li>
+    <p>Loading sharing: Dịch vụ DNS có thể tối ưu hoá cơ sở hạ tầng máy chủ bằng cách tải chia sẻ lưu lượng của các máy chủ được sử dụng nhiều với các máy chủ chưa được sử dụng khác.</p>
+  </li>
+  <li>
+    <p>Privacy: Dịch vụ DNS đảm bảo tính riêng tư của thông tin không gian tên của tổ chức bằng cách che dấu các địa chỉ có tên khác nhau, tuỳ thuộc vào việc chúng được truy cập từ bên trong hay bên ngoài mạng, giúp đạt được an ninh mạng mạnh mẽ hơn.</p>
+  </li>
+</ul>
+
+<h4 id="understanding-dns-components-hiểu-về-những-thành-phần-của-dns">Understanding DNS components (Hiểu về những thành phần của DNS)</h4>
+
+<p>DNS không chỉ là một giao thức, nó bao gồm một số thực thể độc lập làm việc cùng nhau để cung cấp một cơ sở dữ liệu tên miền có thể mở rộng và đáng tin cậy. Ở dạng đơn giản nhất, có ba thành phần cốt lõi của DNS: <code class="language-plaintext highlighter-rouge">namespace</code>, <code class="language-plaintext highlighter-rouge">server</code>, <code class="language-plaintext highlighter-rouge">resolver</code></p>
+
+<h5 id="namespace">Namespace</h5>
+
+<p>Không gian tên (namespace) là một cấu trúc của cơ sở dữ liệu DNS. Nó được biểu diễn dưới dạng một cây đảo ngược với nút gốc của nó ở trên cùng. Mỗi nút trong cây có một nhãn và nút gốc có nhãn null. Hãy xem sơ đồ sau:</p>
+
+<p><img src="https://i.imgur.com/jLm2w3I.png" alt="Imgur" /></p>
+
+<p>Tên miền là một chuỗi các nhãn bắt đầu từ một nút đến gốc, được phân tách bằng dầu chấm. Không gian tên có thể có độ sâu tối đâ là 127 cấp (level) và tên miền có thể có kích thước không quá 255 ký tự.</p>
+
+<p><img src="https://i.imgur.com/OxCu4oc.png" alt="Imgur" /></p>
+
+<h5 id="name-servers">Name servers</h5>
+
+<p>Máy chủ định danh (Name servers) chịu trách nhiệm lưu trữ thông tin về không gian tên dưới dạng vùng. Có thể có nhiều máy chủ định dạng và những máy chủ tải một vùng hoàn chỉnh được cho là có thẩm quyền cho vùng. Nói chung, có nhiều hơn một máy chủ định danh được sử dụng làm thẩm quyền cho một vùng duy nhất, đảm bảo khả năng dự phòng và chia sẻ tải tốt hơn.</p>
+
+<p>Có hai loại máy chủ định danh chính: Máy chủ có thẩm quyền (authoritative servers) và máy chủ lưu trong bộ đệm (caching servers)</p>
+
+<ul>
+  <li>
+    <p>Máy chủ có thẩm quyền (Authoritative name server): Nó cung cấp phản hồi có các truy vấn DNS. Nó chịu trách nhiệm cung cấp các câu trả lời gốc và dứt điểm cho mỗi truy vấn DNS. Có thể có hai loại máy chủ định danh có thẩm quyền:</p>
+
+    <ul>
+      <li>
+        <p>Máy chủ chính (máy chủ định danh chính) - Master server (primary name server): Nó lưu trữ các bản sao gốc của tất cả các bản ghi vùng. Quản trị viên chỉ có thể thực hiện các thay đổi đối với cơ sở dữ liệu vùng máy chủ chính.</p>
+      </li>
+      <li>
+        <p>Máy chủ nô lệ (máy chủ tên phụ) - Slave server (secondary name server): Máy chủ nô lệ giữ một bản sao của các tệp máy chủ chính. Nó được sử dụng để chia sẻ tải máy chủ DNS và cải thiện tính khả dụng của vùng DNS.</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>Máy chủ định danh trong bộ đệm (Caching name server): NÓ mang dịch vụ tên đến gần hơn với người dùng và cải thiện hiệu suất tra cứu tên tổng thể. Nó cũng cung cấp một cơ chế toàn diện để cung cấp không gian tên riêng cho người dùng cục bộ, bằng cách cho phép người dùng lấy tất cả ánh xạ tên từ bộ nhớ đệm cục bộ.</p>
+  </li>
+</ul>
+
+<h4 id="resolver--trình-phân-giải">Resolver  (Trình phân giải)</h4>
+
+<p>Trình phân giải tên giúp máy chủ định danh tìm dữ liệu trong không gian tên. Trình phân giải tên được yêu cầu để tìm ra tên và địa chỉ IP của máy chủ định danh cho vùng gốc. Máy chủ định danh gốc lưu trữ thông tin về các vùng cấp cao nhất và máy chủ trực tiếp để liên hệ với tất cả các miền cấp cao nhất (<code class="language-plaintext highlighter-rouge">top-level domains (TLDs)</code>). Về cơ bản, trình phân giải sẽ chia tên thành các nhãn của nó từ phải sang trái. Thành phần đầu tiên, TLD, được truy vấn bằng máy chủ gốc để lấy máy chủ có thẩm quyền được chỉ định.</p>
+
+<h3 id="chủ-đề-2-cấu-trúc-dns-và-hệ-thống-phân-cấp-hierarchy">Chủ đề 2: Cấu trúc DNS và hệ thống phân cấp (hierarchy)</h3>
+
+<p>Tương tự như cơ sở hạ tầng DNS của internet, các tổ chức cũng triển khai cơ sở hạ tầng DNS nội bộ của họ. Để triển khai cơ sở hạ tầng DNS nội bộ, các tổ chức có thể chọn bất kỳ hệ thống phân cấp miền nào; tuy nhiên, sau khi kết nối với internet, họ phải tuân theo khung DNS chung. Hãy hiểu phân cấp máy chủ định danh:</p>
+
+<h4 id="root-name-server-máy-chủ-tên-gốc">Root name server (Máy chủ tên gốc)</h4>
+
+<p>Với không gian tên nhất quán trên internet, máy chủ định danh gốc phản hồi trực tiếp các yêu cầu về bản ghi trong vùng gốc và trả lời các yêu cầu khác bằng cách trả về danh sách các máy chủ định danh có thẩm quyền cho TLD thích hợp.</p>
+
+<p>Để sửa đổi vùng gốc, trước tiên tệp vùng phải dược xuất bản qua internet. Tệp vùng gốc được xuất bản trên 13 máy chủ từ A đến M</p>
+
+<p>Vùng gốc chứa các thông tin sau:</p>
+
+<ul>
+  <li>
+    <p>Các miền cao cấp nhất chung chung, chẳng hạn như: <code class="language-plaintext highlighter-rouge">.com</code>, <code class="language-plaintext highlighter-rouge">.net</code> và <code class="language-plaintext highlighter-rouge">.org</code></p>
+  </li>
+  <li>
+    <p>TLD được công nhận trên toàn cầu.</p>
+  </li>
+  <li>
+    <p>TLD mã quốc gia, mã gồm hai chữ cái cho mỗi quốc gia, chẳng hạn như <code class="language-plaintext highlighter-rouge">.in</code> đối với Ấn Độ hoặc <code class="language-plaintext highlighter-rouge">.no</code> đối với Na Uy (Norway)</p>
+  </li>
+  <li>
+    <p>TLD được công nhận trên toàn cầu, thường tương tự như tên TLD của mã quốc gia.</p>
+  </li>
+</ul>
+
+<p>Vùng gốc chứa các địa chỉ số của máy chủ định danh phục vụ nội dung TLD và máy chủ gốc trả lời bằng các địa chỉ này khi TLD hỏi.</p>
+
+<p>Khi các tổ chức nhận được một tên miền mới, công ty đăng ký có thể thay mặt họ định cấu hình các bản ghi DNS và cung cấp cho họ một máy chủ định danh (name server - NS). Các tổ chức cần có một máy chủ định danh để cho thư mục DNS của internet biết địa chỉ IP của các máy chủ web của họ và các dịch vụ tương ứng.</p>
+
+<h4 id="cấu-trúc-tld-hiện-tại">Cấu trúc TLD hiện tại</h4>
+
+<p>TLD là một trong những miền ở cấp cao nhất của hệ thống phân cấp DNS. TLD được cài đặt trong vùng gốc của không gian tên. Các miền trong phần cuối cùng của hệ thống phải được công nhận với các tên miền đủ điều kiện. Tổng công ty internet được chỉ định Tên và Số (The Internet Corporation for Assigned
+Names and Numbers (ICANN) ) đảm bảo rằng TLD được các tổ chức được uỷ quyền quản lý. Cơ quan cấp số được ẩn định trên internet (The Internet Assigned Numbers Authority (IANA)) do ICANN điều hành và chịu trách nhiệm quản lý vùng gốc DNS.</p>
+
+<ul>
+  <li>
+    <p>IANA chịu trách nhiệm quản lý các TLD sau:</p>
+
+    <ul>
+      <li>ccTLD: Country-code TLDs</li>
+      <li>gTLD: Generic TLDs</li>
+      <li>.arpa: Infrastructure TLDs</li>
+    </ul>
+  </li>
+</ul>
+
+<p>Sơ đồ phân cấp này giải thích cấu trúc TLD hiện có:</p>
+
+<p><img src="https://i.imgur.com/R2vDYFY.png" alt="Imgur" /></p>
+
+<h3 id="registries-registrars-and-registrants-cơ-quan-đăng-ký-công-ty-đăng-ký-và-người-đăng-ký">Registries, registrars, and registrants (Cơ quan đăng ký, công ty đăng ký và người đăng ký)</h3>
+
 
       </article>
 
