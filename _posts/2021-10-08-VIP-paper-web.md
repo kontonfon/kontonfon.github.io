@@ -67,6 +67,32 @@ MathJax.Hub.Queue(function() {
 
 [Link](https://vnreview.vn/thread-old/cong-nghe-blockchain-da-thuc-su-lam-duoc-nhung-gi.2969324)
 
+## Tăng tốc Internet đơn giản bằng cách lựa DNS phù hợp 
+
+[Link](https://vnreview.vn/thread-old/tang-toc-internet-don-gian-bang-cach-lua-dns-phu-hop.1979353)
+
+## Hướng dẫn xóa cache DNS trên Windows và Google Chrome
+
+[Link](https://vnreview.vn/thread-old/huong-dan-xoa-cache-dns-tren-windows-va-google-chrome.2290074)
+
+## Lập trình viên xâm nhập DNS để hack TikTok
+
+[Link](https://vnreview.vn/thread-old/lap-trinh-vien-xam-nhap-dns-de-hack-tiktok.3128912)
+
+## Mã độc DNSChanger là gì và tại sao bạn nên cẩn thận
+
+[Link](https://vnreview.vn/thread-old/ma-doc-dnschanger-la-gi-va-tai-sao-ban-nen-can-than.213135)
+
+## SENKI 
+
+[Link](https://www.senki.org/)
+
+## Nhiễm độc DNS Cache là gì?
+
+[Link](https://vnreview.vn/thread-old/nhiem-docdns-cache-la-gi.522020)
+
+
+
 
 
 
