@@ -99,6 +99,13 @@ MathJax.Hub.Queue(function() {
 
 [Link](https://www.studytienganh.vn/category/62)
 
+## Hướng dẫn tạo user trên VPS 
+
+[Link](https://www.youtube.com/watch?v=ItW_QQ96vzk)
+
+## A Beautiful Technique for Some XOR Related Problems
+
+[Link](https://codeforces.com/blog/entry/68953)
 
 
 
