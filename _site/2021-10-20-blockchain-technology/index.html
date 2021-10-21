@@ -328,6 +328,67 @@ MathJax.Hub.Queue(function() {
 
 <p>Tiếp theo, mọi người trong mạng ngồi với một trang trống và một cây bút trong tay. Mọi người đều sẵn sàng viết bất kỳ giao dịch nào xảy ra trong hệ thống.</p>
 
+<p>Bây giờ, giả sử người số #2 cần gửi $10 đến cho người số #9.</p>
+
+<p>Để thực hiện giao dịch, người số #2 nói cho mọi người cùng nghe: “Tôi muốn chuyển $10 sang cho người số #9”. Vậy, mọi người, xin vui lòng ghi điều đó trên các trang của mình.</p>
+
+<p>Mọi người kiểm tra xem #2 có đủ số dư trong khoản để chuyển $10 sang cho #9 hay không. Nếu người ấy có đủ số dư, mọi người sẽ ghi lại giao dịch trên các trang trống của họ.</p>
+
+<p><img src="https://i.imgur.com/SbjXLQu.png" alt="Imgur" /></p>
+
+<p>Giao dịch sau đó được coi là hoàn thành.</p>
+
+<p>Thời gian trôi qua, nhiều người trong mạng cảm thấy cần phải chuyển tiền cho người khác. Bất cứ khi nào họ muốn thực hiện một giao dịch, họ thông báo cho mọi người khác. Ngay khi một người nghe thông báo, họ sẽ viết nó trên trang của mình.</p>
+
+<p>Công việc này tiếp tục cho đến khi tất cả mọi người viết đầy trang hiện tại. Giả sử một trang có chỗ để ghi lại mười giao dịch, ngay sau khi giao dịch thứ mười được thực hiện, mọi người đều hết chỗ. Đó là lúc cần thiết đặt trang đầy vào thư mục và đưa ra một trang mới, rồi lặp lại quy trình đã nêu ở trên.</p>
+
+<p>Tuy nhiên, trước khi bỏ trang vào các thư mục của mình, ta cần niêm phong (đóng dấu) nó bằng một khoá duy nhất mà được mọi người trong mạng thống nhất. Bằng cách này, chúng ta sẽ đảm bảo không ai có thể thực hiện bất kỳ thay đổi nào đối với nó một khi các bản sao của nó đã được đưa vào thư mục của mọi người. Nếu mọi người tin tưởng con dấu, thì mọi người đều tin tưởng vào nội dung của trang. Và việc niêm phong (đóng dấu) trang này chính là điểm mấu chốt của phương pháp này.</p>
+
+<p>Trước đây, bên thứ ba (người trung gian) đã cho chúng ta niềm tin rằng bất cứ điều gì họ đã viết trong bản ghi thì sẽ không bao giờ bị thay đổi. Còn trong một hệ thống phân tán và phi tập trung như của chúng ta, sự tin tưởng đó được thay thế bằng con dấu niêm phong</p>
+
+<p>Trước khi tìm hiểu làm thế nào chúng ta có thể niêm phong( đóng dấu) trang, ta cũng cần biết cách hoạt động của con dấu, nói chung. Và như một điều kiện tiên quyết cho việc này là tìm hiểu về một thứ mà tạm gọi là Máy ma thuật (Magic Machine)</p>
+
+<p>Hãy tưởng tượng một cỗ máy được bao bọc bởi những bức tường dày, có đầu vào bên tay trái và đầu ra bên tay phải. Nếu bạn gửi một hộp có thứ gì đó bên trong và bên trái, nó sẽ nhả ra một hộp chứa thứ khác ở bên phải.</p>
+
+<p>Lưu ý: Theo thuật ngữ của giới chuyên môn thì máy này được gọi là “Hàm băm”, nhưng bây giờ chúng ta không ở trong tâm trạng quá kỹ thuật và vì vậy, hãy chỉ xem đây là những “cổ máy ma thuật”. Những ai đã biết thế nào là hàm băm thì sẽ thấy máy này hoạt động giống như hàm băm, còn những ai chưa biết thì hãy xem dưới đây.</p>
+
+<p><img src="https://i.imgur.com/S7u5sE9.png" alt="Imgur" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Máy ma thuật (Hàm băm)
+</code></pre></div></div>
+
+<p>Giả sử, bạn gửi số 4 vào bên trái, và chúng ta thấy nó cho ra cụm từ <code class="language-plaintext highlighter-rouge">dcbea</code> ở phía bên phải. Làm thế nào mà nó chuyển đổi số 4 thành từ này ? Tạm thời không cần biết. Nhưng điều cần biết là: đây là một quá trình không thể đảo ngược. Cụ thể, với từ cho ra là <code class="language-plaintext highlighter-rouge">dcbea</code>. người ta không thể biết máy được “cho ăn” gì ở bên trái. Nhưng mỗi khi bạn cho số 4 vào máy, nó sẽ luôn phun ra cùng một kết quả, đó là từ <code class="language-plaintext highlighter-rouge">dcbea</code></p>
+
+<p>Hãy thử gửi một số khác, chẳng hạn là 26. Chúng ta nhận được <code class="language-plaintext highlighter-rouge">94c8e</code> lần này. Như vậy, các từ có thể chứa cả chữ lẫn số.</p>
+
+<p><img src="https://i.imgur.com/rAEHxNG.png" alt="Imgur" /></p>
+
+<p>Điều gì sẽ xảy ra nếu tôi hỏi bạn câu hỏi sau đây:</p>
+
+<p>“Ta nên gửi gì từ phía bên trái của máy để nhận được ở bên phải một từ bắt đầu với ba số 0 đằng trước ? Ví dụ: 000ab hoặc 00098 hoặc 000fa, hoặc bất cứ thứ gì khác.”</p>
+
+<p><img src="https://i.imgur.com/QTueRI3.png" alt="Imgur" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Dự đoán đầu vào
+</code></pre></div></div>
+
+<p>Hãy suy nghĩ về câu hỏi một lát.</p>
+
+<p>Ta biết rằng không thể tính ra được những gì đã gửi từ bên trái sau khi chúng ta được cho đầu ra dự kiến ở bên phải. Với một chiếc máy như vậy, thử hỏi chúng ta làm thế nào để có thể trả lời câu hỏi đặt ra ở trên ? Một giải pháp có thể là: thử từng số trong vũ trụ (từng cái một) cho đến khi nào nhận được một từ bắt đầu bằng ba số 0 đứng đầu ?</p>
+
+<p><img src="https://i.imgur.com/FNghQT0.png" alt="Imgur" /></p>
+
+<p><img src="https://i.imgur.com/LTqAVYy.png" alt="Imgur" /></p>
+
+<p><img src="https://i.imgur.com/Y2irklp.png" alt="Imgur" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Hãy thử mọi cái để tìm ra đầu vào
+</code></pre></div></div>
+
+<p>Là người lạc quan, sau vài ngàn lần thử, cuối cùng ta cũng có một con số mà sẽ mang đến đầu ra ở bên phải như là yêu cầu.</p>
+
+<p>Điều thú vị là, tuy rất khó để tính toán đầu vào cho đầu ra, nhưng luôn cực kỳ dễ dàng để kiểm tra liệu đầu vào dự kiến có mang lại đầu ra</p>
+
 
       </article>
 
