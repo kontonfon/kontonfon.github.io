@@ -111,6 +111,9 @@ MathJax.Hub.Queue(function() {
 
 [Link](https://unsplash.com/backgrounds/desktop/hd)
 
+## CTF NOTE
+
+[Link](https://www.ctfnote.com/crypto/cryptohack/elliptic-curves/starter)
 
 
 
