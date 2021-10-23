@@ -317,6 +317,90 @@ MathJax.Hub.Queue(function() {
 
 <p>Link pdf: <a href="http://quantri.thcsthanhxuan.edu.vn///data/thcsthanhxuan/thcsthanhxuan/attachments/2020_8/tap_chi_epsilon_so_09_118202011.pdf">Tại đây</a></p>
 
+<hr />
+
+<h2 id="elliptic-curve">ELLIPTIC CURVE</h2>
+
+<h3 id="overview">OVERVIEW</h3>
+
+<p>The use of elliptic curves for public-key cryptography was first suggested in 1985. After resisting decades of attacks, they started to see widespread use from around 2005, providing several benefits over previous public-key cryptosystems such as RSA.</p>
+
+<p>Smaller EC keys offer greater strength, with a 256-bit EC key having the same security level as a 3072-but RSA key. Furthermore, several operations using those keys( including signing) can be more efficient both time- and memory-wise. Finally, since ECC is more complex than RSA, it has the welcome effect of encouraging developers to make use of trusted libraries rather than rolling their own.</p>
+
+<p>This course is aimed to give you an intuition for the trapdoor function behind ECC ; dip your toes into the mathematical structure underlying it; and have you breaking popular schemes like ECDSA.</p>
+
+<h3 id="background-reading">Background Reading</h3>
+
+<p>Elliptic Curve Cryptography (ECC) is an asymmetric cryptographic protocol that, like RSA and Diffie-Hellman (DH), relies on a trapdoor function. To recap: trapdoor function allow a client to keep data secret by performing a mathematical operation which is computationally easy to do, but currently understood to be very expensive to undo.</p>
+
+<p>For RSA, the trapdoor function relies on the hardness of factoring large numbers . For Diffie-Hellman, the trapdoor relies on the hardness of the discrete log problem. For both RSA and DH, the operations that run through the veins of the protocol are familiar to us. Multiplying numbers and taking powers of number are things we are taught to do in school. ECC stands out, because the group operation in ECC won’t pop up in your life unless you are looking for it.</p>
+
+<p>Note: This discussion here will not be total, and those who are really looking to understand ECC, I recommend these notes <a href="https://crypto.stanford.edu/pbc/notes/elliptic/">Elliptic Curve notes by Ben Lynn</a>, and the textbook “An Introduction to Mathematical Cryptography”, Jeffrey Hoffstein, Jill Pipher, Joseph H. Silverman.</p>
+
+<p>Let’s start thinking anout ECC by looking at what we mean by an elliptic curve. We will be studying <code class="language-plaintext highlighter-rouge">Weierstrass equations</code>, which are of the form $Y^2 = X^3+aX+b$</p>
+
+<p>Elliptic curves have an amazing feature: We can define an operation that we will call “point addtion”. This operation takes two point on some curve and produces a third point on the curve. Taking the set of points on an elliptic curve, point addition defines an Abelian group operation.</p>
+
+<p>Note: There’s a lot of text here. Let’s motivate this ! We can understand scalar multiplication of a point as the repeated point addtion of the same point. $Q=2P=P+P$. It turns out that scalar multiplication is a trapdoor function ! ECC relies on the hardness of finding the $n$ such that $Q=nP$ given Q and P.</p>
+
+<h4 id="so-how-do-we-understand-point-addtion-">So how do we understand point addtion ?</h4>
+
+<p>Geometrically, we can understand point addtion $P+Q$ like so. Take an elliptic curve and mark the two points $P,Q$ along the curve with their $x,y$ coordinates. Draw a straight line that passes through both points. Now continue the line until it intersects your curve a third time. Make this new intersection $R$. Finally, take $R$ and reflect it along the $y$ direction to produce $R’=R(x,-y)$. The result of the point addtion is $P+Q=R’$.</p>
+
+<p>What if we want to add two of the same point together: $P+P$ ? . We can’t draw a unique line through one point, but we can pick a unique line by calculating the tangent line to the curve at the point. Calculate the tangent line at the point $P$. Continue the line until it intersects with the curve at point $R$. Reflect this point as before: $P+P=R’=R(x,-y)$.</p>
+
+<p>What happens if there is no third intersections ? Sometimes you will pick two points $P,Q$ and the line will not touch the curve again. In this case we say that the line intersects with the point (O) which is a single point located at the end of every vertical line at infinity. As such, point addtion for an elliptic curve is defined in 2D space, with an addition point located at infinity.</p>
+
+<p>Included below is a diagram as a visual aid to these different cases: <code class="language-plaintext highlighter-rouge">diagram of ECC addtion</code></p>
+
+<p>The point <code class="language-plaintext highlighter-rouge">0</code> acts as the identity operator of the group: $P+0=P$ and $P+(-P)=0$</p>
+
+<p>This brings us to the point of defining an elliptic curve.</p>
+
+<p><code class="language-plaintext highlighter-rouge">Definition</code>: An elliptic curve E is the set of solutions to a <code class="language-plaintext highlighter-rouge">Weierstrass equation</code>:$E:Y^2=X^3+aX+b$ together with a point at infinity $0$. The constant $a,b$ must be satisfy the relationship: $4a^3+27b^2 \ne 0$</p>
+
+<p>to ensure there are no singularities on the curve.</p>
+
+<p>Formally, let $E$ be an eliiptic curve, point addtion has the following properties:</p>
+
+<p><code class="language-plaintext highlighter-rouge">(a) P+0 = 0+P=P</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">(b) P + (-P) = 0</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">(c) (P+Q) + R = P + (Q+R)</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">(d) P + Q = Q + P</code></p>
+
+<p>In ECC, we study elliptic curves over a finite field $F_p$. This means we look at the curve modulo the characteristic <code class="language-plaintext highlighter-rouge">p</code> and an elliptic curve will no longer be a curve, but a collection of points whose <code class="language-plaintext highlighter-rouge">x,y</code> coordinates are integers in $F_p$</p>
+
+<p>The following starter challenges will take you through the calculations for ECC and get you used to the basic operation that ECC is built upon, have fun !</p>
+
+<p>Property $(d)$ shows that point addtion is communicative. The flag is the name we give groups with a commutative operation.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flag: Crypto{Abelian}
+</code></pre></div></div>
+
+<h3 id="point-negation">POINT NEGATION</h3>
+
+<p>In the background section, we covered the basics of how we can view point addtion over an elliptic curve as being an abelian group operation. In this geometric picture we allowed the coordinations on the curve to be any real number.</p>
+
+<p>To apply elliptic curves in a cryptographic setting, we study elliptic curves which have coordinates in a finite field $F_p$</p>
+
+<p>We will still be considering elliptic curves of the form: $E:Y^2=X^3+aX+b$, which satisfy the following conditions: $a,b\in F_p$ and $4a^3+27b^2\ne 0$. However, we no longer think of the elliptic curve as a geometric object, but rather a set of points defined by:</p>
+
+<p>$E(F_p)=${$(x,y)\in F_p$ satisfying: $y^2=x^3+ax+b$}$\cup O$</p>
+
+<p>Note: Everything we covered in the background still holds. The identity of the group is the point at infinity: O, and the addition law is unchanged. Given two point $E(F_p)$, the addition law will generate another point in $E(F_p)$</p>
+
+<p>For all the challenges in the start set, we will be working with the elliptic curve</p>
+
+<p>$E:Y^2=X^3+497X+1768,p:9739$</p>
+
+<p>Using the above curve, and the point $P(8045,6936)$, find the point $Q(x,y)$ such that $P+Q=0$</p>
+
+<p>Note: Remember, we’re working in a finite now, so you’ll need to work correctly with negative numbers.</p>
+
+
       </article>
 
       
