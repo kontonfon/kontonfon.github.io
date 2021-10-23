@@ -542,6 +542,110 @@ MathJax.Hub.Queue(function() {
 
 <p>Note: After calculating Q, substitute the coordinates into the curve. Assert that the point $Q$ is in $E(F_p)$</p>
 
+<p>This is my sol</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">Crypto.Util.number</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">inf</span> <span class="o">=</span> <span class="mi">1000000000000000000</span>
+<span class="n">p</span> <span class="o">=</span> <span class="mi">9739</span> 
+<span class="n">O</span> <span class="o">=</span> <span class="p">(</span><span class="n">inf</span><span class="o">%</span><span class="n">p</span><span class="p">,</span><span class="n">inf</span><span class="o">%</span><span class="n">p</span><span class="p">)</span>
+<span class="k">def</span> <span class="nf">sqr_mod</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span><span class="o">%</span><span class="n">p</span>
+<span class="k">def</span> <span class="nf">addition_point</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="n">Q</span><span class="p">):</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">497</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">P</span><span class="o">==</span><span class="n">O</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">Q</span> 
+    <span class="k">if</span><span class="p">(</span><span class="n">Q</span><span class="o">==</span><span class="n">O</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">P</span> 
+    <span class="n">x_1</span> <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">y_1</span> <span class="o">=</span> <span class="n">P</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="n">x_2</span> <span class="o">=</span> <span class="n">Q</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="n">y_2</span> <span class="o">=</span> <span class="n">Q</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">x_1</span><span class="o">==</span><span class="n">x_2</span> <span class="ow">and</span> <span class="n">y_1</span><span class="o">+</span><span class="n">y_2</span><span class="o">%</span><span class="n">p</span><span class="o">==</span><span class="mi">0</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">O</span> 
+    <span class="k">if</span><span class="p">(</span><span class="n">P</span><span class="o">!=</span><span class="n">Q</span><span class="p">):</span>
+        <span class="n">lamda1</span> <span class="o">=</span> <span class="p">(</span><span class="n">y_2</span> <span class="o">-</span> <span class="n">y_1</span> <span class="o">+</span> <span class="n">p</span><span class="p">)</span><span class="o">%</span><span class="n">p</span> 
+        <span class="n">lamda2</span> <span class="o">=</span> <span class="p">(</span><span class="n">x_2</span> <span class="o">-</span> <span class="n">x_1</span> <span class="o">+</span> <span class="n">p</span><span class="p">)</span><span class="o">%</span><span class="n">p</span> 
+        <span class="n">lamda2</span> <span class="o">=</span> <span class="n">inverse</span><span class="p">(</span><span class="n">lamda2</span><span class="p">,</span><span class="n">p</span><span class="p">)</span>
+        <span class="n">lamda</span> <span class="o">=</span> <span class="n">lamda1</span><span class="o">*</span><span class="n">lamda2</span><span class="o">%</span><span class="n">p</span> 
+        <span class="n">x_3</span> <span class="o">=</span> <span class="p">(</span><span class="n">sqr_mod</span><span class="p">(</span><span class="n">lamda</span><span class="p">)</span><span class="o">-</span><span class="n">x_1</span><span class="o">-</span><span class="n">x_2</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">p</span><span class="p">)</span><span class="o">%</span><span class="n">p</span>
+        <span class="n">y_3</span> <span class="o">=</span> <span class="p">(</span><span class="n">lamda</span><span class="o">*</span><span class="p">((</span><span class="n">x_1</span><span class="o">-</span><span class="n">x_3</span><span class="o">+</span><span class="n">p</span><span class="p">)</span><span class="o">%</span><span class="n">p</span><span class="p">)</span><span class="o">%</span><span class="n">p</span><span class="o">-</span><span class="n">y_1</span><span class="o">+</span><span class="n">p</span><span class="p">)</span><span class="o">%</span><span class="n">p</span> 
+        <span class="k">return</span> <span class="p">(</span><span class="n">x_3</span><span class="p">,</span><span class="n">y_3</span><span class="p">)</span> 
+    <span class="k">if</span><span class="p">(</span><span class="n">P</span><span class="o">==</span><span class="n">Q</span><span class="p">):</span>
+        <span class="n">lamda1</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="o">*</span><span class="n">sqr_mod</span><span class="p">(</span><span class="n">x_1</span><span class="p">)</span><span class="o">+</span><span class="n">a</span><span class="p">)</span><span class="o">%</span><span class="n">p</span> 
+        <span class="n">lamda2</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">y_1</span><span class="p">)</span><span class="o">%</span><span class="n">p</span> 
+        <span class="n">lamda2</span> <span class="o">=</span> <span class="n">inverse</span><span class="p">(</span><span class="n">lamda2</span><span class="p">,</span><span class="n">p</span><span class="p">)</span>
+        <span class="n">lamda</span> <span class="o">=</span> <span class="n">lamda1</span><span class="o">*</span><span class="n">lamda2</span><span class="o">%</span><span class="n">p</span> 
+        <span class="n">x_3</span> <span class="o">=</span> <span class="p">(</span><span class="n">sqr_mod</span><span class="p">(</span><span class="n">lamda</span><span class="p">)</span><span class="o">-</span><span class="n">x_1</span><span class="o">-</span><span class="n">x_2</span><span class="o">+</span><span class="mi">2</span><span class="o">*</span><span class="n">p</span><span class="p">)</span><span class="o">%</span><span class="n">p</span>
+        <span class="n">y_3</span> <span class="o">=</span> <span class="p">(</span><span class="n">lamda</span><span class="o">*</span><span class="p">((</span><span class="n">x_1</span><span class="o">-</span><span class="n">x_3</span><span class="o">+</span><span class="n">p</span><span class="p">)</span><span class="o">%</span><span class="n">p</span><span class="p">)</span><span class="o">%</span><span class="n">p</span><span class="o">-</span><span class="n">P</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">p</span><span class="p">)</span><span class="o">%</span><span class="n">p</span> 
+        <span class="k">return</span> <span class="p">(</span><span class="n">x_3</span><span class="p">,</span><span class="n">y_3</span><span class="p">)</span>
+<span class="n">X</span> <span class="o">=</span> <span class="p">(</span><span class="mi">5274</span><span class="p">,</span> <span class="mi">2841</span><span class="p">)</span> 
+<span class="n">Y</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8669</span><span class="p">,</span> <span class="mi">740</span><span class="p">)</span>
+
+<span class="c1"># tmp = addition_point(X,X,497)
+# print(tmp)
+</span><span class="n">P</span> <span class="o">=</span> <span class="p">(</span><span class="mi">493</span><span class="p">,</span> <span class="mi">5564</span><span class="p">)</span>
+<span class="n">Q</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1539</span><span class="p">,</span> <span class="mi">4742</span><span class="p">)</span>
+<span class="n">R</span> <span class="o">=</span> <span class="p">(</span><span class="mi">4403</span><span class="p">,</span><span class="mi">5202</span><span class="p">)</span>
+<span class="n">S</span> <span class="o">=</span> <span class="n">addition_point</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="n">addition_point</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="n">addition_point</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="n">R</span><span class="p">)))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">S</span><span class="p">)</span>
+
+<span class="c1">############# 
+</span>
+<span class="k">def</span> <span class="nf">scalar_multi</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">Q</span> <span class="o">=</span> <span class="n">P</span> 
+    <span class="n">R</span> <span class="o">=</span> <span class="n">O</span> 
+    <span class="k">while</span><span class="p">(</span><span class="n">n</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">):</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">n</span><span class="o">%</span><span class="mi">2</span><span class="p">):</span>
+            <span class="n">R</span> <span class="o">=</span> <span class="n">addition_point</span><span class="p">(</span><span class="n">R</span><span class="p">,</span><span class="n">Q</span><span class="p">)</span> 
+        <span class="n">Q</span> <span class="o">=</span> <span class="n">addition_point</span><span class="p">(</span><span class="n">Q</span><span class="p">,</span><span class="n">Q</span><span class="p">)</span>
+        <span class="n">n</span><span class="o">=</span><span class="n">n</span><span class="o">//</span><span class="mi">2</span> 
+    <span class="k">return</span> <span class="n">R</span> 
+<span class="n">P</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2339</span><span class="p">,</span> <span class="mi">2213</span><span class="p">)</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">7863</span>
+<span class="n">nP</span> <span class="o">=</span> <span class="n">scalar_multi</span><span class="p">(</span><span class="n">P</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">nP</span><span class="p">)</span> 
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flag: crypto{9467, 2742}
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="curves-and-logs">CURVES AND LOGS</h3>
+
+<p>The Elliptic Curve Discrete Logarithm Problem (ECDLP) is the problem of finding an integer <code class="language-plaintext highlighter-rouge">n</code> such that <code class="language-plaintext highlighter-rouge">Q=nP</code></p>
+
+<p>Like we encounted with the discrete logarithm problem, scalar multiplication of a point in <code class="language-plaintext highlighter-rouge">E(F_p)</code> seems to be be a hard problem to undo, with the most efficient algorithm running at $p^{\frac{1}{2}}$ time.</p>
+
+<p>This makes it a great candidate for a trapdoor function.</p>
+
+<p>Alice and Bob are talking and they want to create a shared secret so they can start encrypting their messages with some symmetric cryptographic protocol.</p>
+
+<p>Alice and Bob don’t trust their connection, so they need a way create a secret others ca’t replicate.</p>
+
+<p>Alice and Bob agree on a curve <code class="language-plaintext highlighter-rouge">E</code>, a prime <code class="language-plaintext highlighter-rouge">p</code> and a generator point <code class="language-plaintext highlighter-rouge">G</code></p>
+
+<p>Note: In elliptic curve cryptographic, it is important that the order of G is prime. Constructing secure curves is complicated and it is recommended to use a preconstructed curve where a client is given the curve, the prime and the generator to use.</p>
+
+<p>Alice generates a secret random integer $n_A$ and calculates $Q_A=n_AG$</p>
+
+<p>Bob generates a secret random integer $n_B$ and calculates $Q_B=n_BG$</p>
+
+<p>Alice sends Bob $Q_A$, and Bob sends Alice $Q_B$. Due to the hardness of <code class="language-plaintext highlighter-rouge">ECDLP</code>, an onlooker Eve is unable to calculate $n_{A\text{ / } B}$ in reasonable time.</p>
+
+<p>Alice then calculates $n_AQ_B$, and Bob calculates $n_BQ_A$.</p>
+
+<p>Due to the associativity of scalar multiplication, $S = n_AQ_B=n_BQ_A$</p>
+
+<p>Alice and Bob can use <code class="language-plaintext highlighter-rouge">S</code> as their shared secret.</p>
+
+<p>Using the curve, prime and generator:</p>
+
+<p>$E: Y^2 = X^3+497X+1769 , p: 9739, G: (1804,5369)$</p>
+
+<p>Calculate the shared secret after Alice sends you $Q_A = (815,3190)$, with your secret integer: $n_B = 1829$</p>
+
+<p>Generate a key by calculating the SHA1 hash of the x coordinate (take the decimal representation of the coordinate and cast it to a string). The flag is the hexdigest you find</p>
+
 
       </article>
 
