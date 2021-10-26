@@ -945,6 +945,74 @@ MathJax.Hub.Queue(function() {
 
 <p><img src="https://i.imgur.com/o8ZgFY5.png" alt="Imgur" /></p>
 
+<p>This is my sol:</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+
+<span class="k">def</span> <span class="nf">xor_two_string</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">):</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="nb">hex</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">u</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span> <span class="o">^</span> <span class="nb">int</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="mi">16</span><span class="p">))</span>
+    <span class="n">ans</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="nb">len</span><span class="p">(</span><span class="n">res</span><span class="p">)])</span>
+    <span class="k">return</span> <span class="n">ans</span>
+<span class="k">def</span> <span class="nf">hex_to_bytes</span><span class="p">(</span><span class="n">txt</span><span class="p">):</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="s">''</span><span class="p">.</span><span class="n">join</span><span class="p">([</span><span class="nb">chr</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="s">''</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">c</span><span class="p">),</span> <span class="mi">16</span><span class="p">))</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">txt</span><span class="p">[</span><span class="mi">0</span><span class="p">::</span><span class="mi">2</span><span class="p">],</span><span class="n">txt</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">])])</span>
+    <span class="k">return</span> <span class="n">res</span>
+<span class="k">def</span> <span class="nf">bytes_to_hex</span><span class="p">(</span><span class="n">txt</span><span class="p">):</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">txt</span><span class="p">.</span><span class="nb">hex</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">res</span>
+
+<span class="n">BASE_URL</span> <span class="o">=</span> <span class="s">"http://aes.cryptohack.org/ecbcbcwtf"</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">BASE_URL</span><span class="si">}</span><span class="s">/encrypt_flag"</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">ciphertext</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s">"ciphertext"</span><span class="p">]</span>
+
+<span class="c1"># Because iv=os.urandom(16) ==&gt; 32 ki tu dau trong ciphertext la iv 
+</span>
+<span class="n">iv</span> <span class="o">=</span> <span class="n">ciphertext</span><span class="p">[:</span><span class="mi">32</span><span class="p">]</span>
+
+<span class="c1"># ciphertext = iv + encrypted 
+# ciphertext has 96 ki tu = 32 ki tu cua iv + 64 ki tu cua cipher
+# Suy ra co hai block cipher =&gt; cipher = cipher1 + cipher 2 
+# Suy ra co 2 plaintext 
+# Dieu chu y can nho
+# plaintext = plaintext 1 + plaintext 2 + ... + plaintext n
+# cipher = cipher 1 + cipher 2+...+cipher n
+</span>
+
+<span class="n">cipher1</span> <span class="o">=</span> <span class="n">ciphertext</span><span class="p">[</span><span class="mi">32</span><span class="p">:</span><span class="mi">64</span><span class="p">]</span>
+<span class="n">cipher2</span> <span class="o">=</span> <span class="n">ciphertext</span><span class="p">[</span><span class="mi">64</span><span class="p">:</span><span class="mi">96</span><span class="p">]</span>
+
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">BASE_URL</span><span class="si">}</span><span class="s">/decrypt/</span><span class="si">{</span><span class="n">cipher1</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">decrypted_cipher1</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s">"plaintext"</span><span class="p">]</span>
+<span class="n">plaintext1</span> <span class="o">=</span> <span class="n">xor_two_string</span><span class="p">(</span><span class="n">decrypted_cipher1</span><span class="p">,</span><span class="n">iv</span><span class="p">)</span>
+
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">BASE_URL</span><span class="si">}</span><span class="s">/decrypt/</span><span class="si">{</span><span class="n">cipher2</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">decrypted_cipher2</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s">"plaintext"</span><span class="p">]</span>
+<span class="n">plaintext2</span> <span class="o">=</span> <span class="n">xor_two_string</span><span class="p">(</span><span class="n">decrypted_cipher2</span><span class="p">,</span><span class="n">cipher1</span><span class="p">)</span>
+
+
+<span class="n">flag</span> <span class="o">=</span> <span class="n">hex_to_bytes</span><span class="p">(</span><span class="n">plaintext1</span><span class="p">)</span> <span class="o">+</span> <span class="n">hex_to_bytes</span><span class="p">(</span><span class="n">plaintext2</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">"flag: "</span><span class="p">,</span><span class="n">flag</span><span class="p">)</span>
+
+
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flag: crypto{3cb_5uck5_4v01d_17_!!!!!}
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="ecb-oracle">ECB ORACLE</h3>
+
+<p>ECB is the most simple mode, with each plaintext block encrypted entirely independently. In this case, your input is prepended to the secret flag and encrypted and that’s it. We don’t even provide a decrypt function. Perhaps you don’t need a padding oracle when you have an “ECB oracle”</p>
+
+<p><img src="https://i.imgur.com/yNY6uqU.png" alt="Imgur" /></p>
+
 
       </article>
 
