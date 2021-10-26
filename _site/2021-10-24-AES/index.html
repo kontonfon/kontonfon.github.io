@@ -867,6 +867,85 @@ MathJax.Hub.Queue(function() {
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flag: crypto{bl0ck_c1ph3r5_4r3_f457_!}
 </code></pre></div></div>
 
+<hr />
+
+<h3 id="passwords-as-keys">PASSWORDS AS KEYS</h3>
+
+<p>It is essential that keys in symmetric-key algorithm are random bytes, instead of passwords or other predictable data. The random bytes should be generated using a cryptographically-secure pseudorandom number generator (CSPRNG). If the keys are predictable in any way, then the security level of the cipher is reduced and it may be possible for an attacker who gets access to the ciphertext to decrypt it.</p>
+
+<p>Just because a key looks like it is formed of random bytes, does not mean that it necessarily is. In this case the key has been derived from a simple password using a hashing function, which makes the ciphertext crackable.</p>
+
+<p>For this challenge you may script your HTTP requests to the endpoints, or alternatively attack the ciphertext offline. Goodluck !</p>
+
+<p>This is my solution:</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">Crypto.Cipher</span> <span class="kn">import</span> <span class="n">AES</span>
+<span class="kn">import</span> <span class="nn">hashlib</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">"dict.txt"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+    <span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="n">w</span><span class="p">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">f</span><span class="p">.</span><span class="n">readlines</span><span class="p">()]</span> 
+<span class="n">keyword</span> <span class="o">=</span> <span class="n">random</span><span class="p">.</span><span class="n">choice</span><span class="p">(</span><span class="n">words</span><span class="p">)</span>
+<span class="n">KEY</span> <span class="o">=</span> <span class="n">hashlib</span><span class="p">.</span><span class="n">md5</span><span class="p">(</span><span class="n">keyword</span><span class="p">.</span><span class="n">encode</span><span class="p">()).</span><span class="n">digest</span><span class="p">()</span>
+<span class="c1"># print(words[0])
+</span><span class="k">def</span> <span class="nf">solve</span><span class="p">():</span>
+    <span class="k">def</span> <span class="nf">decrypt</span><span class="p">(</span><span class="n">ciphertext</span><span class="p">,</span> <span class="n">password_hash</span><span class="p">):</span>
+        <span class="n">ciphertext</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">.</span><span class="n">fromhex</span><span class="p">(</span><span class="n">ciphertext</span><span class="p">)</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">.</span><span class="n">fromhex</span><span class="p">(</span><span class="n">password_hash</span><span class="p">)</span>
+
+        <span class="n">cipher</span> <span class="o">=</span> <span class="n">AES</span><span class="p">.</span><span class="n">new</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">AES</span><span class="p">.</span><span class="n">MODE_ECB</span><span class="p">)</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">decrypted</span> <span class="o">=</span> <span class="n">cipher</span><span class="p">.</span><span class="n">decrypt</span><span class="p">(</span><span class="n">ciphertext</span><span class="p">)</span>
+        <span class="k">except</span> <span class="nb">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">{</span><span class="s">"error"</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)}</span>
+
+        <span class="k">return</span> <span class="p">{</span><span class="s">"plaintext"</span><span class="p">:</span> <span class="n">decrypted</span><span class="p">.</span><span class="nb">hex</span><span class="p">()}</span>
+    <span class="n">cipher</span> <span class="o">=</span> <span class="s">"c92b7734070205bdf6c0087a751466ec13ae15e6f1bcdd3f3a535ec0f4bbae66"</span>
+    
+    <span class="c1"># print(KEY)
+</span>    
+    <span class="c1"># print(ans_tmp)
+</span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)):</span>
+        <span class="n">keyword</span> <span class="o">=</span> <span class="n">words</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+        <span class="n">KEY</span> <span class="o">=</span> <span class="n">hashlib</span><span class="p">.</span><span class="n">md5</span><span class="p">(</span><span class="n">keyword</span><span class="p">.</span><span class="n">encode</span><span class="p">()).</span><span class="n">digest</span><span class="p">()</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">decrypt</span><span class="p">(</span><span class="n">cipher</span><span class="p">,</span><span class="n">KEY</span><span class="p">.</span><span class="nb">hex</span><span class="p">())</span>
+        <span class="n">ans_tmp</span> <span class="o">=</span> <span class="n">res</span><span class="p">[</span><span class="s">'plaintext'</span><span class="p">]</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="s">''</span><span class="p">.</span><span class="n">join</span><span class="p">([</span><span class="nb">chr</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="s">''</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">c</span><span class="p">),</span> <span class="mi">16</span><span class="p">))</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">ans_tmp</span><span class="p">[</span><span class="mi">0</span><span class="p">::</span><span class="mi">2</span><span class="p">],</span><span class="n">ans_tmp</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">])])</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">res</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">==</span><span class="s">'c'</span> <span class="ow">and</span> <span class="n">res</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">==</span><span class="s">'r'</span> <span class="ow">and</span> <span class="n">res</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">==</span><span class="s">'y'</span><span class="p">):</span>
+            <span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+            <span class="k">break</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s">'N'</span><span class="p">)</span>
+<span class="n">solve</span><span class="p">()</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flag: crypto{k3y5__r__n07__p455w0rdz?}
+</code></pre></div></div>
+
+<p>and some tip to convert betweeen hex and bytes:</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">hex_to_bytes</span><span class="p">():</span>
+    <span class="n">txt</span> <span class="o">=</span> <span class="s">"63727970746f7b6b3379355f5f725f5f6e30375f5f70343535773072647a3f7d"</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="s">''</span><span class="p">.</span><span class="n">join</span><span class="p">([</span><span class="nb">chr</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="s">''</span><span class="p">.</span><span class="n">join</span><span class="p">(</span><span class="n">c</span><span class="p">),</span> <span class="mi">16</span><span class="p">))</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">txt</span><span class="p">[</span><span class="mi">0</span><span class="p">::</span><span class="mi">2</span><span class="p">],</span><span class="n">txt</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">])])</span>
+    <span class="k">return</span> <span class="n">res</span>
+<span class="k">def</span> <span class="nf">bytes_to_hex</span><span class="p">():</span>
+    <span class="n">txt</span><span class="o">=</span> <span class="sa">b</span><span class="s">'</span><span class="se">\xbe\x86</span><span class="s">Y</span><span class="se">\x14\xe5\x8d</span><span class="s">l</span><span class="se">\x1e</span><span class="s">i</span><span class="se">\xc1\x92</span><span class="s">&gt;</span><span class="se">\xfa\x08</span><span class="s">?</span><span class="se">\xfa</span><span class="s">'</span>
+    <span class="n">res</span> <span class="o">=</span> <span class="n">txt</span><span class="p">.</span><span class="nb">hex</span><span class="p">()</span>
+    <span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<span class="c1"># bytes_to_hex()
+</span><span class="n">u</span> <span class="o">=</span> <span class="n">hex_to_bytes</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="block-ciphers">BLOCK CIPHERS</h3>
+
+<h4 id="ecb-cbc-wtf">ECB CBC WTF</h4>
+
+<p>Here you can encrypt in CBC but only decrypot in ECB. That shouldn’t be a weakness because they’re different modes… right ?</p>
+
+<p><img src="https://i.imgur.com/o8ZgFY5.png" alt="Imgur" /></p>
+
+
       </article>
 
       
