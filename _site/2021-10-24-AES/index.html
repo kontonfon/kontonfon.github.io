@@ -1013,6 +1013,71 @@ MathJax.Hub.Queue(function() {
 
 <p><img src="https://i.imgur.com/yNY6uqU.png" alt="Imgur" /></p>
 
+<p>This is my solve:</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">requests</span> 
+<span class="c1"># f = open("out.txt","w")
+</span><span class="k">def</span> <span class="nf">char_to_hex</span><span class="p">(</span><span class="n">txt</span><span class="p">):</span>
+    <span class="n">u</span> <span class="o">=</span> <span class="nb">format</span><span class="p">(</span><span class="n">txt</span><span class="p">,</span> <span class="s">"x"</span><span class="p">)</span>
+    <span class="k">if</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">u</span><span class="p">)</span><span class="o">==</span><span class="mi">1</span><span class="p">):</span> 
+        <span class="n">u</span><span class="o">=</span><span class="s">'0'</span><span class="o">+</span><span class="n">u</span>
+    <span class="k">return</span> <span class="n">u</span>
+<span class="n">BASE_URL</span> <span class="o">=</span> <span class="s">"http://aes.cryptohack.org/ecb_oracle"</span>
+<span class="n">list_64</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">33</span><span class="p">):</span>
+    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">BASE_URL</span><span class="si">}</span><span class="s">/encrypt/</span><span class="si">{</span><span class="s">'aa'</span><span class="o">*</span><span class="n">i</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="n">ciphertext</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s">"ciphertext"</span><span class="p">]</span>
+    <span class="n">list_64</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">ciphertext</span><span class="p">)</span>
+    <span class="c1"># f.write(ciphertext+'\n')
+</span><span class="n">pre_cipher</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">32</span><span class="p">):</span>
+    <span class="n">pre_cipher</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">list_64</span><span class="p">[</span><span class="n">i</span><span class="p">][:</span><span class="mi">64</span><span class="p">])</span>
+<span class="n">flag_cipher</span> <span class="o">=</span> <span class="n">list_64</span><span class="p">[</span><span class="mi">31</span><span class="p">][</span><span class="mi">64</span><span class="p">:</span><span class="mi">128</span><span class="p">]</span>
+<span class="c1"># for _ in pre_cipher:
+#     print(_)
+</span><span class="k">print</span><span class="p">(</span><span class="n">flag_cipher</span><span class="p">)</span>
+<span class="n">res</span> <span class="o">=</span> <span class="s">""</span>
+<span class="n">plaintext</span> <span class="o">=</span> <span class="s">'a'</span><span class="o">*</span><span class="mi">64</span>
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">31</span><span class="p">):</span>
+    <span class="n">root</span> <span class="o">=</span> <span class="n">plaintext</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">64</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span><span class="mi">127</span><span class="p">):</span>
+        <span class="n">current_char</span> <span class="o">=</span> <span class="n">char_to_hex</span><span class="p">(</span><span class="n">ch</span><span class="p">)</span>
+        <span class="n">plaintext_send</span> <span class="o">=</span> <span class="n">root</span> <span class="o">+</span> <span class="n">current_char</span>
+        <span class="c1"># print(plaintext_send)
+</span>        <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s">"</span><span class="si">{</span><span class="n">BASE_URL</span><span class="si">}</span><span class="s">/encrypt/</span><span class="si">{</span><span class="n">plaintext_send</span><span class="si">}</span><span class="s">"</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">r</span><span class="p">.</span><span class="n">json</span><span class="p">()</span>
+        <span class="n">ciphertext</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s">"ciphertext"</span><span class="p">][:</span><span class="mi">64</span><span class="p">]</span>
+        <span class="c1"># print("aka1: ",ciphertext)
+</span>        <span class="c1"># print("aka2: ",pre_cipher[15-(_+1)])
+</span>        <span class="k">if</span><span class="p">(</span><span class="n">ciphertext</span><span class="o">==</span><span class="n">pre_cipher</span><span class="p">[</span><span class="mi">31</span><span class="o">-</span><span class="p">(</span><span class="n">_</span><span class="o">+</span><span class="mi">1</span><span class="p">)]):</span>
+            <span class="n">res</span><span class="o">=</span><span class="n">res</span><span class="o">+</span><span class="nb">chr</span><span class="p">(</span><span class="n">ch</span><span class="p">)</span>
+            <span class="n">plaintext</span> <span class="o">=</span> <span class="n">plaintext_send</span> 
+            <span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+            <span class="k">break</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<span class="c1">#flag: crypto{p3n6u1n5_h473_3cb}
+</span>
+
+
+
+<span class="c1"># def test():
+#     plaintext = "" 
+#     for _ in flag:
+#         plaintext+=char_to_hex(ord(_))
+#     # print(plaintext)
+#     r = requests.get(f"{BASE_URL}/encrypt/{plaintext}")
+#     data = r.json()
+#     ciphertext = data["ciphertext"][:32]
+#     print(ciphertext)
+# test()
+</span>        
+
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flag: crypto{p3n6u1n5_h473_3cb}
+</code></pre></div></div>
 
       </article>
 
