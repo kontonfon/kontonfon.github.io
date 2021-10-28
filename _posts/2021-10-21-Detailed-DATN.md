@@ -77,6 +77,31 @@ MathJax.Hub.Queue(function() {
 
 [Link](https://www.youtube.com/watch?v=0Igo2QapYv0)
 
+#### 11. Top 13 BEST Blockchain DNS Software [UPDATED LIST]
+
+[Link](https://www.softwaretestinghelp.com/best-blockchain-dns-software/)
+
+#### 12. Công cụ take note và quản lý công việc, cuộc sống hiệu quả
+
+[Link](https://www.youtube.com/watch?v=Xz28Q4YyqwA)
+
+#### 13. 5 Top blockchain frameworks to watch out for in 2021
+
+[Link](https://content.techgig.com/5-top-blockchain-frameworks-to-watch-out-for-in-2021/articleshow/85866606.cms)
+
+#### 14. Top 15 programming languages for Blockchain app development
+
+[Link](https://appinventiv.com/blog/best-blockchain-programming-languages/)
+
+#### 15. Building secure applications: Top 10 application security best practices
+
+[Link](https://blog.sqreen.com/best-practices-build-secure-applications/)
+
+
+#### 16. Blockchain tutorial youtube 
+
+[Link](https://www.youtube.com/c/SimplilearnOfficial/search?query=blockchain)
+
 
 
 
