@@ -183,7 +183,71 @@ Khi nhìn một từ là động từ thì nó có khả năng là danh từ
 
 30. realistic: thực tế 
 
-31. 
+-------------------------------------------------
+
+### Ngày 29-10-2021 
+
+1. wouded: bị thương
+
+2. dispatch: gửi đi
+
+3. sleigh : xe trượt tuyết
+
+4. regiment: trung đoàn
+
+5. potluck: ngu ngốc
+
+6. cellar: hầm
+
+7. air bomb: bom không khí
+
+8. patch up the house: vá nhà
+
+9. call the sappers: gọi những người đặc nhiệm
+
+10. pedigree: phả hệ
+
+11. big paw: chân to
+
+12. inscription: sự ghi chép
+
+13. bandage : băng bó
+
+14. blast: vụ nổ
+
+15. scatterd phân tán
+
+16. commander: chỉ huy
+
+17. continue the march: tiếp tục cuộc hành quân
+
+18. worn out: hao mòn
+
+19. caravans: đoàn lữ hành
+
+20. permission granted: đã được cho phép
+
+21. platoon: tiểu đội
+
+22. trophey: chiếc cúp
+
+23. comrade: đồng chí
+
+24. torn boots: ủng rách
+
+25. The order of the regiment commander: lệnh của trung đoàn trưởng
+
+26. steadfast boy: cậu bé kiên định 
+
+27. I serve my country: Tôi phục vụ đất nước của tôi
+
+28. are lying buried far away: đang nằm chôn cất ở xa
+
+29. ravine : khe núi
+
+30. war interrupted their life: chiến tranh làm gián đoạn cuộc sống của họ
+
+31. The sky was blue, the grass was green
 
 
 

@@ -119,7 +119,9 @@ MathJax.Hub.Queue(function() {
 
 [Link](https://pythontic.com/modules/socket/udp-client-server-example)
 
+## struct.pack()
 
+[Link](https://docs.python.org/3/library/struct.html)
 
 
 
