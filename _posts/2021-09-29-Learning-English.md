@@ -249,6 +249,18 @@ Khi nhìn một từ là động từ thì nó có khả năng là danh từ
 
 31. The sky was blue, the grass was green
 
+32. Catholic: người Công giáo.
+
+33. baptized: rửa tội
+
+34. superintendent: giám thị
+
+35. waist: thắt lưng
+
+
+
+
+
 
 
 
