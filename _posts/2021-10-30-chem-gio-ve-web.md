@@ -151,7 +151,140 @@ Khi nói đến các công cụ để xây dựng một trang web, có rất nhi
 
 + Nhiều công cụ khác bên cạnh
 
-To be contined : https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/Installing_basic_software
+#### What tools do I actually need, right now ? 
+
+Đó trông giống như một danh sách đáng sợ, nhưng may mắn thay, bạn có thể bắt đầu phát triển web mà không cần biết gì về hầu hết những thứ này. Trong bài viết này, chúng tôi sẽ chỉ thiết lập cho bạn mức tối thiểu - một trình soạn thảo văn bản và một số trình duyệt web hiện đại.
+
+##### Installing a text editor
+
+Bạn có thể đã có một trình soạn thảo văn bản cơ bản trên máy tính của mình. Theo mặc định, Windows bao gồm `Notepad` và macOS đi kèm với `TextEdit`. Các bản phân phối Linux khác nhaul Ubuntu đi kèm với `gedit` theo mặc định.
+
+Đối với phát triển web, bạn có thể làm tốt hơn `Notepad` hoặc `TextEdit`. Chúng tôi khuyên bạn nên bắt đầu với `Visual Studio`, đây là một trình chỉnh sửa miễn phí, cung cấp các bản xem trước trực tiếp và gợi ý mã.
+
+##### Installing modern web browser.
+
+Hiện tại, chúng tôi sẽ cài đặt một số trình duyệt web dành cho máy tính để bàn để kiểm tra mã của chúng tôi. Chọn hệ điều hành của bạn bên dưới và nhấp vào liên kết có liên quan để tải xuống trình cài đặt cho các trình duyệt yêu thích của bạn:
+
++ Linux: `Firefox`, `Chrome`, `Opera`, `Brave`
+
++ Windows: `Firefox`, `Chrome`, `Opera`, `Internet Explorer`, `Microsoft Edge`, `Brave`
+(Window 10 đi kèm với Edge theo mặc định ; nếu bạn có window 7 trở lên, bạn có thể cài đặt Internet Explorer 11 ; nếu không , bạn nên cài đặt một trình duyệt thay thế)
+
++  macOS: `Firefox`, `Chrome`, `Opera`, `Safari` and `Brave`
+
+Trước khi tiếp tục, bạn nên cài đặt ít nhất hai trong số các trình duyệt này và chuẩn bị sẵn sàng để thử nghiệm.
+
+Chú ý: Internet Explorer không tương thích với một số tính năng web hiện tại và nó có thể không chạy được dự án của bạn. Bạn thường không cần lo lắng về việc làm cho các dự án web của mình tương thích với nó, vì rất ít người vẫn sử dụng nó - chắc chắn đừng lo lắng quá nhiều về điều đó khi bạn đang học. Đôi khi bạn có thể gặp phải một dự án yêu cầu hỗ trợ cho nó.
+
+##### Install a local web server 
+
+Một số ví dụ sẽ cần được chạy bởi một máy chủ web để hoạt động thành công. Bạn có thể tìm hiểu cách thực hiện việc này trong [How do you set up a local testing server?](https://developer.mozilla.org/en-US/docs/Learn/Common_questions/set_up_a_local_testing_server)
+
+### What will your website look like ?
+
+Trang web của bạn sẽ như thế nào ? Thảo luận về công việc lập kế hoạch và thiết kế mà bạn phải làm cho trang web của mình trước khi viết mã, bao gồm "Trang web của tôi cung cấp thông tin gì ? ", "Tôi muốn phông chữ và màu sắc nào ?", và "Trang web của tôi làm gì ? "
+
+##### First things first: planning
+
+Trước khi làm bất cứ điều gì , bạn cần có một số ý tưởng. Trang web của bạn thực sự nên làm gì ? Về cơ bản, một trang web có thể làm được mọi thứ, nhưng với lần thử đầu tiên, bạn nên đơn giản hoá mọi thứ. Chúng ta sẽ bắt đầu bằng cách tạo một vài trang web đơn giản với tiêu đề, hình ảnh và một vài đoạn văn.
+
+Để bắt đầu, bạn cần trả lời những câu hỏi sau:
+
+1. Trang web của bạn nói về cái gì ? Bạn thích chó, New York hay PacMan ? 
+
+2. Bạn đang trình bày thông tin gì về chủ đề này ? Viết tiêu đề và một vài đoạn văn và nghĩ về hình ảnh bạn muốn hiển thị trên trang của mình.
+
+3. Trang web của bạn trông như thế nào, theo thuật ngữ cấp cao đơn giản ? Màu nền là gì ? Loại phông chữ nào phù hợp : trang trọng, hoạt hình, đạm và to, tinh tế ? 
+
+Note: Các dự án phức tạp cần có hướng dẫn chi tiết đi vào tất cả các chi tiết về màu sắc, phông chữ, khoảng cách giữa các mục trên một trang, phong cách viết phù hợp, v.v. Đây đôi khi được gọi là hướng dẫn thiết kế, hệ thống thiết kế hoặc sách thương hiệu và bạn có thể xem ví dụ tại Hệ thống thiết kế Firefox Photon.
+
+##### Sketching out your design (Phác thảo thiết kế của bạn)
+
+Tiếp theo, lấy giấy bút và phác thảo đại khái cách bạn muốn trang web của mình trông giống như thế nào. Đối với trang web đơn giản đầu tiên của bạn, không có nhiều thứ để phác thảo, nhưng bạn nên tập thói quen làm điều này ngay bây giờ. Nó thực sự hữu ích - bạn không cần phải là Van Gogh ! 
+
+![Imgur](https://i.imgur.com/cgfMM7R.png)
+
+Chú ý: Ngay cả trên các trang web thực, phức tạp, các nhóm thiết kế thường bắt đầu với các bản phác thoả thô trên giấy và sau đó xây dựng các mô hình kỹ thuật số bằng cách sử dụng trình chỉnh sửa đồ hoạ hoặc công nghệ web.
+
+Nhóm web thường bao gồm cả nhà thiết kế đồ hoạ và nhà thiết kế trải nghiệm người dùng (UX). Các nhà thiết kế đồ hoạ tập hợp các hình ảnh trực quan của trang web. Người thiết kế UX có một vai trò hơi trừu tượng hơn trong việc giải quyết cách người dùng sẽ trải nghiệm và tương tác với trang web.
+
+##### Choosing your assets 
+
+Tại thời điểm này, thật tốt để bắt đầu tập hợp nội dung cuối cùng sẽ xuất hiện trên trang web của bạn
+
++ Text 
+
+Bạn vẫn nên có các đoạn văn và tiêu đề của bạn từ trước đó. Giữu những thức này gần đó.
+
++ Theme color
+
+Để chọn màu, hãy chuyển đến Bộ chọn màu và tìm màu bạn thích. Khi bạn nhấp vào một màu, bạn sẽ thấy một mã gồm sáu ký tự như `#660066`. Đó được gọi là mã hex (viết tắt của hệ thập lục phân) và đại diện cho màu của bạn. Sao chép mã xuống một nơi nào đó an toàn ngày bầy giờ.
+
+![Imgur](https://i.imgur.com/t77p8o5.png)
+
++ Images 
+
+Để chọn một hình ảnh, hãy truy cập `Google Images`  và tìm kiếm thứ gì đó phù hợp.
+
+1. Khi bạn tìm thấy hình ảnh bạn muốn, hãy nhấp vào hình ảnh để xem phóng to nó.
+
+2. Nhấp chuột phải chọn hình ảnh (Ctrl + click trên máy Mac), chọn `Save Image As...` và chọn một nơi an toàn để lưu hình ảnh của bạn. Ngoài ra, hãy sao chép địa chỉ web của hình ảnh từ thanh địa chỉ của trình duyệt để sử dụng sau này.
+
+![Imgur](https://i.imgur.com/2XxdBcH.png)
+
+Lưu ý rằng, hầu hết các hình ảnh trên web, bao gồm cả Google Hình ảnh, đều có bản quyền. Để giảm khả năng vi phạm bản quyền, bạn có thể sử dụng bộ lọc giấy phép của Google.
+
+![Imgur](https://i.imgur.com/m51d9xR.png)
+
++ Font 
+
+Để chọn phông:
+
+1. Truy cập `Google Fonts` và tìm cái mà bạn thích
+
+2. Sao chép các dòng mã mà Google cung cấp cho bạn vào trình soạn thảo văn bản của bạn để lưu lại sau này 
+
+3. Để biết thêm chi tiết về cách sử dụng Phông chữ Google, hãy xem trang này.
+
+----------------------------------------
+
+### Dealing with files (Xử lý các tệp tin)
+
+Một trang web bao gồm nhiều tệp: nội dung văn bản, mã, bảng định kiểu, nội dung phương tiện, v.v. Khi bạn đang xây dựng một trang web, bạn cần tập hợp các tệp này thành một cấu trúc hợp lý trên máy tính cục bộ của mình, đảm bảo rằng chúng có thể nói chuyện với nhau và khiến tất cả nội dung của bạn trông như ý trước khi cuối cùng bạn tải chúng lên máy chủ. 
+
+Xử lý tệp thảo luận về một số vấn đề bạn cần lưu ý để bạn có thể thiết lập cấu trúc tệp hợp lý cho trang web của mình.
+
+#### Where should your website live on your computer?
+
+Khi bạn đang làm việc trên một trang web cục bộ trên máy tính của mình, bạn nên giữ tất cả cac tệp liên quan trong một thư mục duy nhất phản ánh cấu trúc tệp của trang web đã xuất bản trên máy chủ. Thư mục này có thể tồn tại ở bất cứ đâu bạn thích, nhưng bạn nên đặt nó ở nơi nào đó bạn có thể dễ dàng tìm thấy, có thể trên Màn hình nền, trong thư mục Trang chủ hoặc ở thư mục gốc của ổ cứng.
+
+1. Chọn một nơi để lưu trữ các dự án trang web của bạn. Bên trong địa điểm bạn đã chọn, hãy tạo một thư mục mới có tên là `web-project`(hoặc tương tự). Đây là nơi tất cả các dự án trang web của bạn sẽ sống.
+
+2. Bên trong thư mục đầu tiên này, hãy tạo một thư mục khác để lưu trữ trang web đầu tiên của bạn. Gọi là là `test-site` (hoặc một cái gì đó giàu trí tưởng tượng hơn)
+
+#### An aside on casing and spacing (Một khía cạnh về viết hoa và khoảng trống)
+
+Bạn sẽ nhận thấy rằng trong suốt bài viết này, chúng tôi yêu cầu bạn đặt tên cho các thư mục và tệp hoàn toàn bằng chữ thường và không có khoảng trắng. Điều này là do:
+
+1. Nhiều máy tính, đặc biệt là máy chủ web, phân biệt chữ hoa và chữ thường. Vì vậy ,ví dụ: nếu bạn đặt một hình ảnh trên trang web của mình tại `test-site/MyImage.jpg` và sau đó trong một tệp khác, bạn cố gọi hình ảnh đó là `test-site/myimage.jpg`, nó có thể không hoạt động.
+
+2. Trình duyệt, máy chủ web và ngôn ngữ lập trình không xử lý khoảng trống một cách nhất quán. Ví dụ: neus bạn sử dụng khoảng trắng trong tên tệp của mình, một số hệ thống có thể coi tên tệp là hai tên tệp. Một số máy chủ sẽ thay thế các vùng trong tên tệp của bạn bằng `%20` (mã ký tự cho khoảng trắng trong URIs), dấn đến tất cả các liên kết của bạn bị hỏng. Tốt hơn nên phân tách các từ bằng dấu gạch ngang, thay vì dấu gạch dưới: `my-file.html` và `my_file.html`
+
+Câu trả lời ngắn gọn là bạn nên sử dụng dấu gạch ngang cho tên tệp của mình. Công cụ tìm kiếm của google coi dấu gạch ngang là dấu tách từ nhưng không coi dấu gạch dưới theo cách đó. Vì những lý do này, tốt nhất bạn nên tập thói quen viết thư mục và tên tệp của mình bằng chữ thường, không có khoảng trắng và các từ được phân tách bằng dâu gạch ngang, ít nhất là cho đến khi bạn biết mình đang làm gì . Bằng cách đó bạn sẽ ít vấn đề hơn sau này.
+
+#### What structure should your website have ? (Cấu trúc trang web của bạn nên có ? )
+
+Tiếp theo, hãy xem trang web thử nghiệm của chúng ta nên có cấu trúc nào. Những thứ phổ biến nhất mà chúng ta sẽ có trong bất kỳ dự án trang web nào mà chúng ta tạo là tệp HTML lập chỉ mục (file index.html) và các thư mục để chứa hình ảnh, tệp kiểu và tệp tập lệnh. Hãy tạo những thứ này ngay bây giờ.
+
+1. `index.html`: Tệp này thường sẽ chứa nội dung trang chủ của bạn, nghĩa là văn bản và hình ảnh mà mọi người nhìn thấy khi họ truy cập trang web của bạn lần đầu tiên. Sử dụng trình soạn thảo văn bản của bạn, tạp một tệp mới có tên là `index.html` và lưu nó ngay bên trong thư mục trang web thử nghiệm của bạn.
+
+2. `images floder`: Thư mục này sẽ chứa tất cả các hình ảnh mà bạn sử dụng trên trang web của mình. Taok một thư mục có tên là `images`, bên trong thư mục `test-side`
+
+3. `styles folder`: Thư mục này sẽ chứa mã `CSS` được sử dụng để tạo kiểu cho nội dung của bạn (ví dụ: đặt văn bản và màu nền). Tạp một thư mục được gọi là `styles`, bên trong thư mục `test-side`
+
+4. `scripts folder`: Thư mục này sẽ chứa tất cả các mã `JavaScript` được sử dụng để thêm chức năng tương tác vào trang web của bạn. (Ví dụ: Các nút tải dữ liệu khi được nhấp vào). Tạo một thưc mục có tên là `scripts`, bên trong thư mục `test-side`
+
+To be contined : https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/Dealing_with_files
 
 
 
