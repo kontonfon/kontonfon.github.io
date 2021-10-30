@@ -257,6 +257,22 @@ Khi nhìn một từ là động từ thì nó có khả năng là danh từ
 
 35. waist: thắt lưng
 
+---------------------------------------------
+
+### Ngày 30/10/2021
+
+1. teamed up: hợp tác
+
+2. extort: tống tiền
+
+3. strain: sự căng thẳng, quá tải
+
+4. auctioning off: bán đấu giá
+
+5. cartel: thoả thuận, cạnh tranh
+
+6. 
+
 
 
 
