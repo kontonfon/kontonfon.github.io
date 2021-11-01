@@ -599,7 +599,224 @@ MathJax.Hub.Queue(function() {
   </li>
 </ol>
 
-<p>To be contined : https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/Dealing_with_files</p>
+<h4 id="file-paths">File paths</h4>
+
+<p>Để làm cho các tệp nói chuyện với nhau, bạn phải cung cấp một đường dẫn tệp giữa chúng - về căn bản là một tuyến đường, vì vậy một biết vị trí của tệp khác. Để chứng minh điều này, chúng tôi sẽ chèn một chút HTML vào tệp <code class="language-plaintext highlighter-rouge">index.html</code> của chúng tôi và làm cho nó hiển thị hình ảnh bạn đã chọn trong bài viết <code class="language-plaintext highlighter-rouge">What will your website look like ?</code> Ngoài ra, bạn có thể chọn một hình ảnh hiện có theo ý củ bạn, trên máy tính của bạn hoặc từ Web và sử dụng nó theo các bước sau:</p>
+
+<ol>
+  <li>
+    <p>Sao chép hình ảnh bạn đã chọn trước đó vào thư mục <code class="language-plaintext highlighter-rouge">images</code></p>
+  </li>
+  <li>
+    <p>Mở tệp <code class="language-plaintext highlighter-rouge">index.html</code> và chèn mã sau vào tệp chính xác như được hiển thị. Đừng lo lắng về ý nghĩa của tất cả hiện tại - chúng ta sẽ xem xét các cấu trúc chi tiết hơn ở phần sau của loạt bài này.</p>
+  </li>
+</ol>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>My test page<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">""</span> <span class="na">alt=</span><span class="s">"My test image"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<ol>
+  <li>
+    <p>Dòng <code class="language-plaintext highlighter-rouge">&lt;img src="" alt="My test image"&gt;</code> là mã <code class="language-plaintext highlighter-rouge">HTML</code> chèn hình ảnh vào trang. Chúng ta cần cho <code class="language-plaintext highlighter-rouge">HTML</code> biết vị trí của hình ảnh. Hình ản nằm trong thư mục <code class="language-plaintext highlighter-rouge">images</code>, nằm trong cùng thư mục với <code class="language-plaintext highlighter-rouge">index.html</code>. Để đi xuống cấu trúc tệp từ <code class="language-plaintext highlighter-rouge">index.html</code> đến hình ảnh của chúng tôi, đường dẫn tệp chúng tôi cần là <code class="language-plaintext highlighter-rouge">images/your-image-filename</code>. Ví dụ, ảnh của chúng tôi được gọi là <code class="language-plaintext highlighter-rouge">firefox-icon.png</code>, vì vậy đường dẫn là <code class="language-plaintext highlighter-rouge">images/firefox-icon.png</code></p>
+  </li>
+  <li>
+    <p>Chèn đường dẫn tệp vào mã HTML của bạn voà giữa dấu ngoặc kép của mã <code class="language-plaintext highlighter-rouge">src=""</code></p>
+  </li>
+  <li>
+    <p>Lưu tệp <code class="language-plaintext highlighter-rouge">HTML</code> của bạn, sau đó tải nó trong trình duyệt web của bạn (bấm đúp vào tệp). Bạn sẽ thấy trang web mới của mình hiển thị hình ảnh của bạn !</p>
+  </li>
+</ol>
+
+<p><img src="https://i.imgur.com/3RgYLxt.png" alt="Imgur" /></p>
+
+<p>Một số quy tắc chung cho đường dẫn tệp:</p>
+
+<ul>
+  <li>
+    <p>Để liên kết tệp đích trong cùng thư mục với tệp HTML đang gọi, chỉ cần sử dụng tên tệp, ví dụ: <code class="language-plaintext highlighter-rouge">my-image.jpg</code></p>
+  </li>
+  <li>
+    <p>Để tham chiếu tệp con trong thư mục con, hãy viết tên thư mục ở phía trước đường dẫn, cộng với dấu gạch chéo lên, ví dụ: <code class="language-plaintext highlighter-rouge">subdirectory/my-image.jpg</code></p>
+  </li>
+  <li>
+    <p>Để liên kết đến tệp đích trong thư mục phía trên HTML đang gọi, hãy viết dấu hai chấm. Vì vậy, ví dụ: nếu <code class="language-plaintext highlighter-rouge">index.html</code> nằm trong thư mục con của <code class="language-plaintext highlighter-rouge">test-site</code> và <code class="language-plaintext highlighter-rouge">my-image.jpg</code> đang nằm trong <code class="language-plaintext highlighter-rouge">test-side</code>, bạn có thể tham khảo <code class="language-plaintext highlighter-rouge">my-image.jpg</code> từ <code class="language-plaintext highlighter-rouge">index.html</code> bằng cách sử dụng <code class="language-plaintext highlighter-rouge">../my-image.jpg</code></p>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/a4XTkYF.png" alt="Imgur" /></p>
+
+<p>Hiện tại, đây là tất cả những gì bạn cần biết.</p>
+
+<p>Chú ý: Hệ thống tệp Windows có xu hướng sử dụng dấu gạch chéo ngược ,không phải dấu gạch chéo về phía trước, ví dụ: <code class="language-plaintext highlighter-rouge">C:\windows</code>. Điều này không quan trọng trong HTML - ngay cả khi bạn đang phát triển trang web của mình trên windows, bạn vẫn nên sử dụng dấu gạch chéo về phái trước trong mã của mình.</p>
+
+<h4 id="what-else-should-be-done-">What else should be done ?</h4>
+
+<p><img src="https://i.imgur.com/pDm0A3q.png" alt="Imgur" /></p>
+
+<hr />
+
+<h3 id="html-basic">HTML basic</h3>
+
+<p>HTML (Ngôn ngữ đánh dấu siêu văn bản) là mã được sử dụng để cấu trúc một trang web và nội dung của nó. Ví dụ: Nội dung có thể được cấu trúc trong một tập hợp các đoạn văn, một danh sách các dấu đầu dòng hoặc sử dụng hình ảnh và bảng dữ liệu. Như tiêu đề đã gợi ý, bài viết này sẽ cung cấp cho bạn những hiểu biết căn bản về HTML và các chức năng của nó.</p>
+
+<h4 id="so-what-is-html">So what is HTML?</h4>
+
+<p>HTML là một ngôn ngữ đánh dấu xác định cấu trúc nội dung của bạn. HTML bao gồm một loạt các phần tử, mà bạn sử dụng để bao bọc hoặc bao các phần khác nhau của nội dung để làm cho nó xuất hiện theo một cách nhất định hoặc hoạt động theo một cách nhất định. Các thẻ bao quanh có thể tạo siêu liên kết từ hoặc hình ảnh đến một nơi khác, có thể in nghiêng các từ, có thể làm cho phông chứ lớn hơn hoặc nhỏ hơm,v.v. Ví dụ: Lấy dòng nội dung sau:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>My cat is very grumpy
+</code></pre></div></div>
+
+<p>Nếu chúng ta muốn dòng đứng riêng, chúng ta có thể chỉ định rằng đó là một đoạn văn bằng cách đặt nó trong các thẻ đoạn văn.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;p&gt;My cat is very grumpy&lt;/p&gt;
+</code></pre></div></div>
+
+<h5 id="anatomy-of-an-html-element-giải-phẫu-một-phần-tử-html">Anatomy of an HTML element (Giải phẫu một phần tử HTML)</h5>
+
+<p>Chúng ta hãy khám phá yếu tố đoạn văn này sâu hơn một chút.</p>
+
+<p><img src="https://i.imgur.com/pXPubv7.png" alt="Imgur" /></p>
+
+<p>Các phần chúng của phần tử của chúng tôi như sau:</p>
+
+<ol>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">The opening tag</code>: Điều này bao gồm tên của phần tử (trong trường hợp này là <code class="language-plaintext highlighter-rouge">p</code>), được bao bọc trong dấu ngoặc nhọn mở và đóng. Điều này cho biết nơi phần tử bắt đầu hoặc bắt đầu có hiệu lực - trong trường hợp này là nơi bắt đầu đoạn văn.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">The closing tag</code>: Điều này giống với thẻ mở, ngoại trừ việc nó bao gồm một dấu gạch chéo trước tên phần tử. Điều này cho biết nơi phần tử kết thúc.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">The content</code>: Đây là nội dung của phần tử, trong trường hợp này, chỉ là văn bản.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">The element</code>: Thẻ mở, thẻ đóng và nội dùng cùng nhau tạo thành phần tử.</p>
+  </li>
+</ol>
+
+<p>Các phần tử cũng có thể có các thuộc tính giống như sau:</p>
+
+<p><img src="https://i.imgur.com/SbeMJ2k.png" alt="Imgur" /></p>
+
+<p>Các thuộc tính chứa thông tin bổ sung về phần tử mà bạn không muốn xuất hiện trong nội dung thực tế. Ở ddaaym <code class="language-plaintext highlighter-rouge">class</code> là tên thuộc tính và <code class="language-plaintext highlighter-rouge">editor-note</code> là giá trị thuộc tính. Thuộc tính <code class="language-plaintext highlighter-rouge">class</code> cho phép bạn cung cấp cho phần tử một mã định danh không duy nhất có thể được sử dụng để nhắm mục tiêu nó (và bất kỳ phần tử nào khác có cùng giá trị lớp) với thông tin kiểu và những thứ khác.</p>
+
+<p>Thuộc tính phải luôn có những điều sau:</p>
+
+<ol>
+  <li>
+    <p>Khoảng trắng giữa nó và tên phần tử (hoặc thuộc tính trước đó, nếu phần tử đã có một hoặc nhiều thuộc tính)</p>
+  </li>
+  <li>
+    <p>Tên thuộc tính được theo sau bởi một dấu bằng.</p>
+  </li>
+  <li>
+    <p>Giá trị thuộc tính được bao bọn bởi dấu ngoặc kép mở và đóng.</p>
+  </li>
+</ol>
+
+<p>Chú ý: Các giá trị thuộc tính đơn giản không chứa khoảng trắng ASCII (hoặc bất kỳ ký tự nào trong số các ký tự <code class="language-plaintext highlighter-rouge">"</code>,<code class="language-plaintext highlighter-rouge">'</code>,<code class="language-plaintext highlighter-rouge">= &lt; &gt;</code>,…) có thể vẫn chưa được trích dẫn, nhưng bạn nên trích dẫn tất cả các giá trị thuộc tính, vì nó làm cho mã nhất quán và dễ hiểu hơn.</p>
+
+<h5 id="nesting-elements">Nesting Elements</h5>
+
+<p>Bạn cũng có thể đặt các phần tử bên trong các phần tử khác - Điều này được gọi là lồng nhau. Nếu chúng ta muốn nói rằng con mèo của chúng ta rất gắt gỏng, chúng ta có thể bọc từ “rất” trong một phần tử <code class="language-plaintext highlighter-rouge">&lt;strong&gt;</code>, có nghĩa là từ này cần được nhấn mạnh</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;p&gt;My cat is &lt;strong&gt;very&lt;/strong&gt; grumpy.&lt;/p&gt;
+</code></pre></div></div>
+
+<p>Tuy nhiên, bạn cần đảm bảo rằng các phần tử của bạn được lồng đúng cách. Trong ví dụ trên, chúng tôi đã mở phần tử <code class="language-plaintext highlighter-rouge">&lt;p&gt;</code> trước tiên, sau đó là phần tử <code class="language-plaintext highlighter-rouge">&lt;strong&gt;</code>, do đó, chúng ta phải đóng phần tử <code class="language-plaintext highlighter-rouge">&lt;strong&gt;</code> trước, sau đó đến phần tử <code class="language-plaintext highlighter-rouge">&lt;p&gt;</code>. Điều này là không chính xác.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;p&gt;My cat is &lt;strong&gt;very grumpy.&lt;/p&gt;&lt;/strong&gt;
+</code></pre></div></div>
+
+<p>Các phần tử phải mở và đóng một cách chính xác để chúng rõ ràng bên trong hoặc bên ngoài nhau. Nếu chúng chồng lên nhau như hình trên, thì trình duyệt web của bạn sẽ cố gắng đoán chính xác nhất những gì bạn đang cố gắng nói, điều này có thể dẫn đễn kết quả không mong muốn. Vì vậy ,đừng làm điều đó !</p>
+
+<h5 id="empty-elements">Empty elements</h5>
+
+<p>Một số phần tử không có nội dung và được gọi là phần tử rỗng. Lấy phần tử <code class="language-plaintext highlighter-rouge">&lt;img&gt;</code> mà chúng ta đã có trong trang HTML của mình.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;img src="images/firefox-icon.png" alt="My test image"&gt;
+</code></pre></div></div>
+
+<p>Thẻ này chứa hai thuộc tính, nhưng không có thẻ đóng <code class="language-plaintext highlighter-rouge">&lt;/img&gt;</code> và không có nội dung bên trong. Điều này là do một phần tử hình ảnh không bao giờ bao bọc nội dung để ảnh hưởng đến nó. Mục đích của nó là nhúng hình ảnh vào trang HTML ở nơi nó xuất hiện.</p>
+
+<h5 id="anatomy-of-an-html-document">Anatomy of an HTML document</h5>
+
+<p>Điều đó tóm tắt những điều cơ bản của các phần tử HTML riêng lẻ, nhưng chúng không tiện dùng riêng. Bầy giờ chúng ta sẽ xem xét cách các phần tử riêng lẻ được kết hợp để tạo thành toàn bộ trang HTML.
+Hãy truy cập lại mã mà chúng tôi đã đưa vào ví dụ <code class="language-plaintext highlighter-rouge">index.html</code> của chúng tôi (mà chúng tôi đã gặp lần đầu tiên trong bài viết Xử lý tệp)</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+    <span class="nt">&lt;meta</span> <span class="na">charset=</span><span class="s">"utf-8"</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;title&gt;</span>My test page<span class="nt">&lt;/title&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;img</span> <span class="na">src=</span><span class="s">"images/firefox-icon.png"</span> <span class="na">alt=</span><span class="s">"My test image"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+<p>Ở đây, chúng ta có những thứ sau:</p>
+
+<ul>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">&lt;!DOCTYPE html&gt;</code> - loại tài liệu. Nó là một phần mở đầu bắt buộc. Trước mắt, khi HTML còn non trẻ (khoảng 1991/92), các kiểu tài liệu có nghĩa là hoạt động như các liên kết đến một tập hợp các quy tắc mà trang HTML phải tuân theo để được coi là HTML tốt, có thể có nghĩa là kiểm tra lỗi tự động và những thứ hữu ích khác. Tuy nhiên ngày nay, chúng không có tác dụng gì nhiều và về cơ bản chỉ cần thiết để đảm bảo tài liệu của bạn hoạt động chính xác. Đó là tất cả những gì bạn cần biết lúc này.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">&lt;html&gt;&lt;/html&gt;</code>- phần tử <code class="language-plaintext highlighter-rouge">&lt;html&gt;</code>. Phần tử này bao bọc tất cả nội dung trên toàn bộ trang và đôi khi được gọi là phần tử gốc.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">&lt;head&gt;&lt;/head&gt;</code> - phần tử <code class="language-plaintext highlighter-rouge">&lt;head&gt;</code>. Phần tử này hoạt động như một vùng chứa cho tất cả những thứ bạn muốn đưa vào trang HTML mà không phải là nội dung bạn đang hiển thị cho người xem trang của mình.
+Điều này bao gồm những thứ như từ khoá và mô tả trang mà bạn muốn xuất hienj trong kết quả tìm kiếm, CSS để tạo kiểu nội dung của chúng tôi, khai báo bộ ký tự, v.v</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">&lt;meta charset="utf-8"&gt;</code> - Phần tử này đặt bộ ký tự mà tài liệu của bạn sẽ sử dụng thành <code class="language-plaintext highlighter-rouge">UTF-8</code> bao gồm hầu hết các ký tự từ đại đa số các ngôn ngữ viết. Về cơ bản, bây giờ nó có thể xử lý bất kỳ nội dung văn bản nào bạn có thể đưa vào nó. Không có lý do gì để không đặt điều này và nó có thể giúp tránh một số vấn đề sau này.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">&lt;title&gt;&lt;/title&gt;</code> - Phần tử <code class="language-plaintext highlighter-rouge">&lt;title&gt;</code>. Điều này đặt tiêu đề trang của bạn, là tiêu đề xuất hiện trong tab trình duyệt mà trang được tải vào. Nó cũng được sử dụng để mô tả trang khi bạn đánh dấu hoặc đánh dấu trang.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">&lt;body&gt;&lt;/body&gt;</code> - phần tử <code class="language-plaintext highlighter-rouge">&lt;body&gt;</code>. Điều này chứa tất cả nội dung mà bạn muốn hiển thị cho người dùng web khi họ truy cập trang của bạn, cho dù đó là văn bản, hình ảnh, video, trò chơi, bản âm thanh có thể phát hay bất kỳ nội dung nào khác.</p>
+  </li>
+</ul>
+
+<h4 id="images">Images</h4>
+
+<p>Hãy chuyển sự chú ý của chúng ta đến phần tử <code class="language-plaintext highlighter-rouge">&lt;img&gt;</code> một lần nữa:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;img src="images/firefox-icon.png" alt="My test image"&gt;
+</code></pre></div></div>
+
+<p>Như chúng tôi đã nói trước đây, nó nhúng một hình ảnh vào trang của chúng tôi ở vị trí mà nó xuất hiện. Nó thực hiện điều này thông qua thuộc tính src (source) , thuộc tính này chứa đường dẫn đến tệp hình ảnh của chúng ta.</p>
+
+<p>Chúng tôi cũng đã bao gồm một thuộc tính <code class="language-plaintext highlighter-rouge">alt</code> (thay thế). Trong thuộc tính này, bạn chỉ định văn bản mô tả cho những người dùng không thể nhìn thấy hình ảnh, có thể vì những lý do sau:</p>
+
+<ol>
+  <li>
+    <p>Họ bị khiếm thị. Người dùng bị khiếm thị đáng kể thường sử dụng các công cụ được gọi là trình đọc màn hình để đọc văn bản thay thế cho họ.</p>
+  </li>
+  <li>
+    <p>Đã xảy ra sự cố khiến hình ảnh không hiển thị. Ví dụ: Cố tình thay đổi đường dẫn bên trong thuộc tính <code class="language-plaintext highlighter-rouge">srrc</code> của bạn để làm cho nó không chính xác. Nếu bạn lưu và tải lại trang, bạn sẽ thấy một cái gì đó như thế này thay cho hình ảnh.</p>
+  </li>
+</ol>
+
+<p><code class="language-plaintext highlighter-rouge"> My test image</code></p>
+
+<p>Các từ khoá cho văn bản thay thế là “văn bản mô tả”. Văn bản thay thế bạn viết phải cung cấp cho người đọc đủ thông tin để có một ý tưởng tốt về những gì hình ảnh truyền tải. Trong ví dụ này, văn bản hiện tại của chúng tôi về “My test image” không tốt chút nào. Một lựa chọn thay thế tốt hơn cho biểu trưng <code class="language-plaintext highlighter-rouge">Firefox</code> của chúng tôi sẽ là <code class="language-plaintext highlighter-rouge">Biểu trưng Firefox: Một con cáo rực lửa bao quanh Trái Đất</code>.</p>
+
+<p>Hãy thử nghĩ ra một số văn bản thay thế tốt hơn cho hình ảnh của bạn ngay bây giờ.</p>
+
+<p>Chú ý: Tìm hiểu thêm về khả năng tiếp cận trong mô đun học về khả năng tiếp cận của chúng tôi.</p>
+
+<p>To be contined : https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics</p>
 
 
       </article>

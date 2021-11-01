@@ -284,7 +284,189 @@ Tiếp theo, hãy xem trang web thử nghiệm của chúng ta nên có cấu tr
 
 4. `scripts folder`: Thư mục này sẽ chứa tất cả các mã `JavaScript` được sử dụng để thêm chức năng tương tác vào trang web của bạn. (Ví dụ: Các nút tải dữ liệu khi được nhấp vào). Tạo một thưc mục có tên là `scripts`, bên trong thư mục `test-side`
 
-To be contined : https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/Dealing_with_files
+#### File paths 
+
+Để làm cho các tệp nói chuyện với nhau, bạn phải cung cấp một đường dẫn tệp giữa chúng - về căn bản là một tuyến đường, vì vậy một biết vị trí của tệp khác. Để chứng minh điều này, chúng tôi sẽ chèn một chút HTML vào tệp `index.html` của chúng tôi và làm cho nó hiển thị hình ảnh bạn đã chọn trong bài viết `What will your website look like ?` Ngoài ra, bạn có thể chọn một hình ảnh hiện có theo ý củ bạn, trên máy tính của bạn hoặc từ Web và sử dụng nó theo các bước sau:
+
+1. Sao chép hình ảnh bạn đã chọn trước đó vào thư mục `images`
+
+2. Mở tệp `index.html` và chèn mã sau vào tệp chính xác như được hiển thị. Đừng lo lắng về ý nghĩa của tất cả hiện tại - chúng ta sẽ xem xét các cấu trúc chi tiết hơn ở phần sau của loạt bài này.
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My test page</title>
+  </head>
+  <body>
+    <img src="" alt="My test image">
+  </body>
+</html>
+```
+
+3. Dòng `<img src="" alt="My test image">` là mã `HTML` chèn hình ảnh vào trang. Chúng ta cần cho `HTML` biết vị trí của hình ảnh. Hình ản nằm trong thư mục `images`, nằm trong cùng thư mục với `index.html`. Để đi xuống cấu trúc tệp từ `index.html` đến hình ảnh của chúng tôi, đường dẫn tệp chúng tôi cần là `images/your-image-filename`. Ví dụ, ảnh của chúng tôi được gọi là `firefox-icon.png`, vì vậy đường dẫn là `images/firefox-icon.png`
+
+4. Chèn đường dẫn tệp vào mã HTML của bạn voà giữa dấu ngoặc kép của mã `src=""`
+
+5. Lưu tệp `HTML` của bạn, sau đó tải nó trong trình duyệt web của bạn (bấm đúp vào tệp). Bạn sẽ thấy trang web mới của mình hiển thị hình ảnh của bạn !
+
+![Imgur](https://i.imgur.com/3RgYLxt.png)
+
+Một số quy tắc chung cho đường dẫn tệp:
+
++ Để liên kết tệp đích trong cùng thư mục với tệp HTML đang gọi, chỉ cần sử dụng tên tệp, ví dụ: `my-image.jpg`
+
++ Để tham chiếu tệp con trong thư mục con, hãy viết tên thư mục ở phía trước đường dẫn, cộng với dấu gạch chéo lên, ví dụ: `subdirectory/my-image.jpg`
+
++ Để liên kết đến tệp đích trong thư mục phía trên HTML đang gọi, hãy viết dấu hai chấm. Vì vậy, ví dụ: nếu `index.html` nằm trong thư mục con của `test-site` và `my-image.jpg` đang nằm trong `test-side`, bạn có thể tham khảo `my-image.jpg` từ `index.html` bằng cách sử dụng `../my-image.jpg`
+
+![Imgur](https://i.imgur.com/a4XTkYF.png)
+
+Hiện tại, đây là tất cả những gì bạn cần biết.
+
+Chú ý: Hệ thống tệp Windows có xu hướng sử dụng dấu gạch chéo ngược ,không phải dấu gạch chéo về phía trước, ví dụ: `C:\windows`. Điều này không quan trọng trong HTML - ngay cả khi bạn đang phát triển trang web của mình trên windows, bạn vẫn nên sử dụng dấu gạch chéo về phái trước trong mã của mình.
+
+#### What else should be done ?
+
+![Imgur](https://i.imgur.com/pDm0A3q.png)
+
+----------------------------------------------------
+
+### HTML basic
+
+HTML (Ngôn ngữ đánh dấu siêu văn bản) là mã được sử dụng để cấu trúc một trang web và nội dung của nó. Ví dụ: Nội dung có thể được cấu trúc trong một tập hợp các đoạn văn, một danh sách các dấu đầu dòng hoặc sử dụng hình ảnh và bảng dữ liệu. Như tiêu đề đã gợi ý, bài viết này sẽ cung cấp cho bạn những hiểu biết căn bản về HTML và các chức năng của nó.
+
+#### So what is HTML? 
+
+HTML là một ngôn ngữ đánh dấu xác định cấu trúc nội dung của bạn. HTML bao gồm một loạt các phần tử, mà bạn sử dụng để bao bọc hoặc bao các phần khác nhau của nội dung để làm cho nó xuất hiện theo một cách nhất định hoặc hoạt động theo một cách nhất định. Các thẻ bao quanh có thể tạo siêu liên kết từ hoặc hình ảnh đến một nơi khác, có thể in nghiêng các từ, có thể làm cho phông chứ lớn hơn hoặc nhỏ hơm,v.v. Ví dụ: Lấy dòng nội dung sau:
+
+~~~
+My cat is very grumpy
+~~~
+
+Nếu chúng ta muốn dòng đứng riêng, chúng ta có thể chỉ định rằng đó là một đoạn văn bằng cách đặt nó trong các thẻ đoạn văn.
+
+~~~
+<p>My cat is very grumpy</p>
+~~~
+
+##### Anatomy of an HTML element (Giải phẫu một phần tử HTML)
+
+Chúng ta hãy khám phá yếu tố đoạn văn này sâu hơn một chút.
+
+![Imgur](https://i.imgur.com/pXPubv7.png)
+
+Các phần chúng của phần tử của chúng tôi như sau:
+
+1. `The opening tag`: Điều này bao gồm tên của phần tử (trong trường hợp này là `p`), được bao bọc trong dấu ngoặc nhọn mở và đóng. Điều này cho biết nơi phần tử bắt đầu hoặc bắt đầu có hiệu lực - trong trường hợp này là nơi bắt đầu đoạn văn.
+
+2. `The closing tag`: Điều này giống với thẻ mở, ngoại trừ việc nó bao gồm một dấu gạch chéo trước tên phần tử. Điều này cho biết nơi phần tử kết thúc.
+
+3. `The content`: Đây là nội dung của phần tử, trong trường hợp này, chỉ là văn bản.
+
+4. `The element`: Thẻ mở, thẻ đóng và nội dùng cùng nhau tạo thành phần tử.
+
+Các phần tử cũng có thể có các thuộc tính giống như sau:
+
+![Imgur](https://i.imgur.com/SbeMJ2k.png)
+
+Các thuộc tính chứa thông tin bổ sung về phần tử mà bạn không muốn xuất hiện trong nội dung thực tế. Ở ddaaym `class` là tên thuộc tính và `editor-note` là giá trị thuộc tính. Thuộc tính `class` cho phép bạn cung cấp cho phần tử một mã định danh không duy nhất có thể được sử dụng để nhắm mục tiêu nó (và bất kỳ phần tử nào khác có cùng giá trị lớp) với thông tin kiểu và những thứ khác.
+
+Thuộc tính phải luôn có những điều sau:
+
+1. Khoảng trắng giữa nó và tên phần tử (hoặc thuộc tính trước đó, nếu phần tử đã có một hoặc nhiều thuộc tính)
+
+2. Tên thuộc tính được theo sau bởi một dấu bằng.
+
+3. Giá trị thuộc tính được bao bọn bởi dấu ngoặc kép mở và đóng.
+
+Chú ý: Các giá trị thuộc tính đơn giản không chứa khoảng trắng ASCII (hoặc bất kỳ ký tự nào trong số các ký tự `"`,`'`,`= < >`,...) có thể vẫn chưa được trích dẫn, nhưng bạn nên trích dẫn tất cả các giá trị thuộc tính, vì nó làm cho mã nhất quán và dễ hiểu hơn.
+
+##### Nesting Elements
+
+Bạn cũng có thể đặt các phần tử bên trong các phần tử khác - Điều này được gọi là lồng nhau. Nếu chúng ta muốn nói rằng con mèo của chúng ta rất gắt gỏng, chúng ta có thể bọc từ "rất" trong một phần tử `<strong>`, có nghĩa là từ này cần được nhấn mạnh
+
+~~~
+<p>My cat is <strong>very</strong> grumpy.</p>
+~~~
+
+Tuy nhiên, bạn cần đảm bảo rằng các phần tử của bạn được lồng đúng cách. Trong ví dụ trên, chúng tôi đã mở phần tử `<p>` trước tiên, sau đó là phần tử `<strong>`, do đó, chúng ta phải đóng phần tử `<strong>` trước, sau đó đến phần tử `<p>`. Điều này là không chính xác.
+
+~~~
+<p>My cat is <strong>very grumpy.</p></strong>
+~~~
+
+Các phần tử phải mở và đóng một cách chính xác để chúng rõ ràng bên trong hoặc bên ngoài nhau. Nếu chúng chồng lên nhau như hình trên, thì trình duyệt web của bạn sẽ cố gắng đoán chính xác nhất những gì bạn đang cố gắng nói, điều này có thể dẫn đễn kết quả không mong muốn. Vì vậy ,đừng làm điều đó !
+
+##### Empty elements
+
+Một số phần tử không có nội dung và được gọi là phần tử rỗng. Lấy phần tử `<img>` mà chúng ta đã có trong trang HTML của mình.
+
+~~~
+<img src="images/firefox-icon.png" alt="My test image">
+~~~
+
+Thẻ này chứa hai thuộc tính, nhưng không có thẻ đóng `</img>` và không có nội dung bên trong. Điều này là do một phần tử hình ảnh không bao giờ bao bọc nội dung để ảnh hưởng đến nó. Mục đích của nó là nhúng hình ảnh vào trang HTML ở nơi nó xuất hiện.
+
+##### Anatomy of an HTML document
+
+Điều đó tóm tắt những điều cơ bản của các phần tử HTML riêng lẻ, nhưng chúng không tiện dùng riêng. Bầy giờ chúng ta sẽ xem xét cách các phần tử riêng lẻ được kết hợp để tạo thành toàn bộ trang HTML.
+Hãy truy cập lại mã mà chúng tôi đã đưa vào ví dụ `index.html` của chúng tôi (mà chúng tôi đã gặp lần đầu tiên trong bài viết Xử lý tệp)
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My test page</title>
+  </head>
+  <body>
+    <img src="images/firefox-icon.png" alt="My test image">
+  </body>
+</html>
+```
+Ở đây, chúng ta có những thứ sau:
+
++ `<!DOCTYPE html>` - loại tài liệu. Nó là một phần mở đầu bắt buộc. Trước mắt, khi HTML còn non trẻ (khoảng 1991/92), các kiểu tài liệu có nghĩa là hoạt động như các liên kết đến một tập hợp các quy tắc mà trang HTML phải tuân theo để được coi là HTML tốt, có thể có nghĩa là kiểm tra lỗi tự động và những thứ hữu ích khác. Tuy nhiên ngày nay, chúng không có tác dụng gì nhiều và về cơ bản chỉ cần thiết để đảm bảo tài liệu của bạn hoạt động chính xác. Đó là tất cả những gì bạn cần biết lúc này.
+
++ `<html></html>`- phần tử `<html>`. Phần tử này bao bọc tất cả nội dung trên toàn bộ trang và đôi khi được gọi là phần tử gốc.
+
++ `<head></head>` - phần tử `<head>`. Phần tử này hoạt động như một vùng chứa cho tất cả những thứ bạn muốn đưa vào trang HTML mà không phải là nội dung bạn đang hiển thị cho người xem trang của mình.
+Điều này bao gồm những thứ như từ khoá và mô tả trang mà bạn muốn xuất hienj trong kết quả tìm kiếm, CSS để tạo kiểu nội dung của chúng tôi, khai báo bộ ký tự, v.v
+
++ `<meta charset="utf-8">` - Phần tử này đặt bộ ký tự mà tài liệu của bạn sẽ sử dụng thành `UTF-8` bao gồm hầu hết các ký tự từ đại đa số các ngôn ngữ viết. Về cơ bản, bây giờ nó có thể xử lý bất kỳ nội dung văn bản nào bạn có thể đưa vào nó. Không có lý do gì để không đặt điều này và nó có thể giúp tránh một số vấn đề sau này.
+
++ `<title></title>` - Phần tử `<title>`. Điều này đặt tiêu đề trang của bạn, là tiêu đề xuất hiện trong tab trình duyệt mà trang được tải vào. Nó cũng được sử dụng để mô tả trang khi bạn đánh dấu hoặc đánh dấu trang.
+
++ `<body></body>` - phần tử `<body>`. Điều này chứa tất cả nội dung mà bạn muốn hiển thị cho người dùng web khi họ truy cập trang của bạn, cho dù đó là văn bản, hình ảnh, video, trò chơi, bản âm thanh có thể phát hay bất kỳ nội dung nào khác.
+
+#### Images
+
+Hãy chuyển sự chú ý của chúng ta đến phần tử `<img>` một lần nữa:
+
+~~~
+<img src="images/firefox-icon.png" alt="My test image">
+~~~
+
+Như chúng tôi đã nói trước đây, nó nhúng một hình ảnh vào trang của chúng tôi ở vị trí mà nó xuất hiện. Nó thực hiện điều này thông qua thuộc tính src (source) , thuộc tính này chứa đường dẫn đến tệp hình ảnh của chúng ta.
+
+Chúng tôi cũng đã bao gồm một thuộc tính `alt` (thay thế). Trong thuộc tính này, bạn chỉ định văn bản mô tả cho những người dùng không thể nhìn thấy hình ảnh, có thể vì những lý do sau:
+
+1. Họ bị khiếm thị. Người dùng bị khiếm thị đáng kể thường sử dụng các công cụ được gọi là trình đọc màn hình để đọc văn bản thay thế cho họ.
+
+2. Đã xảy ra sự cố khiến hình ảnh không hiển thị. Ví dụ: Cố tình thay đổi đường dẫn bên trong thuộc tính `srrc` của bạn để làm cho nó không chính xác. Nếu bạn lưu và tải lại trang, bạn sẽ thấy một cái gì đó như thế này thay cho hình ảnh.
+
+` My test image`
+
+Các từ khoá cho văn bản thay thế là "văn bản mô tả". Văn bản thay thế bạn viết phải cung cấp cho người đọc đủ thông tin để có một ý tưởng tốt về những gì hình ảnh truyền tải. Trong ví dụ này, văn bản hiện tại của chúng tôi về "My test image" không tốt chút nào. Một lựa chọn thay thế tốt hơn cho biểu trưng `Firefox` của chúng tôi sẽ là `Biểu trưng Firefox: Một con cáo rực lửa bao quanh Trái Đất`.
+
+Hãy thử nghĩ ra một số văn bản thay thế tốt hơn cho hình ảnh của bạn ngay bây giờ.
+
+Chú ý: Tìm hiểu thêm về khả năng tiếp cận trong mô đun học về khả năng tiếp cận của chúng tôi.
+
+
+To be contined : https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics
 
 
 
