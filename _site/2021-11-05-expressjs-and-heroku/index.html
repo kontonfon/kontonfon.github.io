@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Beautiful Jekyll 5.0.0 | Copyright Dean Attali 2020 -->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  
+
+  
+
+  <title>Express JS and Heroku</title>
+
+  
+  <meta name="author" content="Ngô Tấn Trí">
+  
+
+  <meta name="description" content="paper, web">
+
+  
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Em0t3t" href="http://localhost:4000/feed.xml">
+
+  
+
+  
+
+  
+
+
+  
+    
+      
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+    
+      
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+
+
+    
+      
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
+
+
+    
+      
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
+
+
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/assets/css/bootstrap-social.css">
+    
+      <link rel="stylesheet" href="/assets/css/beautifuljekyll.css">
+    
+  
+
+  
+
+  
+  
+  
+
+  
+
+  
+  <meta property="og:site_name" content="Em0t3t">
+  <meta property="og:title" content="Express JS and Heroku">
+  <meta property="og:description" content="paper, web">
+
+  
+  <meta property="og:image" content="http://localhost:4000/assets/img/path.jpg">
+  
+
+  
+  <meta property="og:type" content="article">
+  <meta property="og:article:author" content="Ngô Tấn Trí">
+  <meta property="og:article:published_time" content="2021-11-05T00:00:00+00:00">
+  <meta property="og:url" content="http://localhost:4000/2021-11-05-expressjs-and-heroku/">
+  <link rel="canonical" href="http://localhost:4000/2021-11-05-expressjs-and-heroku/">
+  
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  
+  <meta name="twitter:site" content="@daattali">
+  <meta name="twitter:creator" content="@daattali">
+
+  <meta property="twitter:title" content="Express JS and Heroku">
+  <meta property="twitter:description" content="paper, web">
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/assets/img/path.jpg">
+  
+
+  
+
+
+  
+
+  
+
+</head>
+
+
+<body>
+
+  
+
+
+  <nav class="navbar navbar-expand-xl navbar-light fixed-top navbar-custom top-nav-regular"><a class="navbar-brand" href="http://localhost:4000/">Em0t3t</a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="main-navbar">
+    <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/aboutme">About Me</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Resources</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="https://beautifuljekyll.com">Beautiful Jekyll</a>
+                  <a class="dropdown-item" href="https://www.markdowntutorial.com/">Learn markdown</a>
+            </div>
+          </li>
+        
+          <li class="nav-item">
+            <a class="nav-link" href="https://deanattali.com">Author's home</a>
+          </li></ul>
+  </div>
+
+  
+
+  
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        <a href="http://localhost:4000/">
+          <img alt="Navigation bar avatar" class="avatar-img" src="/assets/img/LOGODUT.png" />
+        </a>
+      </div>
+    </div>
+  
+
+</nav>
+
+
+  <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+
+  <div id="header-big-imgs" data-num-img=1
+    
+    
+    
+      
+      data-img-src-1="http://localhost:4000/assets/img/path.jpg"
+    
+    
+    
+  ></div>
+
+
+<header class="header-section has-img">
+
+<div class="big-img intro-header">
+  <div class="container-md">
+    <div class="row">
+      <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+        <div class="post-heading">
+          <h1>Express JS and Heroku</h1>
+          
+            
+              <h2 class="post-subheading">paper, web</h2>
+            
+          
+
+          
+            <span class="post-meta">Posted on November 5, 2021</span>
+            
+            
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  <span class='img-desc'></span>
+</div>
+
+<div class="intro-header no-img">
+  <div class="container-md">
+    <div class="row">
+      <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+        <div class="post-heading">
+          <h1>Express JS and Heroku</h1>
+          
+            
+              <h2 class="post-subheading">paper, web</h2>
+            
+          
+
+          
+            <span class="post-meta">Posted on November 5, 2021</span>
+            
+            
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+
+<div class=" container-md ">
+  <div class="row">
+    <div class=" col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 ">
+
+      
+
+      
+
+      <article role="main" class="blog-post">
+        <style type="text/css">
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+</style>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'] // removed 'code' entry
+    }
+});
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML-full"></script>
+
+<hr />
+
+<p>Dựa trên hướng dẫn của trang <a href="https://www.freecodecamp.org/news/how-to-deploy-your-site-using-express-and-heroku/">này</a>, mình muốn note lại một số thứ để sau này sử dụng</p>
+
+<h4 id="bước-1-tạo-một-repo-trên-github-của-bạn-nhé-">Bước 1: Tạo một repo trên github của bạn nhé !</h4>
+
+<p><img src="https://i.imgur.com/asFb0bj.png" alt="Imgur" /></p>
+
+<h4 id="bước-2-bạn-git-clone-về-ở-local-nhé-">Bước 2: Bạn git clone về ở local nhé !</h4>
+
+<p><img src="https://i.imgur.com/EJ2ZDDi.png" alt="Imgur" /></p>
+
+<h4 id="bước-3-các-bạn-cd-vào-thư-mục-với-tên-project-bạn-đã-tạo-nhé-">Bước 3: Các bạn cd vào thư mục với tên project bạn đã tạo nhé !</h4>
+
+<p><img src="https://i.imgur.com/4gZoBYJ.png" alt="Imgur" /></p>
+
+<h4 id="bước-4-các-bạn-vào-trang-chủ-của-heroku-tạo-một-account-free-để-sử-dụng-nhé-sau-đó-vào-cli-gõ-lệnh-heroku-login--i-để-đăng-nhập">Bước 4: Các bạn vào trang chủ của Heroku, tạo một account free để sử dụng nhé, sau đó vào CLI gõ lệnh <code class="language-plaintext highlighter-rouge">heroku login -i</code> để đăng nhập</h4>
+
+<p><img src="https://i.imgur.com/cBwl7Ct.png" alt="Imgur" /></p>
+
+<h4 id="bước-5-ta-sẽ-tạo-một-project-trên-heroku-nhé--với-câu-lệnh-heroku-create-yournameproject">Bước 5: Ta sẽ tạo một project trên heroku nhé  với câu lệnh <code class="language-plaintext highlighter-rouge">heroku create &lt;yournameproject&gt;</code></h4>
+
+<p><img src="https://i.imgur.com/DnCc4iK.png" alt="Imgur" /></p>
+
+<h4 id="bước-6-sau-khi-tạo-xong-rồi-ta-bắt-đầu-build-web-của-chúng-ta-nhé-trước-hết-ta-sử-dụng-lệnh-npm-init--y-để-cái-packets">Bước 6: Sau khi tạo xong rồi, ta bắt đầu build web của chúng ta nhé, trước hết ta sử dụng lệnh <code class="language-plaintext highlighter-rouge">npm init -y</code> để cái packets</h4>
+
+<p><img src="https://i.imgur.com/ahoJ9Nm.png" alt="Imgur" /></p>
+
+<h4 id="sau-khi-cài-xong-ta-sẽ-thấy-một-file-json-để-ta-config-tiếp-tục-ta-cài-express-với-câu-lệnh-npm-install-express---save-nhé-">Sau khi cài xong, ta sẽ thấy một file json để ta config, tiếp tục ta cài <code class="language-plaintext highlighter-rouge">Express</code> với câu lệnh <code class="language-plaintext highlighter-rouge">npm install express --save</code> nhé !</h4>
+
+<p><img src="https://i.imgur.com/xMk8wj3.png" alt="Imgur" /></p>
+
+<h4 id="tiếp-theo-ta-sẽ-tạo-file-appjs-để-tiến-hành-build-project-của-chúng-ta-đối-với-window-chúng-ta-có-thể-sử-dụng-câu-lệnh-type-nul--appjs-hoặc-đối-với-linux-các-bạn-có-thể-dùng-touch-appjs-nhé-">Tiếp theo, ta sẽ tạo file <code class="language-plaintext highlighter-rouge">app.js</code> để tiến hành build project của chúng ta, đối với window chúng ta có thể sử dụng câu lệnh: <code class="language-plaintext highlighter-rouge">type nul &gt; app.js</code> hoặc đối với Linux, các bạn có thể dùng <code class="language-plaintext highlighter-rouge">touch app.js</code> nhé !</h4>
+
+<p><img src="https://i.imgur.com/y8vjteI.png" alt="Imgur" /></p>
+
+<h4 id="tiếp-theo-ta-sẽ-tiến-hành-code-một-số-cái-cơ-bản-nhất-trong-file-appjs-nhé-">Tiếp theo, ta sẽ tiến hành code một số cái cơ bản nhất trong file <code class="language-plaintext highlighter-rouge">app.js</code> nhé !</h4>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// create an express app</span>
+
+<span class="kd">const</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="dl">"</span><span class="s2">express</span><span class="dl">"</span><span class="p">)</span>
+<span class="kd">const</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">()</span>
+
+<span class="c1">// use the express-static middle ware</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="nx">express</span><span class="p">.</span><span class="kd">static</span><span class="p">(</span><span class="dl">"</span><span class="s2">public</span><span class="dl">"</span><span class="p">))</span>
+
+<span class="c1">// define the first route</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="dl">"</span><span class="s2">/</span><span class="dl">"</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">){</span>
+    <span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="dl">"</span><span class="s2">&lt;h1&gt;Hello World!</span><span class="dl">"</span><span class="p">)</span>
+<span class="p">})</span>
+
+<span class="c1">// start the server listening for requests </span>
+
+<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="nx">process</span><span class="p">.</span><span class="nx">env</span><span class="p">.</span><span class="nx">PORT</span> <span class="o">||</span> <span class="mi">3000</span><span class="p">,</span> <span class="p">()</span><span class="o">=&gt;</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="dl">"</span><span class="s2">Server is runnning...</span><span class="dl">"</span><span class="p">))</span>
+</code></pre></div></div>
+
+<h4 id="bước-10-tiếp-theo-ta-sẽ-chạy-app-trên-local-với-câu-lệnh-node-appjs-và-sau-đó-truy-cập--localhost3000-bạn-sẽ-thấy-kết-quả-hiện-ra">Bước 10. Tiếp theo, ta sẽ chạy app trên local với câu lệnh <code class="language-plaintext highlighter-rouge">node app.js</code> và sau đó truy cập : <code class="language-plaintext highlighter-rouge">localhost:3000</code> bạn sẽ thấy kết quả hiện ra:</h4>
+
+<p><img src="https://i.imgur.com/QomrWWz.png" alt="Imgur" /></p>
+
+<h4 id="bước-11-chúng-ta-sẽ-tiến-hành-thêm-npm-start-bằng-cách-config-lại-file-json-ban-đầu-một-chút-nhé--">Bước 11: Chúng ta sẽ tiến hành thêm <code class="language-plaintext highlighter-rouge">npm start</code> bằng cách config lại file json ban đầu một chút nhé ! :</h4>
+
+<p><img src="https://i.imgur.com/eVaxkm9.png" alt="Imgur" /></p>
+
+<p>Ps: Các bạn thêm dòng lệnh <code class="language-plaintext highlighter-rouge">"start":"node app.js"</code> vào <code class="language-plaintext highlighter-rouge">script</code>, và có thể test lại trên CLI bằng câu lệnh <code class="language-plaintext highlighter-rouge">npm start</code></p>
+
+<p><img src="https://i.imgur.com/vPDoTqi.png" alt="Imgur" /></p>
+
+<h4 id="bước-12-để-app-này-chạy-trên-được-heroku-chúng-ta-phải-thêm-file-procfile-file-này-sẽ-có-chứng-năng-giúp-cho-server-nhận-diện-được-script-cần-để-build-cụ-thể-các-bạn-dùng-lệnh-như-sau-type-nul--procfile">Bước 12: Để app này chạy trên được Heroku, chúng ta phải thêm file <code class="language-plaintext highlighter-rouge">Procfile</code>, file này sẽ có chứng năng giúp cho server nhận diện được script cần để build, cụ thể các bạn dùng lệnh như sau: <code class="language-plaintext highlighter-rouge">type nul &gt; Procfile</code></h4>
+
+<p><img src="https://i.imgur.com/X7T82wq.png" alt="Imgur" /></p>
+
+<p>Và ta tiếp tục chèn các dòng lệnh : <code class="language-plaintext highlighter-rouge">web: node app.js</code> vào file <code class="language-plaintext highlighter-rouge">Procfile</code> này !</p>
+
+<h4 id="bước-13-tiếp-theo-để-trang-web-thêm-sinh-động-ta-có-thể-thêm-các-file-html-css-và-js-vào-app-trên-bằng-cách-tạo-ra-thư-mục-public-và-tạo-ra-thêm-các-file-html-css-và-js-vào-trong-nó">Bước 13: Tiếp theo, để trang web thêm sinh động, ta có thể thêm các file HTML, CSS và JS vào app trên bằng cách tạo ra thư mục public, và tạo ra thêm các file HTML, CSS và JS vào trong nó</h4>
+
+<p><img src="https://i.imgur.com/GtKysGU.png" alt="Imgur" /></p>
+
+<p><img src="https://i.imgur.com/04uAtFd.png" alt="Imgur" /></p>
+
+<h4 id="tiếp-theo-ta-sẽ-code-trang-trí-web-trong-này-nhé-">Tiếp theo, ta sẽ code trang trí web trong này nhé !</h4>
+
+<ul>
+  <li>index.html</li>
+</ul>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;head&gt;</span>
+	<span class="nt">&lt;script </span><span class="na">src=</span><span class="s">"https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+	<span class="nt">&lt;link</span> <span class="na">href=</span><span class="s">"https://fonts.googleapis.com/css?family=Alegreya|Source+Sans+Pro&amp;display=swap"</span> <span class="na">rel=</span><span class="s">"stylesheet"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">"stylesheet"</span> <span class="na">type=</span><span class="s">"text/css"</span> <span class="na">href=</span><span class="s">"styles.css"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+<span class="nt">&lt;h1&gt;</span>Lorem Ipsum generator<span class="nt">&lt;/h1&gt;</span>
+  <span class="nt">&lt;p&gt;</span>How many paragraphs do you want to generate?<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"number"</span> <span class="na">id=</span><span class="s">"quantity"</span> <span class="na">min=</span><span class="s">"1"</span> <span class="na">max=</span><span class="s">"20"</span> <span class="na">value=</span><span class="s">"1"</span><span class="nt">&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">id=</span><span class="s">"generate"</span><span class="nt">&gt;</span>Generate<span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;button</span> <span class="na">id=</span><span class="s">"copy"</span><span class="nt">&gt;</span>Copy!<span class="nt">&lt;/button&gt;</span>
+<span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"lorem"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;/div&gt;</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span> <span class="na">src=</span><span class="s">"script.js"</span><span class="nt">&gt;&lt;/script&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<ul>
+  <li>styples.css</li>
+</ul>
+
+<div class="language-css highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">h1</span> <span class="p">{</span>
+	<span class="nl">font-family</span><span class="p">:</span> <span class="s2">'Alegreya'</span> <span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">body</span> <span class="p">{</span>
+	<span class="nl">font-family</span><span class="p">:</span> <span class="s2">'Source Sans Pro'</span> <span class="p">;</span>
+	<span class="nl">width</span><span class="p">:</span> <span class="m">50%</span><span class="p">;</span>
+	<span class="nl">margin-left</span><span class="p">:</span> <span class="m">25%</span><span class="p">;</span>
+	<span class="nl">text-align</span><span class="p">:</span> <span class="nb">justify</span><span class="p">;</span>
+	<span class="nl">line-height</span><span class="p">:</span> <span class="m">1.7</span><span class="p">;</span>
+	<span class="nl">font-size</span><span class="p">:</span> <span class="m">18px</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">input</span> <span class="p">{</span>
+	<span class="nl">font-size</span><span class="p">:</span> <span class="m">18px</span><span class="p">;</span>
+	<span class="nl">text-align</span><span class="p">:</span> <span class="nb">center</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nt">button</span> <span class="p">{</span>
+	<span class="nl">font-size</span><span class="p">:</span> <span class="m">18px</span><span class="p">;</span>
+	<span class="nl">color</span><span class="p">:</span> <span class="m">#fff</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nf">#generate</span> <span class="p">{</span>
+	<span class="nl">background-color</span><span class="p">:</span> <span class="m">#09f</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="nf">#copy</span> <span class="p">{</span>
+	<span class="nl">background-color</span><span class="p">:</span> <span class="m">#0c6</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></div></div>
+<ul>
+  <li>script.js</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">$</span><span class="p">(</span><span class="dl">"</span><span class="s2">#generate</span><span class="dl">"</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+	<span class="kd">var</span> <span class="nx">lorem</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="dl">"</span><span class="s2">#lorem</span><span class="dl">"</span><span class="p">);</span>
+	<span class="nx">lorem</span><span class="p">.</span><span class="nx">html</span><span class="p">(</span><span class="dl">""</span><span class="p">);</span>
+	<span class="kd">var</span> <span class="nx">quantity</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="dl">"</span><span class="s2">#quantity</span><span class="dl">"</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">valueAsNumber</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">[</span><span class="dl">"</span><span class="s2">Lorem ipsum</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">quia dolor sit</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">amet</span><span class="dl">"</span><span class="p">,</span> <span class="dl">"</span><span class="s2">consectetur</span><span class="dl">"</span><span class="p">];</span>
+	<span class="k">for</span><span class="p">(</span><span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="nx">quantity</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
+		<span class="nx">lorem</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="dl">"</span><span class="s2">&lt;p&gt;</span><span class="dl">"</span><span class="o">+</span><span class="nx">data</span><span class="p">[</span><span class="nx">i</span><span class="p">]</span><span class="o">+</span><span class="dl">"</span><span class="s2">&lt;/p&gt;</span><span class="dl">"</span><span class="p">);</span>
+	<span class="p">}</span>
+<span class="p">})</span>
+
+<span class="nx">$</span><span class="p">(</span><span class="dl">"</span><span class="s2">#copy</span><span class="dl">"</span><span class="p">).</span><span class="nx">click</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+	<span class="kd">var</span> <span class="nx">range</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createRange</span><span class="p">();</span>
+	<span class="nx">range</span><span class="p">.</span><span class="nx">selectNode</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="dl">"</span><span class="s2">#lorem</span><span class="dl">"</span><span class="p">)[</span><span class="mi">0</span><span class="p">]);</span>
+	<span class="nb">window</span><span class="p">.</span><span class="nx">getSelection</span><span class="p">().</span><span class="nx">removeAllRanges</span><span class="p">();</span>
+	<span class="nb">window</span><span class="p">.</span><span class="nx">getSelection</span><span class="p">().</span><span class="nx">addRange</span><span class="p">(</span><span class="nx">range</span><span class="p">);</span>
+	<span class="nb">document</span><span class="p">.</span><span class="nx">execCommand</span><span class="p">(</span><span class="dl">"</span><span class="s2">copy</span><span class="dl">"</span><span class="p">);</span>
+	<span class="nb">window</span><span class="p">.</span><span class="nx">getSelection</span><span class="p">().</span><span class="nx">removeAllRanges</span><span class="p">();</span>
+	<span class="p">}</span>
+<span class="p">)</span>
+</code></pre></div></div>
+
+<p>Sau đó, các bạn chạy lại và thấy được kết quả như thế này:</p>
+
+<p><img src="https://i.imgur.com/DUN0ILi.png" alt="Imgur" /></p>
+
+<h4 id="bước-15-chúng-ta-sẽ-tiến-hành-deploy-trên-heroku-nhé-">Bước 15: Chúng ta sẽ tiến hành deploy trên heroku nhé !</h4>
+
+<p>Chúng ta thực hiện các lệnh sau:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git add .
+git commit -m "your comment"
+</code></pre></div></div>
+
+<p>và sau đó là:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git push heroku main
+</code></pre></div></div>
+
+<h4 id="bước-16-các-bạn-có-thể-sử-dụng-câu-lệnh-heroku-logs---tail-để-xem-lịch-sử-log-trên-server-của-heroku-nhé-">Bước 16: Các bạn có thể sử dụng câu lệnh <code class="language-plaintext highlighter-rouge">heroku logs --tail</code> để xem lịch sử log trên server của heroku nhé !</h4>
+
+<ul>
+  <li>Nếu bạn thấy <code class="language-plaintext highlighter-rouge">starting to crashed</code>: Tức là ta chưa thành công nhé :v</li>
+</ul>
+
+<p><img src="https://i.imgur.com/dC5e5TI.png" alt="Imgur" /></p>
+
+<ul>
+  <li>
+    <p>Thì sau một hồi edit, một điều chú ý khi ta ghi ở file <code class="language-plaintext highlighter-rouge">Profile</code> đó là: <code class="language-plaintext highlighter-rouge">web: node app.js</code></p>
+  </li>
+  <li>
+    <p>Và sau khi fix xong, ta có thể dùng lệnh <code class="language-plaintext highlighter-rouge">heroku open</code> để chạy thử, và kết quả thật bất ngờ đó là:</p>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/5LvWuba.png" alt="Imgur" /></p>
+
+<p>và để kiểm tra lần nữa cho chắc chắn, ta có thể sử dụng lệnh <code class="language-plaintext highlighter-rouge">heroku logs --tail</code> để xem sự thành công khi build 1 trang lên heroku nhé !:</p>
+
+<p><img src="https://i.imgur.com/vHoWMdr.png" alt="Imgur" /></p>
+
+<p>OKIE, ta thấy <code class="language-plaintext highlighter-rouge">starting to up</code>, tức là lúc này ta đã hoàn tất !!</p>
+
+<h4 id="lời-kết-cuối-cùng-việc-heroku-đã-hoàn-tất-xin-cảm-ơn-các-bạn-đã-quan-tâm-theo-dõi-">Lời kết, cuối cùng việc heroku đã hoàn tất, xin cảm ơn các bạn đã quan tâm theo dõi !</h4>
+
+<h4 id="ngoài-ra-để-có-thể-fix-lại-thì-bạn-chỉ-cần-fix-trong-này-là-được-nhé--bye-bye-">Ngoài ra để có thể fix lại, thì bạn chỉ cần fix trong này là được nhé ! Bye Bye !</h4>
+
+<h4 id="code-tham-khảo-link">Code tham khảo <a href="https://github.com/kontonfon/note_express_js">Link</a></h4>
+
+
+      </article>
+
+      
+        <div class="blog-tags">
+          <span>Tags:</span>
+          
+            <a href="/tags#paper">paper</a>
+          
+        </div>
+      
+
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+  <span class="sr-only">Share: </span>
+
+  
+    <a href="https://twitter.com/intent/tweet?text=Express+JS+and+Heroku&url=http%3A%2F%2Flocalhost%3A4000%2F2021-11-05-expressjs-and-heroku%2F"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fab fa-fw fa-twitter" aria-hidden="true"></span>
+      <span class="sr-only">Twitter</span>
+    </a>
+  
+
+  
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F2021-11-05-expressjs-and-heroku%2F"
+      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+      <span class="fab fa-fw fa-facebook" aria-hidden="true"></span>
+      <span class="sr-only">Facebook</span>
+    </a>
+  
+
+  
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2F2021-11-05-expressjs-and-heroku%2F"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fab fa-fw fa-linkedin" aria-hidden="true"></span>
+      <span class="sr-only">LinkedIn</span>
+    </a>
+  
+
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pagination blog-pager">
+        
+        <li class="page-item previous">
+          <a class="page-link" href="/2021-10-30-chem-gio-ve-web/" data-toggle="tooltip" data-placement="top" title="Vi vu về web">&larr; Previous Post</a>
+        </li>
+        
+        
+      </ul>
+      
+  
+  
+  
+
+  
+
+
+
+
+    </div>
+  </div>
+</div>
+
+
+  <footer>
+  <div class="container-md beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+      <ul class="list-inline text-center footer-links"><li class="list-inline-item">
+    <a href="/feed.xml" title="RSS">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">RSS</span>
+    </a>
+  </li><li class="list-inline-item">
+    <a href="mailto:tritanngo99@gmail.com" title="Email me">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">Email me</span>
+   </a>
+  </li><li class="list-inline-item">
+    <a href="https://www.facebook.com/deanattali" title="Facebook">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">Facebook</span>
+   </a>
+  </li><li class="list-inline-item">
+    <a href="https://github.com/daattali" title="GitHub">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">GitHub</span>
+   </a>
+  </li><li class="list-inline-item">
+    <a href="https://twitter.com/daattali" title="Twitter">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">Twitter</span>
+   </a>
+  </li><li class="list-inline-item">
+    <a href="https://www.youtube.com/c/daattali" title="YouTube">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">YouTube</span>
+   </a>
+  </li><li class="list-inline-item">
+    <a href="https://patreon.com/DeanAttali" title="Patreon">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fab fa-patreon fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">Patreon</span>
+    </a>
+  </li></ul>
+
+      
+      <p class="copyright text-muted">
+      
+        Ngô Tấn Trí
+        &nbsp;&bull;&nbsp;
+      
+      2021
+
+      
+        &nbsp;&bull;&nbsp;
+        <span class="author-site">
+          <a href="http://localhost:4000/">MyWebsite.com</a>
+        </span>
+      
+
+      
+      </p>
+      <p class="theme-by text-muted">
+        Powered by
+        <a href="https://beautifuljekyll.com">Beautiful Jekyll</a>
+      </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  
+  
+    
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+
+
+  
+    
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+
+  
+    
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+  
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script src="/assets/js/beautifuljekyll.js"></script>
+    
+  
+
+
+
+
+
+
+
+
+
+</body>
+</html>
