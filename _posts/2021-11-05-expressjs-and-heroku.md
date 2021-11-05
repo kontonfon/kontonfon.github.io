@@ -220,7 +220,7 @@ git push heroku main
 
 ![Imgur](https://i.imgur.com/dC5e5TI.png)
 
-- Thì sau một hồi edit, một điều chú ý khi ta ghi ở file `Profile` đó là: `web: node app.js`
+- Thì sau một hồi edit, một điều chú ý khi ta ghi ở file `Procfile` đó là: `web: node app.js`
 
 - Và sau khi fix xong, ta có thể dùng lệnh `heroku open` để chạy thử, và kết quả thật bất ngờ đó là: 
 
