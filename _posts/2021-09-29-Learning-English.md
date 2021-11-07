@@ -712,6 +712,154 @@ Ban nhạc kèn đồng có nghĩa là một nhóm nhạc công chơi nhạc c�
 
 - I can strongly recommend this product as the best available on the market today: Tôi thực sự có thể giới thiệu sản phẩm này là sản phẩm tốt nhất hiện có trên thị trường
 
+- agreed to abide by ... means agreed to be bound by ... or agreed comply with
+
+- The contract was signed by three partners who thus agreed to abide by terms and conditions contained in it: Hợp đồng được ký kết bởi ba đối tác, do đó đã đồng ý tuân theo các điều khoản và điều kiện có trong hợp đồng
+
+- specified in this case means 'stipulated': được chỉ định trong trường hợp này có nghĩa là 'quy định'
+
+- There was nothing in the contract that specified who would be responsible in the event that one of the partners became seriously ill: Không có điều gì trong hợp đồng quy định ai sẽ chịu trách nhiệm trong trường hợp một trong các đối tác bị ốm nặng
+
+- to resolve in this case by to solve, to settle
+
+- An independent adviser was called in after the collapse of the company to resolve some of the issues that were not clear: Một cố vấn độc lập đã được gọi đến sau sự sụp đổ của công ty để giải quyết một số vấn đề chưa rõ ràng
+
+- restrain: kiềm chế
+
+- retake: thi lại
+
+- parties mean the ones who participate the agreement 
+
+- One of the parties mentioned in the original agreement has decided that she does not want to continue with the profit-sharing scheme:Một trong các bên được đề cập trong thỏa thuận ban đầu đã quyết định rằng cô ấy không muốn tiếp tục với kế hoạch chia sẻ lợi nhuận
+
+- cancel means call off, abandon, scrap, drop
+
+- In view of the serious problems associated with the takeover the newspaper company has decided to cancel its offer of financial help: Do những vấn đề nghiêm trọng liên quan đến việc tiếp quản, công ty báo chí đã quyết định hủy bỏ đề nghị hỗ trợ tài chính của mình
+
+- engage = participate or become involved in 
+
+- The main problem was that the newly formed organization was not attracting enough work and so they decided to engage the services of a public relation expert: Vấn đề chính là tổ chức mới thành lập không thu hút đủ công việc và vì vậy họ quyết định thuê các dịch vụ của một chuyên gia quan hệ công chúng.
+
+- was established = was incorporated, was formed
+
+- That company has been in business for over 1 years and in fact was established in 1899:Công ty đó đã kinh doanh hơn 1 năm và thực tế được thành lập vào năm 1899
+
+- assurance means a positive declaration intended to give confidence ; a promise
+
+- After the complaint had been received from the customer about poor service, she was given a written assurance that the matter would be put right:Sau khi nhận được khiếu nại từ khách hàng về dịch vụ kém, cô ấy đã được cung cấp một văn bản đảm bảo rằng vấn đề sẽ được giải quyết đúng đắn
+
+- provision in this case means a reserve
+
+- They were very careful to make sure in the original agreement that provision would be made to pay for staff redundancies: Họ đã rất cẩn thận để đảm bảo trong thỏa thuận ban đầu rằng điều khoản sẽ được thực hiện để chi trả cho tình trạng dư thừa nhân viên
+
+- forecast: dự báo
+
+- foresight: tầm nhìn xa
+
+- We decided to employ a solicitor who would be able to determine the extent of our liablity in this matter: Chúng tôi đã quyết định thuê một luật sư có thể xác định mức độ hợp lệ của chúng tôi trong vấn đề này
+
+- decipher: giải mã
+
+- defer: hoãn lại
+
+- apply for a job
+
+- I would be very interested in applying for that job: Tôi sẽ rất quan tâm đến việc nộp đơn cho công việc đó
+
+- This is because if you run for a post as a politician ypu stand as a candidate: Điều này là bởi vì nếu bạn tranh cử một vị trí với tư cách là một chính trị gia, bạn sẽ là một ứng cử viên
+
+- Do you want to stand as a candidate in the local elections ? : Bạn có muốn ứng cử như một ứng cử viên trong các cuộc bầu cử địa phương?
+
+- be fed up with something: = unable or unwilling to put up with/stand something any longer:  được chán nản với cái gì đó: = không thể hoặc không muốn chịu đựng / chịu đựng một cái gì đó nữa
+
+- They are completely fed up with up with all the noise in the centre of town: Họ hoàn toàn chán ngấy với tất cả những ồn ào ở trung tâm thị trấn:
+
+- Go on strike: means that you have decided to stop working in your job because you are making some kind of protest or have a dispute over pay or conditions of work or other issues: Đình công: có nghĩa là bạn đã quyết định ngừng làm công việc của mình vì bạn đang phản đối hoặc có tranh chấp về tiền lương hoặc điều kiện làm việc hoặc các vấn đề khác.
+
+- The reason there are no buses is because the drivers are on strike:Lý do không có xe buýt là vì các tài xế đang đình công
+
+- have a change of heart means A reversal of one's opinion, attitude, of feelings: có một sự thay đổi của trái tim có nghĩa là Sự thay đổi quan điểm, thái độ, cảm xúc của một người
+
+- The government has changed its policy and had a complete change of heart: Chính phủ đã thay đổi chính sách và thay đổi hoàn toàn trái tim
+
+- target somebody to try to have an effort on a particular group of people:nhắm mục tiêu ai đó để cố gắng nỗ lực vào một nhóm người cụ thể
+
+- This supermarket is trying to target young shoppers by offering fashionable clothes:Siêu thị này đang cố gắng nhắm mục tiêu đến những người mua sắm trẻ tuổi bằng cách cung cấp quần áo thời trang
+
+- buy something up means to buy all or as much as possible or something: mua một cái gì đó lên có nghĩa là mua tất cả hoặc càng nhiều càng tốt hoặc một cái gì đó
+
+- You should have brough up those shares when they were cheap:Bạn nên tích lũy những cổ phiếu đó khi chúng còn rẻ
+
+- running out means used up something, no longer have something
+
+- You must try and hurry up because my patience is running out:Bạn phải cố gắng và nhanh lên vì sự kiên nhẫn của tôi đang cạn kiệt
+
+- So, if you try your hand at running a business, you make an attempt to found and manage a company yourself after you have watched other people running their businesses: Vì vậy, nếu bạn thử sức với việc điều hành một doanh nghiệp, bạn sẽ cố gắng tự mình thành lập và quản lý một công ty sau khi bạn đã theo dõi những người khác điều hành doanh nghiệp của họ
+
+- Have you ever tried your hand at running a business ?: Bạn đã bao giờ thử điều hành một doanh nghiệp chưa ?
+
+- take early retirement to retire before the stipulated age for retirement:nghỉ hưu sớm để nghỉ hưu trước tuổi quy định
+
+- After all these years she has decided to take early retirement: Sau ngần ấy năm, cô ấy đã quyết định nghỉ hưu sớm
+
+- Spending spree means a brief period of extravagant spending:Tiêu xài phung phí có nghĩa là một khoảng thời gian ngắn chi tiêu xa hoa
+
+- Going on a spending spree with your credit card and no concern about how you pay back the money you borrow, is a growing habit these days:Tiếp tục chi tiêu thoải mái bằng thẻ tín dụng của bạn và không quan tâm đến cách bạn trả lại số tiền bạn đã vay, là một thói quen ngày càng tăng trong những ngày này
+
+- be overhauled means be check, be examined:được đại tu có nghĩa là được kiểm tra, được kiểm tra
+
+- There is a popular demand for the system that allows credit companies to offer unlimited credit to young people to be overhauled:Có một nhu cầu phổ biến đối với hệ thống cho phép các công ty tín dụng cung cấp tín dụng không giới hạn cho những người trẻ tuổi để được đại tu
+
+-overtaken:  vượt qua
+
+- overlooked: bỏ qua
+
+- overseen: giám sát
+
+- be disclosed = be stated/informed/reported:
+
+- It has been disclosed by a government agency that the percentage of under 25 year olds owing large sums to companies is on the increase: Nó đã được tiết lộ bởi một cơ quan chính phủ rằng tỷ lệ người dưới 25 tuổi nợ các khoản tiền lớn cho các công ty đang gia tăng
+
+- dissolve:  tan biến
+
+- disciphered: kỷ luật
+
+- distinguished: phân biệt
+
+- step down means withdraw or resign from an important position or office: từ chức có nghĩa là rút lui hoặc từ chức khỏi một vị trí hoặc chức vụ quan trọng
+
+- One director of a major credit company has already been forced to step down because of the bad publicity his company has attracted: Một giám đốc của một công ty tín dụng lớn đã bị buộc phải từ chức vì những dư luận xấu mà công ty của ông đã thu hút
+
+- step up something = to make something more effective:để làm một cái gì đó hiệu quả hơn
+
+- One solution that has been suggested to control credit is to step up the regulations to make it more difficult to get credit in the first place: One solution that has been suggested to control credit is to step up the regulations to make it more difficult to get credit in the first place
+
+- The main problem is that a debt culture has developed recently believing that it is cool to owe large sums of money:Vấn đề chính là văn hóa nợ đã phát triển gần đây tin rằng việc nợ một số tiền lớn là điều tuyệt vời.
+
+- reveal = disclosed,reported 
+
+- Recent reports have revealed that being in debt is not now looked upon as a disgrace but rather as an attractive way of life: Các báo cáo gần đây đã tiết lộ rằng nợ nần bây giờ không được coi là một sự ô nhục mà là một cách sống hấp dẫn
+
+- a long haul = something that takes a lot of time and energy
+
+- In reality it's a very long haul to get from owing to paying off all your debts: Trên thực tế, sẽ mất một khoảng thời gian rất dài từ việc trả hết nợ
+
+- clashes = disagreement, conflict, differentce:
+
+- There are frequently clashes in the family home between parents and children about whether you should enter into credit agreements
+
+-collisions: Sự va chạm
+
+- crashes:sự cố
+
+- claims:yêu sách
+
+- In this context fears means worries and the whole sentence means: What worries people more and more is that government believe that it will take us at least 30 years or more until we have finished with owing large sums of money: Trong bối cảnh này, nỗi sợ hãi có nghĩa là lo lắng và toàn bộ câu có nghĩa là: Điều khiến người dân ngày càng lo lắng là chính phủ tin rằng chúng ta sẽ mất ít nhất 30 năm hoặc hơn cho đến khi chúng ta hoàn thành việc nợ một số tiền lớn:
+
+- What concerns people most are the mounting fears among governments that it will take a least a generation for us to be rid of excessive debt: Điều khiến mọi người quan tâm nhất là nỗi sợ hãi ngày càng gia tăng giữa các chính phủ rằng phải mất ít nhất một thế hệ nữa chúng ta mới có thể thoát khỏi cảnh nợ nần chồng chất
+
+- Dones task 13
+
 
 
 
