@@ -51,7 +51,15 @@ MathJax.Hub.Queue(function() {
 
 4) [DP Tutorial and Problem List](https://codeforces.com/blog/entry/67679)
 
-#### <span style="color:#53AB77;font-weight:bold">Nhận xét chung:</span>  Đây là đề 3 sao, nhưng nhìn chung là khó ! 
+#### <span style="color:#53AB77;font-weight:bold">Nhận xét chung:</span>  
+
++ Đây là đề 3 sao, nhưng nhìn chung là khó ! 
+
++ Các bài yêu cầu khá cao về kiến thức toán và giải thuật 
+
++ Lần đầu mình gặp 1 bài B khó như vậy 
+
++ Các đàn anh lên chiến thuật team khá bài bản
 
 #### <span style="color:#53AB77;font-weight:bold">Code những bài AC</span>
 
