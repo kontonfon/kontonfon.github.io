@@ -858,7 +858,230 @@ Ban nhạc kèn đồng có nghĩa là một nhóm nhạc công chơi nhạc c�
 
 - What concerns people most are the mounting fears among governments that it will take a least a generation for us to be rid of excessive debt: Điều khiến mọi người quan tâm nhất là nỗi sợ hãi ngày càng gia tăng giữa các chính phủ rằng phải mất ít nhất một thế hệ nữa chúng ta mới có thể thoát khỏi cảnh nợ nần chồng chất
 
-- Dones task 13
+- access program = permission to approach program, have right to use program 
+
+- Without the right software I'm afraid you can't access that particular program:Nếu không có phần mềm phù hợp, tôi e rằng bạn không thể truy cập vào chương trình cụ thể đó
+
+- allocate in this sentence means "provide/distribute"
+
+- The aim of the office manager is to allocate enough room on the building plans so that each employee can have space for a personal computer: Mục đích của người quản lý văn phòng là phân bổ đủ chỗ trên kế hoạch xây dựng để mỗi nhân viên có thể có không gian cho một máy tính cá nhân
+
+- shut down = turn off, switch off
+
+- Remember that before you leave your workstation, always shut down your computer: Hãy nhớ rằng trước khi rời khỏi máy trạm, hãy luôn tắt máy tính của bạn
+
+- search something = look for something
+
+- It's quite easy if you want to find folders and files on the computer, all you do is click here and it immediately starts searching: Khá dễ dàng nếu bạn muốn tìm các thư mục và tệp trên máy tính, tất cả những gì bạn làm là nhấp vào đây và nó ngay lập tức bắt đầu tìm kiếm
+
+- firgure out in this case means "determine, define"
+
+- I have tried and tried again and again  and no matter what I do it still shows "error" - I just can't figure out what's wrong ! : Tôi đã thử và thử lại nhiều lần và bất kể tôi làm gì, nó vẫn hiển thị "lỗi" - Tôi chỉ không thể tìm ra điều gì sai!
+
+- I spent hours writing that report and checking all the information was correct and then without thinking I pressed the delete button: Tôi đã dành hàng giờ để viết báo cáo đó và kiểm tra tất cả thông tin có chính xác không và sau đó không cần suy nghĩ, tôi đã nhấn nút xóa
+
+- display in this sentence means "represent"
+
+- It's a really clever piece of software because it enables you to display on your screen all the infomation in columns: Đó là một phần mềm thực sự thông minh vì nó cho phép bạn hiển thị trên màn hình của mình tất cả thông tin trong các cột
+
+- compatible means be able to run on a specified computer:
+
+- Unfortunately this program is not compatible with the operating system on my computer:Rất tiếc, chương trình này không tương thích với hệ điều hành trên máy tính của tôi
+
+- warning in this case means advice to beware:
+
+- When you see that particular symbol on the screen, you have to take that as a warning that something is wrong:Khi bạn nhìn thấy biểu tượng cụ thể đó trên màn hình, bạn phải coi đó như một cảnh báo rằng có điều gì đó không ổn
+
+- With this program you can always check your spelling and grammar and if you don't want to accept what it shows, you simply press ignore
+
+- affordable means considered to be within one's financial means:
+
+- Concern was expressed by the office manager that the company would buy an affordable financial package: Người quản lý văn phòng bày tỏ quan ngại rằng công ty sẽ mua một gói tài chính hợp túi tiền
+
+- provider of stationery means 'supplier/seller' of stationery:
+
+- The main provider of stationery for the office suddenly announced there would be an overall increase in their prices: Nhà cung cấp văn phòng phẩm chính cho văn phòng bất ngờ thông báo sẽ có một đợt tăng giá tổng thể
+
+- recur in this sentences means "To happen or occur again or repeatedly"
+
+- The chief administrative officer disliked lack of attention to detail and insisted that such mistakes should never recur: Giám đốc hành chính không thích sự thiếu chú ý đến từng chi tiết và nhấn mạnh rằng những sai lầm như vậy sẽ không bao giờ tái diễn
+
+- reduction in the number of office staff = to cut off / sack a number of office staff:giảm số lượng nhân viên văn phòng = cắt giảm / sa thải một số nhân viên văn phòng
+
+- Once again the company has had to make a reduction in the number of office staff to try and recoup their losses: Một lần nữa công ty phải cắt giảm số lượng nhân viên văn phòng để cố gắng bù đắp khoản lỗ của họ
+
+- stock of zip discs = reserved zip discs, zip discs in the warehouse:đĩa zip dự trữ, đĩa zip trong kho
+
+- The stock of zip discs in the office is running dangerously low:The stock of zip discs in the office is running dangerously low
+
+- if you are top of a thing, you are deadling with it successfully.
+
+- If the managers want to stay employed, they will have to learn how to stay on top of their jobs: Nếu các nhà quản lý muốn tiếp tục làm việc, họ sẽ phải học cách duy trì công việc của mình
+
+- as-needed = as-required means according to need
+
+- It's not worth paying for an annual service when you can simply call the supplier on an as-needed basis: It's not worth paying for an annual service when you can simply call the supplier on an as-needed basis
+
+- in charge of something means be responsible for something or someone:phụ trách một cái gì đó có nghĩa là chịu trách nhiệm cho một cái gì đó hoặc một người nào đó
+
+- The new office manager will be in charge of all the IT requirements that the company uses: Người quản lý văn phòng mới sẽ phụ trách tất cả các yêu cầu CNTT mà công ty sử dụng
+
+
+- full capacity = maximum number of clerical staff that is required
+
+- Currently there is a shortage of clerical staff but it is hoped that by the end of the year they will be up to full capacity: Hiện tại đang thiếu nhân viên văn thư nhưng hy vọng đến cuối năm họ sẽ phát huy hết công suất.
+
+- their own initiative in this sentence means their readiness and ability in initiating action ; enterprise: sự chủ động của họ trong câu này có nghĩa là sự sẵn sàng và khả năng của họ trong việc khởi xướng hành động; xí nghiệp
+
+- Staff are always encouraged to work by themselves and whenever they meet a problem, they should use their own initiative:Nhân viên luôn được khuyến khích làm việc một mình và bất cứ khi nào họ gặp vấn đề, họ nên sử dụng sáng kiến ​​của mình
+
+- in appreciation of = the act of recognizing or understanding that something is valuable, important
+
+- On her retirement she was given a substantial cheque in appreciation of all the work she had done over the last 2 years: Khi nghỉ hưu, cô ấy đã được trao một tấm séc đáng kể để đánh giá cao tất cả những công việc cô ấy đã làm trong 2 năm qua
+
+- reinforce = strengthen: củng cố
+
+- Having attended the office procedures course all employees were expected to reinforce what they had learned and introduce it into their daily routine.:Sau khi tham gia khóa học về thủ tục văn phòng, tất cả nhân viên được kỳ vọng sẽ củng cố những gì họ đã học và đưa nó vào thói quen hàng ngày của họ.
+
+- casual dress code = manner of dressing casually 
+
+- Visiting clients had commented on the casual dress code of most of the clerical staff: Các khách hàng đến thăm đã nhận xét về quy tắc ăn mặc giản dị của hầu hết các nhân viên văn thư
+
+- pratice in this sentence means a custom, a habit
+
+- The practice of staff doing physical exercises before the start of the day is well established in Japanese companies: The practice of staff doing physical exercises before the start of the day is well established in Japanese companies: Việc nhân viên tập thể dục trước khi bắt đầu ngày mới đã được áp dụng phổ biến ở các công ty Nhật Bản
+
+- verbal warning has opposite meaning with written warning:cảnh báo bằng lời nói có ý nghĩa ngược lại với cảnh báo bằng văn bản:
+
+- There is a lengthy procedure used in this office for staff who have produced shoddy work and it begins with a verbal warning:Có một thủ tục dài dòng được sử dụng trong văn phòng này đối với những nhân viên đã tạo ra tác phẩm kém chất lượng và nó bắt đầu bằng một cảnh báo bằng lời nói
+
+- There was no fixed agenda for that particular day as it was to be regarded simply as a casual meeting: Không có chương trình làm việc cố định cho ngày cụ thể đó vì nó được coi đơn giản là một cuộc họp thông thường
+
+- catch a glimpse means a very brief, passing look, sight, or view: thoáng qua có nghĩa là một cái nhìn, cái nhìn hoặc cái nhìn rất ngắn gọn, lướt qua
+
+- At the interview all the candidates were shown round the building but could only really catch a glimpse of the sort of work being carried out: Tại buổi phỏng vấn, tất cả các ứng viên đều được chiếu quanh tòa nhà nhưng chỉ có thể thực sự nhìn thoáng qua về loại công việc đang được thực hiện
+
+- run out of something = used up something 
+
+- They really need to keep a check on the stationery supplies as they've run out of A4 paper once again: Họ thực sự cần phải kiểm tra các nguồn cung cấp văn phòng phẩm vì họ đã hết giấy A4 một lần nữa
+
+- exposed to in this sentences means experienced 
+
+- Managers prefer to select people who have been exposed to many different types of office environments: Các nhà quản lý ưu tiên chọn những người đã tiếp xúc với nhiều loại môi trường văn phòng khác nhau.
+
+- outdated = out of date; obsolete
+
+- A troubleshooter was brought into the office from another firm to get rid of some very outdated procedures: Một trình gỡ rối đã được đưa vào văn phòng từ một công ty khác để loại bỏ một số thủ tục rất lỗi thời
+
+- We got there early so that we could get the best bargains in the sale before anyone else: Chúng tôi đến đó sớm để có thể có được những món hời nhất trong đợt giảm giá trước bất kỳ ai khác
+
+- bear with someone = means to wait someone does something: chịu đựng ai đó = có nghĩa là đợi ai đó làm điều gì đó
+
+- If you bear with me, I'll go and see whether we have that in your size: Nếu bạn chịu với tôi, tôi sẽ đi và xem liệu chúng tôi có cái đó với kích thước của bạn không
+
+- checkouts means a point at which goods are paid for in a supermarket or other store: thanh toán có nghĩa là thời điểm mà hàng hóa được thanh toán trong siêu thị hoặc cửa hàng khác
+
+- The trouble with these huge superstores is that they don't have enough checkouts to deal with customers at busy times: Rắc rối với những siêu thị lớn này là họ không có đủ thanh toán để giao dịch với khách hàng vào những thời điểm bận rộn
+
+- expanded = to increase the size, volume, quantity, or scopr of, enlarge
+
+- In started off as a small street corner shop over 3 years ago but it has now expanded into a massive department store: Khởi đầu là một cửa hàng nhỏ ở góc phố cách đây hơn 3 năm nhưng giờ nó đã mở rộng thành một cửa hàng bách hóa lớn
+
+- items in this case means the goods: các mặt hàng trong trường hợp này có nghĩa là hàng hóa
+
+- Take a good look at the receipt when you leave so that you can see that all the items have been listed: Hãy xem kỹ biên lai khi bạn rời đi để bạn có thể thấy rằng tất cả các mặt hàng đã được liệt kê
+
+- explore = travel in or through (an unfamiliar country or area) in order to learn about or familizrize oneself with it
+
+- Whenever I go to the old part of a city, I like to explore all the shops selling antiques: Bất cứ khi nào tôi đến khu vực cổ của một thành phố, tôi thích khám phá tất cả các cửa hàng bán đồ cổ
+
+- trend in this sentence means a fashion: 
+
+- Are you aware of the latest trend in children's clothing ?: - Bạn có biết xu hướng quần áo trẻ em mới nhất không?
+
+- strict = demanding that rules concerning behavior are obeyed and observed: yêu cầu các quy tắc liên quan đến hành vi phải được tuân thủ và tuân thủ
+
+- They're quite strict in their policy of not giving refunds without a receipt in this store: Họ khá nghiêm ngặt trong chính sách không hoàn lại tiền mà không có biên lai tại cửa hàng này
+
+- mandatory = required by law or rules, compulsory:
+
+- They have a mandatory restriction in the shop with regard to the number of items of clothing that you can try on at one time: Họ có một giới hạn bắt buộc trong cửa hàng đối với số lượng quần áo mà bạn có thể thử cùng một lúc
+
+- merchandise in this sentence means goods, items: hàng hóa trong câu này có nghĩa là hàng hóa, vật phẩm
+
+- The extent of the merchandise available in this one store is more than you can possibly imagine: Số lượng hàng hóa có sẵn trong một cửa hàng này nhiều hơn bạn có thể tưởng tượng
+
+- clarification means furthur state, explain, discuss
+
+- I was pleased to receive your response to my proposal but there are one or two points that need clarification: Tôi rất vui khi nhận được phản hồi của bạn cho đề xuất của tôi nhưng có một hoặc hai điểm cần được làm rõ
+
+- be published in this sentence means be announced, disclosed
+
+- A report has just been published that gives details of the causes of this trend towards informality in the business sector: Một báo cáo vừa được công bố đưa ra chi tiết nguyên nhân của xu hướng phi chính thức trong lĩnh vực kinh doanh này
+
+- tolerated means be accepted 
+
+- Thirty years ago this kind of informality would not have been tolerated: Ba mươi năm trước, loại hình thức không chính thức này sẽ không được dung thứ
+
+- endured: chịu đựng
+
+- withheld: giữ lại
+
+- suffered: chịu đựng
+
+- refrain from doing something = to avoid doing or stop yourself from doing something
+
+- All employees are kindly requested to refrain from smoking in the presence of customers: Tất cả nhân viên vui lòng không hút thuốc trước sự chứng kiến của khách hàng
+
+- restrain: kiềm chế
+
+- restrict: hạn chế
+
+- agenda means a list of items to be discussed at a formal meeting
+
+- The meeting went on for three hours and as a result there was no time left to discuss all the topics on the agenda:Cuộc họp diễn ra trong ba giờ và kết quả là không còn thời gian để thảo luận về tất cả các chủ đề trong chương trình nghị sự
+
+- This sentence means you shouldn't talk about important topics at the end of the meeting because the heading any other business is really for less important matters that don't need a lot of time to discuss: Câu này có nghĩa là bạn không nên nói về các chủ đề quan trọng vào cuối cuộc họp vì bất kỳ mục tiêu kinh doanh nào khác thực sự dành cho những vấn đề ít quan trọng hơn mà không cần nhiều thời gian để thảo luận
+
+- There's really no point in hoping to add important topics right at the end of the meeting under the heading of any other business: Thực sự không có ích gì khi hy vọng thêm các chủ đề quan trọng vào cuối cuộc họp dưới tiêu đề của bất kỳ doanh nghiệp nào khác
+
+- bring someone or something to a halt means to cause someone or something to stop immediately
+
+- The chairman was obliged to bring the meeting to a halt because a fire broke out in the adjoining room: Chủ tọa buộc phải tạm dừng cuộc họp vì đám cháy bùng phát ở phòng liền kề
+
+- cessation: đình chỉ
+
+- take care to minute
+
+- It is absolute essential that the clerk takes care to minute any decisions that have been reached during the meeting: Điều tối quan trọng là thư ký phải chú ý đến mọi quyết định đã đạt được trong cuộc họp
+
+- postpone = cancel, delay 
+
+- As so few members had turned up at the meeting, it was decided to postpone it until furthur notice
+
+- findings = something that is found or ascertained through study, research, survey...
+
+- According to the findings in the report it is clear that employees under the age of 35 prefer to dress casually at work: Theo những phát hiện trong báo cáo, rõ ràng là nhân viên dưới 35 tuổi thích ăn mặc xuề xòa tại nơi làm việc
+
+- baptized: rửa tội
+
+- occupation: nghề nghiệp
+
+- depression: Phiền muộn
+
+- The lot is full except for the handicapped spaces: Lô đã đầy ngoại trừ các khoảng trống dành cho người khuyết tật
+
+- 
+ 
+
+
+
+
+
+
+
+
+
 
 
 

@@ -1,11 +1,11 @@
 ---
 layout: post
-title: Những trang web về công nghệ nên đọc
-subtitle: paper, web
+title: Những từ đồng âm khi nghe tiếng anh
+subtitle: english
 cover-img: /assets/img/path.jpg
 thumbnail-img: /assets/img/lala.png
 share-img: /assets/img/path.jpg
-tags: [paper]
+tags: [english]
 
 ---
 
@@ -46,7 +46,61 @@ MathJax.Hub.Queue(function() {
 
 7. It's just isn't the same - It's the sentences
 
+8. Close - Clothes
 
+9. s-tấp = stopped 
+
+10. pho-row way = throw way 
+
+11. cap the rest = kept the rest 
+
+12. for-ray = for a ride
+
+13. with-that = with us 
+
+14. My Friday want = I'm afraid I won't
+
+15. kech-chup = catch up
+
+16. pride = bride
+
+17. She isn't did = She is indeed 
+
+18. Jama = John 
+
+19. went = win 
+
+20. have did = headed 
+
+21. Tomorrow is = tomorrow with
+
+22. They're = there're
+
+23. was = with
+
+24. meal = milk
+
+25. cold = coke
+
+26. ask you = execute 
+
+27. fo-ray = afraid
+
+28. have be = happy
+
+29. all time = on time
+
+30. Was a friend for !  = What are friends for ?
+
+31. sick = six
+
+32. The bell = The vell
+
+33. help = have
+
+34. blue time = couple of times
+
+35. married in = met in 
 
 ### TỪ KHÔNG NGHE RA
 
@@ -67,6 +121,17 @@ MathJax.Hub.Queue(function() {
 ### MẸO
 
 1. spend much time : Dành nhiều thời gian
+
+2. stopped for them: Dừng lại vì cái gì đó
+
+3. drop me off :  thả tôi ra
+
+4. Where are you headed ? : Bạn đang đi đâu
+
+5. I've just
+
+
+
 
 
 
