@@ -571,6 +571,166 @@ sudo apt-key add - &lt; Release.key
 sudo apt-get update
 </code></pre></div></div>
 
+<hr />
+
+<h3 id="-decentralizing-your-website---ipfs--ens"><span style="color:red"> DECENTRALIZING YOUR WEBSITE - IPFS + ENS</span></h3>
+
+<p>Link source tutorials : <a href="https://towardsdatascience.com/decentralizing-your-website-f5bca765f9ed">Here</a></p>
+
+<p>When hosting a website usually you use a dedicated VPS like, Digital Ocean, Linode, Google, or Amazon. After setting up your server you can register a domain at Google Domains or NameCheap. The last step is editing your DNS records to point your domain at your server. Now you can access your website by navigating to your domain naime. However, there is a problem with this. Your VPS controls the hosting of your site and the domain name service you went with maintains control of your domain. What happens if your VPS goes down or the company you are using is suddenly blacklisted in your country ? What if <code class="language-plaintext highlighter-rouge">ICANN</code> takes your domain from you ? Or your domain name service shuts down ?</p>
+
+<p>While these are very unlikely (rất khó xảy ra) they are important and get you thinking about what would you do if you couln’t host your website anymore or your domain was taken away.</p>
+
+<p>Using <code class="language-plaintext highlighter-rouge">IPFS(InterPlanetary File System)</code> and <code class="language-plaintext highlighter-rouge">ENS(Etherium Name Service)</code> you can host and serve your website in a completely decentralized way.</p>
+
+<p>IPFS is described as:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A peer-to-peer hypermedia protocol designed to make the web faster, safer and more open
+</code></pre></div></div>
+
+<p>You can think of IPFS as HTTP or like a CDN (Content Delivery Network). It is a way of querying resources, except rather than the resources being hosted at a few large data centers controlled by Google, Amazon, etc. The files are decentralized and hosted across various nodes run by anyone across the world.</p>
+
+<p>HTTP looks up resources based on the URL, but IPFS uses hashes to look up resources on its network.</p>
+
+<p>An example of an IPFS hash is: <code class="language-plaintext highlighter-rouge">QmS4ustL54uo8FzR9455qaxZwuMiUhyvMcX9Ba8nUH4uVv</code> and can be accessed through a gateway like <code class="language-plaintext highlighter-rouge">Cloudfare</code> such as <code class="language-plaintext highlighter-rouge">cloudflare-ipfs.com/ipfs/QmS4ustL54uo8FzR9455qaxZwuMiUhyvMcX9Ba8nUH4uVv</code></p>
+
+<p>This hash points to the starting files for hosting your own IPFS Node and as you can see it only show links to the other files.</p>
+
+<p><img src="https://i.imgur.com/XauFzpH.png" alt="Imgur" /></p>
+
+<p>But an IPFS hash can also point to a website such as <code class="language-plaintext highlighter-rouge">tornado.cash</code> (a crypto mixer) which just recently was deployed to IPFS</p>
+
+<p><img src="https://i.imgur.com/X1XD6Lq.png" alt="Imgur" /></p>
+
+<p>You can acess it through the <code class="language-plaintext highlighter-rouge">ipfs.io</code> get gateway: <code class="language-plaintext highlighter-rouge">ipfs.io/ipfs/QmRvFZwyoJeMDCcdSiK15m7Vn2n1BFnz14WNwVxrhizzX5/</code></p>
+
+<p>In summary, IPFS provides a few major benefits</p>
+
+<ul>
+  <li>
+    <p>Decentralized Content Network</p>
+  </li>
+  <li>
+    <p>Immutable</p>
+  </li>
+  <li>
+    <p>Censorship Resistant</p>
+  </li>
+</ul>
+
+<h3 id="-deploying-to-ipfs"><span style="color:blue"> Deploying to IPFS</span></h3>
+
+<p>You can deploy your website to IPFS by starting your own node. First download the <code class="language-plaintext highlighter-rouge">IPFS go implementation</code> then open a terminal and run <code class="language-plaintext highlighter-rouge">ipfs daemon</code></p>
+
+<p>You should then see the following output</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Initializing daemon...
+go-ipfs version: 0.4.22-
+Repo version: 7
+System version: amd64/darwin
+Golang version: go1.12.7
+Swarm listening on /ip4/127.0.0.1/tcp/4001
+Swarm listening on /ip4/192.168.1.7/tcp/4001
+Swarm listening on /ip6/::1/tcp/4001
+Swarm listening on /p2p-circuit
+Swarm announcing /ip4/127.0.0.1/tcp/4001
+Swarm announcing /ip4/192.168.1.7/tcp/4001
+Swarm announcing /ip6/::1/tcp/4001
+API server listening on /ip4/127.0.0.1/tcp/5001
+WebUI: http://127.0.0.1:5001/webui
+Gateway (readonly) server listening on /ip4/127.0.0.1/tcp/8080
+Daemon is ready
+</code></pre></div></div>
+
+<p>Now you are ready to pin your site</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ipfs add index.html
+added QmY9cxiHqTFoWamkQVkpmmqzBrY3hCBEL2XNu3NtX74Fuu index.html
+6 B / 6 B [=========================================================] 100.00%
+</code></pre></div></div>
+
+<p>In order to ensure that your site stays on the network, you can pin it to your local node</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ipfs pin add QmY9cxiHqTFoWamkQVkpmmqzBrY3hCBEL2XNu3NtX74Fuu
+pinned QmY9cxiHqTFoWamkQVkpmmqzBrY3hCBEL2XNu3NtX74Fuu recursively
+</code></pre></div></div>
+
+<p>You can now navigate to the outputted hash through your gateway and see your site</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>ipfs.io/ipfs/QmY9cxiHqTFoWamkQVkpmmqzBrY3hCBEL2XNu3NtX74Fuu
+</code></pre></div></div>
+
+<p>Pinning to your own node is great, however, what happens if your node goes down or the file(s) you are hosting are deleted and your files(s) are not yet propagated through the network.</p>
+
+<p>A good rule of thumb is to add and pin your website to three IPFS nodes. You could do this by creating your own <code class="language-plaintext highlighter-rouge">IPFS cluster</code> or by using a popular pinning service that already has nodes set up. Such as <code class="language-plaintext highlighter-rouge">Pintra</code> or <code class="language-plaintext highlighter-rouge">Temporal</code></p>
+
+<p>For this example, we will be using Pintra. First, navigate to <code class="language-plaintext highlighter-rouge">pintra.cloud</code>, sign up and navigate to the upload tab</p>
+
+<p><img src="https://i.imgur.com/XW7D4Ry.png" alt="Imgur" /></p>
+
+<p>Upload your single file or a directory for multiple files. You could also pin the hash from when you added and pinned your file to your local node to ensure that it propagates throughout the network.</p>
+
+<p>If you are creating a web app with a framework such as React or Gatsby you can upload your build or public folder in Pintra. Or you can check out <code class="language-plaintext highlighter-rouge">IPFS-Deploy</code> to deploy your sites to IPFS in one line.</p>
+
+<p>Now our site is hosted on the decentralized censorship-resistant IPFS network but navigating to <code class="language-plaintext highlighter-rouge">ipfs.io/ipfs/QmY9cxiHqTFoWamkQVkpmmqzBrY3hCBEL2XNu3NtX74Fuu</code> is very hard to remember, we need a domain name.</p>
+
+<h3 id="-register-an-ens-domain-name"><span style="color:green"> Register an ENS domain name</span></h3>
+
+<p>The <code class="language-plaintext highlighter-rouge">Etherium Name Service(ENS)</code> offers</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>a secure &amp; decentralised way to address resources both on and off the blockchain using simple, human-readable
+ names.
+</code></pre></div></div>
+
+<p>Rather than resgister a domain name on a site like <code class="language-plaintext highlighter-rouge">Google Domains</code>, ENS is a non-profit organization that offers <code class="language-plaintext highlighter-rouge">.eth</code> domains that are immutable and registerd on the Etherium blockchain</p>
+
+<p>The primary goal of <code class="language-plaintext highlighter-rouge">.eth</code> domains was to make cryptocurrency address human readable. However, ENS added support for linking your domain to an IPFS hash so when a .eth domain is entered into your website it will resolve to your website on IPFS.</p>
+
+<p>For example, my <code class="language-plaintext highlighter-rouge">.eth</code> domain is <code class="language-plaintext highlighter-rouge">koorst.eth</code> if you type that domain into your crypto wallet (if it has an ENS resolver) it will resolve to my ETH address. More importantly, if you type <code class="language-plaintext highlighter-rouge">kohorst.eth</code> into your browser (if it has an ENS resolver like <code class="language-plaintext highlighter-rouge">Brave</code>, if not you can type <code class="language-plaintext highlighter-rouge">kohorst.eth.link</code> and it will resolver) my personal website (hosted on IPFS) will resolve !</p>
+
+<p>The first step is to purchase your ENS domain. Navigate to <code class="language-plaintext highlighter-rouge">app.ens.domains</code> and search for your domain name</p>
+
+<p><img src="https://i.imgur.com/Gx2cl2P.png" alt="Imgur" /></p>
+
+<p>Note: you will need Ether and a Web3 compatible browser.extension in order to purchase an ENS domain. I personally use <code class="language-plaintext highlighter-rouge">Metamask</code> and recommend this tutorial on getting started.</p>
+
+<p>Select how many years you would like to purchase the domain for and follow the purchasing steps.</p>
+
+<p>After your sign and verify your transaction you will have to wait while the transaction is verified on the Etherium blockchain. After the transaction completes you can click on your domain to manage it.</p>
+
+<p>It will look something like this</p>
+
+<p><img src="https://i.imgur.com/ho4V7II.png" alt="Imgur" /></p>
+
+<p>There is a lot that you can add to your ENS domain your ETH address along with other cryptocurrencies lke BTC or LTC, your email, Github or even Twitter user names. Most importantly you can add your IPFS hash.</p>
+
+<p>Click on the add button and under <code class="language-plaintext highlighter-rouge">Content</code> add the IPFS hash of your website</p>
+
+<p><img src="https://i.imgur.com/3OPTaH4.png" alt="Imgur" /></p>
+
+<p>you will have to pay a <code class="language-plaintext highlighter-rouge">gas</code> fee for the content to be written to the blockchain and after the transaction is verified you should be able to navigate to <code class="language-plaintext highlighter-rouge">yourdomain.eth.link</code> and view your IPFS website !</p>
+
+<h3 id="-ipfs-and-regular-domain-name-services"><span style="color:purple"> IPFS and regular domain name services</span></h3>
+
+<p>Don’t have any Ether or don’t want your domain to end in <code class="language-plaintext highlighter-rouge">.eth</code> ? You can point your traditional DNS to your IPFS hash so that you can keep your <code class="language-plaintext highlighter-rouge">.com</code> domain. You can read more about it <code class="language-plaintext highlighter-rouge">here</code></p>
+
+<p>On Google Domains in your DNS you will need to register an <code class="language-plaintext highlighter-rouge">A</code> and <code class="language-plaintext highlighter-rouge">AAAA</code> record that points to the IP address of a IPFS gateway. You can look up the IPv4 and IPv5 records for an IPFS gateway (a good list of functioning fateways is available here) using nslookup</p>
+
+<p>I use the <code class="language-plaintext highlighter-rouge">ipfs.io</code> gateway its record are</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>A 209.94.90.1
+AAAA 2602:fea2:2::1
+</code></pre></div></div>
+
+<p>Register these on your DNS and then create a TXT record with a dns link value like:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>"dnslink=/ipfs/&lt;HASH&gt;"
+</code></pre></div></div>
+
+<p><img src="https://i.imgur.com/ETJr01w.png" alt="Imgur" /></p>
+
+<p>That’s it ! Now your domain will point to your IPFS website !</p>
+
 
       </article>
 
