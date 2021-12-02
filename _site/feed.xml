@@ -12,6 +12,17 @@
     
     
       <item>
+        <title>ICPC training</title>
+        <description>
+          algorithm - 
+          Bài 1 Dạng bài: hoán vị, tổ hợp Đề bài: Điền vào bảng $n\text{x}n$ với các số trong đoạn $[1;n^2]$, mỗi số xuất hiện một lần. Với mỗi cách điền số, gọi $a_i$ là giá trị nhỏ nhất của hàng thứ $i$ và gọi $S=$ { $a_1,a_2,…,a_n$ } $\cap$ {...
+        </description>
+        <pubDate>Thu, 02 Dec 2021 00:00:00 +0000</pubDate>
+        <link>http://localhost:4000/2021-12-02-ICPC-journey/</link>
+        <guid isPermaLink="true">http://localhost:4000/2021-12-02-ICPC-journey/</guid>
+      </item>
+    
+      <item>
         <title>Nhật ký Training ICPC 2021</title>
         <description>
           Algorithm, Math - 
@@ -304,17 +315,6 @@ $\lVert v \rVert$
         <pubDate>Tue, 01 Dec 2020 00:00:00 +0000</pubDate>
         <link>http://localhost:4000/2020-12-01-wifi-tim/</link>
         <guid isPermaLink="true">http://localhost:4000/2020-12-01-wifi-tim/</guid>
-      </item>
-    
-      <item>
-        <title>Một số lệnh thường gặp khi debug C hoặc C++ sang Assembly trong Linux</title>
-        <description>
-          GDB - 
-          1.Tạo một file bất kì Cú pháp: nano exv.c 2. Thực thi file đã tạo Cú pháp: gcc -g exv.c -o t 3. Chạy file đã thực thi Cú pháp : ./t 4. Liệt kê các thư mục Cú pháp: ls -la 5. Thực hiện Debug Cú pháp: gdb t...
-        </description>
-        <pubDate>Tue, 01 Dec 2020 00:00:00 +0000</pubDate>
-        <link>http://localhost:4000/2020-12-01-gdb-assembly/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020-12-01-gdb-assembly/</guid>
       </item>
     
   </channel>
