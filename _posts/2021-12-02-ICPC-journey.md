@@ -206,6 +206,10 @@ Output:
 
 ![Imgur](https://i.imgur.com/oIfrgaY.png)
 
+- `Update: 1 1 3`
+
+![Imgur](https://i.imgur.com/IPLdtYt.png) 
+
 #### <span style="color:brown"> Code tham khảo </span>
 
 ```cpp
