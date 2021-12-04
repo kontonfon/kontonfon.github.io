@@ -210,6 +210,14 @@ Output:
 
 ![Imgur](https://i.imgur.com/IPLdtYt.png) 
 
+- `Query: 2 2 4`
+
+![Imgur](https://i.imgur.com/txsS9oj.png)
+
+- `Update: 1 1 5`
+
+![Imgur](https://i.imgur.com/56OS1B4.png)
+
 #### <span style="color:brown"> Code tham khảo </span>
 
 ```cpp
