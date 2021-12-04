@@ -218,6 +218,10 @@ Output:
 
 ![Imgur](https://i.imgur.com/56OS1B4.png)
 
+- `Query 2 4 5`
+
+![Imgur](https://i.imgur.com/R9hs8La.png)
+
 #### <span style="color:brown"> Code tham khảo </span>
 
 ```cpp
