@@ -616,6 +616,151 @@ MathJax.Hub.Queue(function() {
 <span class="p">}</span>
 </code></pre></div></div>
 
+<hr />
+
+<h3 id="-bài-3-"><span style="color:red"> Bài 3 </span></h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Dạng bài: tổ hợp, luỹ thừa nhị phân
+</code></pre></div></div>
+
+<h4 id="-đề-bài--2"><span style="color:green"> Đề bài: </span></h4>
+
+<p>Takahashi, là một nông dân chuyên trồng bắp cải, và đã phát triển được $N$ nhãn hiệu bắp cải, được gọi từ nhãn hiệu $1$ đến nhãn hiệu $N$. Ông ấy có $A_i$ đống cải tương ứng với nhãn hiệu thứ $i(1\le i\le N)$. Ở đây, tất cả các đống cải đều phân biệt nhau.</p>
+
+<p>Ông ấy có $M$ khách hàng được đánh số từ công ty $1$ đến công ty $M$. Công ty $j(1\le j\le M)$ đặt $B_j$ đống cải.</p>
+
+<p>Những công ty khác nhau cháp nhận những nhãn hiệu bắp cải khác nhau. Với mỗi cặp $i,j(1\le i\le N,1\le j\le M)$,</p>
+
+<ul>
+  <li>
+    <p>Nếu $c_{i,j}=1$, tức là bắp cải của nhãn hiệu thứ $i$ có thể vận chuyển đến công ty thứ $j$</p>
+  </li>
+  <li>
+    <p>Nếu $c_{i,j}=0$, tức là bắp cải của nhãn hiệu thứ $i$ không thể vận chuyển đến công ty thứ $j$.</p>
+  </li>
+</ul>
+
+<p>Takahashi sẽ được gọi là <code class="language-plaintext highlighter-rouge">Chuyên gia bắp cải</code> nếu anh ta thành công trong việc xác định nơi nào để vận chuyển những đống cải này sao cho $B_j$ hoặc nhiều đống cải hơn sẽ được vận chuyển đến mỗi công ty $j(1\le j\le M)$</p>
+
+<p>Snuke đã quyết định chọn và ăn không hoặc nhiều hơn đống cải để mà Takahashi không thể đạt được danh hiệu <code class="language-plaintext highlighter-rouge">Chuyên gia bắp cải</code>, bất kể nơi mà anh ta ship đến. Anh ấy không thích bắp cải lắm, vì vậy anh ấy sẽ chọn ăn số lượng bắp cải ít nhất có thể để anh ấy có thể đạt được mục tiêu của mình.</p>
+
+<p>Hãy in ra số lượng đống bắp cải Snuke sẽ ăn, và số lượng các cách có thể được, modulo 998244353, vì Snuke chọn đống bắp cải để ăn. Hai cách để chọn đổng bắp cải được xem là khác nhau khi có một đống bắp cải được ăn theo một cách mà cách kia không có. Ở đây, hãy nhớ rằng, bất kỳ hai đống cải khác nhai đều phân biệt nhau thậm chí nó ở cùng một nhãn hiệu.</p>
+
+<h4 id="ràng-buộc"><span style="color:blue">Ràng buộc:</span></h4>
+
+<ul>
+  <li>
+    <p>$1\le N\le 20$</p>
+  </li>
+  <li>
+    <p>$1\le M\le 10^4$</p>
+  </li>
+  <li>
+    <p>$1\le A_i\le 10^5$</p>
+  </li>
+  <li>
+    <p>$1\le B_j\le 10^5$</p>
+  </li>
+  <li>
+    <p>$c_{i,j}\in$ {$0,1$}</p>
+  </li>
+  <li>
+    <p>Với mỗi ~j(1\le j\le M)~, tồn tại ~i(1\le i\le N)~ thoả mãn $c_{i,j}=1$</p>
+  </li>
+  <li>
+    <p>Tất cả các giá trị đầu vào đều là số nguyên.</p>
+  </li>
+</ul>
+
+<h4 id="input-"><span style="color:orange">Input :</span></h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>N M
+A_1 A_2 ... A_N
+B_1 B_2 ... B_M 
+c_{1,1} c_{1,2} ... c_{1,M}
+c_{2,1} c_{2,2} ... c_{2,M}
+.
+.
+.
+c_{N,1} c_{N,2} ... c_{N,M}
+</code></pre></div></div>
+
+<h4 id="output-"><span style="color:orange">Output :</span></h4>
+
+<ul>
+  <li>In ra $X$, là số lượng đống cải mà Snuke sẽ ăn, và $Y$ là số cách mà Snuke chọn để ăn đống bắp cải đó, modulo 998244353, theo thứ tự</li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>X Y
+</code></pre></div></div>
+
+<h4 id="ví-dụ-"><span style="color:orange">Ví dụ :</span></h4>
+
+<p>Input 1:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>3 2
+2 2 5
+3 4
+1 0
+1 1
+0 1
+</code></pre></div></div>
+
+<p>Output 1:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>2 6
+</code></pre></div></div>
+
+<p>Snuke sẽ ăn 2 đống cải để ngăn Takahashi trở thành <code class="language-plaintext highlighter-rouge">Chuyên gia đầu bếp</code>. Có $6$ cách để chọn ra đống cải để ăn, cụ thể như sau, với $(i,j)$ kí hiệu là đống cải thứ $j$ của cửa hàng thứ $i$.</p>
+
+<ul>
+  <li>
+    <p>(1,1),(1,2)</p>
+  </li>
+  <li>
+    <p>(1,1),(2,1)</p>
+  </li>
+  <li>
+    <p>(1,1),(2,2)</p>
+  </li>
+  <li>
+    <p>(1,2),(2,1)</p>
+  </li>
+  <li>
+    <p>(2,1),(2,2)</p>
+  </li>
+</ul>
+
+<p>Input 2:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1 1
+3
+4
+1
+</code></pre></div></div>
+
+<p>Output 2:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>0 1
+</code></pre></div></div>
+
+<p>Một điều có thể rằng, Takahashi không thể trở thành <code class="language-plaintext highlighter-rouge">Chuyên gia bắp cải</code> mặc dù Snuke không ăn bất kì bắp cải nào. Vì vậy, Snuke sẽ ăn không đống bắp cải, vào chỉ có một cách để ông ấy chọn đống cải để ăn đó là: Không ăn bất cứ thứ gì cả</p>
+
+<p>Input 3:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>1 3
+100
+30 30 30
+1 1 1
+</code></pre></div></div>
+
+<p>Output 3:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>11 892328666
+</code></pre></div></div>
+
+<p>Đây là số cách có thể chọn ra đống bắp cải để ăn, hãy đảm bảo rằng nó đã được mod $998244353$</p>
+
 
       </article>
 

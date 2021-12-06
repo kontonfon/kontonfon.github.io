@@ -359,6 +359,138 @@ int main()
 }
 ```
 
+----------
+
+### <span style="color:red"> Bài 3 </span>
+
+~~~
+Dạng bài: tổ hợp, luỹ thừa nhị phân
+~~~
+
+#### <span style="color:green"> Đề bài: </span>
+
+Takahashi, là một nông dân chuyên trồng bắp cải, và đã phát triển được $N$ nhãn hiệu bắp cải, được gọi từ nhãn hiệu $1$ đến nhãn hiệu $N$. Ông ấy có $A_i$ đống cải tương ứng với nhãn hiệu thứ $i(1\le i\le N)$. Ở đây, tất cả các đống cải đều phân biệt nhau.
+
+Ông ấy có $M$ khách hàng được đánh số từ công ty $1$ đến công ty $M$. Công ty $j(1\le j\le M)$ đặt $B_j$ đống cải.
+
+Những công ty khác nhau cháp nhận những nhãn hiệu bắp cải khác nhau. Với mỗi cặp $i,j(1\le i\le N,1\le j\le M)$,
+
++ Nếu $c_{i,j}=1$, tức là bắp cải của nhãn hiệu thứ $i$ có thể vận chuyển đến công ty thứ $j$
+
++ Nếu $c_{i,j}=0$, tức là bắp cải của nhãn hiệu thứ $i$ không thể vận chuyển đến công ty thứ $j$.
+
+Takahashi sẽ được gọi là `Chuyên gia bắp cải` nếu anh ta thành công trong việc xác định nơi nào để vận chuyển những đống cải này sao cho $B_j$ hoặc nhiều đống cải hơn sẽ được vận chuyển đến mỗi công ty $j(1\le j\le M)$
+
+Snuke đã quyết định chọn và ăn không hoặc nhiều hơn đống cải để mà Takahashi không thể đạt được danh hiệu `Chuyên gia bắp cải`, bất kể nơi mà anh ta ship đến. Anh ấy không thích bắp cải lắm, vì vậy anh ấy sẽ chọn ăn số lượng bắp cải ít nhất có thể để anh ấy có thể đạt được mục tiêu của mình.
+
+Hãy in ra số lượng đống bắp cải Snuke sẽ ăn, và số lượng các cách có thể được, modulo 998244353, vì Snuke chọn đống bắp cải để ăn. Hai cách để chọn đổng bắp cải được xem là khác nhau khi có một đống bắp cải được ăn theo một cách mà cách kia không có. Ở đây, hãy nhớ rằng, bất kỳ hai đống cải khác nhai đều phân biệt nhau thậm chí nó ở cùng một nhãn hiệu.
+
+#### <span style="color:blue">Ràng buộc:</span>
+
+- $1\le N\le 20$
+
+- $1\le M\le 10^4$
+
+- $1\le A_i\le 10^5$
+
+- $1\le B_j\le 10^5$
+
+- $c_{i,j}\in$ {$0,1$}
+
+- Với mỗi ~j(1\le j\le M)~, tồn tại ~i(1\le i\le N)~ thoả mãn $c_{i,j}=1$
+
+- Tất cả các giá trị đầu vào đều là số nguyên.
+
+#### <span style="color:orange">Input :</span>
+
+~~~
+N M
+A_1 A_2 ... A_N
+B_1 B_2 ... B_M 
+c_{1,1} c_{1,2} ... c_{1,M}
+c_{2,1} c_{2,2} ... c_{2,M}
+.
+.
+.
+c_{N,1} c_{N,2} ... c_{N,M}
+~~~
+
+#### <span style="color:orange">Output :</span>
+
+- In ra $X$, là số lượng đống cải mà Snuke sẽ ăn, và $Y$ là số cách mà Snuke chọn để ăn đống bắp cải đó, modulo 998244353, theo thứ tự 
+
+~~~
+X Y
+~~~
+
+#### <span style="color:orange">Ví dụ :</span>
+
+Input 1:
+
+~~~
+3 2
+2 2 5
+3 4
+1 0
+1 1
+0 1
+~~~
+
+Output 1:
+
+~~~
+2 6
+~~~
+
+Snuke sẽ ăn 2 đống cải để ngăn Takahashi trở thành `Chuyên gia đầu bếp`. Có $6$ cách để chọn ra đống cải để ăn, cụ thể như sau, với $(i,j)$ kí hiệu là đống cải thứ $j$ của cửa hàng thứ $i$.
+
+- (1,1),(1,2)
+
+- (1,1),(2,1)
+
+- (1,1),(2,2)
+
+- (1,2),(2,1)
+
+- (2,1),(2,2)
+
+Input 2:
+
+~~~
+1 1
+3
+4
+1
+~~~
+
+Output 2:
+
+~~~
+0 1
+~~~
+
+Một điều có thể rằng, Takahashi không thể trở thành `Chuyên gia bắp cải` mặc dù Snuke không ăn bất kì bắp cải nào. Vì vậy, Snuke sẽ ăn không đống bắp cải, vào chỉ có một cách để ông ấy chọn đống cải để ăn đó là: Không ăn bất cứ thứ gì cả
+
+Input 3:
+
+~~~
+1 3
+100
+30 30 30
+1 1 1
+~~~
+
+Output 3:
+
+~~~
+11 892328666
+~~~
+
+Đây là số cách có thể chọn ra đống bắp cải để ăn, hãy đảm bảo rằng nó đã được mod $998244353$
+
+
+
+
 
 
 
