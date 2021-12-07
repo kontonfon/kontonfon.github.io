@@ -397,7 +397,7 @@ Hãy in ra số lượng đống bắp cải Snuke sẽ ăn, và số lượng c
 
 - $c_{i,j}\in$ {$0,1$}
 
-- Với mỗi ~j(1\le j\le M)~, tồn tại ~i(1\le i\le N)~ thoả mãn $c_{i,j}=1$
+- Với mỗi $j(1\le j\le M)$, tồn tại $i(1\le i\le N)$ thoả mãn $c_{i,j}=1$
 
 - Tất cả các giá trị đầu vào đều là số nguyên.
 
@@ -487,6 +487,147 @@ Output 3:
 ~~~
 
 Đây là số cách có thể chọn ra đống bắp cải để ăn, hãy đảm bảo rằng nó đã được mod $998244353$
+
+#### <span style="color:#ff007f"> Lời giải: </span>
+
+`Phân tích ví dụ để hiểu bài toán`
+
+Input 1:
+
+~~~
+3 2
+2 2 5
+3 4
+1 0
+1 1
+0 1
+~~~
+
+OUtput 1:
+
+~~~
+2 6
+~~~
+
+`Hình ảnh minh hoạ`
+
+![Imgur](https://i.imgur.com/tVHV3zJ.png)
+
+#### <span style="color:#4cbb17"> Code tham khảo: </span>
+
+```cpp
+#include<cstdio>
+#include<cstring>
+#include<algorithm>
+using namespace std;
+const int mod=998244353;
+inline int addmod(int x)
+{
+	return x>=mod?x-mod:x;
+}
+inline int submod(int x)
+{
+	return x<0?x+mod:x;
+}
+int fpow(int x,int y)
+{
+	int ans=1;
+	while(y)
+	{
+		if(y&1) ans=1ll*ans*x%mod;
+		x=1ll*x*x%mod;
+		y/=2;
+	}
+	return ans;
+}
+int n,m,lim,a[100005],b[100005],c[22][100005],f[2000005],g[2000005],fr[2000005],infr[2000005],pn=2e6;
+int vis[2000005];
+void solve1()
+{
+	for(int k=1;k<lim;k<<=1)
+		for(int i=0;i<lim;i+=(k<<1))
+			for(int j=0;j<k;j++)
+			{
+				f[i+j+k]+=f[i+j];
+				vis[i+j+k]|=vis[i+j];
+			}
+}
+void solve2()
+{
+	for(int k=1;k<lim;k<<=1)
+		for(int i=0;i<lim;i+=(k<<1))
+			for(int j=0;j<k;j++)
+				g[i+j]|=g[i+j+k];
+}
+void solve3()
+{
+	for(int k=1;k<lim;k<<=1)
+		for(int i=0;i<lim;i+=(k<<1))
+			for(int j=0;j<k;j++)
+				g[i+j]=submod(g[i+j]-g[i+j+k]);
+}
+inline int C(int x,int y)
+{
+	if(x<y) return 0;
+	return 1ll*fr[x]*infr[y]%mod*infr[x-y]%mod;
+}
+int main()
+{
+	fr[0]=infr[0]=1;
+	for(int i=1;i<=pn;i++)
+		fr[i]=1ll*fr[i-1]*i%mod;
+	infr[pn]=fpow(fr[pn],mod-2);
+	for(int i=pn-1;i>0;i--)
+		infr[i]=1ll*infr[i+1]*(i+1)%mod;
+	scanf("%d%d",&n,&m);
+	lim=(1<<n);
+	for(int i=1;i<=n;i++)
+	{
+		scanf("%d",&a[i]);
+		f[1<<(i-1)]=a[i];
+	}
+	for(int i=1;i<=m;i++)
+		scanf("%d",&b[i]); 
+	for(int i=1;i<=n;i++)
+		for(int j=1;j<=m;j++)
+			scanf("%d",&c[i][j]);
+	for(int i=1;i<=m;i++)
+	{
+		int nw=0;
+		for(int j=1;j<=n;j++)
+			nw|=c[j][i]<<(j-1);
+		f[nw]-=b[i];
+		vis[nw]=1;
+	}
+	solve1();
+	int mn=1e9;
+	for(int i=0;i<lim;i++)
+		if(f[i]<mn&&vis[i])
+			mn=f[i];
+	if(mn<0)
+	{
+		printf("0 1\n");
+		return 0;
+	}
+	for(int i=1;i<lim;i++)
+		if(f[i]==mn&&vis[i])
+			g[i]=1;
+	solve2();
+	solve3();
+	int ans=0;
+	for(int i=1;i<lim;i++)
+	{
+		int nw=0;
+		for(int j=1;j<=n;j++)
+			if(i&(1<<(j-1)))
+				nw+=a[j];
+		ans=addmod(ans+1ll*g[i]*C(nw,mn+1)%mod);
+	}
+	printf("%d %d\n",mn+1,ans);
+	return 0;
+}
+```
+
 
 
 

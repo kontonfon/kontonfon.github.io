@@ -102,6 +102,8 @@ MathJax.Hub.Queue(function() {
 
 35. married in = met in 
 
+36. too = to
+
 ### TỪ KHÔNG NGHE RA
 
 1. Those would be too big
@@ -114,9 +116,29 @@ MathJax.Hub.Queue(function() {
 
 5. occupation : 
 
+6. lurking around: ẩn nấp xung quanh
+
+7. Are the = I 
+
+8. transferred to a 
+
+9. Atlanta
+
+10. finished up
+
 ### TỪ ĐỌC NỐI
 
 1. fresh-air: không khí trong lành
+
+2. and-I
+
+3. afraid-of
+
+4. negatives-I
+
+5. What's up-Mike ? 
+
+6. what how - wow ! 
 
 ### MẸO
 
