@@ -503,7 +503,7 @@ Input 1:
 0 1
 ~~~
 
-OUtput 1:
+Output 1:
 
 ~~~
 2 6
@@ -512,6 +512,44 @@ OUtput 1:
 `Hình ảnh minh hoạ`
 
 ![Imgur](https://i.imgur.com/tVHV3zJ.png)
+
+`6 cách chọn bắp cải để ăn`
+
+- `Cách 1:`
+
+![Imgur](https://i.imgur.com/LwWUJAT.png)
+
+- `Cách 2:`
+
+![Imgur](https://i.imgur.com/R8qhnj7.png)
+
+- `Cách 3:`
+
+![Imgur](https://i.imgur.com/kAyzA2K.png)
+
+- `Cách 4:`
+
+![Imgur](https://i.imgur.com/nTZMG6S.png)
+
+- `Cách 5:`
+
+![Imgur](https://i.imgur.com/XBYv5VR.png) 
+
+- `Cách 6:`
+
+![Imgur](https://i.imgur.com/EFdJ1Sf.png) 
+
+`Ngẫm solution:`
+
+In the following editorials, we require the knowledge of Hall's marriage theorem and Fast Zeta/Mobius transformation.
+
+For explanation, we regard the order of $B_j$ cabbages from company $j$ as mutually distinguishable $B_j$ order of $1$ cabbage.
+
+Also, let $O$ be the set of all orders from all companies. That is, denoting by $(i,j)$ the $i-th$ company's $j-th$ company's $j-th$ "one-cabbage order", $O$ is a set of $\sum\limits_{i=1}^{M}B_i$ orders, consisting of {(1,1),(1,2),...,(1,B_1),(2,1),(2,2),...,(2,B_2),...,(M,1),(M,2),...,(M,B_M)}
+
+Also, let $V$ be the set of all brands of cabbage. Namely, V={Brand 1, Brand 2, ..., Brand N}
+
+
 
 #### <span style="color:#4cbb17"> Code tham khảo: </span>
 
