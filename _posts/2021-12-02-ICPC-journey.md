@@ -549,6 +549,17 @@ Also, let $O$ be the set of all orders from all companies. That is, denoting by 
 
 Also, let $V$ be the set of all brands of cabbage. Namely, V={Brand 1, Brand 2, ..., Brand N}
 
+`Ngẫm bổ đề`:
+
+`Bổ đề 1: SOS Dynamic Programming`
+
+##### <span style="color:orange"> Introduction </span>
+
+In this post, I am going to share my little knowledge on how to solve some problems involving calculation of Sum over Subsets(SOS) using dynamic programming. Thus the name SOS DP. I have chosen this topic because it appears frequently in contest as `medium-hard` and above problems but has very fews blogs/editorials explaining the interesting DP behind it. I also have a predilection for this since I came across it for the first time in ICPC Amritapuri Regionals 2014. Since then I have created many questions based on this concept on various platforms but the number of accepted solutions seems to be disproportionate to lucidity of the concept. Following is a small attempt to bridge this gap.
+
+##### <span style="color:orange"> Problem </span>
+
+I will be addressing the following problem: Given a fixed array `A` of $2^{N}$ integers, we need to caclulate $\forall x$ function $F(x)=$ Sum of all $A[i]$ such that $x\text{&}i=i$,i.e., `i` is a subset of `x`
 
 
 #### <span style="color:#4cbb17"> Code tham khảo: </span>

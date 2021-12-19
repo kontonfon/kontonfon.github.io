@@ -832,6 +832,18 @@ c_{N,1} c_{N,2} ... c_{N,M}
 
 <p>Also, let $V$ be the set of all brands of cabbage. Namely, V={Brand 1, Brand 2, …, Brand N}</p>
 
+<p><code class="language-plaintext highlighter-rouge">Ngẫm bổ đề</code>:</p>
+
+<p><code class="language-plaintext highlighter-rouge">Bổ đề 1: SOS Dynamic Programming</code></p>
+
+<h5 id="-introduction-"><span style="color:orange"> Introduction </span></h5>
+
+<p>In this post, I am going to share my little knowledge on how to solve some problems involving calculation of Sum over Subsets(SOS) using dynamic programming. Thus the name SOS DP. I have chosen this topic because it appears frequently in contest as <code class="language-plaintext highlighter-rouge">medium-hard</code> and above problems but has very fews blogs/editorials explaining the interesting DP behind it. I also have a predilection for this since I came across it for the first time in ICPC Amritapuri Regionals 2014. Since then I have created many questions based on this concept on various platforms but the number of accepted solutions seems to be disproportionate to lucidity of the concept. Following is a small attempt to bridge this gap.</p>
+
+<h5 id="-problem-"><span style="color:orange"> Problem </span></h5>
+
+<p>I will be addressing the following problem: Given a fixed array <code class="language-plaintext highlighter-rouge">A</code> of $2^{N}$ integers, we need to caclulate $\forall x$ function $F(x)=$ Sum of all $A[i]$ such that $x\text{&amp;}i=i$,i.e., <code class="language-plaintext highlighter-rouge">i</code> is a subset of <code class="language-plaintext highlighter-rouge">x</code></p>
+
 <h4 id="-code-tham-khảo--1"><span style="color:#4cbb17"> Code tham khảo: </span></h4>
 
 <div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include&lt;cstdio&gt;
