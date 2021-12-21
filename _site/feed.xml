@@ -12,6 +12,17 @@
     
     
       <item>
+        <title>Nhật ký đồ án</title>
+        <description>
+          paper, đồ án - 
+          Thứ 3, ngày 21-12-2021 Topic: Complete Guide to Creating and Hosting a Phishing Page for Beginners Hello there, Recently I have come across many guides about creating phishing pages. Although the principles behind each guide is similar, most of hosting solutions provided in the guide does not work anymore due...
+        </description>
+        <pubDate>Tue, 21 Dec 2021 00:00:00 +0000</pubDate>
+        <link>http://localhost:4000/2021-12-21-Nhat-ky-do-an/</link>
+        <guid isPermaLink="true">http://localhost:4000/2021-12-21-Nhat-ky-do-an/</guid>
+      </item>
+    
+      <item>
         <title>ICPC training</title>
         <description>
           algorithm - 
@@ -304,17 +315,6 @@ $\lVert v \rVert$
         <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
         <link>http://localhost:4000/2021-01-01-Test-Latex/</link>
         <guid isPermaLink="true">http://localhost:4000/2021-01-01-Test-Latex/</guid>
-      </item>
-    
-      <item>
-        <title>Aloha Wifi</title>
-        <description>
-          
-          Bước 1: ifconfig Bước 2: sudo su Bước 3: airmon-ng start wlan0 Bước 4: airodump-ng wlan0mon Bước 5: airodump-ng --bssid 9C:65:EE:E7:77:17 -c 1 -w /usr/share/wordlists/rockyou.txt wlan0mon Chú ý: Số 1: CH Bước 6: Copy Card mạng cần điều tra Bước 7: Tạo terminal mới -&amp;gt; sudo su và nhập lệnh...
-        </description>
-        <pubDate>Tue, 01 Dec 2020 00:00:00 +0000</pubDate>
-        <link>http://localhost:4000/2020-12-01-wifi-tim/</link>
-        <guid isPermaLink="true">http://localhost:4000/2020-12-01-wifi-tim/</guid>
       </item>
     
   </channel>
