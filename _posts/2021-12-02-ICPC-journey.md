@@ -561,6 +561,44 @@ In this post, I am going to share my little knowledge on how to solve some probl
 
 I will be addressing the following problem: Given a fixed array `A` of $2^{N}$ integers, we need to caclulate $\forall x$ function $F(x)=$ Sum of all $A[i]$ such that $x\text{&}i=i$,i.e., `i` is a subset of `x`
 
+##### <span style="color:orange"> Prerequistic </span>
+
+- Basic Dynamic Programming
+
+- Bitmasks
+
+In no way this should be considered an introduction to the above topics
+
+##### <span style="color:orange"> Solutions </span>
+
+###### <span style="color:#006e62"> Bruteforce </span>
+
+```cpp
+for(int mask = 0;mask < (1<<N); ++mask){
+	for(int i = 0;i < (1<<N); ++i){
+		if((mask&i) == i){
+			F[mask] += A[i];
+		}
+	}
+}
+```
+
+This solution is quite straightforward and inefficient with time complexity of $O(4^N)$
+
+###### <span style="color:#006e62"> Suboptimal Solution </span>
+
+```cpp
+// iterate over all the masks
+for (int mask = 0; mask < (1<<n); mask++){
+	F[mask] = A[0];
+    // iterate over all the subsets of the mask
+    for(int i = mask; i > 0; i = (i-1) & mask){
+    	F[mask] += A[i];
+    }
+}
+```
+
+Not as trivial, this solution is more efficient with time complexity of $O(3^N)$. To calculate the time complexiy of this algorithm, notice that for each mask we iterate only over its substes. Therefore if a mask has `K` on bits, we do $2^K$ iterations. Also total numbers of masks with $K$ on bits is $\binom{N}{K}$. Therefore total iterations = $\sum\limits_{k=0}^{N}\binom{N}{K}2^{K}=(1+2)^N=3^N$
 
 #### <span style="color:#4cbb17"> Code tham khảo: </span>
 
