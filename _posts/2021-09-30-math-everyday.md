@@ -62,6 +62,18 @@ Solution:
 
 ![Imgur](https://i.imgur.com/Oicdtn9.png)
 
+## Day 22-12-2021
+
+### <span style="color:red"> Problem </span>
+Let (m,n) be pair of positive integers. Julia has carefully planted m rows of n dandelious is an mxn array in her back garden. Now, Jana un Viviane decides to play a game with a lawnmower they just found. Talking alternating turns and starting with Jana, they can now mow down all the dandelions in a straight horizontal or vertical line (and they must mow down at least one dandelion). The winner is the player who mows down the final dandelion. Determine all pairs of (m,n) of which Jana has a winning strategy.
+
+### <span style="color:red"> Problem </span>
+
+The answer is all the pairs (m,n) with (m-1)(n-1)=0 or m+n odd. Let's prove it.
+
+When m=1 or n=1, Jana can clearly win with a single move. At the other hand, any player with m,n>1 and m+n odd has the winning strategy of first creating a line of symmetry and then playing symmetrically. Not only do this prove m+n odd m,n > 1 is a winning position, but it also proves m+n even, m,n>1 is losing one, as any movement reduces the problem to the situation m+(n-1) or (m-1)+n odd, which are winning positions for the other player. Those, we have proven that the only winning positions are the desired ones, so we are done.
+
+
 
 
 
