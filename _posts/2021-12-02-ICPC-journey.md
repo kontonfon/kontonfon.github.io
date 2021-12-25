@@ -600,6 +600,46 @@ for (int mask = 0; mask < (1<<n); mask++){
 
 Not as trivial, this solution is more efficient with time complexity of $O(3^N)$. To calculate the time complexiy of this algorithm, notice that for each mask we iterate only over its substes. Therefore if a mask has `K` on bits, we do $2^K$ iterations. Also total numbers of masks with $K$ on bits is $\binom{N}{K}$. Therefore total iterations = $\sum\limits_{k=0}^{N}\binom{N}{K}2^{K}=(1+2)^N=3^N$
 
+###### <span style="color:#006e62"> SOS Dynamic Programming Solution </span>
+
+![Imgur](https://i.imgur.com/5HKTeWq.png)
+
+![Imgur](https://i.imgur.com/cN2QPLZ.png)
+
+Kindly note that these relations form a directed acyclic graph and not necessarily a rooted tree (think about different values of mask and same value of i)
+
+After realization of these relations we can easily come up with the corresponding dynamic programming.
+
+```cpp
+//iterative version
+for(int mask = 0; mask < (1<<N); ++mask){
+	dp[mask][-1] = A[mask];	//handle base case separately (leaf states)
+	for(int i = 0;i < N; ++i){
+		if(mask & (1<<i))
+			dp[mask][i] = dp[mask][i-1] + dp[mask^(1<<i)][i-1];
+		else
+			dp[mask][i] = dp[mask][i-1];
+	}
+	F[mask] = dp[mask][N-1];
+}
+//memory optimized, super easy to code.
+for(int i = 0; i<(1<<N); ++i)
+	F[i] = A[i];
+for(int i = 0;i < N; ++i) for(int mask = 0; mask < (1<<N); ++mask){
+	if(mask & (1<<i))
+		F[mask] += F[mask^(1<<i)];
+```
+
+The above algorithm runs in $O(N2^{N})$
+
+###### <span style="color:#006e62"> Discussion Problem </span>
+
+Now you know how to calculate Sum over Subsets for a fixed array A. What would happen if A and F are SOS functions of each other. Consider following modification to the problem. Assume H1,H2 to be 32 bit integer valued hash functions (just to avoid any combinatoric approach to circumvent this problem) and can be evaluated at any point in constant time.
+
+![Imgur](https://i.imgur.com/Z7do3O0.png)
+
+
+
 #### <span style="color:#4cbb17"> Code tham khảo: </span>
 
 ```cpp

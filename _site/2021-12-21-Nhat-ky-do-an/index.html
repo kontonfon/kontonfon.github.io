@@ -333,6 +333,113 @@ MathJax.Hub.Queue(function() {
 
 <p>Please note: You will need to change this later when you actually host the website.</p>
 
+<hr />
+
+<h3 id="-thứ-6-ngày-24-12-2021-"><span style="color: red"> Thứ 6, ngày 24-12-2021 </span></h3>
+
+<h4 id="-how-to-create-a-color-flipper-"><span style="color: blue"> How to create a Color Flipper </span></h4>
+
+<p><a href="https://i.imgur.com/y9IvfzY.png">Imgur</a></p>
+
+<p>In this John Smilga tutorial, you will learn how to create a random background color changer. This is a good project to get you started working with the DOM.</p>
+
+<p>In Leonardo Maldonado’s article on why it is important to learn about the DOM, he states:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>By manipulating the DOM, you have infinite possibilities. You can create applications that update the date of the page without needing a refresh. Also, you can create applications that are customizable by the user and then change the layout of the page without a refresh.
+</code></pre></div></div>
+
+<p>Key concepts covered:</p>
+
+<ul>
+  <li>
+    <p>arrays</p>
+  </li>
+  <li>
+    <p>document.getElementById()</p>
+  </li>
+  <li>
+    <p>document.querySelector()</p>
+  </li>
+  <li>
+    <p>addEventListener()</p>
+  </li>
+  <li>
+    <p>document.body.style.backgroundColor</p>
+  </li>
+  <li>
+    <p>Math.floor()</p>
+  </li>
+</ul>
+
+<p>Before you get started, I would suggest watching the introduction where John goes over how to access the setup files for all of his projects.</p>
+
+<p><a href="https://www.youtube.com/watch?v=3PHXvlpOkf4">Build 15 JavaScript Projects - Vanilla JavaScript Course</a></p>
+
+<h4 id="-hướng-dẫn-và-ví-dụ-javascript-form-validation--"><span style="color: blue"> Hướng dẫn và ví dụ Javascript Form Validation  </span></h4>
+
+<h5 id="-1-form-validation--"><span style="color: blue"> 1. Form Validation  </span></h5>
+
+<p>Khá thường xuyên bạn gặp một website mà ở đó người dùng nhập các thông tin vào một biểu mẫu (form) trước khi gửi tới máy chủ. Chẳng hạn biểu mẫu đăng ký tài khoản. Các thông tin mà người dùng nhập vào biểu mẫu cần phải được xác thực (validate) để đảm bảo sự hợp lý của dữ liệu.</p>
+
+<p><img src="https://i.imgur.com/K9DyYAt.png" alt="Imgur" /></p>
+
+<p>Một vài ví dụ về xác thực:</p>
+
+<ul>
+  <li>
+    <p>Kiểm tra đảm bảo dữ liệu không rỗng.</p>
+  </li>
+  <li>
+    <p>Kiểm tra định dạng email</p>
+  </li>
+  <li>
+    <p>Kiểm tra định dạng số điện thoại</p>
+  </li>
+</ul>
+
+<p>…</p>
+
+<p>Về cơ bản có 3 cách để xác thực dữ liệu:</p>
+
+<ol>
+  <li>
+    <p>Dữ liệu của form sẽ được gửi tới server (máy chủ), và việc xác thực (validate) sẽ được thực hiện tại phía máy chủ</p>
+  </li>
+  <li>
+    <p>Dữ liệu của form sẽ được xác thực tại phía client bằng cách sử dụng Javascript, điều này giúp server không phải làm việc quá nhiều và tăng hiệu năng cho ứng dụng</p>
+  </li>
+  <li>
+    <p>Sử dụng cả 2 phương thức trên để xác thực form</p>
+  </li>
+</ol>
+
+<p>Trong bài học này tôi sẽ thảo luận về việc sử dụng Javascript để xác thực (validate) form. Dưới đay là hình minh hoạ mô tả hành vi của chương trình khi người dùng nhấn vào nút <code class="language-plaintext highlighter-rouge">Submit</code>.</p>
+
+<p><img src="https://i.imgur.com/LjfreW9.png" alt="Imgur" /></p>
+
+<ol>
+  <li>
+    <p>Bạn phải đăng ký một hàm liên hợp với sự kiện <code class="language-plaintext highlighter-rouge">onsubmit</code> của <code class="language-plaintext highlighter-rouge">form</code>. Nhiệm vụ của hàm này là kiểm tra dữ liệu mà người dùng đã nhập vào form, và trả về true nếu tất cả các thông tin người dùng nhập vào hợp lệ, ngược lại trả về false.</p>
+  </li>
+  <li>
+    <p>Người dùng nhấn vào nút <code class="language-plaintext highlighter-rouge">Submit</code>, hàm liên hợp với sự kiện <code class="language-plaintext highlighter-rouge">onsubmit</code> sẽ được gọi.</p>
+  </li>
+  <li>
+    <p>Nếu hàm liên hợp với sự kiện <code class="language-plaintext highlighter-rouge">onsubmit</code> trả về <code class="language-plaintext highlighter-rouge">true</code> dữ liệu của <code class="language-plaintext highlighter-rouge">form</code> sẽ được gửi tới <code class="language-plaintext highlighter-rouge">server</code>. Ngược lại hành động <code class="language-plaintext highlighter-rouge">Submit</code> sẽ bị huỷ bỏ.</p>
+  </li>
+</ol>
+
+<h5 id="-1-ví-dụ-đơn-giản--"><span style="color: blue"> 1. Ví dụ đơn giản  </span></h5>
+
+<p>OK, đây là một ví dụ đơn giản giúp bạn hiểu về nguyên tắc hoạt động của <code class="language-plaintext highlighter-rouge">Form</code> trước khi thực hành các ví dụ phức tạp hơn.</p>
+
+<p><img src="https://i.imgur.com/MYqe8IE.png" alt="Imgur" /></p>
+
+<p>Thuộc tính (attribute) <code class="language-plaintext highlighter-rouge">action</code> của &lt;form&gt; được sử dụng để chỉ định trang mà dữ liệu sẽ được gửi đến, hay nói cách khác đây chính là trang sẽ xử lý dữ liệu được gửi đến từ &lt;form&gt; của trang hiện tại.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Các trang xử lý dữ liệu gửi đến form thường được viết bởi công nghệ Servlet/JSP, PHP hoặc một công nghệ nào đó ở phía server thay vì một trang HTML. Tuy nhiên tôi không đề cập với việc xử lý dữ liệu trong bài học này.
+</code></pre></div></div>
+
 
       </article>
 
