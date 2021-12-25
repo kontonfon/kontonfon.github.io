@@ -178,7 +178,7 @@ Trong bài học này tôi sẽ thảo luận về việc sử dụng Javascript
 
 3. Nếu hàm liên hợp với sự kiện `onsubmit` trả về `true` dữ liệu của `form` sẽ được gửi tới `server`. Ngược lại hành động `Submit` sẽ bị huỷ bỏ.
 
-##### <span style="color: blue"> 1. Ví dụ đơn giản  </span>
+##### <span style="color: blue"> 2. Ví dụ đơn giản  </span>
 
 OK, đây là một ví dụ đơn giản giúp bạn hiểu về nguyên tắc hoạt động của `Form` trước khi thực hành các ví dụ phức tạp hơn.
 
@@ -190,6 +190,108 @@ Thuộc tính (attribute) `action` của <form> được sử dụng để chỉ
 Các trang xử lý dữ liệu gửi đến form thường được viết bởi công nghệ Servlet/JSP, PHP hoặc một công nghệ nào đó ở phía server thay vì một trang HTML. Tuy nhiên tôi không đề cập với việc xử lý dữ liệu trong bài học này.
 ~~~
 
+### <span style="color: red"> Thứ 7, ngày 25-12-2021 </span>
+
+`simple-validation-example.html`
+
+```html
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Hello Javascript</title>
+      <script type = "text/javascript">
+         function validateForm()  {
+             var u = document.getElementById("username").value;
+             var p = document.getElementById("password").value;
+
+             if(u== "") {
+                 alert("Please enter your Username");
+                 return false;
+             }
+             if(p == "") {
+                 alert("Please enter you Password");
+                 return false;
+             }
+
+             alert("All datas are valid!, send it to the server!")
+
+             return true;
+         }
+      </script>
+   </head>
+   <body>
+
+      <h2>Enter your Username and Password</h2>
+
+      <div style="border:1px solid #ddd; padding: 5px;">
+         <form method="GET" action="process-action.html" onsubmit = "return validateForm()">
+            Username: <input type="text" name="username" id="username"/>
+            <br><br>
+            Password: <input type="password" name = "password" id="password"/>
+            <br><br>
+            <button type="submit">Submit</button>
+         </form>
+      </div>
+
+   </body>
+</html>
+```
+
+`process-action.html`
+
+```html
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Process Action</title>
+
+   </head>
+   <body>
+
+      <h3>Process Action Page</h3>
+
+      OK, I got data!
+      
+      <br/><br/>
+
+      <a href="javascript:history.back();">[Go Back]</a>
+
+   </body>
+</html>
+```
+
+![Imgur](https://i.imgur.com/PVhJniR.png)
+
+##### <span style="color: blue"> 3. Truy cập vào các dữ liệu của form  </span>
+
+Truy cập vào dữ liệu của một trường (field) thông qua ID của trường 
+
+```html
+<input type="text" id="username">
+<input type="password" id="password">
+```
+
+```js
+// Access field via ID
+var field = document.getElementById("field")
+var value = field.value
+```
+
+Truy cập vào các trường của `Form` thông qua thuộc tính `name`:
+
+```html
+<form name="myForm" ...>
+    <input type="text" name="username"/>
+    <input type="password" name="password"/>
+    <button type="submit"> Submit</button>
+```
+
+```js
+// Get form via form name
+var myForm = document.forms["myForm"];
+var u = myForm["username"].value;
+var p = myForm["password"].value;
+```
 
 
 

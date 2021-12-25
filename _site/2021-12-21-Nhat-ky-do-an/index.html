@@ -429,7 +429,7 @@ MathJax.Hub.Queue(function() {
   </li>
 </ol>
 
-<h5 id="-1-ví-dụ-đơn-giản--"><span style="color: blue"> 1. Ví dụ đơn giản  </span></h5>
+<h5 id="-2-ví-dụ-đơn-giản--"><span style="color: blue"> 2. Ví dụ đơn giản  </span></h5>
 
 <p>OK, đây là một ví dụ đơn giản giúp bạn hiểu về nguyên tắc hoạt động của <code class="language-plaintext highlighter-rouge">Form</code> trước khi thực hành các ví dụ phức tạp hơn.</p>
 
@@ -438,6 +438,103 @@ MathJax.Hub.Queue(function() {
 <p>Thuộc tính (attribute) <code class="language-plaintext highlighter-rouge">action</code> của &lt;form&gt; được sử dụng để chỉ định trang mà dữ liệu sẽ được gửi đến, hay nói cách khác đây chính là trang sẽ xử lý dữ liệu được gửi đến từ &lt;form&gt; của trang hiện tại.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Các trang xử lý dữ liệu gửi đến form thường được viết bởi công nghệ Servlet/JSP, PHP hoặc một công nghệ nào đó ở phía server thay vì một trang HTML. Tuy nhiên tôi không đề cập với việc xử lý dữ liệu trong bài học này.
+</code></pre></div></div>
+
+<h3 id="-thứ-7-ngày-25-12-2021-"><span style="color: red"> Thứ 7, ngày 25-12-2021 </span></h3>
+
+<p><code class="language-plaintext highlighter-rouge">simple-validation-example.html</code></p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+   <span class="nt">&lt;head&gt;</span>
+      <span class="nt">&lt;title&gt;</span>Hello Javascript<span class="nt">&lt;/title&gt;</span>
+      <span class="nt">&lt;script </span><span class="na">type = </span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
+         <span class="kd">function</span> <span class="nx">validateForm</span><span class="p">()</span>  <span class="p">{</span>
+             <span class="kd">var</span> <span class="nx">u</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">username</span><span class="dl">"</span><span class="p">).</span><span class="nx">value</span><span class="p">;</span>
+             <span class="kd">var</span> <span class="nx">p</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">password</span><span class="dl">"</span><span class="p">).</span><span class="nx">value</span><span class="p">;</span>
+
+             <span class="k">if</span><span class="p">(</span><span class="nx">u</span><span class="o">==</span> <span class="dl">""</span><span class="p">)</span> <span class="p">{</span>
+                 <span class="nx">alert</span><span class="p">(</span><span class="dl">"</span><span class="s2">Please enter your Username</span><span class="dl">"</span><span class="p">);</span>
+                 <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+             <span class="p">}</span>
+             <span class="k">if</span><span class="p">(</span><span class="nx">p</span> <span class="o">==</span> <span class="dl">""</span><span class="p">)</span> <span class="p">{</span>
+                 <span class="nx">alert</span><span class="p">(</span><span class="dl">"</span><span class="s2">Please enter you Password</span><span class="dl">"</span><span class="p">);</span>
+                 <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+             <span class="p">}</span>
+
+             <span class="nx">alert</span><span class="p">(</span><span class="dl">"</span><span class="s2">All datas are valid!, send it to the server!</span><span class="dl">"</span><span class="p">)</span>
+
+             <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+         <span class="p">}</span>
+      <span class="nt">&lt;/script&gt;</span>
+   <span class="nt">&lt;/head&gt;</span>
+   <span class="nt">&lt;body&gt;</span>
+
+      <span class="nt">&lt;h2&gt;</span>Enter your Username and Password<span class="nt">&lt;/h2&gt;</span>
+
+      <span class="nt">&lt;div</span> <span class="na">style=</span><span class="s">"border:1px solid #ddd; padding: 5px;"</span><span class="nt">&gt;</span>
+         <span class="nt">&lt;form</span> <span class="na">method=</span><span class="s">"GET"</span> <span class="na">action=</span><span class="s">"process-action.html"</span> <span class="na">onsubmit = </span><span class="s">"return validateForm()"</span><span class="nt">&gt;</span>
+            Username: <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"username"</span> <span class="na">id=</span><span class="s">"username"</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;br&gt;&lt;br&gt;</span>
+            Password: <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"password"</span> <span class="na">name = </span><span class="s">"password"</span> <span class="na">id=</span><span class="s">"password"</span><span class="nt">/&gt;</span>
+            <span class="nt">&lt;br&gt;&lt;br&gt;</span>
+            <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"submit"</span><span class="nt">&gt;</span>Submit<span class="nt">&lt;/button&gt;</span>
+         <span class="nt">&lt;/form&gt;</span>
+      <span class="nt">&lt;/div&gt;</span>
+
+   <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">process-action.html</code></p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="nt">&lt;html&gt;</span>
+   <span class="nt">&lt;head&gt;</span>
+      <span class="nt">&lt;title&gt;</span>Process Action<span class="nt">&lt;/title&gt;</span>
+
+   <span class="nt">&lt;/head&gt;</span>
+   <span class="nt">&lt;body&gt;</span>
+
+      <span class="nt">&lt;h3&gt;</span>Process Action Page<span class="nt">&lt;/h3&gt;</span>
+
+      OK, I got data!
+      
+      <span class="nt">&lt;br/&gt;&lt;br/&gt;</span>
+
+      <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">"javascript:history.back();"</span><span class="nt">&gt;</span>[Go Back]<span class="nt">&lt;/a&gt;</span>
+
+   <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre></div></div>
+
+<p><img src="https://i.imgur.com/PVhJniR.png" alt="Imgur" /></p>
+
+<h5 id="-3-truy-cập-vào-các-dữ-liệu-của-form--"><span style="color: blue"> 3. Truy cập vào các dữ liệu của form  </span></h5>
+
+<p>Truy cập vào dữ liệu của một trường (field) thông qua ID của trường</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">id=</span><span class="s">"username"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"password"</span> <span class="na">id=</span><span class="s">"password"</span><span class="nt">&gt;</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Access field via ID</span>
+<span class="kd">var</span> <span class="nx">field</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">getElementById</span><span class="p">(</span><span class="dl">"</span><span class="s2">field</span><span class="dl">"</span><span class="p">)</span>
+<span class="kd">var</span> <span class="nx">value</span> <span class="o">=</span> <span class="nx">field</span><span class="p">.</span><span class="nx">value</span>
+</code></pre></div></div>
+
+<p>Truy cập vào các trường của <code class="language-plaintext highlighter-rouge">Form</code> thông qua thuộc tính <code class="language-plaintext highlighter-rouge">name</code>:</p>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;form</span> <span class="na">name=</span><span class="s">"myForm"</span> <span class="err">...</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"text"</span> <span class="na">name=</span><span class="s">"username"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">"password"</span> <span class="na">name=</span><span class="s">"password"</span><span class="nt">/&gt;</span>
+    <span class="nt">&lt;button</span> <span class="na">type=</span><span class="s">"submit"</span><span class="nt">&gt;</span> Submit<span class="nt">&lt;/button&gt;</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// Get form via form name</span>
+<span class="kd">var</span> <span class="nx">myForm</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">forms</span><span class="p">[</span><span class="dl">"</span><span class="s2">myForm</span><span class="dl">"</span><span class="p">];</span>
+<span class="kd">var</span> <span class="nx">u</span> <span class="o">=</span> <span class="nx">myForm</span><span class="p">[</span><span class="dl">"</span><span class="s2">username</span><span class="dl">"</span><span class="p">].</span><span class="nx">value</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">p</span> <span class="o">=</span> <span class="nx">myForm</span><span class="p">[</span><span class="dl">"</span><span class="s2">password</span><span class="dl">"</span><span class="p">].</span><span class="nx">value</span><span class="p">;</span>
 </code></pre></div></div>
 
 
