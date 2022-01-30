@@ -298,6 +298,53 @@ MathJax.Hub.Queue(function() {
 <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">NAME</span> <span class="k">FROM</span> <span class="n">CITY</span> <span class="k">WHERE</span> <span class="n">COUNTRYCODE</span> <span class="o">=</span> <span class="nv">"JPN"</span><span class="p">;</span>
 </code></pre></div></div>
 
+<h4 id="-bài-7-"><span style="color:#4cbb17"> Bài 7: </span></h4>
+
+<p><img src="https://i.imgur.com/Ni5HDYH.png" alt="Imgur" /></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">CITY</span><span class="p">,</span><span class="k">STATE</span> <span class="k">FROM</span> <span class="n">STATION</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h4 id="-bài-8-"><span style="color:#4cbb17"> Bài 8: </span></h4>
+
+<p><img src="https://i.imgur.com/9jjNVm6.png" alt="Imgur" /></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">CITY</span> <span class="k">FROM</span> <span class="n">STATION</span> <span class="k">WHERE</span> <span class="n">ID</span><span class="o">%</span><span class="mi">2</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h4 id="-bài-9-"><span style="color:#4cbb17"> Bài 9: </span></h4>
+
+<p><img src="https://i.imgur.com/NDZa6p3.png" alt="Imgur" /></p>
+
+<p><img src="https://i.imgur.com/f1a31O4.png" alt="Imgur" /></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="n">CITY</span><span class="p">)</span> <span class="o">-</span> <span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span> <span class="n">CITY</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">STATION</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h4 id="--harder--"><span style="color:RED"> <em>** HARDER **</em> </span></h4>
+
+<h4 id="-bài-10-"><span style="color:#4cbb17"> Bài 10: </span></h4>
+
+<p><img src="https://i.imgur.com/TuDo79d.png" alt="Imgur" /></p>
+
+<p><img src="https://i.imgur.com/pc2Yrlb.png" alt="Imgur" /></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">CITY</span><span class="p">,</span> <span class="k">LENGTH</span><span class="p">(</span><span class="n">CITY</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">STATION</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="k">LENGTH</span><span class="p">(</span><span class="n">CITY</span><span class="p">),</span><span class="n">CITY</span>
+<span class="k">LIMIT</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="k">SELECT</span> <span class="n">CITY</span><span class="p">,</span> <span class="k">LENGTH</span><span class="p">(</span><span class="n">CITY</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">STATION</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="k">LENGTH</span><span class="p">(</span><span class="n">CITY</span><span class="p">)</span> <span class="k">DESC</span><span class="p">,</span><span class="n">CITY</span>
+<span class="k">LIMIT</span> <span class="mi">1</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h4 id="-bài-11-"><span style="color:#4cbb17"> Bài 11: </span></h4>
+
+<p><img src="https://i.imgur.com/g0mmEqi.png" alt="Imgur" /></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+</code></pre></div></div>
+
 
       </article>
 
