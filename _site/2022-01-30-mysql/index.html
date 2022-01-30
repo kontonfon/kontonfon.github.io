@@ -342,9 +342,100 @@ MathJax.Hub.Queue(function() {
 
 <p><img src="https://i.imgur.com/g0mmEqi.png" alt="Imgur" /></p>
 
-<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">CITY</span> <span class="k">FROM</span> <span class="n">STATION</span> <span class="k">WHERE</span> <span class="k">SUBSTRING</span><span class="p">(</span><span class="n">CITY</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'e'</span><span class="p">,</span><span class="s1">'i'</span><span class="p">,</span><span class="s1">'o'</span><span class="p">,</span><span class="s1">'u'</span><span class="p">,</span><span class="s1">'A'</span><span class="p">,</span><span class="s1">'E'</span><span class="p">,</span><span class="s1">'I'</span><span class="p">,</span><span class="s1">'O'</span><span class="p">,</span><span class="s1">'U'</span><span class="p">);</span> 
 </code></pre></div></div>
 
+<h4 id="-bài-12-"><span style="color:#4cbb17"> Bài 12: </span></h4>
+
+<p><img src="https://i.imgur.com/JUyCT7r.png" alt="Imgur" /></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">CITY</span> <span class="k">FROM</span> <span class="n">STATION</span> <span class="k">WHERE</span> <span class="k">SUBSTRING</span><span class="p">(</span><span class="n">CITY</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'e'</span><span class="p">,</span><span class="s1">'i'</span><span class="p">,</span><span class="s1">'o'</span><span class="p">,</span><span class="s1">'u'</span><span class="p">,</span><span class="s1">'A'</span><span class="p">,</span><span class="s1">'E'</span><span class="p">,</span><span class="s1">'I'</span><span class="p">,</span><span class="s1">'O'</span><span class="p">,</span><span class="s1">'U'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h4 id="-bài-13-"><span style="color:#4cbb17"> Bài 13: </span></h4>
+
+<p><img src="https://i.imgur.com/QbHRsoH.png" alt="Imgur" /></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">CITY</span> <span class="k">FROM</span> <span class="n">STATION</span> <span class="k">WHERE</span> <span class="k">SUBSTRING</span><span class="p">(</span><span class="n">CITY</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'e'</span><span class="p">,</span><span class="s1">'i'</span><span class="p">,</span><span class="s1">'o'</span><span class="p">,</span><span class="s1">'u'</span><span class="p">,</span><span class="s1">'A'</span><span class="p">,</span><span class="s1">'E'</span><span class="p">,</span><span class="s1">'I'</span><span class="p">,</span><span class="s1">'O'</span><span class="p">,</span><span class="s1">'U'</span><span class="p">)</span> <span class="k">AND</span> <span class="k">SUBSTRING</span><span class="p">(</span><span class="n">CITY</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'e'</span><span class="p">,</span><span class="s1">'i'</span><span class="p">,</span><span class="s1">'o'</span><span class="p">,</span><span class="s1">'u'</span><span class="p">,</span><span class="s1">'A'</span><span class="p">,</span><span class="s1">'E'</span><span class="p">,</span><span class="s1">'I'</span><span class="p">,</span><span class="s1">'O'</span><span class="p">,</span><span class="s1">'U'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h4 id="-bài-14-"><span style="color:#4cbb17"> Bài 14: </span></h4>
+
+<p><img src="https://i.imgur.com/JkxEf2p.png" alt="Imgur" /></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">CITY</span> <span class="k">FROM</span> <span class="n">STATION</span> <span class="k">WHERE</span> <span class="k">SUBSTRING</span><span class="p">(</span><span class="n">CITY</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'e'</span><span class="p">,</span><span class="s1">'i'</span><span class="p">,</span><span class="s1">'o'</span><span class="p">,</span><span class="s1">'u'</span><span class="p">,</span><span class="s1">'A'</span><span class="p">,</span><span class="s1">'E'</span><span class="p">,</span><span class="s1">'I'</span><span class="p">,</span><span class="s1">'O'</span><span class="p">,</span><span class="s1">'U'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h4 id="-bài-15-"><span style="color:#4cbb17"> Bài 15: </span></h4>
+
+<p><img src="https://i.imgur.com/OpaKV9X.png" alt="Imgur" /></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">CITY</span> <span class="k">FROM</span> <span class="n">STATION</span> <span class="k">WHERE</span> <span class="k">SUBSTRING</span><span class="p">(</span><span class="n">CITY</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'e'</span><span class="p">,</span><span class="s1">'i'</span><span class="p">,</span><span class="s1">'o'</span><span class="p">,</span><span class="s1">'u'</span><span class="p">,</span><span class="s1">'A'</span><span class="p">,</span><span class="s1">'E'</span><span class="p">,</span><span class="s1">'I'</span><span class="p">,</span><span class="s1">'O'</span><span class="p">,</span><span class="s1">'U'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h4 id="-harder-level-2--"><span style="color:RED"><em>** HARDER LEVEL 2: **</em> </span></h4>
+
+<h4 id="-bài-16-"><span style="color:#4cbb17"> Bài 16: </span></h4>
+
+<p><img src="https://i.imgur.com/Z5CkXqk.png" alt="Imgur" /></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">CITY</span> <span class="k">FROM</span> <span class="n">STATION</span> <span class="k">WHERE</span> <span class="k">SUBSTRING</span><span class="p">(</span><span class="n">CITY</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'e'</span><span class="p">,</span><span class="s1">'i'</span><span class="p">,</span><span class="s1">'o'</span><span class="p">,</span><span class="s1">'u'</span><span class="p">,</span><span class="s1">'A'</span><span class="p">,</span><span class="s1">'E'</span><span class="p">,</span><span class="s1">'I'</span><span class="p">,</span><span class="s1">'O'</span><span class="p">,</span><span class="s1">'U'</span><span class="p">)</span> <span class="k">OR</span> <span class="k">SUBSTRING</span><span class="p">(</span><span class="n">CITY</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'e'</span><span class="p">,</span><span class="s1">'i'</span><span class="p">,</span><span class="s1">'o'</span><span class="p">,</span><span class="s1">'u'</span><span class="p">,</span><span class="s1">'A'</span><span class="p">,</span><span class="s1">'E'</span><span class="p">,</span><span class="s1">'I'</span><span class="p">,</span><span class="s1">'O'</span><span class="p">,</span><span class="s1">'U'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h4 id="-bài-17-"><span style="color:#4cbb17"> Bài 17: </span></h4>
+
+<p><img src="https://i.imgur.com/kzkQZJg.png" alt="Imgur" /></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">CITY</span> <span class="k">FROM</span> <span class="n">STATION</span> <span class="k">WHERE</span> <span class="k">SUBSTRING</span><span class="p">(</span><span class="n">CITY</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'e'</span><span class="p">,</span><span class="s1">'i'</span><span class="p">,</span><span class="s1">'o'</span><span class="p">,</span><span class="s1">'u'</span><span class="p">,</span><span class="s1">'A'</span><span class="p">,</span><span class="s1">'E'</span><span class="p">,</span><span class="s1">'I'</span><span class="p">,</span><span class="s1">'O'</span><span class="p">,</span><span class="s1">'U'</span><span class="p">)</span> <span class="k">AND</span> <span class="k">SUBSTRING</span><span class="p">(</span><span class="n">CITY</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">IN</span> <span class="p">(</span><span class="s1">'a'</span><span class="p">,</span><span class="s1">'e'</span><span class="p">,</span><span class="s1">'i'</span><span class="p">,</span><span class="s1">'o'</span><span class="p">,</span><span class="s1">'u'</span><span class="p">,</span><span class="s1">'A'</span><span class="p">,</span><span class="s1">'E'</span><span class="p">,</span><span class="s1">'I'</span><span class="p">,</span><span class="s1">'O'</span><span class="p">,</span><span class="s1">'U'</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h4 id="-bài-18-"><span style="color:#4cbb17"> Bài 18: </span></h4>
+
+<p><img src="https://i.imgur.com/Hvoshzc.png" alt="Imgur" />
+<img src="https://i.imgur.com/vhJl1ra.png" alt="Imgur" /></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">NAME</span> <span class="k">FROM</span> <span class="n">STUDENTS</span> <span class="k">WHERE</span> <span class="n">MARKS</span> <span class="o">&gt;</span> <span class="mi">75</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="k">RIGHT</span><span class="p">(</span><span class="n">NAME</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span><span class="n">ID</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h4 id="-bài-19-"><span style="color:#4cbb17"> Bài 19: </span></h4>
+
+<p><img src="https://i.imgur.com/Tz13KJI.png" alt="Imgur" />
+<img src="https://i.imgur.com/uU3vr7j.png" alt="Imgur" /></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">NAME</span> <span class="k">FROM</span> <span class="n">EMPLOYEE</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">NAME</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h4 id="-bài-20-"><span style="color:#4cbb17"> Bài 20: </span></h4>
+
+<p><img src="https://i.imgur.com/X5oHJGr.png" alt="Imgur" />
+<img src="https://i.imgur.com/62FS9gU.png" alt="Imgur" /></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">NAME</span> <span class="k">FROM</span> <span class="n">EMPLOYEE</span> <span class="k">WHERE</span> <span class="n">SALARY</span> <span class="o">&gt;</span> <span class="mi">2000</span> <span class="k">AND</span> <span class="n">MONTHS</span> <span class="o">&lt;</span> <span class="mi">10</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">EMPLOYEE_ID</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h4 id="-harder-level-3--"><span style="color:RED"><em>** HARDER LEVEL 3: **</em> </span></h4>
+
+<h4 id="-bài-21-"><span style="color:#4cbb17"> Bài 21: </span></h4>
+
+<p><img src="https://i.imgur.com/L3w3Rff.png" alt="Imgur" /></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SET</span> <span class="o">@</span><span class="k">TEMP</span><span class="p">:</span><span class="o">=</span><span class="mi">21</span><span class="p">;</span> 
+<span class="k">SELECT</span> <span class="n">REPEAT</span><span class="p">(</span><span class="s1">'* '</span><span class="p">,</span> <span class="o">@</span><span class="k">TEMP</span><span class="p">:</span><span class="o">=</span> <span class="o">@</span><span class="k">TEMP</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> 
+<span class="k">FROM</span> <span class="n">INFORMATION_SCHEMA</span><span class="p">.</span><span class="n">TABLES</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h4 id="-bài-22-"><span style="color:#4cbb17"> Bài 22: </span></h4>
+
+<p><img src="https://i.imgur.com/WP7vPKo.png" alt="Imgur" /></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SET</span> <span class="o">@</span><span class="k">TEMP</span><span class="p">:</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> 
+<span class="k">SELECT</span> <span class="n">REPEAT</span><span class="p">(</span><span class="s1">'* '</span><span class="p">,</span> <span class="o">@</span><span class="k">TEMP</span><span class="p">:</span><span class="o">=</span> <span class="o">@</span><span class="k">TEMP</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> 
+<span class="k">FROM</span> <span class="n">INFORMATION_SCHEMA</span><span class="p">.</span><span class="n">TABLES</span>
+<span class="k">WHERE</span> <span class="o">@</span><span class="k">TEMP</span> <span class="o">&lt;</span> <span class="mi">20</span><span class="p">;</span>
+</code></pre></div></div>
 
       </article>
 
