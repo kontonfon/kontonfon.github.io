@@ -470,6 +470,81 @@ MathJax.Hub.Queue(function() {
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GROUP BY: Là sort lại và chỉ lấy cái đại diện thôi còn ORDER BY: thì cũng sắp xếp lại và lấy luôn những cái giống nhau !
 </code></pre></div></div>
 
+<h4 id="-bài-25-"><span style="color:#4cbb17"> Bài 25: </span></h4>
+
+<p><img src="https://i.imgur.com/5n7K5JR.png" alt="Imgur" />
+<img src="https://i.imgur.com/MbmefDj.png" alt="Imgur" />
+<img src="https://i.imgur.com/sj0JkSW.png" alt="Imgur" /></p>
+
+<p>Solution: [Don’t see example because input not example]</p>
+
+<p>** Step 1: **</p>
+
+<p>Create a virtual table in your head of data given to us. It look like us:</p>
+
+<p><img src="https://i.imgur.com/eBBn6CN.png" alt="Imgur" /></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span>
+    <span class="k">case</span> <span class="k">when</span> <span class="n">Occupation</span><span class="o">=</span><span class="s1">'Doctor'</span> <span class="k">then</span> <span class="n">Name</span> <span class="k">end</span> <span class="k">as</span> <span class="n">Doctor</span><span class="p">,</span>
+    <span class="k">case</span> <span class="k">when</span> <span class="n">Occupation</span><span class="o">=</span><span class="s1">'Professor'</span> <span class="k">then</span> <span class="n">Name</span> <span class="k">end</span> <span class="k">as</span> <span class="n">Professor</span><span class="p">,</span>
+    <span class="k">case</span> <span class="k">when</span> <span class="n">Occupation</span><span class="o">=</span><span class="s1">'Singer'</span> <span class="k">then</span> <span class="n">Name</span> <span class="k">end</span> <span class="k">as</span> <span class="n">Singer</span><span class="p">,</span>
+    <span class="k">case</span> <span class="k">when</span> <span class="n">Occupation</span><span class="o">=</span><span class="s1">'Actor'</span> <span class="k">then</span> <span class="n">Name</span> <span class="k">end</span> <span class="k">as</span> <span class="n">Actor</span>
+<span class="k">FROM</span> <span class="n">OCCUPATIONS</span>
+</code></pre></div></div>
+
+<p>Explanation: <code class="language-plaintext highlighter-rouge">END AS</code> in <code class="language-plaintext highlighter-rouge">mysql</code></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">OrderID</span><span class="p">,</span> <span class="n">Quantity</span><span class="p">,</span>
+<span class="k">CASE</span> <span class="k">WHEN</span> <span class="n">Quantity</span> <span class="o">&gt;</span> <span class="mi">30</span> <span class="k">THEN</span> <span class="s1">'The quantity is greater than 30'</span>
+<span class="k">WHEN</span> <span class="n">Quantity</span> <span class="o">=</span> <span class="mi">30</span> <span class="k">THEN</span> <span class="s1">'The quantity is 30'</span>
+<span class="k">ELSE</span> <span class="s1">'The quantity is under 30'</span>
+<span class="k">END</span> <span class="k">AS</span> <span class="n">QuantityText</span>
+<span class="k">FROM</span> <span class="n">OrderDetails</span><span class="p">;</span>
+</code></pre></div></div>
+
+<p><img src="https://i.imgur.com/80rZqet.png" alt="Imgur" /></p>
+
+<p>** Step 2: **</p>
+
+<p>Create an index column with respect to occupation as “RowNumber”</p>
+
+<p><img src="https://i.imgur.com/PaC7sEQ.png" alt="Imgur" /></p>
+
+<p>Notice from the image, under professor column, the first Name is indexed as 1, the next name “Birtney” as 2. That is what I mean by index w.r.t occupation.</p>
+
+<p>The below code will only give the “RowNumber” column, to get the result like in image proceed to step 3</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>set @r1=0, @r2=0, @r3=0, @r4=0;
+
+SELECT case 
+	when Occupation='Doctor' then (@r1:=@r1+1)
+        when Occupation='Professor' then (@r2:=@r2+1)
+        when Occupation='Singer' then (@r3:=@r3+1)
+        when Occupation='Actor' then (@r4:=@r4+1) end as RowNumber
+
+FROM OCCUPATIONS
+</code></pre></div></div>
+
+<p>** Step 3: **</p>
+
+<p>Combine the result from step 1 and step 2:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">set</span> <span class="o">@</span><span class="n">r1</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="o">@</span><span class="n">r2</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="o">@</span><span class="n">r3</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="o">@</span><span class="n">r4</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span>
+
+<span class="k">SELECT</span> <span class="k">case</span> 
+	<span class="k">when</span> <span class="n">Occupation</span><span class="o">=</span><span class="s1">'Doctor'</span> <span class="k">then</span> <span class="p">(</span><span class="o">@</span><span class="n">r1</span><span class="p">:</span><span class="o">=@</span><span class="n">r1</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">when</span> <span class="n">Occupation</span><span class="o">=</span><span class="s1">'Professor'</span> <span class="k">then</span> <span class="p">(</span><span class="o">@</span><span class="n">r2</span><span class="p">:</span><span class="o">=@</span><span class="n">r2</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">when</span> <span class="n">Occupation</span><span class="o">=</span><span class="s1">'Singer'</span> <span class="k">then</span> <span class="p">(</span><span class="o">@</span><span class="n">r3</span><span class="p">:</span><span class="o">=@</span><span class="n">r3</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">when</span> <span class="n">Occupation</span><span class="o">=</span><span class="s1">'Actor'</span> <span class="k">then</span> <span class="p">(</span><span class="o">@</span><span class="n">r4</span><span class="p">:</span><span class="o">=@</span><span class="n">r4</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="k">end</span> <span class="k">as</span> <span class="n">RowNumber</span><span class="p">,</span>
+        <span class="k">case</span> <span class="k">when</span> <span class="n">Occupation</span><span class="o">=</span><span class="s1">'Doctor'</span> <span class="k">then</span> <span class="n">Name</span> <span class="k">end</span> <span class="k">as</span> <span class="n">Doctor</span><span class="p">,</span>
+        <span class="k">case</span> <span class="k">when</span> <span class="n">Occupation</span><span class="o">=</span><span class="s1">'Professor'</span> <span class="k">then</span> <span class="n">Name</span> <span class="k">end</span> <span class="k">as</span> <span class="n">Professor</span><span class="p">,</span>
+        <span class="k">case</span> <span class="k">when</span> <span class="n">Occupation</span><span class="o">=</span><span class="s1">'Singer'</span> <span class="k">then</span> <span class="n">Name</span> <span class="k">end</span> <span class="k">as</span> <span class="n">Singer</span><span class="p">,</span>
+        <span class="k">case</span> <span class="k">when</span> <span class="n">Occupation</span><span class="o">=</span><span class="s1">'Actor'</span> <span class="k">then</span> <span class="n">Name</span> <span class="k">end</span> <span class="k">as</span> <span class="n">Actor</span>
+
+<span class="k">FROM</span> <span class="n">OCCUPATIONS</span>
+
+</code></pre></div></div>
+
 
       </article>
 
