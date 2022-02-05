@@ -673,6 +673,55 @@ FROM OCCUPATIONS
 <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">select</span> <span class="k">abs</span><span class="p">(</span><span class="k">max</span><span class="p">(</span><span class="n">population</span><span class="p">)</span><span class="o">-</span><span class="k">min</span><span class="p">(</span><span class="n">population</span><span class="p">))</span> <span class="k">from</span> <span class="n">city</span><span class="p">;</span>
 </code></pre></div></div>
 
+<h4 id="-bài-34-"><span style="color:#4cbb17"> Bài 34: </span></h4>
+
+<p><img src="https://i.imgur.com/mseiUxa.png" alt="Imgur" /></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">select</span> <span class="k">count</span><span class="p">(</span><span class="n">population</span><span class="p">)</span> <span class="k">from</span> <span class="n">CITY</span> <span class="k">where</span> <span class="n">population</span> <span class="o">&gt;</span> <span class="mi">100000</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h4 id="-bài-35-"><span style="color:#4cbb17"> Bài 35: </span></h4>
+
+<p><img src="https://i.imgur.com/QluKPM7.png" alt="Imgur" /></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">select</span> <span class="k">sum</span><span class="p">(</span><span class="n">population</span><span class="p">)</span> <span class="k">from</span> <span class="n">city</span> <span class="k">where</span> <span class="n">district</span> <span class="o">=</span> <span class="nv">"California"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h4 id="-bài-36-"><span style="color:#4cbb17"> Bài 36: </span></h4>
+
+<p><img src="https://i.imgur.com/zeyDzpC.png" alt="Imgur" /></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">select</span> <span class="k">avg</span><span class="p">(</span><span class="n">population</span><span class="p">)</span> <span class="k">from</span> <span class="n">city</span> <span class="k">where</span> <span class="n">district</span> <span class="o">=</span> <span class="nv">"California"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h4 id="-bài-37-"><span style="color:#4cbb17"> Bài 37: </span></h4>
+
+<p><img src="https://i.imgur.com/29MQvhp.png" alt="Imgur" />
+<img src="https://i.imgur.com/7CK3Sid.png" alt="Imgur" />
+<img src="https://i.imgur.com/t4lTT5N.png" alt="Imgur" /></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">select</span> <span class="n">ceil</span><span class="p">(</span><span class="k">avg</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span><span class="o">-</span><span class="k">avg</span><span class="p">(</span><span class="k">replace</span><span class="p">(</span><span class="n">salary</span><span class="p">,</span><span class="s1">'0'</span><span class="p">,</span><span class="s1">''</span><span class="p">)))</span> <span class="k">from</span> <span class="n">employees</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h4 id="-bài-38-"><span style="color:#4cbb17"> Bài 38: </span></h4>
+
+<p><img src="https://i.imgur.com/UGbw19M.png" alt="Imgur" />
+<img src="https://i.imgur.com/bPFG0zR.png" alt="Imgur" />
+<img src="https://i.imgur.com/Q3zpuyT.png" alt="Imgur" /></p>
+
+<pre><code class="language-txt">salary*month --- first to calculate total earnings we multiply month * salary
+
+count() -- next for counting no of employees having that salary we use count()
+
+group by 1 -- ill take simple example..consider query SELECT name , id FROM employee group by 1; in this query there are 2 columns i.e., name and id...So we have to group it by 1st column that is name.
+
+order by earning desc -- it will order the table in desc order do that max value appears frst.
+
+limit 1 -- it will limit the table to 1 row only. so the query displays the frst row only.
+</code></pre>
+
+<p><img src="https://i.imgur.com/bUZWxVA.png" alt="Imgur" /></p>
+
 
       </article>
 
