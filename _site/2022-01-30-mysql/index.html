@@ -758,6 +758,35 @@ limit 1 -- it will limit the table to 1 row only. so the query displays the frst
 <div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">select</span> <span class="n">round</span><span class="p">(</span><span class="n">LONG_W</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="k">from</span> <span class="n">STATION</span> <span class="k">where</span> <span class="n">LAT_N</span> <span class="o">=</span> <span class="p">(</span><span class="k">select</span> <span class="k">MAX</span><span class="p">(</span><span class="n">LAT_N</span><span class="p">)</span> <span class="k">from</span> <span class="n">STATION</span> <span class="k">where</span> <span class="n">LAT_N</span><span class="o">&lt;</span><span class="mi">137</span><span class="p">.</span><span class="mi">2345</span><span class="p">);</span>
 </code></pre></div></div>
 
+<h4 id="-bài-43-"><span style="color:#4cbb17"> Bài 43: </span></h4>
+
+<p><img src="https://i.imgur.com/pCNROM7.png" alt="Imgur" /></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">ROUND</span><span class="p">(</span><span class="n">LAT_N</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">STATION</span> <span class="k">WHERE</span> <span class="n">LAT_N</span> <span class="o">=</span> <span class="p">(</span><span class="k">SELECT</span> <span class="k">MIN</span><span class="p">(</span><span class="n">LAT_N</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">STATION</span> <span class="k">WHERE</span> <span class="n">LAT_N</span><span class="o">&gt;</span><span class="mi">38</span><span class="p">.</span><span class="mi">7780</span><span class="p">);</span>
+</code></pre></div></div>
+
+<h4 id="-bài-44-"><span style="color:#4cbb17"> Bài 44: </span></h4>
+
+<p><img src="https://i.imgur.com/9KCeSy5.png" alt="Imgur" />
+<img src="https://i.imgur.com/bdMXyWW.png" alt="Imgur" />
+<img src="https://i.imgur.com/iTLjx3T.png" alt="Imgur" />
+<img src="https://i.imgur.com/cdfJtbA.png" alt="Imgur" />
+<img src="https://i.imgur.com/ObkANby.png" alt="Imgur" /></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">W</span><span class="p">.</span><span class="n">ID</span><span class="p">,</span> <span class="n">P</span><span class="p">.</span><span class="n">AGE</span><span class="p">,</span> <span class="n">W</span><span class="p">.</span><span class="n">COINS_NEEDED</span><span class="p">,</span> <span class="n">W</span><span class="p">.</span><span class="n">POWER</span> 
+<span class="k">FROM</span> <span class="n">WANDS</span> <span class="k">AS</span> <span class="n">W</span>
+<span class="k">JOIN</span> <span class="n">WANDS_PROPERTY</span> <span class="k">AS</span> <span class="n">P</span>
+<span class="k">ON</span> <span class="p">(</span><span class="n">W</span><span class="p">.</span><span class="n">CODE</span> <span class="o">=</span> <span class="n">P</span><span class="p">.</span><span class="n">CODE</span><span class="p">)</span>
+<span class="k">WHERE</span> <span class="n">P</span><span class="p">.</span><span class="n">IS_EVIL</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">AND</span> <span class="n">W</span><span class="p">.</span><span class="n">COINS_NEEDED</span> <span class="o">=</span> <span class="p">(</span><span class="k">SELECT</span> <span class="k">MIN</span><span class="p">(</span><span class="n">COINS_NEEDED</span><span class="p">)</span>
+                                         <span class="k">FROM</span> <span class="n">WANDS</span> <span class="k">AS</span> <span class="n">X</span>
+                                         <span class="k">JOIN</span> <span class="n">WANDS_PROPERTY</span> <span class="k">AS</span> <span class="n">Y</span>
+                                         <span class="k">ON</span> <span class="p">(</span><span class="n">X</span><span class="p">.</span><span class="n">CODE</span> <span class="o">=</span> <span class="n">Y</span><span class="p">.</span><span class="n">CODE</span><span class="p">)</span>
+                                         <span class="k">WHERE</span> <span class="n">X</span><span class="p">.</span><span class="n">POWER</span> <span class="o">=</span> <span class="n">W</span><span class="p">.</span><span class="n">POWER</span> <span class="k">AND</span> <span class="n">Y</span><span class="p">.</span><span class="n">AGE</span> <span class="o">=</span> <span class="n">P</span><span class="p">.</span><span class="n">AGE</span><span class="p">)</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">W</span><span class="p">.</span><span class="n">POWER</span> <span class="k">DESC</span><span class="p">,</span> <span class="n">P</span><span class="p">.</span><span class="n">AGE</span> <span class="k">DESC</span><span class="p">;</span>  
+
+
+</code></pre></div></div>
+
       </article>
 
       
