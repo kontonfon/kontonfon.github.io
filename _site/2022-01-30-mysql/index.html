@@ -783,8 +783,105 @@ limit 1 -- it will limit the table to 1 row only. so the query displays the frst
                                          <span class="k">ON</span> <span class="p">(</span><span class="n">X</span><span class="p">.</span><span class="n">CODE</span> <span class="o">=</span> <span class="n">Y</span><span class="p">.</span><span class="n">CODE</span><span class="p">)</span>
                                          <span class="k">WHERE</span> <span class="n">X</span><span class="p">.</span><span class="n">POWER</span> <span class="o">=</span> <span class="n">W</span><span class="p">.</span><span class="n">POWER</span> <span class="k">AND</span> <span class="n">Y</span><span class="p">.</span><span class="n">AGE</span> <span class="o">=</span> <span class="n">P</span><span class="p">.</span><span class="n">AGE</span><span class="p">)</span>
 <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">W</span><span class="p">.</span><span class="n">POWER</span> <span class="k">DESC</span><span class="p">,</span> <span class="n">P</span><span class="p">.</span><span class="n">AGE</span> <span class="k">DESC</span><span class="p">;</span>  
+</code></pre></div></div>
 
+<h4 id="-bài-44--1"><span style="color:#4cbb17"> Bài 44: </span></h4>
 
+<p><img src="https://i.imgur.com/1Yc6daG.png" alt="Imgur" /></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="k">SUM</span><span class="p">(</span><span class="n">CITY</span><span class="p">.</span><span class="n">POPULATION</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">CITY</span>
+<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">COUNTRY</span> 
+<span class="k">ON</span> <span class="n">CITY</span><span class="p">.</span><span class="n">COUNTRYCODE</span> <span class="o">=</span> <span class="n">COUNTRY</span><span class="p">.</span><span class="n">CODE</span> 
+<span class="k">WHERE</span> <span class="n">COUNTRY</span><span class="p">.</span><span class="n">CONTINENT</span> <span class="o">=</span> <span class="s1">'Asia'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h4 id="-bài-45-"><span style="color:#4cbb17"> Bài 45: </span></h4>
+
+<p><img src="https://i.imgur.com/UOvK4ZT.png" alt="Imgur" />
+<img src="https://i.imgur.com/w8lcI4j.png" alt="Imgur" /></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">CITY</span><span class="p">.</span><span class="n">NAME</span> <span class="k">FROM</span> <span class="n">CITY</span>
+<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">COUNTRY</span>
+<span class="k">ON</span> <span class="n">CITY</span><span class="p">.</span><span class="n">COUNTRYCODE</span> <span class="o">=</span> <span class="n">COUNTRY</span><span class="p">.</span><span class="n">CODE</span> 
+<span class="k">WHERE</span> <span class="n">COUNTRY</span><span class="p">.</span><span class="n">CONTINENT</span> <span class="o">=</span> <span class="s1">'Africa'</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h4 id="-bài-46-"><span style="color:#4cbb17"> Bài 46: </span></h4>
+
+<p><img src="https://i.imgur.com/LMkjt4Y.png" alt="Imgur" />
+<img src="https://i.imgur.com/6p2jVDC.png" alt="Imgur" /></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">COUNTRY</span><span class="p">.</span><span class="n">CONTINENT</span><span class="p">,</span> <span class="n">FLOOR</span><span class="p">(</span><span class="k">AVG</span><span class="p">(</span><span class="n">CITY</span><span class="p">.</span><span class="n">POPULATION</span><span class="p">))</span>
+<span class="k">FROM</span> <span class="n">COUNTRY</span><span class="p">,</span> <span class="n">CITY</span>
+<span class="k">WHERE</span> <span class="n">COUNTRY</span><span class="p">.</span><span class="n">CODE</span> <span class="o">=</span> <span class="n">CITY</span><span class="p">.</span><span class="n">COUNTRYCODE</span> 
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">COUNTRY</span><span class="p">.</span><span class="n">CONTINENT</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h4 id="-bài-47-"><span style="color:#4cbb17"> Bài 47: </span></h4>
+
+<p><img src="https://i.imgur.com/mnUHSwK.png" alt="Imgur" />
+<img src="https://i.imgur.com/NQ6mRHx.png" alt="Imgur" />
+<img src="https://i.imgur.com/eRCSCrq.png" alt="Imgur" /></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">IF</span><span class="p">(</span><span class="n">GRADES</span><span class="p">.</span><span class="n">GRADE</span><span class="o">&gt;=</span><span class="mi">8</span><span class="p">,</span><span class="n">STUDENTS</span><span class="p">.</span><span class="n">NAME</span><span class="p">,</span> <span class="k">NULL</span><span class="p">),</span> <span class="n">GRADES</span><span class="p">.</span><span class="n">GRADE</span><span class="p">,</span> <span class="n">STUDENTS</span><span class="p">.</span><span class="n">MARKS</span>
+<span class="k">FROM</span> <span class="n">GRADES</span><span class="p">,</span> <span class="n">STUDENTS</span> 
+<span class="k">WHERE</span> <span class="n">STUDENTS</span><span class="p">.</span><span class="n">MARKS</span> <span class="k">BETWEEN</span> <span class="n">GRADES</span><span class="p">.</span><span class="n">MIN_MARK</span> <span class="k">AND</span> <span class="n">GRADES</span><span class="p">.</span><span class="n">MAX_MARK</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">GRADES</span><span class="p">.</span><span class="n">GRADE</span> <span class="k">DESC</span><span class="p">,</span> <span class="n">STUDENTS</span><span class="p">.</span><span class="n">NAME</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h4 id="-bài-48-"><span style="color:#4cbb17"> Bài 48: </span></h4>
+
+<p><img src="https://i.imgur.com/lhu1Gy0.png" alt="Imgur" />
+<img src="https://i.imgur.com/BbymX7a.png" alt="Imgur" />
+<img src="https://i.imgur.com/XobDELW.png" alt="Imgur" />
+<img src="https://i.imgur.com/7eVd1Q8.png" alt="Imgur" />
+<img src="https://i.imgur.com/OMMnE6o.png" alt="Imgur" /></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">H</span><span class="p">.</span><span class="n">HACKER_ID</span><span class="p">,</span> <span class="n">H</span><span class="p">.</span><span class="n">NAME</span>
+<span class="k">FROM</span> <span class="n">HACKERS</span> <span class="n">H</span>
+<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">SUBMISSIONS</span> <span class="n">S</span>
+<span class="k">ON</span> <span class="n">H</span><span class="p">.</span><span class="n">HACKER_ID</span> <span class="o">=</span> <span class="n">S</span><span class="p">.</span><span class="n">HACKER_ID</span>
+<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">CHALLENGES</span> <span class="k">C</span>
+<span class="k">ON</span> <span class="n">S</span><span class="p">.</span><span class="n">CHALLENGE_ID</span> <span class="o">=</span> <span class="k">C</span><span class="p">.</span><span class="n">CHALLENGE_ID</span>
+<span class="k">INNER</span> <span class="k">JOIN</span> <span class="n">DIFFICULTY</span> <span class="n">D</span>
+<span class="k">ON</span> <span class="k">C</span><span class="p">.</span><span class="n">DIFFICULTY_LEVEL</span> <span class="o">=</span> <span class="n">D</span><span class="p">.</span><span class="n">DIFFICULTY_LEVEL</span>
+<span class="k">WHERE</span> <span class="n">S</span><span class="p">.</span><span class="n">SCORE</span> <span class="o">=</span> <span class="n">D</span><span class="p">.</span><span class="n">SCORE</span> <span class="k">AND</span> <span class="k">C</span><span class="p">.</span><span class="n">DIFFICULTY_LEVEL</span> <span class="o">=</span> <span class="n">D</span><span class="p">.</span><span class="n">DIFFICULTY_LEVEL</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">H</span><span class="p">.</span><span class="n">HACKER_ID</span><span class="p">,</span> <span class="n">H</span><span class="p">.</span><span class="n">NAME</span>
+<span class="k">HAVING</span> <span class="k">COUNT</span><span class="p">(</span><span class="n">S</span><span class="p">.</span><span class="n">HACKER_ID</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="k">COUNT</span><span class="p">(</span><span class="n">S</span><span class="p">.</span><span class="n">HACKER_ID</span><span class="p">)</span> <span class="k">DESC</span><span class="p">,</span> <span class="n">S</span><span class="p">.</span><span class="n">HACKER_ID</span> <span class="k">ASC</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h4 id="-bài-49-"><span style="color:#4cbb17"> Bài 49: </span></h4>
+
+<p><img src="https://i.imgur.com/9UIrgW7.png" alt="Imgur" />
+<img src="https://i.imgur.com/DrSRBnf.png" alt="Imgur" />
+<img src="https://i.imgur.com/CDsRqsj.png" alt="Imgur" />
+<img src="https://i.imgur.com/Q4XTmC3.png" alt="Imgur" />
+<img src="https://i.imgur.com/C20bDab.png" alt="Imgur" />
+<img src="https://i.imgur.com/9Y6ptBq.png" alt="Imgur" /></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">H</span><span class="p">.</span><span class="n">HACKER_ID</span><span class="p">,</span> 
+       <span class="n">H</span><span class="p">.</span><span class="n">NAME</span><span class="p">,</span> 
+       <span class="k">COUNT</span><span class="p">(</span><span class="k">C</span><span class="p">.</span><span class="n">CHALLENGE_ID</span><span class="p">)</span> <span class="k">AS</span> <span class="n">C_COUNT</span>
+<span class="k">FROM</span> <span class="n">HACKERS</span> <span class="n">H</span>
+<span class="k">JOIN</span> <span class="n">CHALLENGES</span> <span class="k">C</span> <span class="k">ON</span> <span class="k">C</span><span class="p">.</span><span class="n">HACKER_ID</span> <span class="o">=</span> <span class="n">H</span><span class="p">.</span><span class="n">HACKER_ID</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">H</span><span class="p">.</span><span class="n">HACKER_ID</span><span class="p">,</span> <span class="n">H</span><span class="p">.</span><span class="n">NAME</span>
+<span class="k">HAVING</span> <span class="n">C_COUNT</span> <span class="o">=</span> 
+    <span class="p">(</span><span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="n">C2</span><span class="p">.</span><span class="n">CHALLENGE_ID</span><span class="p">)</span> <span class="k">AS</span> <span class="n">C_MAX</span>
+     <span class="k">FROM</span> <span class="n">CHALLENGES</span> <span class="k">AS</span> <span class="n">C2</span>
+     <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">C2</span><span class="p">.</span><span class="n">HACKER_ID</span> 
+     <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">C_MAX</span> <span class="k">DESC</span> <span class="k">LIMIT</span> <span class="mi">1</span><span class="p">)</span>
+<span class="k">OR</span> <span class="n">C_COUNT</span> <span class="k">IN</span> 
+    <span class="p">(</span><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">C_COMPARE</span> <span class="k">AS</span> <span class="n">C_UNIQUE</span>
+     <span class="k">FROM</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">H2</span><span class="p">.</span><span class="n">HACKER_ID</span><span class="p">,</span> 
+                  <span class="n">H2</span><span class="p">.</span><span class="n">NAME</span><span class="p">,</span> 
+                  <span class="k">COUNT</span><span class="p">(</span><span class="n">CHALLENGE_ID</span><span class="p">)</span> <span class="k">AS</span> <span class="n">C_COMPARE</span>
+           <span class="k">FROM</span> <span class="n">HACKERS</span> <span class="n">H2</span>
+           <span class="k">JOIN</span> <span class="n">CHALLENGES</span> <span class="k">C</span> <span class="k">ON</span> <span class="k">C</span><span class="p">.</span><span class="n">HACKER_ID</span> <span class="o">=</span> <span class="n">H2</span><span class="p">.</span><span class="n">HACKER_ID</span>
+           <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">H2</span><span class="p">.</span><span class="n">HACKER_ID</span><span class="p">,</span> <span class="n">H2</span><span class="p">.</span><span class="n">NAME</span><span class="p">)</span> <span class="n">COUNTS</span>
+     <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">C_COMPARE</span>
+     <span class="k">HAVING</span> <span class="k">COUNT</span><span class="p">(</span><span class="n">C_COMPARE</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">C_COUNT</span> <span class="k">DESC</span><span class="p">,</span> <span class="n">H</span><span class="p">.</span><span class="n">HACKER_ID</span><span class="p">;</span>
 </code></pre></div></div>
 
       </article>
