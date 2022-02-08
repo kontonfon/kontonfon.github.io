@@ -15,7 +15,7 @@
   <meta name="author" content="Ngô Tấn Trí">
   
 
-  <meta name="description" content="Hackerank">
+  <meta name="description" content="Hackerrank">
 
   
 
@@ -73,7 +73,7 @@
   
   <meta property="og:site_name" content="Em0t3t">
   <meta property="og:title" content="Mysql Training">
-  <meta property="og:description" content="Hackerank">
+  <meta property="og:description" content="Hackerrank">
 
   
   <meta property="og:image" content="http://localhost:4000/assets/img/path.jpg">
@@ -94,7 +94,7 @@
   <meta name="twitter:creator" content="@daattali">
 
   <meta property="twitter:title" content="Mysql Training">
-  <meta property="twitter:description" content="Hackerank">
+  <meta property="twitter:description" content="Hackerrank">
 
   
   <meta name="twitter:image" content="http://localhost:4000/assets/img/path.jpg">
@@ -181,7 +181,7 @@
           <h1>Mysql Training</h1>
           
             
-              <h2 class="post-subheading">Hackerank</h2>
+              <h2 class="post-subheading">Hackerrank</h2>
             
           
 
@@ -205,7 +205,7 @@
           <h1>Mysql Training</h1>
           
             
-              <h2 class="post-subheading">Hackerank</h2>
+              <h2 class="post-subheading">Hackerrank</h2>
             
           
 
@@ -883,6 +883,72 @@ limit 1 -- it will limit the table to 1 row only. so the query displays the frst
      <span class="k">HAVING</span> <span class="k">COUNT</span><span class="p">(</span><span class="n">C_COMPARE</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
 <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">C_COUNT</span> <span class="k">DESC</span><span class="p">,</span> <span class="n">H</span><span class="p">.</span><span class="n">HACKER_ID</span><span class="p">;</span>
 </code></pre></div></div>
+
+<h4 id="-bài-50-"><span style="color:#4cbb17"> Bài 50: </span></h4>
+<p><img src="https://i.imgur.com/jOEzWjc.png" alt="Imgur" />
+<img src="https://i.imgur.com/J9j0gM2.png" alt="Imgur" />
+<img src="https://i.imgur.com/Svm9ndw.png" alt="Imgur" /></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">-- solution 1</span>
+<span class="k">SET</span> <span class="o">@</span><span class="n">project</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">SET</span> <span class="o">@</span><span class="n">last_date</span> <span class="o">=</span> <span class="k">NULL</span><span class="p">;</span>
+<span class="k">SELECT</span> <span class="k">MIN</span><span class="p">(</span><span class="n">start_date</span><span class="p">),</span> <span class="k">MAX</span><span class="p">(</span><span class="n">end_date</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="p">(</span><span class="k">SELECT</span>
+            <span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span><span class="p">,</span>
+            <span class="p">(</span><span class="k">CASE</span> <span class="k">WHEN</span> <span class="n">start_date</span> <span class="o">=</span> <span class="o">@</span><span class="n">last_date</span> <span class="k">THEN</span> <span class="o">@</span><span class="n">project</span>
+                  <span class="k">ELSE</span> <span class="o">@</span><span class="n">project</span><span class="p">:</span><span class="o">=@</span><span class="n">project</span><span class="o">+</span><span class="mi">1</span> <span class="k">END</span><span class="p">)</span> <span class="k">AS</span> <span class="n">project</span><span class="p">,</span>
+            <span class="o">@</span><span class="n">last_date</span><span class="p">:</span><span class="o">=</span><span class="n">end_date</span>
+            <span class="k">FROM</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">start_date</span><span class="p">,</span> <span class="n">end_date</span> <span class="k">FROM</span> <span class="n">projects</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">start_date</span><span class="p">)</span> <span class="n">sorted</span><span class="p">)</span> <span class="k">temp</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">project</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="k">COUNT</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="k">MIN</span><span class="p">(</span><span class="n">start_date</span><span class="p">);</span>
+<span class="c1">-- Solution 2</span>
+<span class="k">SELECT</span> <span class="n">start_date</span><span class="p">,</span> <span class="k">MIN</span><span class="p">(</span><span class="n">end_date</span><span class="p">)</span>
+<span class="k">FROM</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">start_date</span> <span class="k">FROM</span> <span class="n">projects</span>
+      <span class="k">WHERE</span> <span class="n">start_date</span> <span class="k">NOT</span> <span class="k">IN</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">end_date</span> <span class="k">FROM</span> <span class="n">projects</span><span class="p">))</span> <span class="n">a</span>
+      <span class="k">INNER</span> <span class="k">JOIN</span>
+     <span class="p">(</span><span class="k">SELECT</span> <span class="n">end_date</span> <span class="k">FROM</span> <span class="n">projects</span>
+      <span class="k">WHERE</span> <span class="n">end_date</span> <span class="k">NOT</span> <span class="k">IN</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">start_date</span> <span class="k">FROM</span> <span class="n">projects</span><span class="p">))</span> <span class="n">b</span>
+<span class="k">WHERE</span> <span class="n">start_date</span> <span class="o">&lt;</span> <span class="n">end_date</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">start_date</span>
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="k">MIN</span><span class="p">(</span><span class="n">end_date</span><span class="p">)</span> <span class="o">-</span> <span class="n">start_date</span><span class="p">,</span> <span class="n">start_date</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h4 id="-bài-51-"><span style="color:#4cbb17"> Bài 51: </span></h4>
+
+<p><img src="https://i.imgur.com/ZA7fAws.png" alt="Imgur" />
+<img src="https://i.imgur.com/wByAP51.png" alt="Imgur" />
+<img src="https://i.imgur.com/uwATlwZ.png" alt="Imgur" /></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">S</span><span class="p">.</span><span class="n">NAME</span> 
+<span class="k">FROM</span> <span class="n">STUDENTS</span> <span class="n">S</span>
+<span class="k">JOIN</span> <span class="n">FRIENDS</span> <span class="n">F</span> <span class="k">ON</span> <span class="n">S</span><span class="p">.</span><span class="n">ID</span> <span class="o">=</span> <span class="n">F</span><span class="p">.</span><span class="n">ID</span> 
+<span class="k">JOIN</span> <span class="n">PACKAGES</span> <span class="n">P1</span> <span class="k">ON</span> <span class="n">S</span><span class="p">.</span><span class="n">ID</span> <span class="o">=</span> <span class="n">P1</span><span class="p">.</span><span class="n">ID</span>
+<span class="k">JOIN</span> <span class="n">PACKAGES</span> <span class="n">P2</span> <span class="k">ON</span> <span class="n">F</span><span class="p">.</span><span class="n">FRIEND_ID</span> <span class="o">=</span> <span class="n">P2</span><span class="p">.</span><span class="n">ID</span> 
+<span class="k">WHERE</span> <span class="n">P2</span><span class="p">.</span><span class="n">SALARY</span> <span class="o">&gt;</span> <span class="n">P1</span><span class="p">.</span><span class="n">SALARY</span> 
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">P2</span><span class="p">.</span><span class="n">SALARY</span> 
+</code></pre></div></div>
+
+<h4 id="-bài-52-"><span style="color:#4cbb17"> Bài 52: </span></h4>
+
+<p><img src="https://i.imgur.com/Q0K81V8.png" alt="Imgur" />
+<img src="https://i.imgur.com/et80bx1.png" alt="Imgur" /></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">X</span><span class="p">,</span> <span class="n">Y</span> <span class="k">FROM</span> <span class="n">FUNCTIONS</span> <span class="n">F1</span>
+    <span class="k">WHERE</span> <span class="k">EXISTS</span><span class="p">(</span><span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">FUNCTIONS</span> <span class="n">F2</span> <span class="k">WHERE</span> <span class="n">F2</span><span class="p">.</span><span class="n">Y</span> <span class="o">=</span> <span class="n">F1</span><span class="p">.</span><span class="n">X</span>
+    <span class="k">AND</span> <span class="n">F2</span><span class="p">.</span><span class="n">X</span> <span class="o">=</span> <span class="n">F1</span><span class="p">.</span><span class="n">Y</span> <span class="k">AND</span> <span class="n">F2</span><span class="p">.</span><span class="n">X</span> <span class="o">&gt;</span> <span class="n">F1</span><span class="p">.</span><span class="n">X</span><span class="p">)</span> <span class="k">AND</span> <span class="p">(</span><span class="n">X</span> <span class="o">!=</span> <span class="n">Y</span><span class="p">)</span>
+<span class="k">UNION</span>
+<span class="k">SELECT</span> <span class="n">X</span><span class="p">,</span><span class="n">Y</span> <span class="k">FROM</span> <span class="n">FUNCTIONS</span> <span class="n">F1</span> <span class="k">WHERE</span> <span class="n">X</span> <span class="o">=</span> <span class="n">Y</span> <span class="k">AND</span> 
+    <span class="p">((</span><span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span> <span class="k">FROM</span> <span class="n">FUNCTIONS</span> <span class="k">WHERE</span> <span class="n">X</span> <span class="o">=</span> <span class="n">F1</span><span class="p">.</span><span class="n">X</span> <span class="k">AND</span> <span class="n">Y</span> <span class="o">=</span> <span class="n">F1</span><span class="p">.</span><span class="n">X</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">)</span>
+      <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">X</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h4 id="-bài-53-"><span style="color:#4cbb17"> Bài 53: </span></h4>
+
+<p><img src="https://i.imgur.com/XgnOvnU.png" alt="Imgur" />
+<img src="https://i.imgur.com/o6RxUQR.png" alt="Imgur" />
+<img src="https://i.imgur.com/irPfzmO.png" alt="Imgur" />
+<img src="https://i.imgur.com/1jUmtED.png" alt="Imgur" /></p>
+
 
       </article>
 
