@@ -942,13 +942,80 @@ limit 1 -- it will limit the table to 1 row only. so the query displays the frst
       <span class="k">ORDER</span> <span class="k">BY</span> <span class="n">X</span><span class="p">;</span>
 </code></pre></div></div>
 
-<h4 id="-bài-53-"><span style="color:#4cbb17"> Bài 53: </span></h4>
+<h4 id="-bài-53-"><span style="color:#4cbb17">(**) Bài 53: </span></h4>
 
 <p><img src="https://i.imgur.com/XgnOvnU.png" alt="Imgur" />
 <img src="https://i.imgur.com/o6RxUQR.png" alt="Imgur" />
 <img src="https://i.imgur.com/irPfzmO.png" alt="Imgur" />
 <img src="https://i.imgur.com/1jUmtED.png" alt="Imgur" /></p>
 
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*
+Working Platform:- MySQL
+*/</span>
+<span class="k">SELECT</span> <span class="n">A</span><span class="p">.</span><span class="n">CONTEST_ID</span><span class="p">,</span> <span class="n">A</span><span class="p">.</span><span class="n">HACKER_ID</span><span class="p">,</span> <span class="n">A</span><span class="p">.</span><span class="n">NAME</span><span class="p">,</span> 
+        <span class="k">SUM</span><span class="p">(</span><span class="n">TOTAL_SUBMISSIONS</span><span class="p">)</span> <span class="k">AS</span> <span class="n">TOTAL_SUBMISSIONS</span><span class="p">,</span> 
+        <span class="k">SUM</span><span class="p">(</span><span class="n">TOTAL_ACCEPTED_SUBMISSIONS</span><span class="p">)</span> <span class="k">AS</span> <span class="n">TOTAL_ACCEPTED_SUBMISSIONS</span><span class="p">,</span>
+        <span class="k">SUM</span><span class="p">(</span><span class="n">TOTAL_VIEWS</span><span class="p">)</span> <span class="k">AS</span> <span class="n">TOTAL_VIEWS</span><span class="p">,</span>
+        <span class="k">SUM</span><span class="p">(</span><span class="n">TOTAL_UNIQUE_VIEWS</span><span class="p">)</span> <span class="k">AS</span> <span class="n">TOTAL_UNIQUE_VIEWS</span>
+<span class="k">FROM</span> <span class="n">CONTESTS</span> <span class="k">AS</span> <span class="n">A</span>
+<span class="k">LEFT</span> <span class="k">JOIN</span> <span class="n">COLLEGES</span> <span class="k">AS</span> <span class="n">B</span>
+    <span class="k">ON</span> <span class="n">A</span><span class="p">.</span><span class="n">CONTEST_ID</span> <span class="o">=</span> <span class="n">B</span><span class="p">.</span><span class="n">CONTEST_ID</span>
+<span class="k">LEFT</span> <span class="k">JOIN</span> <span class="n">CHALLENGES</span> <span class="k">AS</span> <span class="k">C</span>
+    <span class="k">ON</span> <span class="n">B</span><span class="p">.</span><span class="n">COLLEGE_ID</span> <span class="o">=</span> <span class="k">C</span><span class="p">.</span><span class="n">COLLEGE_ID</span> 
+<span class="k">LEFT</span> <span class="k">JOIN</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">CHALLENGE_ID</span><span class="p">,</span> <span class="k">SUM</span><span class="p">(</span><span class="n">TOTAL_VIEWS</span><span class="p">)</span> <span class="k">AS</span> <span class="n">TOTAL_VIEWS</span><span class="p">,</span> 
+                  <span class="k">SUM</span><span class="p">(</span><span class="n">TOTAL_UNIQUE_VIEWS</span><span class="p">)</span> <span class="k">AS</span> <span class="n">TOTAL_UNIQUE_VIEWS</span>
+           <span class="k">FROM</span> <span class="n">VIEW_STATS</span>
+           <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">CHALLENGE_ID</span><span class="p">)</span> <span class="k">AS</span> <span class="n">D</span> 
+    <span class="k">ON</span> <span class="k">C</span><span class="p">.</span><span class="n">CHALLENGE_ID</span> <span class="o">=</span> <span class="n">D</span><span class="p">.</span><span class="n">CHALLENGE_ID</span> 
+<span class="k">LEFT</span> <span class="k">JOIN</span> <span class="p">(</span><span class="k">SELECT</span> <span class="n">CHALLENGE_ID</span><span class="p">,</span> <span class="k">SUM</span><span class="p">(</span><span class="n">TOTAL_SUBMISSIONS</span><span class="p">)</span> <span class="k">AS</span> <span class="n">TOTAL_SUBMISSIONS</span><span class="p">,</span> 
+                  <span class="k">SUM</span><span class="p">(</span><span class="n">TOTAL_ACCEPTED_SUBMISSIONS</span><span class="p">)</span> <span class="k">AS</span> <span class="n">TOTAL_ACCEPTED_SUBMISSIONS</span>
+           <span class="k">FROM</span> <span class="n">SUBMISSION_STATS</span>
+           <span class="k">GROUP</span> <span class="k">BY</span> <span class="n">CHALLENGE_ID</span><span class="p">)</span> <span class="k">AS</span> <span class="n">E</span>
+    <span class="k">ON</span> <span class="k">C</span><span class="p">.</span><span class="n">CHALLENGE_ID</span> <span class="o">=</span> <span class="n">E</span><span class="p">.</span><span class="n">CHALLENGE_ID</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">A</span><span class="p">.</span><span class="n">CONTEST_ID</span><span class="p">,</span> <span class="n">A</span><span class="p">.</span><span class="n">HACKER_ID</span><span class="p">,</span> <span class="n">A</span><span class="p">.</span><span class="n">NAME</span>
+<span class="k">HAVING</span> <span class="p">(</span><span class="n">TOTAL_SUBMISSIONS</span> <span class="o">+</span> <span class="n">TOTAL_ACCEPTED_SUBMISSIONS</span> <span class="o">+</span> <span class="n">TOTAL_VIEWS</span> <span class="o">+</span> <span class="n">TOTAL_UNIQUE_VIEWS</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> 
+<span class="k">ORDER</span> <span class="k">BY</span> <span class="n">A</span><span class="p">.</span><span class="n">CONTEST_ID</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h4 id="-bài-54-"><span style="color:#4cbb17">(**) Bài 54: </span></h4>
+
+<p><img src="https://i.imgur.com/9omFiXI.png" alt="Imgur" />
+<img src="https://i.imgur.com/RPecYXo.png" alt="Imgur" />
+<img src="https://i.imgur.com/C5vkKoz.png" alt="Imgur" />
+<img src="https://i.imgur.com/REqPwkR.png" alt="Imgur" /></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">SUBMISSION_DATE</span><span class="p">,</span>
+<span class="p">(</span><span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span> <span class="n">HACKER_ID</span><span class="p">)</span>  
+ <span class="k">FROM</span> <span class="n">SUBMISSIONS</span> <span class="n">S2</span>  
+ <span class="k">WHERE</span> <span class="n">S2</span><span class="p">.</span><span class="n">SUBMISSION_DATE</span> <span class="o">=</span> <span class="n">S1</span><span class="p">.</span><span class="n">SUBMISSION_DATE</span> <span class="k">AND</span>    
+<span class="p">(</span><span class="k">SELECT</span> <span class="k">COUNT</span><span class="p">(</span><span class="k">DISTINCT</span> <span class="n">S3</span><span class="p">.</span><span class="n">SUBMISSION_DATE</span><span class="p">)</span> 
+ <span class="k">FROM</span> <span class="n">SUBMISSIONS</span> <span class="n">S3</span> <span class="k">WHERE</span> <span class="n">S3</span><span class="p">.</span><span class="n">HACKER_ID</span> <span class="o">=</span> <span class="n">S2</span><span class="p">.</span><span class="n">HACKER_ID</span> <span class="k">AND</span> <span class="n">S3</span><span class="p">.</span><span class="n">SUBMISSION_DATE</span> <span class="o">&lt;</span> <span class="n">S1</span><span class="p">.</span><span class="n">SUBMISSION_DATE</span><span class="p">)</span> <span class="o">=</span> <span class="n">DATEDIFF</span><span class="p">(</span><span class="n">S1</span><span class="p">.</span><span class="n">SUBMISSION_DATE</span> <span class="p">,</span> <span class="s1">'2016-03-01'</span><span class="p">)),</span>
+<span class="p">(</span><span class="k">SELECT</span> <span class="n">HACKER_ID</span> <span class="k">FROM</span> <span class="n">SUBMISSIONS</span> <span class="n">S2</span> <span class="k">WHERE</span> <span class="n">S2</span><span class="p">.</span><span class="n">SUBMISSION_DATE</span> <span class="o">=</span> <span class="n">S1</span><span class="p">.</span><span class="n">SUBMISSION_DATE</span> 
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">HACKER_ID</span> <span class="k">ORDER</span> <span class="k">BY</span> <span class="k">COUNT</span><span class="p">(</span><span class="n">SUBMISSION_ID</span><span class="p">)</span> <span class="k">DESC</span><span class="p">,</span> <span class="n">HACKER_ID</span> <span class="k">LIMIT</span> <span class="mi">1</span><span class="p">)</span> <span class="k">AS</span> <span class="n">TMP</span><span class="p">,</span>
+<span class="p">(</span><span class="k">SELECT</span> <span class="n">NAME</span> <span class="k">FROM</span> <span class="n">HACKERS</span> <span class="k">WHERE</span> <span class="n">HACKER_ID</span> <span class="o">=</span> <span class="n">TMP</span><span class="p">)</span>
+<span class="k">FROM</span>
+<span class="p">(</span><span class="k">SELECT</span> <span class="k">DISTINCT</span> <span class="n">SUBMISSION_DATE</span> <span class="k">FROM</span> <span class="n">SUBMISSIONS</span><span class="p">)</span> <span class="n">S1</span>
+<span class="k">GROUP</span> <span class="k">BY</span> <span class="n">SUBMISSION_DATE</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h4 id="-bài-55-"><span style="color:#4cbb17">(**) Bài 55: </span></h4>
+
+<p><img src="https://i.imgur.com/VPFpidr.png" alt="Imgur" /></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="k">SET</span> <span class="o">@</span><span class="n">number</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+   <span class="k">SET</span> <span class="o">@</span><span class="n">divisor</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="k">SELECT</span> <span class="n">GROUP_CONCAT</span><span class="p">(</span><span class="n">n</span> <span class="n">SEPARATOR</span> <span class="s1">'&amp;'</span><span class="p">)</span>
+  <span class="k">FROM</span> <span class="p">(</span><span class="k">SELECT</span> <span class="o">@</span><span class="n">number</span> <span class="p">:</span><span class="o">=</span> <span class="o">@</span><span class="n">number</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">AS</span> <span class="n">n</span> 
+          <span class="k">FROM</span> <span class="n">information_schema</span><span class="p">.</span><span class="n">tables</span> <span class="k">AS</span> <span class="n">t1</span><span class="p">,</span> <span class="n">information_schema</span><span class="p">.</span><span class="n">tables</span> <span class="k">AS</span> <span class="n">t2</span>
+         <span class="k">LIMIT</span> <span class="mi">1000</span>
+       <span class="p">)</span> <span class="k">AS</span> <span class="n">n1</span>
+ <span class="k">WHERE</span> <span class="k">NOT</span> <span class="k">EXISTS</span><span class="p">(</span><span class="k">SELECT</span> <span class="o">*</span>
+                    <span class="k">FROM</span> <span class="p">(</span><span class="k">SELECT</span> <span class="o">@</span><span class="n">divisor</span> <span class="p">:</span><span class="o">=</span> <span class="o">@</span><span class="n">divisor</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">AS</span> <span class="n">d</span>
+                            <span class="k">FROM</span> <span class="n">information_schema</span><span class="p">.</span><span class="n">tables</span> <span class="k">AS</span> <span class="n">t3</span><span class="p">,</span> <span class="n">information_schema</span><span class="p">.</span><span class="n">tables</span> <span class="k">AS</span> <span class="n">t4</span>
+                           <span class="k">LIMIT</span> <span class="mi">1000</span>
+                         <span class="p">)</span> <span class="k">AS</span> <span class="n">n2</span>
+                   <span class="k">WHERE</span> <span class="k">MOD</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">AND</span> <span class="n">n</span> <span class="o">&lt;&gt;</span> <span class="n">d</span><span class="p">)</span>
+</code></pre></div></div>
 
       </article>
 
