@@ -12,6 +12,17 @@
     
     
       <item>
+        <title>Luyện thuật toán</title>
+        <description>
+          Algorithm - 
+          Bài 1: 467C - George and Job The solution to this problem is dynamic programming. Initially, you need to calculate psum_R, where psum_R is the sum on the prefix of the array p of length R. Let’s denote dp_(i,j) - the maximum profit that Jura can get if we have...
+        </description>
+        <pubDate>Thu, 10 Feb 2022 00:00:00 +0000</pubDate>
+        <link>http://localhost:4000/2022-02-10-Algorithm/</link>
+        <guid isPermaLink="true">http://localhost:4000/2022-02-10-Algorithm/</guid>
+      </item>
+    
+      <item>
         <title>Mysql Training</title>
         <description>
           Hackerrank - 
@@ -226,17 +237,6 @@
         <pubDate>Sat, 02 Jan 2021 00:00:00 +0000</pubDate>
         <link>http://localhost:4000/2021-01-02-Dai-so-truu-tuong/</link>
         <guid isPermaLink="true">http://localhost:4000/2021-01-02-Dai-so-truu-tuong/</guid>
-      </item>
-    
-      <item>
-        <title>Mẹo vặt và markdown đơn giản</title>
-        <description>
-          Welcome to Em0t3t&apos; Blog - 
-          1.Tạo bảng Number Next number Previous number Five Six Four Ten Eleven Nine Seven Eight Six Two Three One Cú pháp: Number | Next number | Previous number | | :------ |:--- | :--- | | Five | Six | Four | | Ten | Eleven | Nine | |...
-        </description>
-        <pubDate>Fri, 01 Jan 2021 00:00:00 +0000</pubDate>
-        <link>http://localhost:4000/2021-01-01-ok/</link>
-        <guid isPermaLink="true">http://localhost:4000/2021-01-01-ok/</guid>
       </item>
     
   </channel>
