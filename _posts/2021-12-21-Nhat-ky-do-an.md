@@ -313,6 +313,50 @@ Understanding the X.509 certificates, which is fully defined in RFC 5280, is key
 
 An X.509 certificate is a structured, binary record. This record consists of several key and value pairs. Keys represent field names, wherye values may be simple types (numbers, strings) to more complex structures (lists). The encoding from the key/value pairs to the structured binary record is done using a standard known as ASN. 1(Abstract Syntax Notation, One), which is a platform-agnostic encoding format.
 
+------------------------
+
+### <span style="color: red"> Thứ 7, ngày 12-02-2022 </span>
+
+`How to See Cached Pages And Files From Your Browser`
+
+When you surf the web and run across an issue with loading websites, the advice you'll hear most is to try to clear your browser cache and delete cookies. Most computer users are familiar with these terms. However, not everybody knows what exactly cached data and cookies are and why you should clear them from time to time.
+
+If you ever wondered what kind of data your browser collects when you search the web, there are a few places where you can look for it. Find out how to see cached pages and files from your browser and decide whether you;d like to keep that data or clear it for good 
+
+### What are cookies and Browser Cache ?
+
+Your browser cache is a location on your computer where the cached web content (or cache is stored)
+
+Your web browser stores complete or partial copies of the pages you recently viewed together with the media (images, audio, and video) in a file on your computer called the cache. The cached files are temporary files that help the internet pages load quicker.
+
+That's why when you clear your browser cache, you'll often see that the sites load slower than usual.
+
+Cookies are files that contain small pieces of data associated with the web pages that you visit. They're stored on your computer while you use your web browser. Their primary purpose os to track your online activity.
+
+Cookies record information like your most recent visit to the website or your login details. That's the reason why you often have to log into every site all over again after you delete your cookies.
+
+### How Does Browser Caching Work ?
+
+When you visit a website for the first time, the browser fetches all the data and media from the server.
+
+When you visit the same site again later, the browser retrieves only the HTML page information from the web server.
+
+All the static parts of the page like images or JavaScript files are pulled from the exisiting browser cache. Since the second time the size of data transferred from the remote web server to your browser is much smalle, your page loads faster.
+
+### How To View Cached Pages And Files
+
+In order to see cached pages and files, you first need to locate them. You can't always see them since the folder where they're stored may be hidden.
+
+Instructions for Windows
+
+On Windows, the path to locate the browser cache is little different. For example, for Google Chrome it looks like this:
+
+`C:\Users\USERNAME\AppData\Local\Google\Chrome\User Data\Default\Cache`
+
+You can also find Chrome's cache folder using the `Run command`
+
+Access the Run command through the `Start` menu or using Windows key + R. The copy and past the following into the command line/
+
 
 
 
