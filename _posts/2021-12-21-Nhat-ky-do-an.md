@@ -357,7 +357,7 @@ You can also find Chrome's cache folder using the `Run command`
 
 Access the Run command through the `Start` menu or using Windows key + R. The copy and past the following into the command line/
 
-
+Link: https://drive.google.com/drive/folders/1c_Logbm1It3kZzD3jKH-PcbfXahYrqI3?usp=sharing
 
 
 
