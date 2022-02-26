@@ -359,6 +359,83 @@ Access the Run command through the `Start` menu or using Windows key + R. The co
 
 Link: https://drive.google.com/drive/folders/1c_Logbm1It3kZzD3jKH-PcbfXahYrqI3?usp=sharing
 
+Code defense:
+
+```py
+from cgitb import text
+import tkinter as tk
+from tkinter import ttk 
+from selenium import webdriver
+
+driver = webdriver.Chrome()
+win = tk.Tk() 
+win.title("dutsec")
+
+# Them label username 
+
+lbl_username = tk.Label(win,text="username", fg="black",font = ("Times",20))
+lbl_username.grid(column = 0, row = 0)
+
+# Them textbox username 
+
+txt_username = tk.Entry(win,width=20)
+txt_username.grid(column=1,row=0)
+
+# Them label password
+
+lbl_password = tk.Label(win,text="password", fg="black",font = ("Times",20))
+lbl_password.grid(column = 0, row = 1)
+
+# Them textbox password
+
+txt_password = tk.Entry(win,show = '*',width=20)
+txt_password.grid(column=1,row=1)
+
+# Them label website hay dung
+
+txt_websites = tk.Label(win,text="websites", fg="black",font = ("Times",20))
+txt_websites.grid(column=0,row=2)
+
+
+# Them combobox 
+
+combo = ttk.Combobox(win)
+combo['values'] = ("fb.com","sv.dut.udn.vn")
+combo.grid(column=1,row=2)
+
+def Solve():
+    fi = txt_username.get()
+    se = txt_password.get()
+    th = combo.get()
+    if(th=="fb.com"):
+        web = "http://"+th
+        driver.get(web)
+        driver.find_element_by_xpath('/html/body/div[1]/div[2]/div[1]/div/div/div/div[2]/div/div[1]/form/div[1]/div[1]/input').send_keys(fi)
+        driver.find_element_by_xpath('/html/body/div[1]/div[2]/div[1]/div/div/div/div[2]/div/div[1]/form/div[1]/div[2]/div/input').send_keys(se)
+        driver.find_element_by_xpath('/html/body/div[1]/div[2]/div[1]/div/div/div/div[2]/div/div[1]/form/div[2]/button').click()
+    elif(th=="sv.dut.udn.vn"):
+        web = "http://" + th + "/PageDangNhap.aspx"
+        driver.get(web)
+        driver.find_element_by_xpath('/html/body/div[6]/form/div[3]/table/tbody/tr[1]/td[3]/input').send_keys(fi)
+        driver.find_element_by_xpath('/html/body/div[6]/form/div[3]/table/tbody/tr[2]/td[2]/input').send_keys(se)
+        driver.find_element_by_xpath('/html/body/div[6]/form/div[3]/table/tbody/tr[3]/td/input').click()
+        return
+    return
+
+# Them button 
+
+btn_submit = tk.Button(win,text = "Submit", command= Solve)
+btn_submit.grid(column = 0, row= 3)
+
+# Them label author
+
+lbl_author = tk.Label(win,text="Author: Ngo Tan Tri", fg="black",font = ("Times",20))
+lbl_author.grid(column = 0, row = 4)
+
+# run permanent
+win.mainloop()
+```
+
 
 
 
