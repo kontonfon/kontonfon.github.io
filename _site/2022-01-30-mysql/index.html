@@ -9,7 +9,7 @@
 
   
 
-  <title>Mysql Training</title>
+  <title>Mysql and SQL Server Training</title>
 
   
   <meta name="author" content="Ngô Tấn Trí">
@@ -72,7 +72,7 @@
 
   
   <meta property="og:site_name" content="Em0t3t">
-  <meta property="og:title" content="Mysql Training">
+  <meta property="og:title" content="Mysql and SQL Server Training">
   <meta property="og:description" content="Hackerrank">
 
   
@@ -93,7 +93,7 @@
   <meta name="twitter:site" content="@daattali">
   <meta name="twitter:creator" content="@daattali">
 
-  <meta property="twitter:title" content="Mysql Training">
+  <meta property="twitter:title" content="Mysql and SQL Server Training">
   <meta property="twitter:description" content="Hackerrank">
 
   
@@ -178,7 +178,7 @@
     <div class="row">
       <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
         <div class="post-heading">
-          <h1>Mysql Training</h1>
+          <h1>Mysql and SQL Server Training</h1>
           
             
               <h2 class="post-subheading">Hackerrank</h2>
@@ -202,7 +202,7 @@
     <div class="row">
       <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
         <div class="post-heading">
-          <h1>Mysql Training</h1>
+          <h1>Mysql and SQL Server Training</h1>
           
             
               <h2 class="post-subheading">Hackerrank</h2>
@@ -1017,6 +1017,105 @@ Working Platform:- MySQL
                    <span class="k">WHERE</span> <span class="k">MOD</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">d</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">AND</span> <span class="n">n</span> <span class="o">&lt;&gt;</span> <span class="n">d</span><span class="p">)</span>
 </code></pre></div></div>
 
+<hr />
+
+<h3 id="ngày-01-03-2022">Ngày 01-03-2022</h3>
+
+<ol>
+  <li>Tải và cài đặt SQL EXpress 2019: Hướng dẫn cài đặt <a href="https://www.youtube.com/watch?v=c9NQLLboSeg">tại đây</a></li>
+</ol>
+
+<h4 id="cách-thức-viết-câu-lệnh">Cách thức viết câu lệnh:</h4>
+
+<ul>
+  <li>
+    <p>Nguyên tắc người viết code: “Tnh tế trong từng câu lệnh”, luôn luôn phải hiểu “Viết ra đoạn code để cho người khác đọc và hiểu được” do đó:</p>
+  </li>
+  <li>
+    <p>Trình bày trong khuôn khổ màn hình ngang máy tính</p>
+  </li>
+  <li>
+    <p>Sử dụng tab khi lùi dòng vào phía trong</p>
+  </li>
+  <li>
+    <p>Trình bày phải có dấu cách sau dấu “,”</p>
+  </li>
+  <li>
+    <p>Trình bày theo khối lệnh, gọn gàng, cách dòng trong khối lệnh cho dễ quan sát</p>
+  </li>
+  <li>
+    <p>Các từ khoá viết hoa: SELECT … FROM</p>
+  </li>
+  <li>
+    <p>Lưu ý đến Performance của đoạn lệnh:</p>
+  </li>
+  <li>
+    <p>Kiểm tra chỉ mục trên tất cả các field trên mệnh đề WHERE and JOIN trong câu lệnh SQL</p>
+  </li>
+  <li>
+    <p>Giới hạn kích thước của bảng dữ liệu làm việc: Kiểm tra các bảng được sử dụng trong câu SELECT để có thể áp dụng lọc qua WHERE</p>
+  </li>
+  <li>
+    <p>Chỉ chọn các field mà trong báo cáo cần tránh thừa thông tin</p>
+  </li>
+  <li>
+    <p>Loại bỏ các phần tính toán trong mệnh đề WHERE và JOIN</p>
+  </li>
+  <li>
+    <p>Đặt Index với các Field hay được truy vấn</p>
+  </li>
+  <li>
+    <p>Đặt kích thước của các field theo nguyên tắc byte: 2^n</p>
+  </li>
+  <li>
+    <p>Đầu mã thủ tục, hàm phải có thông tin chung:</p>
+  </li>
+  <li>
+    <p>Người tạo</p>
+  </li>
+  <li>
+    <p>Ngày khởi tạo</p>
+  </li>
+  <li>
+    <p>Mô tả chung</p>
+  </li>
+  <li>
+    <p>Mỗi lần đoạn mã được sửa đổi phải được ghi chú (Comment) rõ ràng:</p>
+  </li>
+  <li>
+    <p>Người sửa đổi</p>
+  </li>
+  <li>
+    <p>Ngày sửa đổi</p>
+  </li>
+  <li>
+    <p>Nội dung chỉnh sửa</p>
+  </li>
+  <li>
+    <p>Các đoạn lệnh có thuật toán phức tạp cần có ghi chú rõ ràng</p>
+  </li>
+  <li>
+    <p>Các câu ghi chú cần rõ ràng, ngắn gọn, đủ nghĩa, không dài dòng.</p>
+  </li>
+</ul>
+
+<h5 id="bai-tap-1">Bai tap 1:</h5>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">CREATE</span> <span class="k">DATABASE</span> <span class="n">Tech</span><span class="p">;</span>
+<span class="k">GO</span>
+
+<span class="n">USE</span> <span class="n">Tech</span>
+
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Item</span><span class="p">(</span>
+    <span class="n">ItemCode</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">16</span><span class="p">),</span>
+    <span class="n">ItemName</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">96</span><span class="p">),</span>
+    <span class="n">Unit</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
+    <span class="n">ItemType</span> <span class="nb">INT</span><span class="p">,</span>
+    <span class="n">IsActive</span><span class="p">,</span>
+<span class="p">)</span>
+
+</code></pre></div></div>
+
       </article>
 
       
@@ -1040,7 +1139,7 @@ Working Platform:- MySQL
   <span class="sr-only">Share: </span>
 
   
-    <a href="https://twitter.com/intent/tweet?text=Mysql+Training&url=http%3A%2F%2Flocalhost%3A4000%2F2022-01-30-mysql%2F"
+    <a href="https://twitter.com/intent/tweet?text=Mysql+and+SQL+Server+Training&url=http%3A%2F%2Flocalhost%3A4000%2F2022-01-30-mysql%2F"
       class="btn btn-social-icon btn-twitter" title="Share on Twitter">
       <span class="fab fa-fw fa-twitter" aria-hidden="true"></span>
       <span class="sr-only">Twitter</span>

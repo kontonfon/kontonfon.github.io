@@ -23,7 +23,7 @@
       </item>
     
       <item>
-        <title>Mysql Training</title>
+        <title>Mysql and SQL Server Training</title>
         <description>
           Hackerrank - 
           Bài 1: select * from CITY where POPULATION &amp;gt; 100000 and COUNTRYCODE = &quot;USA&quot;; Bài 2: select NAME from CITY where POPULATION &amp;gt; 120000 and COUNTRYCODE = &quot;USA&quot;; Bài 3: select * from CITY; Bài 4: select * from CITY where ID = 1661; Bài 5: SELECT * FROM CITY...
