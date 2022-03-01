@@ -1021,6 +1021,8 @@ Working Platform:- MySQL
 
 <h3 id="ngày-01-03-2022">Ngày 01-03-2022</h3>
 
+<h4 id="soạn-bài">Soạn bài</h4>
+
 <ol>
   <li>Tải và cài đặt SQL EXpress 2019: Hướng dẫn cài đặt <a href="https://www.youtube.com/watch?v=c9NQLLboSeg">tại đây</a></li>
 </ol>
@@ -1111,10 +1113,159 @@ Working Platform:- MySQL
     <span class="n">ItemName</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">96</span><span class="p">),</span>
     <span class="n">Unit</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
     <span class="n">ItemType</span> <span class="nb">INT</span><span class="p">,</span>
-    <span class="n">IsActive</span><span class="p">,</span>
+    <span class="n">IsActive</span> <span class="nb">INT</span><span class="p">,</span>
 <span class="p">)</span>
 
+<span class="k">GO</span> 
+
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Customer</span><span class="p">(</span>
+
+<span class="p">)</span>
 </code></pre></div></div>
+
+<h4 id="học-chính-thức">Học chính thức</h4>
+
+<h5 id="tóm-tắt">Tóm tắt:</h5>
+
+<ul>
+  <li>
+    <p>Bài học đầu tiên: SQL</p>
+  </li>
+  <li>
+    <p>Nếu đạt -&gt; học xml</p>
+  </li>
+  <li>
+    <p>Học về nghiệp vụ</p>
+  </li>
+  <li>
+    <p>Thời gian: 3 tháng</p>
+  </li>
+  <li>
+    <p>xml + nghiệp vụ: Full Time</p>
+  </li>
+</ul>
+
+<h5 id="chính-thức">Chính thức:</h5>
+
+<ul>
+  <li>
+    <p>Chú ý: Tiếp cận các bài toán và thuật toán thực tế</p>
+  </li>
+  <li>
+    <p>Đặt tên: Dấu + -&gt; _, nộp bài đúng thời gian được giao</p>
+  </li>
+  <li>
+    <p>Chú ý: Tìm hiểu về các phiên bản của SQL</p>
+  </li>
+  <li>
+    <p>SQL 2019: Nhiều feature mới mà nhiều bản khác không có, ví dụ: merge</p>
+  </li>
+  <li>
+    <p>Những cái khi quy mô lớn: Link Server, Always On (học sau)</p>
+  </li>
+  <li>
+    <p>Nghiên cứu thêm về mảng Security</p>
+  </li>
+  <li>
+    <p>Chú ý: WHERE và JOIN phải có index và không có xử lý tính toán</p>
+  </li>
+  <li>
+    <p>Chú ý: Không SELECT * khi dữ liệu lớn</p>
+  </li>
+</ul>
+
+<h5 id="bài-1-tạo-bảng">Bài 1: Tạo bảng</h5>
+
+<p>Đề bài: Tạo bảng có 2 trường là: <code class="language-plaintext highlighter-rouge">manhanvien</code> và <code class="language-plaintext highlighter-rouge">tennhanvien</code></p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">USE</span> <span class="n">buoi1</span>
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">DEMO1</span><span class="p">(</span>
+	<span class="n">manhanvien</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">16</span><span class="p">),</span>
+	<span class="n">tennhanvien</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="cm">/* Bo sung not null*/</span>
+<span class="c1">--USE buoi1</span>
+<span class="c1">--CREATE TABLE DEMO2(</span>
+<span class="c1">--	manhanvien NVARCHAR(16) NOT NULL DEFAULT(''),</span>
+<span class="c1">--	tennhanvien NVARCHAR(50) NOT NULL DEFAULT('')</span>
+<span class="c1">--)</span>
+
+<span class="cm">/**/</span>
+</code></pre></div></div>
+
+<h5 id="bài-2-sử-dụng-câu-lệnh-alter-để-thêm-một-cột-socmnd">Bài 2: Sử dụng câu lệnh ALTER để thêm một cột <code class="language-plaintext highlighter-rouge">socmnd</code></h5>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">ALTER</span> <span class="k">TABLE</span> <span class="n">DEMO1</span> <span class="k">ADD</span> <span class="n">socmnd</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+</code></pre></div></div>
+<p>Note: Để xem lại cột ta đã thêm được chưa vào thư mục nhất nút phải để kiểm tra.</p>
+
+<h5 id="bài-3-drop-bảng">Bài 3: DROP bảng</h5>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DROP</span> <span class="k">TABLE</span> <span class="n">DEMO1</span>
+</code></pre></div></div>
+
+<h5 id="bài-4-sao-chép-cấu-trúc-để-tạo-bảng-mới">Bài 4: Sao chép cấu trúc để tạo bảng mới</h5>
+
+<p><code class="language-plaintext highlighter-rouge">dbo.DEMO1</code> -&gt; <code class="language-plaintext highlighter-rouge">Script Table as</code> -&gt; <code class="language-plaintext highlighter-rouge">CREATE To</code> -&gt; <code class="language-plaintext highlighter-rouge">New query Editor Window</code> (Nhấn nút phải)</p>
+
+<h5 id="bài-5-insert-dữ-liệu-chú-ý-bổ-sung-cú-pháp">Bài 5: INSERT dữ liệu (chú ý bổ sung cú pháp)</h5>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">DEMO1</span> <span class="p">(</span><span class="n">manhanvien</span><span class="p">,</span> <span class="n">tennhanvien</span><span class="p">,</span> <span class="n">socmnd</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="s1">'ID1001'</span><span class="p">,</span><span class="s1">'Ngo Tan Tri'</span><span class="p">,</span> <span class="s1">'201793988'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Note: Chú ý để xem bảng kết quả ta vào: <code class="language-plaintext highlighter-rouge">dbo.DEMO1</code> -&gt; <code class="language-plaintext highlighter-rouge">Edit Top 200 rows</code></p>
+
+<p>Nâng cao: Insert 1 lần 2 thanh ghi:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">DEMO1</span> <span class="p">(</span><span class="n">manhanvien</span><span class="p">,</span> <span class="n">tennhanvien</span><span class="p">,</span> <span class="n">socmnd</span><span class="p">)</span> <span class="k">VALUES</span> <span class="p">(</span><span class="s1">'ID1001'</span><span class="p">,</span><span class="s1">'Ngo Tan B'</span><span class="p">,</span> <span class="s1">'201793918'</span><span class="p">),(</span><span class="s1">'ID1002'</span><span class="p">,</span><span class="s1">'Ngo Tan C'</span><span class="p">,</span> <span class="s1">'201793999'</span><span class="p">)</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">DEMO1</span>
+</code></pre></div></div>
+
+<p>Note: Chú ý bôi đen rồi f5 để chạy</p>
+
+<h6 id="bài-6-update-dữ-liệu-biến-đổi-số-chứng-minh-nhân-dân-thành-số-điện-thoại">Bài 6: UPDATE dữ liệu biến đổi số chứng minh nhân dân thành số điện thoại</h6>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">UPDATE</span> <span class="n">DEMO1</span> <span class="k">SET</span> <span class="n">socmnd</span> <span class="o">=</span> <span class="s1">'0787135926'</span>  <span class="k">WHERE</span> <span class="n">tennhanvien</span> <span class="o">=</span> <span class="s1">'Ngo Tan Tri'</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">DEMO1</span>
+</code></pre></div></div>
+
+<p>Cách 2: Chú ý khi viết xuống dòng (tinh tế)</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">UPDATE</span> <span class="n">DEMO1</span> 
+	<span class="k">SET</span> <span class="n">socmnd</span> <span class="o">=</span> <span class="s1">'0787135926'</span>  
+	<span class="k">WHERE</span> <span class="n">tennhanvien</span> <span class="o">=</span> <span class="s1">'Ngo Tan Tri'</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">DEMO1</span>
+</code></pre></div></div>
+
+<h6 id="bài-7-xoá-những-thanh-ghi-không-phải-là-tên-mình">Bài 7: Xoá những thanh ghi không phải là tên mình</h6>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">DELETE</span> <span class="k">FROM</span> <span class="n">DEMO1</span> <span class="k">WHERE</span> <span class="n">tennhanvien</span><span class="o">!=</span><span class="s1">'Ngo Tan Tri'</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">DEMO1</span>
+</code></pre></div></div>
+
+<p>Note: Dấu <code class="language-plaintext highlighter-rouge">!=</code> có thể thay thế bằng <code class="language-plaintext highlighter-rouge">&lt;&gt;</code></p>
+
+<h6 id="bài-8-các-chú-ý-trong-hàm-toán-học">Bài 8: Các chú ý trong hàm toán học</h6>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">PRINT</span> <span class="k">ABS</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">PRINT</span> <span class="n">FLOOR</span><span class="p">(</span><span class="mi">9</span><span class="p">.</span><span class="mi">9</span><span class="p">)</span>
+<span class="n">PRINT</span> <span class="n">ROUND</span><span class="p">(</span><span class="mi">1000</span><span class="p">.</span><span class="mi">999</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">PRINT</span> <span class="n">ROUND</span><span class="p">(</span><span class="mi">11</span><span class="p">.</span><span class="mi">0</span><span class="o">/</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div></div>
+<h6 id="bài-9-xử-lý-hàm-chuỗi">Bài 9: Xử lý hàm chuỗi</h6>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">PRINT</span> <span class="k">LEFT</span><span class="p">(</span><span class="s1">'Lê Anh Tuấn'</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">PRINT</span> <span class="k">SUBSTRING</span><span class="p">(</span><span class="s1">'abcdee'</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">PRINT</span> <span class="k">REPLACE</span><span class="p">(</span><span class="s1">'ABCDEF'</span><span class="p">,</span><span class="s1">'CDEF'</span><span class="p">,</span><span class="s1">'aaaaaa'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Chú ý: Để sử dụng tiếng Việt thêm chữ N phía trước: <code class="language-plaintext highlighter-rouge">PRINT REPLACE(N'Lê Anh Tuấn',' ','')</code></p>
+
+<h5 id="bài-tập-về-nhà-làm-print">BÀI TẬP VỀ NHÀ: LÀM PRINT</h5>
+
+<h4 id="thứ-6-học-lại-ngày-432022">THỨ 6 HỌC LẠI (NGÀY 4/3/2022)</h4>
+
 
       </article>
 
