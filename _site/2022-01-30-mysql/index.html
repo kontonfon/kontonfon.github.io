@@ -1895,14 +1895,33 @@ Working Platform:- MySQL
   <li>
     <p>date: Ngày mà khoảng thời gian được thêm vào</p>
   </li>
-  <li>
-    <p>Ví dụ:</p>
-  </li>
 </ul>
 
-<p><code class="language-plaintext highlighter-rouge">SELECT DATEADD(year, 3, '2022/04/06')</code></p>
+<p>Note: <code class="language-plaintext highlighter-rouge">SET DATEFORMAT DMY</code></p>
 
-<p>– ket qua ‘2025’</p>
+<ul>
+  <li>Ví dụ:</li>
+</ul>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">SELECT</span> <span class="n">DATEADD</span><span class="p">(</span><span class="nb">year</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="s1">'2022/04/06'</span><span class="p">)</span>
+<span class="c1">--Ket qua: '2025-06-04 00:00:00.000'</span>
+<span class="k">SELECT</span> <span class="n">DATEADD</span><span class="p">(</span><span class="n">yyyy</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">'2022/04/06'</span><span class="p">)</span>
+<span class="c1">--Ket qua: '2026-06-04 00:00:00.000</span>
+<span class="k">SELECT</span> <span class="n">DATEADD</span><span class="p">(</span><span class="n">yy</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="s1">'2022/04/06'</span><span class="p">);</span>
+<span class="c1">--Ket qua: '2031-06-04 00:00:00.000'</span>
+<span class="k">SELECT</span> <span class="n">DATEADD</span><span class="p">(</span><span class="nb">year</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="s1">'2022/04/06'</span><span class="p">);</span>
+<span class="c1">--Ket qua: '2020-06-04 00:00:00.000'</span>
+<span class="k">SELECT</span> <span class="n">DATEADD</span><span class="p">(</span><span class="k">month</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="s1">'2022/04/06'</span><span class="p">);</span>
+<span class="c1">--Ket qua: '2023-02-04 00:00:00.000'</span>
+<span class="k">SELECT</span> <span class="n">DATEADD</span><span class="p">(</span><span class="k">month</span><span class="p">,</span> <span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="s1">'2022/04/06'</span><span class="p">);</span>
+<span class="c1">--Ket qua: '2021-12-04 00:00:00.000'</span>
+<span class="k">SELECT</span> <span class="n">DATEADD</span><span class="p">(</span><span class="k">day</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">'2022/04/06'</span><span class="p">);</span>
+<span class="c1">--Ket qua: '2022-06-08 00:00:00.000'</span>
+<span class="k">SELECT</span> <span class="n">DATEADD</span><span class="p">(</span><span class="k">day</span><span class="p">,</span> <span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="s1">'2022/04/06'</span><span class="p">);</span>
+<span class="c1">--Ket qua: '2022-05-30 00:00:00.000'</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">DATEDIFF(interval, date1, date2)</code>: trả về chênh lệch giữa hai giá trị ngày, dựa trên khoảng thời gian được chỉ định.</p>
 
 
       </article>
