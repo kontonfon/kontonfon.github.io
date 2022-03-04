@@ -1262,9 +1262,647 @@ Working Platform:- MySQL
 
 <p>Chú ý: Để sử dụng tiếng Việt thêm chữ N phía trước: <code class="language-plaintext highlighter-rouge">PRINT REPLACE(N'Lê Anh Tuấn',' ','')</code></p>
 
+<h6 id="bài-tập-về-nhà-tự-làm">Bài tập về nhà (Tự làm)</h6>
+
+<p><code class="language-plaintext highlighter-rouge">Bài 1</code>: Lập bảng và insert dữ liệu:</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">USE</span> <span class="n">Tech</span>
+
+<span class="cm">/* Create table Item*/</span>
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Item</span> <span class="p">(</span>
+	<span class="n">ItemCode</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">16</span><span class="p">),</span>
+	<span class="n">ItemName</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">96</span><span class="p">),</span>
+	<span class="n">Unit</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span>
+	<span class="n">ItemType</span> <span class="nb">INT</span><span class="p">,</span>
+	<span class="n">IsActive</span> <span class="nb">INT</span>
+<span class="p">)</span>
+<span class="cm">/* Create table Customer*/</span>
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">Customer</span><span class="p">(</span>
+	<span class="n">CustomerCode</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">16</span><span class="p">),</span>
+	<span class="n">CustomerName</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">96</span><span class="p">),</span>
+	<span class="n">CustomerType</span> <span class="nb">INT</span><span class="p">,</span>
+	<span class="n">IsActive</span> <span class="nb">INT</span>
+<span class="p">)</span>
+
+<span class="cm">/* Create table AccDoc*/</span>
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">AccDoc</span><span class="p">(</span>
+	<span class="n">DocCode</span> <span class="nb">CHAR</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span>
+	<span class="n">DocNo</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="k">NOT</span> <span class="k">NULL</span> <span class="k">PRIMARY</span> <span class="k">KEY</span><span class="p">,</span>
+	<span class="n">DocDate</span> <span class="nb">DATETIME</span><span class="p">,</span>
+	<span class="n">CustomerCode</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">16</span><span class="p">),</span>
+	<span class="n">DocGroup</span> <span class="nb">INT</span><span class="p">,</span>
+	<span class="n">Description</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">256</span><span class="p">),</span>
+	<span class="n">IsActive</span> <span class="nb">INT</span>
+<span class="p">)</span>
+
+<span class="cm">/* Create table AccDocDetail*/</span>
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">AccDocDetail</span><span class="p">(</span>
+	<span class="n">DocCode</span> <span class="nb">CHAR</span><span class="p">(</span><span class="mi">2</span><span class="p">),</span> <span class="cm">/*Link DocCode cua AccDoc*/</span>
+	<span class="n">DocNo</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="cm">/*Link DocNo cua AccDoc*/</span>
+	<span class="n">ItemCode</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">16</span><span class="p">),</span>
+	<span class="n">Quantity</span> <span class="nb">NUMERIC</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span>
+	<span class="n">UnitCost</span> <span class="nb">NUMERIC</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span>
+	<span class="n">Amount1</span> <span class="nb">NUMERIC</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">2</span><span class="p">),</span>
+	<span class="n">UnitPrice</span> <span class="nb">NUMERIC</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span>
+	<span class="n">Amount2</span> <span class="nb">NUMERIC</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="cm">/* Create table AccDocDetail*/</span>
+<span class="k">CREATE</span> <span class="k">TABLE</span> <span class="n">OpenInventory</span><span class="p">(</span>
+	<span class="n">ItemCode</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">16</span><span class="p">),</span>
+	<span class="n">Quantity</span> <span class="nb">NUMERIC</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span>
+	<span class="n">Amount</span> <span class="nb">NUMERIC</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="p">)</span>
+
+<span class="cm">/* insert data into table Item*/</span>
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">Item</span><span class="p">(</span><span class="n">ItemCode</span><span class="p">,</span><span class="n">ItemName</span><span class="p">,</span><span class="n">Unit</span><span class="p">,</span><span class="n">ItemType</span><span class="p">,</span><span class="n">IsActive</span><span class="p">)</span> 
+	<span class="k">VALUES</span> 
+		<span class="p">(</span><span class="s1">'NVLC01'</span><span class="p">,</span> <span class="n">N</span><span class="s1">'Máy nén'</span><span class="p">,</span> <span class="n">N</span><span class="s1">'Cái'</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'NVLC02'</span><span class="p">,</span> <span class="n">N</span><span class="s1">'Tôn dày 0.5 mm'</span><span class="p">,</span> <span class="n">N</span><span class="s1">'Kg'</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'NVLC03'</span><span class="p">,</span> <span class="n">N</span><span class="s1">'Ống đồng'</span><span class="p">,</span> <span class="s1">'M'</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'TP01'</span><span class="p">,</span> <span class="n">N</span><span class="s1">'Tủ đông kích thước 1.5*0.7*0.6'</span><span class="p">,</span> <span class="n">N</span><span class="s1">'Cái'</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'TP02'</span><span class="p">,</span> <span class="n">N</span><span class="s1">'Tủ đông kích thước 1.5*0.8*0.8'</span><span class="p">,</span> <span class="n">N</span><span class="s1">'Cái'</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'TP03'</span><span class="p">,</span> <span class="n">N</span><span class="s1">'Tủ mát kích thước 0.8*0.8*1.9'</span><span class="p">,</span> <span class="n">N</span><span class="s1">'Cái'</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1">--SELECT * FROM Item </span>
+
+<span class="cm">/* insert data into table Customer*/</span>
+	
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">Customer</span><span class="p">(</span><span class="n">CustomerCode</span><span class="p">,</span><span class="n">CustomerName</span><span class="p">,</span><span class="n">CustomerType</span><span class="p">,</span><span class="n">IsActive</span><span class="p">)</span>
+	<span class="k">VALUES</span>
+		<span class="p">(</span><span class="s1">'NCC01'</span><span class="p">,</span> <span class="n">N</span><span class="s1">'Công ty TNHH Vạn Xuân'</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'NCC02'</span><span class="p">,</span> <span class="n">N</span><span class="s1">'Công ty Cổ phần Đại Phát'</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'NCC03'</span><span class="p">,</span> <span class="n">N</span><span class="s1">'Công ty Cổ phần tôn Hòa Phát'</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'KH01'</span><span class="p">,</span> <span class="n">N</span><span class="s1">'Đại lý Cô Tám'</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'KH02'</span><span class="p">,</span> <span class="n">N</span><span class="s1">'Công ty cổ phần đầu tư xây dựng Dacinco'</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'KH03'</span><span class="p">,</span> <span class="n">N</span><span class="s1">'Công ty TNHH cà phê Thắng Lợi'</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'NB01'</span><span class="p">,</span> <span class="n">N</span><span class="s1">'Phi Công Anh'</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'NB02'</span><span class="p">,</span> <span class="n">N</span><span class="s1">'Đàm Văn Đức'</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'NB03'</span><span class="p">,</span> <span class="n">N</span><span class="s1">'Phân xưởng sản xuất'</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="k">NULL</span><span class="p">)</span>
+
+<span class="c1">--SELECT * FROM Customer</span>
+
+<span class="cm">/*insert data into table AccDoc*/</span>
+
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">AccDoc</span><span class="p">(</span><span class="n">DocCode</span><span class="p">,</span> <span class="n">DocNo</span><span class="p">,</span> <span class="n">DocDate</span><span class="p">,</span> <span class="n">CustomerCode</span><span class="p">,</span> <span class="n">DocGroup</span><span class="p">,</span> <span class="n">Description</span><span class="p">,</span> <span class="n">IsActive</span><span class="p">)</span>
+	<span class="k">VALUES</span>
+		<span class="p">(</span><span class="s1">'NM'</span><span class="p">,</span> <span class="s1">'NM001'</span><span class="p">,</span> <span class="s1">'01/01/2022'</span><span class="p">,</span> <span class="s1">'NCC01'</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="s1">'Nhập mua NPL'</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'NM'</span><span class="p">,</span> <span class="s1">'NM002'</span><span class="p">,</span> <span class="s1">'01/10/2022'</span><span class="p">,</span> <span class="s1">'NCC02'</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="s1">'Nhập mua NPL'</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'NM'</span><span class="p">,</span> <span class="s1">'NM003'</span><span class="p">,</span> <span class="s1">'01/11/2022'</span><span class="p">,</span> <span class="s1">'NCC01'</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="s1">'Nhập mua NPL'</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'NM'</span><span class="p">,</span> <span class="s1">'NM004'</span><span class="p">,</span> <span class="s1">'01/15/2022'</span><span class="p">,</span> <span class="s1">'NCC03'</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="s1">'Nhập mua NPL'</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'PX'</span><span class="p">,</span> <span class="s1">'PX001'</span><span class="p">,</span> <span class="s1">'01/02/2022'</span><span class="p">,</span> <span class="s1">'NB03'</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">N</span><span class="s1">'Xuất sản xuất'</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'PX'</span><span class="p">,</span> <span class="s1">'PX002'</span><span class="p">,</span> <span class="s1">'01/13/2022'</span><span class="p">,</span> <span class="s1">'NB03'</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">N</span><span class="s1">'Xuất sản xuất'</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'PX'</span><span class="p">,</span> <span class="s1">'PX003'</span><span class="p">,</span> <span class="s1">'01/22/2022'</span><span class="p">,</span> <span class="s1">'NB03'</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">N</span><span class="s1">'Xuất sản xuất'</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'PX'</span><span class="p">,</span> <span class="s1">'PX004'</span><span class="p">,</span> <span class="s1">'01/28/2022'</span><span class="p">,</span> <span class="s1">'NB03'</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">N</span><span class="s1">'Xuất sản xuất'</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'TP'</span><span class="p">,</span> <span class="s1">'TP001'</span><span class="p">,</span> <span class="s1">'01/15/2022'</span><span class="p">,</span> <span class="s1">'NB03'</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="s1">'Nhập thành phẩm'</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'TP'</span><span class="p">,</span> <span class="s1">'TP002'</span><span class="p">,</span> <span class="s1">'01/31/2022'</span><span class="p">,</span> <span class="s1">'NB03'</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="s1">'Nhập thành phẩm'</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'HD'</span><span class="p">,</span> <span class="s1">'HD001'</span><span class="p">,</span> <span class="s1">'01/05/2022'</span><span class="p">,</span> <span class="s1">'KH01'</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">N</span><span class="s1">'Xuất bán hàng'</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'HD'</span><span class="p">,</span> <span class="s1">'HD002'</span><span class="p">,</span> <span class="s1">'01/06/2022'</span><span class="p">,</span> <span class="s1">'KH03'</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">N</span><span class="s1">'Xuất bán hàng'</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'HD'</span><span class="p">,</span> <span class="s1">'HD003'</span><span class="p">,</span> <span class="s1">'01/10/2022'</span><span class="p">,</span> <span class="s1">'KH02'</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">N</span><span class="s1">'Xuất bán hàng'</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'HD'</span><span class="p">,</span> <span class="s1">'HD004'</span><span class="p">,</span> <span class="s1">'01/12/2022'</span><span class="p">,</span> <span class="s1">'KH01'</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">N</span><span class="s1">'Xuất bán hàng'</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'HD'</span><span class="p">,</span> <span class="s1">'HD005'</span><span class="p">,</span> <span class="s1">'01/16/2022'</span><span class="p">,</span> <span class="s1">'KH02'</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">N</span><span class="s1">'Xuất bán hàng'</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'HD'</span><span class="p">,</span> <span class="s1">'HD006'</span><span class="p">,</span> <span class="s1">'01/18/2022'</span><span class="p">,</span> <span class="s1">'KH03'</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">N</span><span class="s1">'Xuất bán hàng'</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'HD'</span><span class="p">,</span> <span class="s1">'HD007'</span><span class="p">,</span> <span class="s1">'01/23/2022'</span><span class="p">,</span> <span class="s1">'KH01'</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">N</span><span class="s1">'Xuất bán hàng'</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'HD'</span><span class="p">,</span> <span class="s1">'HD008'</span><span class="p">,</span> <span class="s1">'01/31/2022'</span><span class="p">,</span> <span class="s1">'KH03'</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">N</span><span class="s1">'Xuất bán hàng'</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+	
+<span class="c1">--SELECT * FROM AccDoc	</span>
+
+<span class="cm">/* insert data into table AccDocDetail*/</span>
+
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">AccDocDetail</span><span class="p">(</span><span class="n">DocCode</span><span class="p">,</span> <span class="n">DocNo</span><span class="p">,</span> <span class="n">ItemCode</span><span class="p">,</span> <span class="n">Quantity</span><span class="p">,</span> <span class="n">UnitCost</span><span class="p">,</span> <span class="n">Amount1</span><span class="p">,</span> <span class="n">UnitPrice</span><span class="p">,</span> <span class="n">Amount2</span><span class="p">)</span>
+	<span class="k">VALUES</span>
+		<span class="p">(</span><span class="s1">'NM'</span><span class="p">,</span> <span class="s1">'NM001'</span><span class="p">,</span> <span class="s1">'NVLC01'</span><span class="p">,</span> <span class="mi">100</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span> <span class="mi">3099000</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span> <span class="mi">309900000</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span> <span class="p">),</span>
+		<span class="p">(</span><span class="s1">'NM'</span><span class="p">,</span> <span class="s1">'NM001'</span><span class="p">,</span> <span class="s1">'NVLC02'</span><span class="p">,</span> <span class="mi">999</span><span class="p">.</span><span class="mi">95</span><span class="p">,</span> <span class="mi">29956</span><span class="p">.</span><span class="mi">35</span><span class="p">,</span> <span class="mi">29954852</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'NM'</span><span class="p">,</span> <span class="s1">'NM002'</span><span class="p">,</span> <span class="s1">'NVLC01'</span><span class="p">,</span> <span class="mi">50</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span> <span class="mi">3050000</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span> <span class="mi">152500000</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'NM'</span><span class="p">,</span> <span class="s1">'NM002'</span><span class="p">,</span> <span class="s1">'NVLC02'</span><span class="p">,</span> <span class="mi">200</span><span class="p">.</span><span class="mi">33</span><span class="p">,</span> <span class="mi">29956</span><span class="p">.</span><span class="mi">55</span><span class="p">,</span> <span class="mi">6001196</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'NM'</span><span class="p">,</span> <span class="s1">'NM002'</span><span class="p">,</span> <span class="s1">'NVLC03'</span><span class="p">,</span> <span class="mi">2000</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span> <span class="mi">105987</span><span class="p">.</span><span class="mi">92</span><span class="p">,</span> <span class="mi">211975840</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'NM'</span><span class="p">,</span> <span class="s1">'NM003'</span><span class="p">,</span> <span class="s1">'NVLC01'</span><span class="p">,</span> <span class="mi">60</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span> <span class="mi">3050000</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span> <span class="mi">183000000</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'NM'</span><span class="p">,</span> <span class="s1">'NM003'</span><span class="p">,</span> <span class="s1">'NVLC02'</span><span class="p">,</span> <span class="mi">100</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span> <span class="mi">29956</span><span class="p">.</span><span class="mi">55</span><span class="p">,</span> <span class="mi">2995655</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'NM'</span><span class="p">,</span> <span class="s1">'NM003'</span><span class="p">,</span> <span class="s1">'NVLC03'</span><span class="p">,</span> <span class="mi">150</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span> <span class="mi">105987</span><span class="p">.</span><span class="mi">92</span><span class="p">,</span> <span class="mi">15898188</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'NM'</span><span class="p">,</span> <span class="s1">'NM004'</span><span class="p">,</span> <span class="s1">'NVLC01'</span><span class="p">,</span> <span class="mi">90</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span> <span class="mi">3050000</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span> <span class="mi">274500000</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'NM'</span><span class="p">,</span> <span class="s1">'NM004'</span><span class="p">,</span> <span class="s1">'NVLC02'</span><span class="p">,</span> <span class="mi">300</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span> <span class="mi">29956</span><span class="p">.</span><span class="mi">55</span><span class="p">,</span> <span class="mi">8986965</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'NM'</span><span class="p">,</span> <span class="s1">'NM004'</span><span class="p">,</span> <span class="s1">'NVLC03'</span><span class="p">,</span> <span class="mi">200</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span> <span class="mi">105987</span><span class="p">.</span><span class="mi">92</span><span class="p">,</span> <span class="mi">21197584</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'PX'</span><span class="p">,</span> <span class="s1">'PX001'</span><span class="p">,</span> <span class="s1">'NVLC01'</span><span class="p">,</span> <span class="mi">90</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'PX'</span><span class="p">,</span> <span class="s1">'PX001'</span><span class="p">,</span> <span class="s1">'NVLC02'</span><span class="p">,</span> <span class="mi">500</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'PX'</span><span class="p">,</span> <span class="s1">'PX001'</span><span class="p">,</span> <span class="s1">'NVLC03'</span><span class="p">,</span> <span class="mi">400</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'PX'</span><span class="p">,</span> <span class="s1">'PX002'</span><span class="p">,</span> <span class="s1">'NVLC01'</span><span class="p">,</span> <span class="mi">50</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'PX'</span><span class="p">,</span> <span class="s1">'PX002'</span><span class="p">,</span> <span class="s1">'NVLC02'</span><span class="p">,</span> <span class="mi">200</span><span class="p">.</span><span class="mi">33</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'PX'</span><span class="p">,</span> <span class="s1">'PX002'</span><span class="p">,</span> <span class="s1">'NVLC03'</span><span class="p">,</span> <span class="mi">1000</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'PX'</span><span class="p">,</span> <span class="s1">'PX003'</span><span class="p">,</span> <span class="s1">'NVLC01'</span><span class="p">,</span> <span class="mi">100</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'PX'</span><span class="p">,</span> <span class="s1">'PX003'</span><span class="p">,</span> <span class="s1">'NVLC02'</span><span class="p">,</span> <span class="mi">150</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'PX'</span><span class="p">,</span> <span class="s1">'PX003'</span><span class="p">,</span> <span class="s1">'NVLC03'</span><span class="p">,</span> <span class="mi">200</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'PX'</span><span class="p">,</span> <span class="s1">'PX004'</span><span class="p">,</span> <span class="s1">'NVLC01'</span><span class="p">,</span> <span class="mi">90</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'PX'</span><span class="p">,</span> <span class="s1">'PX004'</span><span class="p">,</span> <span class="s1">'NVLC02'</span><span class="p">,</span> <span class="mi">320</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'PX'</span><span class="p">,</span> <span class="s1">'PX004'</span><span class="p">,</span> <span class="s1">'NVLC03'</span><span class="p">,</span> <span class="mi">170</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'TP'</span><span class="p">,</span> <span class="s1">'TP001'</span><span class="p">,</span> <span class="s1">'TP01'</span><span class="p">,</span> <span class="mi">400</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'TP'</span><span class="p">,</span> <span class="s1">'TP001'</span><span class="p">,</span> <span class="s1">'TP02'</span><span class="p">,</span> <span class="mi">500</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'TP'</span><span class="p">,</span> <span class="s1">'TP001'</span><span class="p">,</span> <span class="s1">'TP03'</span><span class="p">,</span> <span class="mi">700</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'TP'</span><span class="p">,</span> <span class="s1">'TP002'</span><span class="p">,</span> <span class="s1">'TP01'</span><span class="p">,</span> <span class="mi">300</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'TP'</span><span class="p">,</span> <span class="s1">'TP002'</span><span class="p">,</span> <span class="s1">'TP02'</span><span class="p">,</span> <span class="mi">200</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'TP'</span><span class="p">,</span> <span class="s1">'TP002'</span><span class="p">,</span> <span class="s1">'TP03'</span><span class="p">,</span> <span class="mi">200</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'HD'</span><span class="p">,</span> <span class="s1">'HD001'</span><span class="p">,</span> <span class="s1">'TP02'</span><span class="p">,</span> <span class="mi">100</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="mi">11000000</span><span class="p">,</span> <span class="mi">1100000000</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'HD'</span><span class="p">,</span> <span class="s1">'HD001'</span><span class="p">,</span> <span class="s1">'TP03'</span><span class="p">,</span> <span class="mi">300</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="mi">12000000</span><span class="p">,</span> <span class="mi">3600000000</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'HD'</span><span class="p">,</span> <span class="s1">'HD002'</span><span class="p">,</span> <span class="s1">'TP01'</span><span class="p">,</span> <span class="mi">50</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="mi">10000000</span><span class="p">,</span> <span class="mi">500000000</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'HD'</span><span class="p">,</span> <span class="s1">'HD002'</span><span class="p">,</span> <span class="s1">'TP03'</span><span class="p">,</span> <span class="mi">150</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="mi">12000000</span><span class="p">,</span><span class="mi">1800000000</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'HD'</span><span class="p">,</span> <span class="s1">'HD003'</span><span class="p">,</span> <span class="s1">'TP01'</span><span class="p">,</span> <span class="mi">50</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="mi">10000000</span><span class="p">,</span> <span class="mi">500000000</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'HD'</span><span class="p">,</span> <span class="s1">'HD003'</span><span class="p">,</span> <span class="s1">'TP02'</span><span class="p">,</span> <span class="mi">100</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="mi">11000000</span><span class="p">,</span> <span class="mi">1100000000</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'HD'</span><span class="p">,</span> <span class="s1">'HD004'</span><span class="p">,</span> <span class="s1">'TP01'</span><span class="p">,</span> <span class="mi">90</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="mi">10000000</span><span class="p">,</span> <span class="mi">900000000</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'HD'</span><span class="p">,</span> <span class="s1">'HD004'</span><span class="p">,</span> <span class="s1">'TP02'</span><span class="p">,</span> <span class="mi">270</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="mi">11000000</span><span class="p">,</span> <span class="mi">2970000000</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'HD'</span><span class="p">,</span> <span class="s1">'HD004'</span><span class="p">,</span> <span class="s1">'TP03'</span><span class="p">,</span> <span class="mi">140</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="mi">12000000</span><span class="p">,</span> <span class="mi">1680000000</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'HD'</span><span class="p">,</span> <span class="s1">'HD005'</span><span class="p">,</span> <span class="s1">'TP02'</span><span class="p">,</span> <span class="mi">100</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="mi">11000000</span><span class="p">,</span> <span class="mi">1100000000</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'HD'</span><span class="p">,</span> <span class="s1">'HD005'</span><span class="p">,</span> <span class="s1">'TP03'</span><span class="p">,</span> <span class="mi">300</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="mi">12000000</span><span class="p">,</span> <span class="mi">3600000000</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'HD'</span><span class="p">,</span> <span class="s1">'HD006'</span><span class="p">,</span> <span class="s1">'TP01'</span><span class="p">,</span> <span class="mi">50</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="mi">10000000</span><span class="p">,</span> <span class="mi">500000000</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'HD'</span><span class="p">,</span> <span class="s1">'HD006'</span><span class="p">,</span> <span class="s1">'TP03'</span><span class="p">,</span> <span class="mi">150</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="mi">12000000</span><span class="p">,</span> <span class="mi">1800000000</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'HD'</span><span class="p">,</span> <span class="s1">'HD007'</span><span class="p">,</span> <span class="s1">'TP01'</span><span class="p">,</span> <span class="mi">50</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="mi">10000000</span><span class="p">,</span> <span class="mi">500000000</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'HD'</span><span class="p">,</span> <span class="s1">'HD008'</span><span class="p">,</span> <span class="s1">'TP02'</span><span class="p">,</span> <span class="mi">100</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="mi">11000000</span><span class="p">,</span> <span class="mi">1100000000</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'HD'</span><span class="p">,</span> <span class="s1">'HD008'</span><span class="p">,</span> <span class="s1">'TP01'</span><span class="p">,</span> <span class="mi">90</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="mi">10000000</span><span class="p">,</span> <span class="mi">900000000</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'HD'</span><span class="p">,</span> <span class="s1">'HD008'</span><span class="p">,</span> <span class="s1">'TP02'</span><span class="p">,</span> <span class="mi">270</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span><span class="k">NULL</span><span class="p">,</span> <span class="mi">11000000</span><span class="p">,</span> <span class="mi">2970000000</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'HD'</span><span class="p">,</span> <span class="s1">'HD008'</span><span class="p">,</span> <span class="s1">'TP03'</span><span class="p">,</span> <span class="mi">140</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="k">NULL</span><span class="p">,</span> <span class="mi">12000000</span><span class="p">,</span> <span class="mi">1680000000</span><span class="p">)</span>
+
+<span class="c1">--SELECT * FROM AccDocDetail</span>
+
+<span class="cm">/* insert data into table OpenInventpry*/</span>
+
+<span class="k">INSERT</span> <span class="k">INTO</span> <span class="n">OpenInventory</span><span class="p">(</span><span class="n">ItemCode</span><span class="p">,</span> <span class="n">Quantity</span><span class="p">,</span> <span class="n">Amount</span><span class="p">)</span>
+	<span class="k">VALUES</span> 
+		<span class="p">(</span><span class="s1">'NVLC01'</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">3000000000</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'NVLC02'</span><span class="p">,</span> <span class="mi">1500</span><span class="p">,</span> <span class="mi">46500000</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'NVLC03'</span><span class="p">,</span> <span class="mi">2000</span><span class="p">,</span> <span class="mi">210000000</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'TP01'</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">2000000000</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'TP02'</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">2000000000</span><span class="p">),</span>
+		<span class="p">(</span><span class="s1">'TP03'</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">2520000000</span><span class="p">)</span>
+
+<span class="c1">--SELECT * FROM OpenInventory</span>
+
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">Bài 2</code>: Bài tập về hàm</p>
+
+<div class="language-sql highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/* Bai tap ve ham*/</span>
+<span class="n">USE</span> <span class="n">Tech</span>
+
+<span class="cm">/* Bai 1: Hien thi thong tin: Bang chi tiet chung tu voi nhung vat tu co Quantity khong phai la so nguyen*/</span>
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">AccDocDetail</span> <span class="k">WHERE</span> <span class="n">FLOOR</span><span class="p">(</span><span class="n">Quantity</span><span class="p">)</span> <span class="o">!=</span> <span class="n">CEILING</span><span class="p">(</span><span class="n">Quantity</span><span class="p">)</span>
+
+<span class="cm">/*Bai 2: Cho mot chuoi ho va ten: Lay ra ten dem va ten*/</span>
+
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">_ho_va_ten</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">);</span>
+
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">_empty_first_pos</span> <span class="nb">INT</span><span class="p">;</span>
+
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">_empty_second_pos</span> <span class="nb">INT</span><span class="p">;</span>
+
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">_length</span> <span class="nb">INT</span><span class="p">;</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_ho_va_ten</span> <span class="o">=</span> <span class="n">N</span><span class="s1">'     Ngo Tan Tri   '</span> <span class="p">;</span> 
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_ho_va_ten</span> <span class="o">=</span>  <span class="n">LTRIM</span><span class="p">(</span><span class="o">@</span><span class="n">_ho_va_ten</span><span class="p">)</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_ho_va_ten</span> <span class="o">=</span>  <span class="n">RTRIM</span><span class="p">(</span><span class="o">@</span><span class="n">_ho_va_ten</span><span class="p">)</span>
+
+<span class="n">PRINT</span><span class="p">(</span><span class="s1">'Toi len la:  '</span> <span class="o">+</span> <span class="o">@</span><span class="n">_ho_va_ten</span><span class="p">)</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_length</span> <span class="o">=</span> <span class="n">LEN</span><span class="p">(</span><span class="o">@</span><span class="n">_ho_va_ten</span><span class="p">)</span> <span class="p">;</span> 
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_empty_first_pos</span> <span class="o">=</span> <span class="n">CHARINDEX</span><span class="p">(</span><span class="s1">' '</span><span class="p">,</span><span class="o">@</span><span class="n">_ho_va_ten</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="p">;</span> 
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_empty_second_pos</span> <span class="o">=</span> <span class="n">CHARINDEX</span><span class="p">(</span><span class="s1">' '</span><span class="p">,</span><span class="o">@</span><span class="n">_ho_va_ten</span><span class="p">,</span><span class="o">@</span><span class="n">_empty_first_pos</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="p">;</span> 
+
+<span class="n">PRINT</span><span class="p">(</span><span class="s1">'Ten dem la: '</span> <span class="o">+</span> <span class="k">SUBSTRING</span><span class="p">(</span><span class="o">@</span><span class="n">_ho_va_ten</span><span class="p">,</span><span class="o">@</span><span class="n">_empty_first_pos</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="o">@</span><span class="n">_empty_second_pos</span><span class="o">-</span><span class="p">(</span><span class="o">@</span><span class="n">_empty_first_pos</span><span class="o">+</span><span class="mi">1</span><span class="p">)))</span>
+<span class="n">PRINT</span><span class="p">(</span><span class="s1">'Ten la: '</span> <span class="o">+</span> <span class="k">SUBSTRING</span><span class="p">(</span><span class="o">@</span><span class="n">_ho_va_ten</span><span class="p">,</span><span class="o">@</span><span class="n">_empty_second_pos</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="o">@</span><span class="n">_length</span><span class="o">-@</span><span class="n">_empty_second_pos</span><span class="p">))</span>
+<span class="c1">--PRINT(@_empty_second_pos)</span>
+
+<span class="cm">/*Bai 3: Cho chuoi @_A, cat ky tu chuoi @_A de hien thi du lieu theo tung dong*/</span>
+
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">_A</span> <span class="n">NVARCHAR</span> <span class="p">(</span><span class="mi">32</span><span class="p">);</span> 
+
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">_leng</span> <span class="nb">INT</span><span class="p">;</span>
+
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">_pos_</span> <span class="nb">INT</span><span class="p">;</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_A</span> <span class="o">=</span> <span class="n">N</span><span class="s1">'Bố, Mẹ, Anh, Chị'</span> 
+
+<span class="cm">/*In Bo*/</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_leng</span> <span class="o">=</span> <span class="n">LEN</span><span class="p">(</span><span class="o">@</span><span class="n">_A</span><span class="p">)</span>
+
+<span class="c1">--PRINT(@_leng)</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_pos_</span> <span class="o">=</span> <span class="n">CHARINDEX</span><span class="p">(</span><span class="s1">','</span><span class="p">,</span><span class="o">@</span><span class="n">_A</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">PRINT</span><span class="p">(</span><span class="k">SUBSTRING</span><span class="p">(</span><span class="o">@</span><span class="n">_A</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">@</span><span class="n">_pos_</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_A</span> <span class="o">=</span> <span class="k">SUBSTRING</span><span class="p">(</span><span class="o">@</span><span class="n">_A</span><span class="p">,</span><span class="o">@</span><span class="n">_pos_</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span><span class="o">@</span><span class="n">_leng</span> <span class="o">-</span> <span class="p">(</span><span class="o">@</span><span class="n">_pos_</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="c1">--PRINT(@_A)</span>
+
+<span class="cm">/*In Me */</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_leng</span> <span class="o">=</span> <span class="n">LEN</span><span class="p">(</span><span class="o">@</span><span class="n">_A</span><span class="p">)</span>
+
+<span class="c1">--PRINT(@_leng)</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_pos_</span> <span class="o">=</span> <span class="n">CHARINDEX</span><span class="p">(</span><span class="s1">','</span><span class="p">,</span><span class="o">@</span><span class="n">_A</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">PRINT</span><span class="p">(</span><span class="k">SUBSTRING</span><span class="p">(</span><span class="o">@</span><span class="n">_A</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">@</span><span class="n">_pos_</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_A</span> <span class="o">=</span> <span class="k">SUBSTRING</span><span class="p">(</span><span class="o">@</span><span class="n">_A</span><span class="p">,</span><span class="o">@</span><span class="n">_pos_</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span><span class="o">@</span><span class="n">_leng</span> <span class="o">-</span> <span class="p">(</span><span class="o">@</span><span class="n">_pos_</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="c1">--PRINT(@_A)</span>
+
+<span class="cm">/*In Anh*/</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_leng</span> <span class="o">=</span> <span class="n">LEN</span><span class="p">(</span><span class="o">@</span><span class="n">_A</span><span class="p">)</span>
+
+<span class="c1">--PRINT(@_leng)</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_pos_</span> <span class="o">=</span> <span class="n">CHARINDEX</span><span class="p">(</span><span class="s1">','</span><span class="p">,</span><span class="o">@</span><span class="n">_A</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">PRINT</span><span class="p">(</span><span class="k">SUBSTRING</span><span class="p">(</span><span class="o">@</span><span class="n">_A</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="o">@</span><span class="n">_pos_</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_A</span> <span class="o">=</span> <span class="k">SUBSTRING</span><span class="p">(</span><span class="o">@</span><span class="n">_A</span><span class="p">,</span><span class="o">@</span><span class="n">_pos_</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span><span class="o">@</span><span class="n">_leng</span> <span class="o">-</span> <span class="p">(</span><span class="o">@</span><span class="n">_pos_</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="cm">/*In Chi*/</span>
+
+<span class="n">PRINT</span><span class="p">(</span><span class="o">@</span><span class="n">_A</span><span class="p">)</span>
+
+<span class="cm">/*Bai 4: Hien thi danh muc vat tu ma co ten vat tu trong chuoi danh sach @_List_Ten_VT = 'May, Dong, Ton'*/</span>
+
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">_List_Ten_VT</span>  <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span> <span class="p">;</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_List_Ten_VT</span> <span class="o">=</span> <span class="n">N</span><span class="s1">'Máy,Đồng,Tôn'</span> <span class="p">;</span>
+
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">_bien1</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">36</span><span class="p">);</span>
+
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">_bien2</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">36</span><span class="p">);</span>
+
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">_bien3</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">36</span><span class="p">);</span>
+
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">_vtd</span> <span class="nb">INT</span><span class="p">;</span>
+
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">_vtc</span> <span class="nb">INT</span><span class="p">;</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_List_Ten_VT</span> <span class="o">=</span> <span class="o">@</span><span class="n">_List_Ten_VT</span> <span class="o">+</span> <span class="s1">','</span><span class="p">;</span>
+
+<span class="cm">/* Tach lan 1*/</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_vtd</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">;</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_vtc</span> <span class="o">=</span> <span class="n">CHARINDEX</span><span class="p">(</span><span class="s1">','</span><span class="p">,</span><span class="o">@</span><span class="n">_List_Ten_VT</span><span class="p">,</span><span class="o">@</span><span class="n">_vtd</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_vtd</span> <span class="o">=</span> <span class="o">@</span><span class="n">_vtd</span> <span class="o">+</span><span class="mi">1</span>  <span class="p">;</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_bien1</span> <span class="o">=</span> <span class="k">SUBSTRING</span><span class="p">(</span><span class="o">@</span><span class="n">_List_Ten_VT</span><span class="p">,</span><span class="o">@</span><span class="n">_vtd</span><span class="p">,</span><span class="o">@</span><span class="n">_vtc</span><span class="o">-@</span><span class="n">_vtd</span><span class="p">)</span>
+
+<span class="n">PRINT</span><span class="p">(</span><span class="o">@</span><span class="n">_bien1</span><span class="p">)</span>
+
+<span class="cm">/* Tach lan 2*/</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_vtd</span> <span class="o">=</span> <span class="o">@</span><span class="n">_vtc</span> <span class="p">;</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_vtc</span> <span class="o">=</span> <span class="n">CHARINDEX</span><span class="p">(</span><span class="s1">','</span><span class="p">,</span><span class="o">@</span><span class="n">_List_Ten_VT</span><span class="p">,</span><span class="o">@</span><span class="n">_vtd</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_vtd</span> <span class="o">=</span> <span class="o">@</span><span class="n">_vtd</span> <span class="o">+</span><span class="mi">1</span> 
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_bien2</span> <span class="o">=</span> <span class="k">SUBSTRING</span><span class="p">(</span><span class="o">@</span><span class="n">_List_Ten_VT</span><span class="p">,</span><span class="o">@</span><span class="n">_vtd</span><span class="p">,</span><span class="o">@</span><span class="n">_vtc</span><span class="o">-@</span><span class="n">_vtd</span><span class="p">)</span>
+
+<span class="n">PRINT</span><span class="p">(</span><span class="o">@</span><span class="n">_bien2</span><span class="p">)</span>
+
+<span class="cm">/* Tach lan 3*/</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_vtd</span> <span class="o">=</span> <span class="o">@</span><span class="n">_vtc</span> <span class="p">;</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_vtc</span> <span class="o">=</span> <span class="n">CHARINDEX</span><span class="p">(</span><span class="s1">','</span><span class="p">,</span><span class="o">@</span><span class="n">_List_Ten_VT</span><span class="p">,</span><span class="o">@</span><span class="n">_vtd</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_vtd</span> <span class="o">=</span> <span class="o">@</span><span class="n">_vtd</span> <span class="o">+</span><span class="mi">1</span> 
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_bien3</span> <span class="o">=</span> <span class="k">SUBSTRING</span><span class="p">(</span><span class="o">@</span><span class="n">_List_Ten_VT</span><span class="p">,</span><span class="o">@</span><span class="n">_vtd</span><span class="p">,</span><span class="o">@</span><span class="n">_vtc</span><span class="o">-@</span><span class="n">_vtd</span><span class="p">)</span>
+
+<span class="n">PRINT</span><span class="p">(</span><span class="o">@</span><span class="n">_bien3</span><span class="p">)</span>
+
+<span class="c1">--PRINT(CHARINDEX('Đồng', @_List_Ten_VT,1))</span>
+
+<span class="k">SELECT</span> <span class="o">*</span> <span class="k">FROM</span> <span class="n">Item</span> <span class="k">WHERE</span> <span class="p">(</span><span class="n">CHARINDEX</span><span class="p">(</span><span class="o">@</span><span class="n">_bien1</span><span class="p">,</span><span class="n">ItemName</span><span class="p">)</span><span class="o">!=</span><span class="mi">0</span> <span class="k">OR</span> <span class="n">CHARINDEX</span><span class="p">(</span><span class="o">@</span><span class="n">_bien2</span><span class="p">,</span><span class="n">ItemName</span><span class="p">)</span><span class="o">!=</span><span class="mi">0</span> <span class="k">OR</span> <span class="n">CHARINDEX</span><span class="p">(</span><span class="o">@</span><span class="n">_bien3</span><span class="p">,</span><span class="n">ItemName</span><span class="p">)</span><span class="o">!=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="cm">/*Bai 5: Hien thi ky tu dau tien viet hoa va ky tu khac viet thuong trong chuoi ten co 3 tu 'ninH ngỌc hiếU'*/</span>
+
+
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">_ten</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">36</span><span class="p">)</span> <span class="p">;</span>
+
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">_first</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">36</span><span class="p">)</span> <span class="p">;</span>
+
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">_second</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">36</span><span class="p">)</span> <span class="p">;</span>
+
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">_pos_start</span> <span class="nb">INT</span><span class="p">;</span>
+
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">_pos_end</span> <span class="nb">INT</span><span class="p">;</span>
+
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">_res</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">36</span><span class="p">);</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_ten</span> <span class="o">=</span> <span class="n">N</span><span class="s1">'ninH ngỌc hiếU'</span> 
+
+<span class="cm">/* Start lap*/</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_res</span> <span class="o">=</span> <span class="s1">''</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_pos_start</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_ten</span> <span class="o">=</span>  <span class="o">@</span><span class="n">_ten</span> <span class="o">+</span> <span class="s1">' '</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_pos_end</span> <span class="o">=</span> <span class="n">CHARINDEX</span><span class="p">(</span><span class="s1">' '</span><span class="p">,</span><span class="o">@</span><span class="n">_ten</span><span class="p">,</span><span class="o">@</span><span class="n">_pos_start</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_pos_start</span> <span class="o">=</span> <span class="o">@</span><span class="n">_pos_start</span> <span class="o">+</span><span class="mi">1</span> <span class="p">;</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_res</span> <span class="o">=</span> <span class="o">@</span><span class="n">_res</span> <span class="o">+</span> <span class="k">UPPER</span><span class="p">(</span><span class="k">SUBSTRING</span><span class="p">(</span><span class="o">@</span><span class="n">_ten</span><span class="p">,</span><span class="o">@</span><span class="n">_pos_start</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="o">+</span> <span class="k">LOWER</span><span class="p">(</span><span class="k">SUBSTRING</span><span class="p">(</span><span class="o">@</span><span class="n">_ten</span><span class="p">,</span><span class="o">@</span><span class="n">_pos_start</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="o">@</span><span class="n">_pos_end</span><span class="o">-@</span><span class="n">_pos_start</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_pos_start</span> <span class="o">=</span> <span class="o">@</span><span class="n">_pos_end</span> 
+
+<span class="c1">--PRINT(@_res)</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_res</span> <span class="o">=</span> <span class="o">@</span><span class="n">_res</span><span class="o">+</span><span class="s1">' '</span> <span class="p">;</span> 
+
+<span class="cm">/*Lap lan 2*/</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_pos_end</span> <span class="o">=</span> <span class="n">CHARINDEX</span><span class="p">(</span><span class="s1">' '</span><span class="p">,</span><span class="o">@</span><span class="n">_ten</span><span class="p">,</span><span class="o">@</span><span class="n">_pos_start</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_pos_start</span> <span class="o">=</span> <span class="o">@</span><span class="n">_pos_start</span> <span class="o">+</span><span class="mi">1</span> <span class="p">;</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_res</span> <span class="o">=</span> <span class="o">@</span><span class="n">_res</span> <span class="o">+</span> <span class="k">UPPER</span><span class="p">(</span><span class="k">SUBSTRING</span><span class="p">(</span><span class="o">@</span><span class="n">_ten</span><span class="p">,</span><span class="o">@</span><span class="n">_pos_start</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="o">+</span> <span class="k">LOWER</span><span class="p">(</span><span class="k">SUBSTRING</span><span class="p">(</span><span class="o">@</span><span class="n">_ten</span><span class="p">,</span><span class="o">@</span><span class="n">_pos_start</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="o">@</span><span class="n">_pos_end</span><span class="o">-@</span><span class="n">_pos_start</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_pos_start</span> <span class="o">=</span> <span class="o">@</span><span class="n">_pos_end</span> 
+
+<span class="c1">--PRINT(@_res)</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_res</span> <span class="o">=</span> <span class="o">@</span><span class="n">_res</span><span class="o">+</span><span class="s1">' '</span> <span class="p">;</span>
+
+<span class="cm">/*Lap lan 3*/</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_pos_end</span> <span class="o">=</span> <span class="n">CHARINDEX</span><span class="p">(</span><span class="s1">' '</span><span class="p">,</span><span class="o">@</span><span class="n">_ten</span><span class="p">,</span><span class="o">@</span><span class="n">_pos_start</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_pos_start</span> <span class="o">=</span> <span class="o">@</span><span class="n">_pos_start</span> <span class="o">+</span><span class="mi">1</span> <span class="p">;</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_res</span> <span class="o">=</span> <span class="o">@</span><span class="n">_res</span> <span class="o">+</span> <span class="k">UPPER</span><span class="p">(</span><span class="k">SUBSTRING</span><span class="p">(</span><span class="o">@</span><span class="n">_ten</span><span class="p">,</span><span class="o">@</span><span class="n">_pos_start</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="o">+</span> <span class="k">LOWER</span><span class="p">(</span><span class="k">SUBSTRING</span><span class="p">(</span><span class="o">@</span><span class="n">_ten</span><span class="p">,</span><span class="o">@</span><span class="n">_pos_start</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="o">@</span><span class="n">_pos_end</span><span class="o">-@</span><span class="n">_pos_start</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_pos_start</span> <span class="o">=</span> <span class="o">@</span><span class="n">_pos_end</span> 
+
+<span class="n">PRINT</span><span class="p">(</span><span class="o">@</span><span class="n">_res</span><span class="p">)</span>
+
+<span class="cm">/* Bai 6: Hien thi ky tu dau tien viet hoa va ky tu khac viet thuong trong chuoi ten 'Hai hoa vinH le nguyen quang'*/</span>
+
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">_pten</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">36</span><span class="p">)</span> <span class="p">;</span>
+
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">_pfirst</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">36</span><span class="p">)</span> <span class="p">;</span>
+
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">_psecond</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">36</span><span class="p">)</span> <span class="p">;</span>
+
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">_ppos_start</span> <span class="nb">INT</span><span class="p">;</span>
+
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">_ppos_end</span> <span class="nb">INT</span><span class="p">;</span>
+
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">_pres</span> <span class="n">NVARCHAR</span><span class="p">(</span><span class="mi">36</span><span class="p">);</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_pten</span> <span class="o">=</span> <span class="n">N</span><span class="s1">'Hải hòa vinH lê nguyên quang'</span> 
+
+<span class="cm">/* Start lap*/</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_pres</span> <span class="o">=</span> <span class="s1">''</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_ppos_start</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_pten</span> <span class="o">=</span>  <span class="o">@</span><span class="n">_pten</span> <span class="o">+</span> <span class="s1">' '</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_ppos_end</span> <span class="o">=</span> <span class="n">CHARINDEX</span><span class="p">(</span><span class="s1">' '</span><span class="p">,</span><span class="o">@</span><span class="n">_pten</span><span class="p">,</span><span class="o">@</span><span class="n">_ppos_start</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_ppos_start</span> <span class="o">=</span> <span class="o">@</span><span class="n">_ppos_start</span> <span class="o">+</span><span class="mi">1</span> <span class="p">;</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_pres</span> <span class="o">=</span> <span class="o">@</span><span class="n">_pres</span> <span class="o">+</span> <span class="k">UPPER</span><span class="p">(</span><span class="k">SUBSTRING</span><span class="p">(</span><span class="o">@</span><span class="n">_pten</span><span class="p">,</span><span class="o">@</span><span class="n">_ppos_start</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="o">+</span> <span class="k">LOWER</span><span class="p">(</span><span class="k">SUBSTRING</span><span class="p">(</span><span class="o">@</span><span class="n">_pten</span><span class="p">,</span><span class="o">@</span><span class="n">_ppos_start</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="o">@</span><span class="n">_ppos_end</span><span class="o">-@</span><span class="n">_ppos_start</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_ppos_start</span> <span class="o">=</span> <span class="o">@</span><span class="n">_ppos_end</span> 
+
+<span class="c1">--PRINT(@_res)</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_pres</span> <span class="o">=</span> <span class="o">@</span><span class="n">_pres</span><span class="o">+</span><span class="s1">' '</span> <span class="p">;</span> 
+
+<span class="cm">/*Lap lan 2*/</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_ppos_end</span> <span class="o">=</span> <span class="n">CHARINDEX</span><span class="p">(</span><span class="s1">' '</span><span class="p">,</span><span class="o">@</span><span class="n">_pten</span><span class="p">,</span><span class="o">@</span><span class="n">_ppos_start</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_ppos_start</span> <span class="o">=</span> <span class="o">@</span><span class="n">_ppos_start</span> <span class="o">+</span><span class="mi">1</span> <span class="p">;</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_pres</span> <span class="o">=</span> <span class="o">@</span><span class="n">_pres</span> <span class="o">+</span> <span class="k">UPPER</span><span class="p">(</span><span class="k">SUBSTRING</span><span class="p">(</span><span class="o">@</span><span class="n">_pten</span><span class="p">,</span><span class="o">@</span><span class="n">_ppos_start</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="o">+</span> <span class="k">LOWER</span><span class="p">(</span><span class="k">SUBSTRING</span><span class="p">(</span><span class="o">@</span><span class="n">_pten</span><span class="p">,</span><span class="o">@</span><span class="n">_ppos_start</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="o">@</span><span class="n">_ppos_end</span><span class="o">-@</span><span class="n">_ppos_start</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_ppos_start</span> <span class="o">=</span> <span class="o">@</span><span class="n">_ppos_end</span> 
+
+<span class="c1">--PRINT(@_res)</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_pres</span> <span class="o">=</span> <span class="o">@</span><span class="n">_pres</span><span class="o">+</span><span class="s1">' '</span> <span class="p">;</span>
+
+<span class="cm">/*Lap lan 3*/</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_ppos_end</span> <span class="o">=</span> <span class="n">CHARINDEX</span><span class="p">(</span><span class="s1">' '</span><span class="p">,</span><span class="o">@</span><span class="n">_pten</span><span class="p">,</span><span class="o">@</span><span class="n">_ppos_start</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_ppos_start</span> <span class="o">=</span> <span class="o">@</span><span class="n">_ppos_start</span> <span class="o">+</span><span class="mi">1</span> <span class="p">;</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_pres</span> <span class="o">=</span> <span class="o">@</span><span class="n">_pres</span> <span class="o">+</span> <span class="k">UPPER</span><span class="p">(</span><span class="k">SUBSTRING</span><span class="p">(</span><span class="o">@</span><span class="n">_pten</span><span class="p">,</span><span class="o">@</span><span class="n">_ppos_start</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="o">+</span> <span class="k">LOWER</span><span class="p">(</span><span class="k">SUBSTRING</span><span class="p">(</span><span class="o">@</span><span class="n">_pten</span><span class="p">,</span><span class="o">@</span><span class="n">_ppos_start</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="o">@</span><span class="n">_ppos_end</span><span class="o">-@</span><span class="n">_ppos_start</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_ppos_start</span> <span class="o">=</span> <span class="o">@</span><span class="n">_ppos_end</span> 
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_pres</span> <span class="o">=</span> <span class="o">@</span><span class="n">_pres</span><span class="o">+</span><span class="s1">' '</span> <span class="p">;</span>
+
+<span class="c1">--PRINT(@_pres)</span>
+
+<span class="cm">/*Lap lan 4*/</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_ppos_end</span> <span class="o">=</span> <span class="n">CHARINDEX</span><span class="p">(</span><span class="s1">' '</span><span class="p">,</span><span class="o">@</span><span class="n">_pten</span><span class="p">,</span><span class="o">@</span><span class="n">_ppos_start</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_ppos_start</span> <span class="o">=</span> <span class="o">@</span><span class="n">_ppos_start</span> <span class="o">+</span><span class="mi">1</span> <span class="p">;</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_pres</span> <span class="o">=</span> <span class="o">@</span><span class="n">_pres</span> <span class="o">+</span> <span class="k">UPPER</span><span class="p">(</span><span class="k">SUBSTRING</span><span class="p">(</span><span class="o">@</span><span class="n">_pten</span><span class="p">,</span><span class="o">@</span><span class="n">_ppos_start</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="o">+</span> <span class="k">LOWER</span><span class="p">(</span><span class="k">SUBSTRING</span><span class="p">(</span><span class="o">@</span><span class="n">_pten</span><span class="p">,</span><span class="o">@</span><span class="n">_ppos_start</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="o">@</span><span class="n">_ppos_end</span><span class="o">-@</span><span class="n">_ppos_start</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_ppos_start</span> <span class="o">=</span> <span class="o">@</span><span class="n">_ppos_end</span> 
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_pres</span> <span class="o">=</span> <span class="o">@</span><span class="n">_pres</span><span class="o">+</span><span class="s1">' '</span> <span class="p">;</span>
+
+<span class="c1">--PRINT(@_pres)</span>
+
+<span class="cm">/*Lap lan 5*/</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_ppos_end</span> <span class="o">=</span> <span class="n">CHARINDEX</span><span class="p">(</span><span class="s1">' '</span><span class="p">,</span><span class="o">@</span><span class="n">_pten</span><span class="p">,</span><span class="o">@</span><span class="n">_ppos_start</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_ppos_start</span> <span class="o">=</span> <span class="o">@</span><span class="n">_ppos_start</span> <span class="o">+</span><span class="mi">1</span> <span class="p">;</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_pres</span> <span class="o">=</span> <span class="o">@</span><span class="n">_pres</span> <span class="o">+</span> <span class="k">UPPER</span><span class="p">(</span><span class="k">SUBSTRING</span><span class="p">(</span><span class="o">@</span><span class="n">_pten</span><span class="p">,</span><span class="o">@</span><span class="n">_ppos_start</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="o">+</span> <span class="k">LOWER</span><span class="p">(</span><span class="k">SUBSTRING</span><span class="p">(</span><span class="o">@</span><span class="n">_pten</span><span class="p">,</span><span class="o">@</span><span class="n">_ppos_start</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="o">@</span><span class="n">_ppos_end</span><span class="o">-@</span><span class="n">_ppos_start</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_ppos_start</span> <span class="o">=</span> <span class="o">@</span><span class="n">_ppos_end</span> 
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_pres</span> <span class="o">=</span> <span class="o">@</span><span class="n">_pres</span><span class="o">+</span><span class="s1">' '</span> <span class="p">;</span>
+
+<span class="c1">--PRINT(@_pres)</span>
+
+<span class="cm">/*Lap lan 6*/</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_ppos_end</span> <span class="o">=</span> <span class="n">CHARINDEX</span><span class="p">(</span><span class="s1">' '</span><span class="p">,</span><span class="o">@</span><span class="n">_pten</span><span class="p">,</span><span class="o">@</span><span class="n">_ppos_start</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_ppos_start</span> <span class="o">=</span> <span class="o">@</span><span class="n">_ppos_start</span> <span class="o">+</span><span class="mi">1</span> <span class="p">;</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_pres</span> <span class="o">=</span> <span class="o">@</span><span class="n">_pres</span> <span class="o">+</span> <span class="k">UPPER</span><span class="p">(</span><span class="k">SUBSTRING</span><span class="p">(</span><span class="o">@</span><span class="n">_pten</span><span class="p">,</span><span class="o">@</span><span class="n">_ppos_start</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span> <span class="o">+</span> <span class="k">LOWER</span><span class="p">(</span><span class="k">SUBSTRING</span><span class="p">(</span><span class="o">@</span><span class="n">_pten</span><span class="p">,</span><span class="o">@</span><span class="n">_ppos_start</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="o">@</span><span class="n">_ppos_end</span><span class="o">-@</span><span class="n">_ppos_start</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_ppos_start</span> <span class="o">=</span> <span class="o">@</span><span class="n">_ppos_end</span> 
+
+<span class="c1">--SELECT @_pres = @_pres+' ' ;</span>
+
+<span class="n">PRINT</span><span class="p">(</span><span class="o">@</span><span class="n">_pres</span><span class="p">)</span>
+
+<span class="cm">/*TEST*/</span>
+
+<span class="k">DECLARE</span> <span class="o">@</span><span class="n">_d</span> <span class="nb">NUMERIC</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> 
+
+<span class="k">SELECT</span> <span class="o">@</span><span class="n">_d</span> <span class="o">=</span> <span class="mi">999</span><span class="p">.</span><span class="mi">001</span> <span class="p">;</span>
+
+<span class="n">PRINT</span><span class="p">(</span><span class="n">FLOOR</span><span class="p">(</span><span class="o">@</span><span class="n">_d</span><span class="p">))</span>
+
+<span class="n">PRINT</span><span class="p">(</span><span class="n">CEILING</span><span class="p">(</span><span class="o">@</span><span class="n">_d</span><span class="p">))</span>
+
+<span class="n">PRINT</span><span class="p">(</span><span class="o">@</span><span class="n">_d</span> <span class="o">%</span> <span class="mi">1</span><span class="p">)</span>
+
+</code></pre></div></div>
+
 <h5 id="bài-tập-về-nhà-làm-print">BÀI TẬP VỀ NHÀ: LÀM PRINT</h5>
 
 <h4 id="thứ-6-học-lại-ngày-432022">THỨ 6 HỌC LẠI (NGÀY 4/3/2022)</h4>
+
+<hr />
+
+<h4 id="soạn-bài-buổi-2">Soạn bài buổi 2</h4>
+
+<h5 id="iv-định-nghĩa-biến-trong-sql-và-câu-lệnh-execute-chuỗi">IV. Định nghĩa biến trong SQL và câu lệnh EXECUTE (“Chuỗi”)</h5>
+
+<ol>
+  <li>Biến trong SQL</li>
+</ol>
+
+<ul>
+  <li>Để khai báo biến trong SQL Server, ta sử dụng câu lệnh <code class="language-plaintext highlighter-rouge">DECLARE</code>, cú pháp như sau:</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">DECLARE @&lt;Tên biến&gt; &lt;Kiểu dữ liệu của biến&gt; [= Giá trị gán cho biến]</code></p>
+
+<ul>
+  <li>
+    <Tên biến="">: Tên của biến. Đối với Bravo thì yêu cầu có dấu gạch '_' trước tên của biến
+
+</Tên>
+  </li>
+  <li>
+    <Kiểu dữ="" liệu="">: Kiểu dữ liệu định nghĩa cho biến
+
+</Kiểu>
+  </li>
+  <li></li>
+  <li>Ví dụ: Để khai báo biến ItemCode thì khai báo như sau:</li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">DECLARE @_Itemcode NVARCHAR(16)</code></p>
+
+<ol>
+  <li>Câu lệnh <code class="language-plaintext highlighter-rouge">EXECUTE('Chuỗi')</code></li>
+</ol>
+
+<ul>
+  <li>
+    <p>Cấu trúc <code class="language-plaintext highlighter-rouge">EXECUTE('SELECT * FROM Item')</code></p>
+  </li>
+  <li>
+    <p>Nguyên tắc biến câu lệnh Query SQL thành chuỗi trong câu lệnh EXECUTE():</p>
+  </li>
+  <li>
+    <p>Thêm 2 dấu nháy đơn vào đằng trước và đằng sau câu lệnh</p>
+  </li>
+  <li>
+    <p>Với mỗi dấu nháy đơn ở câu lệnh Query SQL thông thường khi vào chuỗi để sử dụng trong Câu lệnh EXECUTE thì sẽ thêm 1 dấu nháy nữa</p>
+  </li>
+</ul>
+
+<p>Ví dụ:</p>
+
+<p><code class="language-plaintext highlighter-rouge">SELECT * FROM Item WHERE ItemCode = 'TP01'</code></p>
+
+<ul>
+  <li>Trường hợp muốn công ký tự đặc biệt vào chuỗi thì dùng hàm CHAR(Mã KeyAscii)</li>
+</ul>
+
+<p>Ví dụ:</p>
+
+<ul>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">CHAR(13)</code> -&gt; Ký tự Enter</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">CHAR(39)</code> -&gt; Ký tự nháy đơn</p>
+  </li>
+</ul>
+
+<h5 id="v-hàm-ngày-tháng">V. Hàm ngày tháng</h5>
+
+<ol>
+  <li>Hàm ngày tháng</li>
+</ol>
+
+<ul>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">GETDATE()</code>: Trả về ngày giờ hiện hành</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">GETUTCDATE()</code>: Trả về ngày và giờ UTC hiện tại</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">CURRENT_TIMESTAMP</code>: Trả về ngày giờ hiện hành</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">DATEADD(interval, number, date)</code>: trả về một ngày mà sau đó một khoảng thời gian/ngày nhất định đã được thêm vào</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">interval</code>: Nó có thể là một trong những giá trị sau</p>
+  </li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">year, yyyy,yy</code> - Khoảng thời gian năm</p>
+
+<p><code class="language-plaintext highlighter-rouge">quarter,qq,q</code> - Khoảng thời gian quý</p>
+
+<p><code class="language-plaintext highlighter-rouge">month, mm,m</code> - Khoảng thời gian tháng</p>
+
+<p><code class="language-plaintext highlighter-rouge">dayofyear</code> - Ngày trong năm</p>
+
+<p><code class="language-plaintext highlighter-rouge">day,dy,y</code> - Khoảng thời gian trong ngày</p>
+
+<p><code class="language-plaintext highlighter-rouge">week, ww,wk</code> - Khoảng thời gian trong tuần</p>
+
+<p><code class="language-plaintext highlighter-rouge">weekday, dw,w</code> - Khoảng thời gian các ngày trong tuần</p>
+
+<p><code class="language-plaintext highlighter-rouge">hour, hh</code> - Khoảng thời gian chờ</p>
+
+<p><code class="language-plaintext highlighter-rouge">minute, mi,n</code> - Khoảng thời gian phút</p>
+
+<p><code class="language-plaintext highlighter-rouge">second, ss, s</code> - Khoảng thời gian giây</p>
+
+<p><code class="language-plaintext highlighter-rouge">millisecond, ms</code> - Khoảng thời gian micro giây</p>
+
+<ul>
+  <li>
+    <p>number: Số lượng khoảng thời gian muốn thêm</p>
+  </li>
+  <li>
+    <p>date: Ngày mà khoảng thời gian được thêm vào</p>
+  </li>
+  <li>
+    <p>Ví dụ:</p>
+  </li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">SELECT DATEADD(year, 3, '2022/04/06')</code></p>
+
+<p>– ket qua ‘2025’</p>
 
 
       </article>
