@@ -9,13 +9,13 @@
 
   
 
-  <title>Luyện thuật toán</title>
+  <title>Những trang web về công nghệ nên đọc</title>
 
   
   <meta name="author" content="Ngô Tấn Trí">
   
 
-  <meta name="description" content="Algorithm">
+  <meta name="description" content="paper, web">
 
   
 
@@ -72,8 +72,8 @@
 
   
   <meta property="og:site_name" content="Em0t3t">
-  <meta property="og:title" content="Luyện thuật toán">
-  <meta property="og:description" content="Algorithm">
+  <meta property="og:title" content="Những trang web về công nghệ nên đọc">
+  <meta property="og:description" content="paper, web">
 
   
   <meta property="og:image" content="http://localhost:4000/assets/img/path.jpg">
@@ -82,9 +82,9 @@
   
   <meta property="og:type" content="article">
   <meta property="og:article:author" content="Ngô Tấn Trí">
-  <meta property="og:article:published_time" content="2022-02-10T00:00:00+00:00">
-  <meta property="og:url" content="http://localhost:4000/2022-02-10-Algorithm/">
-  <link rel="canonical" href="http://localhost:4000/2022-02-10-Algorithm/">
+  <meta property="og:article:published_time" content="2022-04-05T00:00:00+00:00">
+  <meta property="og:url" content="http://localhost:4000/2022-04-05-Nghiepvu/">
+  <link rel="canonical" href="http://localhost:4000/2022-04-05-Nghiepvu/">
   
 
   
@@ -93,8 +93,8 @@
   <meta name="twitter:site" content="@daattali">
   <meta name="twitter:creator" content="@daattali">
 
-  <meta property="twitter:title" content="Luyện thuật toán">
-  <meta property="twitter:description" content="Algorithm">
+  <meta property="twitter:title" content="Những trang web về công nghệ nên đọc">
+  <meta property="twitter:description" content="paper, web">
 
   
   <meta name="twitter:image" content="http://localhost:4000/assets/img/path.jpg">
@@ -178,15 +178,15 @@
     <div class="row">
       <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
         <div class="post-heading">
-          <h1>Luyện thuật toán</h1>
+          <h1>Những trang web về công nghệ nên đọc</h1>
           
             
-              <h2 class="post-subheading">Algorithm</h2>
+              <h2 class="post-subheading">paper, web</h2>
             
           
 
           
-            <span class="post-meta">Posted on February 10, 2022</span>
+            <span class="post-meta">Posted on April 5, 2022</span>
             
             
           
@@ -202,15 +202,15 @@
     <div class="row">
       <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
         <div class="post-heading">
-          <h1>Luyện thuật toán</h1>
+          <h1>Những trang web về công nghệ nên đọc</h1>
           
             
-              <h2 class="post-subheading">Algorithm</h2>
+              <h2 class="post-subheading">paper, web</h2>
             
           
 
           
-            <span class="post-meta">Posted on February 10, 2022</span>
+            <span class="post-meta">Posted on April 5, 2022</span>
             
             
           
@@ -257,36 +257,9 @@ MathJax.Hub.Queue(function() {
 
 <hr />
 
-<h4 id="bài-1-"><span style="color:#4cbb17">Bài 1: </span></h4>
+<p>Soạn bài buổi 1:</p>
 
-<p><code class="language-plaintext highlighter-rouge">467C - George and Job</code></p>
-
-<p>The solution to this problem is dynamic programming. Initially, you need to calculate <code class="language-plaintext highlighter-rouge">psum_R</code>, where <code class="language-plaintext highlighter-rouge">psum_R</code> is the sum on the prefix of the array <code class="language-plaintext highlighter-rouge">p</code> of length <code class="language-plaintext highlighter-rouge">R</code>.</p>
-
-<p>Let’s denote <code class="language-plaintext highlighter-rouge">dp_(i,j)</code> - the maximum profit that Jura can get if we have already chosen <code class="language-plaintext highlighter-rouge">i</code> sequences and the last element in the <code class="language-plaintext highlighter-rouge">i-th</code> sequence has index <code class="language-plaintext highlighter-rouge">j</code>.</p>
-
-<p>Obviously, if <code class="language-plaintext highlighter-rouge">i.m&gt;j</code> then <code class="language-plaintext highlighter-rouge">do_(i,j)=0</code>. Otherwise <code class="language-plaintext highlighter-rouge">dp_(i,j)=max(dp_(i,j-1),dp_(i-1,j-m)+psum_j-psum_(j-m))</code>. The answer is <code class="language-plaintext highlighter-rouge">dp_(k,n)</code>.</p>
-
-<p>You also had to remember to use <code class="language-plaintext highlighter-rouge">long long</code> in calculations.</p>
-
-<p>Asymptotics: <code class="language-plaintext highlighter-rouge">O(NK)</code></p>
-
-<div class="language-cpp highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cp">#include &lt;iostream&gt;
-#define ll long long
-</span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-<span class="n">ll</span> <span class="n">n</span><span class="p">,</span><span class="n">m</span><span class="p">,</span><span class="n">k</span><span class="p">,</span><span class="n">s</span><span class="p">[</span><span class="mi">5005</span><span class="p">],</span><span class="n">d</span><span class="p">[</span><span class="mi">5005</span><span class="p">][</span><span class="mi">5005</span><span class="p">],</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">;</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">()</span>
-<span class="p">{</span>
-<span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">n</span><span class="o">&gt;&gt;</span><span class="n">m</span><span class="o">&gt;&gt;</span><span class="n">k</span><span class="p">;</span>
-<span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">n</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="n">cin</span><span class="o">&gt;&gt;</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">],</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+=</span><span class="n">s</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">];</span>
-<span class="k">for</span><span class="p">(</span><span class="n">i</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="n">i</span><span class="o">&lt;=</span><span class="n">k</span><span class="p">;</span><span class="n">i</span><span class="o">++</span><span class="p">)</span><span class="k">for</span><span class="p">(</span><span class="n">j</span><span class="o">=</span><span class="n">m</span><span class="p">;</span><span class="n">j</span><span class="o">&lt;=</span><span class="n">n</span><span class="p">;</span><span class="n">j</span><span class="o">++</span><span class="p">)</span><span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span><span class="o">=</span><span class="n">max</span><span class="p">(</span><span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">d</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="n">m</span><span class="p">]</span><span class="o">+</span><span class="n">s</span><span class="p">[</span><span class="n">j</span><span class="p">]</span><span class="o">-</span><span class="n">s</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="n">m</span><span class="p">]);</span>
-<span class="n">cout</span><span class="o">&lt;&lt;</span><span class="n">d</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="n">n</span><span class="p">];</span>
-<span class="p">}</span>
-</code></pre></div></div>
-
-<p>Link: https://drive.google.com/file/d/10ElcA9Gd_T_EgFrZIzLpLNavoomqMVNR/view?usp=sharing</p>
-
-<p>Link 2: https://drive.google.com/file/d/1dH-SQCwpp1589LO4CH4OiOIL07KO2O1H/view?usp=sharing</p>
+<h4 id="danh-mục-vật-tư">Danh mục vật tư:</h4>
 
 
       </article>
@@ -312,7 +285,7 @@ MathJax.Hub.Queue(function() {
   <span class="sr-only">Share: </span>
 
   
-    <a href="https://twitter.com/intent/tweet?text=Luy%E1%BB%87n+thu%E1%BA%ADt+to%C3%A1n&url=http%3A%2F%2Flocalhost%3A4000%2F2022-02-10-Algorithm%2F"
+    <a href="https://twitter.com/intent/tweet?text=Nh%E1%BB%AFng+trang+web+v%E1%BB%81+c%C3%B4ng+ngh%E1%BB%87+n%C3%AAn+%C4%91%E1%BB%8Dc&url=http%3A%2F%2Flocalhost%3A4000%2F2022-04-05-Nghiepvu%2F"
       class="btn btn-social-icon btn-twitter" title="Share on Twitter">
       <span class="fab fa-fw fa-twitter" aria-hidden="true"></span>
       <span class="sr-only">Twitter</span>
@@ -320,7 +293,7 @@ MathJax.Hub.Queue(function() {
   
 
   
-    <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F2022-02-10-Algorithm%2F"
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F2022-04-05-Nghiepvu%2F"
       class="btn btn-social-icon btn-facebook" title="Share on Facebook">
       <span class="fab fa-fw fa-facebook" aria-hidden="true"></span>
       <span class="sr-only">Facebook</span>
@@ -328,7 +301,7 @@ MathJax.Hub.Queue(function() {
   
 
   
-    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2F2022-02-10-Algorithm%2F"
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2F2022-04-05-Nghiepvu%2F"
       class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
       <span class="fab fa-fw fa-linkedin" aria-hidden="true"></span>
       <span class="sr-only">LinkedIn</span>
@@ -346,13 +319,9 @@ MathJax.Hub.Queue(function() {
       <ul class="pagination blog-pager">
         
         <li class="page-item previous">
-          <a class="page-link" href="/2022-01-30-mysql/" data-toggle="tooltip" data-placement="top" title="Mysql and SQL Server Training">&larr; Previous Post</a>
+          <a class="page-link" href="/2022-02-10-Algorithm/" data-toggle="tooltip" data-placement="top" title="Luyện thuật toán">&larr; Previous Post</a>
         </li>
         
-        
-        <li class="page-item next">
-          <a class="page-link" href="/2022-04-05-Nghiepvu/" data-toggle="tooltip" data-placement="top" title="Những trang web về công nghệ nên đọc">Next Post &rarr;</a>
-        </li>
         
       </ul>
       

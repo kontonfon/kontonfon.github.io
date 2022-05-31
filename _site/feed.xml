@@ -12,6 +12,29 @@
     
     
       <item>
+        <title>Những trang web về công nghệ nên đọc</title>
+        <description>
+          paper, web - 
+          
+
+
+
+
+
+
+
+Soạn bài buổi 1:
+
+Danh mục vật tư:
+
+
+        </description>
+        <pubDate>Tue, 05 Apr 2022 00:00:00 +0000</pubDate>
+        <link>http://localhost:4000/2022-04-05-Nghiepvu/</link>
+        <guid isPermaLink="true">http://localhost:4000/2022-04-05-Nghiepvu/</guid>
+      </item>
+    
+      <item>
         <title>Luyện thuật toán</title>
         <description>
           Algorithm - 
@@ -226,17 +249,6 @@
         <pubDate>Sun, 03 Jan 2021 00:00:00 +0000</pubDate>
         <link>http://localhost:4000/2021-01-03-ECC/</link>
         <guid isPermaLink="true">http://localhost:4000/2021-01-03-ECC/</guid>
-      </item>
-    
-      <item>
-        <title>Đại số trừu tượng</title>
-        <description>
-          Abstract Algbra - 
-          Direct Proof claim: if $P$ then $Q$ proof: Suppose $P$ … then $Q$ claim: if $m$ and $n$ are odd then $mn$ is odd proof: Suppose that $m$ and $n$ are odd . Thus: $m=2x+1$ and $n=2y+1$ for $x,y\in \mathbb{Z}$ Notice that: $mn=(2x+1)(2y+1) = 4xy+2x+2y+1$ then $mn$ is odd claim:...
-        </description>
-        <pubDate>Sat, 02 Jan 2021 00:00:00 +0000</pubDate>
-        <link>http://localhost:4000/2021-01-02-Dai-so-truu-tuong/</link>
-        <guid isPermaLink="true">http://localhost:4000/2021-01-02-Dai-so-truu-tuong/</guid>
       </item>
     
   </channel>
