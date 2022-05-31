@@ -9,13 +9,13 @@
 
   
 
-  <title>Những trang web về công nghệ nên đọc</title>
+  <title>ECC</title>
 
   
   <meta name="author" content="Ngô Tấn Trí">
   
 
-  <meta name="description" content="paper, web">
+  <meta name="description" content="Crypto">
 
   
 
@@ -72,8 +72,8 @@
 
   
   <meta property="og:site_name" content="Em0t3t">
-  <meta property="og:title" content="Những trang web về công nghệ nên đọc">
-  <meta property="og:description" content="paper, web">
+  <meta property="og:title" content="ECC">
+  <meta property="og:description" content="Crypto">
 
   
   <meta property="og:image" content="http://localhost:4000/assets/img/path.jpg">
@@ -82,9 +82,9 @@
   
   <meta property="og:type" content="article">
   <meta property="og:article:author" content="Ngô Tấn Trí">
-  <meta property="og:article:published_time" content="2022-04-05T00:00:00+00:00">
-  <meta property="og:url" content="http://localhost:4000/2022-04-05-Nghiepvu/">
-  <link rel="canonical" href="http://localhost:4000/2022-04-05-Nghiepvu/">
+  <meta property="og:article:published_time" content="2022-05-31T00:00:00+00:00">
+  <meta property="og:url" content="http://localhost:4000/2022-05-31-ECC_Restart/">
+  <link rel="canonical" href="http://localhost:4000/2022-05-31-ECC_Restart/">
   
 
   
@@ -93,8 +93,8 @@
   <meta name="twitter:site" content="@daattali">
   <meta name="twitter:creator" content="@daattali">
 
-  <meta property="twitter:title" content="Những trang web về công nghệ nên đọc">
-  <meta property="twitter:description" content="paper, web">
+  <meta property="twitter:title" content="ECC">
+  <meta property="twitter:description" content="Crypto">
 
   
   <meta name="twitter:image" content="http://localhost:4000/assets/img/path.jpg">
@@ -178,15 +178,15 @@
     <div class="row">
       <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
         <div class="post-heading">
-          <h1>Những trang web về công nghệ nên đọc</h1>
+          <h1>ECC</h1>
           
             
-              <h2 class="post-subheading">paper, web</h2>
+              <h2 class="post-subheading">Crypto</h2>
             
           
 
           
-            <span class="post-meta">Posted on April 5, 2022</span>
+            <span class="post-meta">Posted on May 31, 2022</span>
             
             
           
@@ -202,15 +202,15 @@
     <div class="row">
       <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
         <div class="post-heading">
-          <h1>Những trang web về công nghệ nên đọc</h1>
+          <h1>ECC</h1>
           
             
-              <h2 class="post-subheading">paper, web</h2>
+              <h2 class="post-subheading">Crypto</h2>
             
           
 
           
-            <span class="post-meta">Posted on April 5, 2022</span>
+            <span class="post-meta">Posted on May 31, 2022</span>
             
             
           
@@ -257,9 +257,68 @@ MathJax.Hub.Queue(function() {
 
 <hr />
 
-<p>Soạn bài buổi 1:</p>
+<h4 id="elliptic-curves">ELLIPTIC CURVES</h4>
 
-<h4 id="danh-mục-vật-tư">Danh mục vật tư:</h4>
+<p>The use of elliptic curves for public-key cryptography was first suggested in 1985. After resisting decades of attacks, they started to see widespread use from around 2005,
+providing several benefits over previous public-key cryptosystems such as RSA</p>
+
+<p>Smaller EC keys offer greater strength, with a 256-bit EC key having the same security level as a 3072-bit RSA key. Furthermore, several operations using those keys (including sigining) can be more efficient both time - and memory - wise. Finally, since ECC is more complex than RSA, is has the welcome effect of encouraging developers to make use of trusted libraries rather than rolling their own.</p>
+
+<p>These challenges aim to give you an intuition for the trapdoor function behind ECC; dip your toes into the mathematical structure underlying it; and have you breaking popular schemes like ECDSA</p>
+
+<h4 id="background">BACKGROUND</h4>
+<p>Elliptic Curve Cryptography (ECC) is an asymmetric cryptographic protocol that, like RSA and Diffie-Hellman (DH), relies on a trapdoor function. To recap: trapdoor functions allow a client to keep data secret by performing a mathematical operation which is computationally easy to do, but currently understood to be very expensive to undo.</p>
+
+<p>For RSA, the trapdoor function relies on the hardness of factoring large numbers. For Diffie-Hellman, the trapdoor relies on the hardness of the descrete log problem. For both RSA and DH, the operatons that run through the veins of the protocol are familiar to us. Multiplying numbers and taking powers of numbers are things we are taught to do in school. ECC stands out, because the group operation in ECC won’t pop up in your life unless you are looking for it.</p>
+
+<ul>
+  <li>The discussion here will not be total, and those who are really looking to understand ECC, I recommend these notes Elliptic Curve notes by Ben Lynn, and the textbox “An Introduction to Mathematical”, Jeffrey Hoffstein, Jull Pipher, Joseph H. Silverman</li>
+</ul>
+
+<p>Let’s start thinking about ECC by looking at what we mean by an elliptic curve. We will be studying ‘Weierstrass equations’, which are of the form</p>
+
+<p><code class="language-plaintext highlighter-rouge">Y^2 = X^3+AX+B</code></p>
+
+<p>Elliptic curves have an amazing feature: We can define an operator that we will call “point addition”. This operator takes two points on some curve and produces a third point on the curve. Taking the set of points on an elliptic curve, point addtion defines an Abelian group.</p>
+
+<p>There’s a lot of text here. Let’s motivate this! We can understand scalar multiplication of a point as the repeated point addition of the same point. Q = 2P = P + P. It turns out that scalar multiplication is a trapdoor function ! ECC relies on the hardness of finding the <code class="language-plaintext highlighter-rouge">n</code> such that <code class="language-plaintext highlighter-rouge">Q=nP</code> given <code class="language-plaintext highlighter-rouge">Q</code> and <code class="language-plaintext highlighter-rouge">P</code></p>
+
+<h4 id="so-how-do-we-understand-point-addtion-">So how do we understand point addtion ?</h4>
+
+<p>Geometrically, we can understand point addtion <code class="language-plaintext highlighter-rouge">P+Q</code> like so. Take an elliptic curve and mark the two points <code class="language-plaintext highlighter-rouge">P,Q</code> along the curve with their <code class="language-plaintext highlighter-rouge">x,y</code> coordinates. Draw a straight line that passes through both points. Now continue the line until it intersects your curve a third time. Mark this new intersection <code class="language-plaintext highlighter-rouge">R</code>. Finally, take <code class="language-plaintext highlighter-rouge">R</code> and reflect it along the <code class="language-plaintext highlighter-rouge">y</code> direction to produce <code class="language-plaintext highlighter-rouge">R'=R(x,-y)</code>. The result of the point addition is <code class="language-plaintext highlighter-rouge">P+Q = R'</code></p>
+
+<p>What if we want to add two of the same point together: <code class="language-plaintext highlighter-rouge">P+P</code> ? We can’t draw a unique line through one point, but we can pick a unique line by calculating the tangant line to the curve at this point. Calculate the tangent line at the point <code class="language-plaintext highlighter-rouge">P</code>. Continue the line until it intersects with the curve at point <code class="language-plaintext highlighter-rouge">R</code>. Reflect this point as before: <code class="language-plaintext highlighter-rouge">P+P=R' = R(x,-y)</code></p>
+
+<p>What happens if there is no third intersection ? Sometimes you will pick two points <code class="language-plaintext highlighter-rouge">P,Q</code> and the line will not touch the curve again. In this case, we say that the line intersects with the point <code class="language-plaintext highlighter-rouge">(O)</code> which is a single point located at the end of every vertical line at infinity. As such, point addition for an elliptic curve is defined in 2D space, with an additional point located at infinity.</p>
+
+<p>Included below is a diagram as a visual aid to these different cases.</p>
+
+<p><img src="https://i.imgur.com/tscJhQA.png" alt="Imgur" /></p>
+
+<p>The point <code class="language-plaintext highlighter-rouge">O</code> acts as the identity operator of the group: <code class="language-plaintext highlighter-rouge">P+O=P</code> and <code class="language-plaintext highlighter-rouge">P+(-P) = O</code></p>
+
+<p>This brings us to the point of defining and elliptic curve.</p>
+
+<p>Definition: An elliptic curve E is the set of solutions to a Weierstrass equation</p>
+
+<p><code class="language-plaintext highlighter-rouge">E: Y^2 = X^3+aX+b</code></p>
+
+<p>together with a point at infinity <code class="language-plaintext highlighter-rouge">O</code>. This constants <code class="language-plaintext highlighter-rouge">a,b</code> must satisfy the relationship: <code class="language-plaintext highlighter-rouge">4a^3+27b^2 &lt;&gt; 0</code></p>
+
+<p>to ensure there are not singularities on the curve.</p>
+
+<p>Formally, let E be an elliptic curve, point addition has the following properties:</p>
+
+<p>(a) <code class="language-plaintext highlighter-rouge">P+O=O+P=P</code>
+(b) <code class="language-plaintext highlighter-rouge">P+(-P)=O</code>
+(c) <code class="language-plaintext highlighter-rouge">( P + Q )+R = P + (Q + R)</code>
+(d) <code class="language-plaintext highlighter-rouge">P + Q = Q + P</code></p>
+
+<p>In Ecc, we study elliptic curve over a finite field F_p. This means we look at the curve modulo the charactieristic p and an elliptic curve will no longer be a curve, but a collection of points whose <code class="language-plaintext highlighter-rouge">x,y</code> coordinates are integers in <code class="language-plaintext highlighter-rouge">F_p</code>.</p>
+
+<p>The following starter challenges will take you through the calculations for ECC and get you used to the basic opeations that ECC is built upon, have fun!</p>
+
+<p>Property <code class="language-plaintext highlighter-rouge">(d)</code> shows that point addition is commutative. The flag is the name we give groups with a commutative operation.</p>
 
 
       </article>
@@ -285,7 +344,7 @@ MathJax.Hub.Queue(function() {
   <span class="sr-only">Share: </span>
 
   
-    <a href="https://twitter.com/intent/tweet?text=Nh%E1%BB%AFng+trang+web+v%E1%BB%81+c%C3%B4ng+ngh%E1%BB%87+n%C3%AAn+%C4%91%E1%BB%8Dc&url=http%3A%2F%2Flocalhost%3A4000%2F2022-04-05-Nghiepvu%2F"
+    <a href="https://twitter.com/intent/tweet?text=ECC&url=http%3A%2F%2Flocalhost%3A4000%2F2022-05-31-ECC_Restart%2F"
       class="btn btn-social-icon btn-twitter" title="Share on Twitter">
       <span class="fab fa-fw fa-twitter" aria-hidden="true"></span>
       <span class="sr-only">Twitter</span>
@@ -293,7 +352,7 @@ MathJax.Hub.Queue(function() {
   
 
   
-    <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F2022-04-05-Nghiepvu%2F"
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F2022-05-31-ECC_Restart%2F"
       class="btn btn-social-icon btn-facebook" title="Share on Facebook">
       <span class="fab fa-fw fa-facebook" aria-hidden="true"></span>
       <span class="sr-only">Facebook</span>
@@ -301,7 +360,7 @@ MathJax.Hub.Queue(function() {
   
 
   
-    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2F2022-04-05-Nghiepvu%2F"
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2F2022-05-31-ECC_Restart%2F"
       class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
       <span class="fab fa-fw fa-linkedin" aria-hidden="true"></span>
       <span class="sr-only">LinkedIn</span>
@@ -319,13 +378,9 @@ MathJax.Hub.Queue(function() {
       <ul class="pagination blog-pager">
         
         <li class="page-item previous">
-          <a class="page-link" href="/2022-02-10-Algorithm/" data-toggle="tooltip" data-placement="top" title="Luyện thuật toán">&larr; Previous Post</a>
+          <a class="page-link" href="/2022-04-05-Nghiepvu/" data-toggle="tooltip" data-placement="top" title="Những trang web về công nghệ nên đọc">&larr; Previous Post</a>
         </li>
         
-        
-        <li class="page-item next">
-          <a class="page-link" href="/2022-05-31-ECC_Restart/" data-toggle="tooltip" data-placement="top" title="ECC">Next Post &rarr;</a>
-        </li>
         
       </ul>
       

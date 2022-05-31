@@ -12,6 +12,17 @@
     
     
       <item>
+        <title>ECC</title>
+        <description>
+          Crypto - 
+          ELLIPTIC CURVES The use of elliptic curves for public-key cryptography was first suggested in 1985. After resisting decades of attacks, they started to see widespread use from around 2005, providing several benefits over previous public-key cryptosystems such as RSA Smaller EC keys offer greater strength, with a 256-bit EC key...
+        </description>
+        <pubDate>Tue, 31 May 2022 00:00:00 +0000</pubDate>
+        <link>http://localhost:4000/2022-05-31-ECC_Restart/</link>
+        <guid isPermaLink="true">http://localhost:4000/2022-05-31-ECC_Restart/</guid>
+      </item>
+    
+      <item>
         <title>Những trang web về công nghệ nên đọc</title>
         <description>
           paper, web - 
@@ -238,17 +249,6 @@ Danh mục vật tư:
         <pubDate>Mon, 04 Jan 2021 00:00:00 +0000</pubDate>
         <link>http://localhost:4000/2021-01-04-Demo-tat-nien/</link>
         <guid isPermaLink="true">http://localhost:4000/2021-01-04-Demo-tat-nien/</guid>
-      </item>
-    
-      <item>
-        <title>Tổng quan về ECC</title>
-        <description>
-          ECC - 
-          Lời mở đầu Tháng 3 năm 2016, Bộ Ngoại Giao Hoa Kỳ, đứng đầu là bộ trưởng John , đã dẫn một đoàn đại biểu tới các nước ASEAN trong đó có Việt Nam để thảo luận về phát triển Fintech và đặc biệt là về công nghệ Blockchain. Tháng...
-        </description>
-        <pubDate>Sun, 03 Jan 2021 00:00:00 +0000</pubDate>
-        <link>http://localhost:4000/2021-01-03-ECC/</link>
-        <guid isPermaLink="true">http://localhost:4000/2021-01-03-ECC/</guid>
       </item>
     
   </channel>
