@@ -12,6 +12,17 @@
     
     
       <item>
+        <title>RSA blog</title>
+        <description>
+          mathematic, crypto - 
+          TEMPLATE CRYPTO 1. TÌM CĂN BẬC HAI import math _1_50 = 1 &amp;lt;&amp;lt; 50 # 2**50 == 1,125,899,906,842,624 def isqrt(x): &quot;&quot;&quot;Return the integer part of the square root of x, even for very large integer values.&quot;&quot;&quot; if x &amp;lt; 0: raise ValueError(&apos;square root not defined for negative numbers&apos;) if x...
+        </description>
+        <pubDate>Sat, 11 Jun 2022 00:00:00 +0000</pubDate>
+        <link>http://localhost:4000/2022-06-11-RSA-Blog/</link>
+        <guid isPermaLink="true">http://localhost:4000/2022-06-11-RSA-Blog/</guid>
+      </item>
+    
+      <item>
         <title>ECC</title>
         <description>
           Crypto - 
@@ -238,17 +249,6 @@ Danh mục vật tư:
         <pubDate>Thu, 16 Sep 2021 00:00:00 +0000</pubDate>
         <link>http://localhost:4000/2021-09-16-DEMO-GIT/</link>
         <guid isPermaLink="true">http://localhost:4000/2021-09-16-DEMO-GIT/</guid>
-      </item>
-    
-      <item>
-        <title>Luyện tập Crypto</title>
-        <description>
-          Trên cryptohack.org - 
-          Phần 1: Giới thiệu Tạo tài khoản trên cryptohack.org Khi click vào Register trên trang Cryptohack.org thì chúng ta sẽ thấy một bài toán kinh điển trong crypto đó là: Thì bài toán này , theo cách thông thường trong dân gian, chúng ta sẽ sử dụng một công cụ...
-        </description>
-        <pubDate>Mon, 04 Jan 2021 00:00:00 +0000</pubDate>
-        <link>http://localhost:4000/2021-01-04-Demo-tat-nien/</link>
-        <guid isPermaLink="true">http://localhost:4000/2021-01-04-Demo-tat-nien/</guid>
       </item>
     
   </channel>

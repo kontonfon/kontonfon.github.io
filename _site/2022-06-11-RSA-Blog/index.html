@@ -1,0 +1,1651 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Beautiful Jekyll 5.0.0 | Copyright Dean Attali 2020 -->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  
+
+  
+
+  <title>RSA blog</title>
+
+  
+  <meta name="author" content="Ngô Tấn Trí">
+  
+
+  <meta name="description" content="mathematic, crypto">
+
+  
+
+  
+
+  <link rel="alternate" type="application/rss+xml" title="Em0t3t" href="http://localhost:4000/feed.xml">
+
+  
+
+  
+
+  
+
+
+  
+    
+      
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+    
+      
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+
+
+    
+      
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic">
+
+
+    
+      
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800">
+
+
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/assets/css/bootstrap-social.css">
+    
+      <link rel="stylesheet" href="/assets/css/beautifuljekyll.css">
+    
+  
+
+  
+
+  
+  
+  
+
+  
+
+  
+  <meta property="og:site_name" content="Em0t3t">
+  <meta property="og:title" content="RSA blog">
+  <meta property="og:description" content="mathematic, crypto">
+
+  
+  <meta property="og:image" content="http://localhost:4000/assets/img/path.jpg">
+  
+
+  
+  <meta property="og:type" content="article">
+  <meta property="og:article:author" content="Ngô Tấn Trí">
+  <meta property="og:article:published_time" content="2022-06-11T00:00:00+00:00">
+  <meta property="og:url" content="http://localhost:4000/2022-06-11-RSA-Blog/">
+  <link rel="canonical" href="http://localhost:4000/2022-06-11-RSA-Blog/">
+  
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  
+  <meta name="twitter:site" content="@daattali">
+  <meta name="twitter:creator" content="@daattali">
+
+  <meta property="twitter:title" content="RSA blog">
+  <meta property="twitter:description" content="mathematic, crypto">
+
+  
+  <meta name="twitter:image" content="http://localhost:4000/assets/img/path.jpg">
+  
+
+  
+
+
+  
+
+  
+
+</head>
+
+
+<body>
+
+  
+
+
+  <nav class="navbar navbar-expand-xl navbar-light fixed-top navbar-custom top-nav-regular"><a class="navbar-brand" href="http://localhost:4000/">Em0t3t</a><button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="main-navbar">
+    <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/aboutme">About Me</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Resources</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="https://beautifuljekyll.com">Beautiful Jekyll</a>
+                  <a class="dropdown-item" href="https://www.markdowntutorial.com/">Learn markdown</a>
+            </div>
+          </li>
+        
+          <li class="nav-item">
+            <a class="nav-link" href="https://deanattali.com">Author's home</a>
+          </li></ul>
+  </div>
+
+  
+
+  
+    <div class="avatar-container">
+      <div class="avatar-img-border">
+        <a href="http://localhost:4000/">
+          <img alt="Navigation bar avatar" class="avatar-img" src="/assets/img/LOGODUT.png" />
+        </a>
+      </div>
+    </div>
+  
+
+</nav>
+
+
+  <!-- TODO this file has become a mess, refactor it -->
+
+
+
+
+
+
+  <div id="header-big-imgs" data-num-img=1
+    
+    
+    
+      
+      data-img-src-1="http://localhost:4000/assets/img/path.jpg"
+    
+    
+    
+  ></div>
+
+
+<header class="header-section has-img">
+
+<div class="big-img intro-header">
+  <div class="container-md">
+    <div class="row">
+      <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+        <div class="post-heading">
+          <h1>RSA blog</h1>
+          
+            
+              <h2 class="post-subheading">mathematic, crypto</h2>
+            
+          
+
+          
+            <span class="post-meta">Posted on June 11, 2022</span>
+            
+            
+          
+        </div>
+      </div>
+    </div>
+  </div>
+  <span class='img-desc'></span>
+</div>
+
+<div class="intro-header no-img">
+  <div class="container-md">
+    <div class="row">
+      <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+        <div class="post-heading">
+          <h1>RSA blog</h1>
+          
+            
+              <h2 class="post-subheading">mathematic, crypto</h2>
+            
+          
+
+          
+            <span class="post-meta">Posted on June 11, 2022</span>
+            
+            
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</header>
+
+
+
+
+
+<div class=" container-md ">
+  <div class="row">
+    <div class=" col-xl-8 offset-xl-2 col-lg-10 offset-lg-1 ">
+
+      
+
+      
+
+      <article role="main" class="blog-post">
+        <style type="text/css">
+code.has-jax {font: inherit; font-size: 100%; background: inherit; border: inherit;}
+</style>
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'] // removed 'code' entry
+    }
+});
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+});
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS_HTML-full"></script>
+
+<hr />
+
+<h3 id="template-crypto">TEMPLATE CRYPTO</h3>
+
+<h4 id="1-tìm-căn-bậc-hai"><span style="color:red">1. TÌM CĂN BẬC HAI</span></h4>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="n">_1_50</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">50</span>  <span class="c1"># 2**50 == 1,125,899,906,842,624
+</span><span class="k">def</span> <span class="nf">isqrt</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="s">"""Return the integer part of the square root of x, even for very
+    large integer values."""</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="nb">ValueError</span><span class="p">(</span><span class="s">'square root not defined for negative numbers'</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">_1_50</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="p">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>  <span class="c1"># use math's sqrt() for small parameters
+</span>    <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">n</span>  <span class="c1"># handle sqrt(0)==0, sqrt(1)==1
+</span>    <span class="c1"># Make a high initial estimate of the result (a little lower is slower!!!)
+</span>    <span class="n">r</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="p">((</span><span class="n">n</span><span class="p">.</span><span class="n">bit_length</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">newr</span> <span class="o">=</span> <span class="p">(</span><span class="n">r</span> <span class="o">+</span> <span class="n">n</span> <span class="o">//</span> <span class="n">r</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span>  <span class="c1"># next estimate by Newton-Raphson
+</span>        <span class="k">if</span> <span class="n">newr</span> <span class="o">&gt;=</span> <span class="n">r</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">r</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">newr</span>
+</code></pre></div></div>
+
+<h4 id="2-readfile-bytes-python"><span style="color:red">2. READFILE BYTES PYTHON</span></h4>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">Crypto.Util.number</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"chall.enc"</span><span class="p">,</span> <span class="s">"rb"</span><span class="p">)</span>
+<span class="n">ans</span> <span class="o">=</span> <span class="n">bytes_to_long</span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="n">read</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h4 id="3-weiner-attack-"><span style="color:red">3. WEINER ATTACK </span></h4>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">sage.all</span> <span class="kn">import</span> <span class="n">Integer</span>
+<span class="kn">from</span> <span class="nn">sage.all</span> <span class="kn">import</span> <span class="n">continued_fraction</span>
+
+<span class="c1">#from factorization import known_phi
+</span><span class="n">n</span> <span class="o">=</span> <span class="mi">17729028558979019485846420034614601781855286885772116033115998289130663218793249135103097941406615594783564487056148202535602218241261076180277862184340050681277512936764254998557657989633659561175844653871375735119626199870178796372816549333367076487655787617921785826120525919291798195591267544750350222858119219959311035913906885739352404726672836723117136379411134589884489391116922923390687958161705756705708668649262568471831705504852664779788943978721769038284989250803324876493071615384204553854811020877754034576798208169454695001947778015807032019651748938505463608871771494765303144219873993106068807291321</span>
+<span class="n">e</span> <span class="o">=</span> <span class="mi">65537</span>
+
+<span class="k">def</span> <span class="nf">attack</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">e</span><span class="p">):</span>
+    <span class="s">"""
+    Recovers the prime factors of a modulus and the private exponent if the private exponent is too small.
+    :param n: the modulus
+    :param e: the public exponent
+    :return: a tuple containing the prime factors of the modulus and the private exponent, or None if the private exponent was not found
+    """</span>
+    <span class="n">convergents</span> <span class="o">=</span> <span class="n">continued_fraction</span><span class="p">(</span><span class="n">Integer</span><span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="o">/</span> <span class="n">Integer</span><span class="p">(</span><span class="n">n</span><span class="p">)).</span><span class="n">convergents</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">convergents</span><span class="p">:</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="n">c</span><span class="p">.</span><span class="n">numerator</span><span class="p">()</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="n">c</span><span class="p">.</span><span class="n">denominator</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="p">(</span><span class="n">e</span> <span class="o">*</span> <span class="n">d</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">k</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">continue</span>
+
+        <span class="k">print</span><span class="p">(</span><span class="s">"d"</span><span class="p">,</span><span class="n">d</span><span class="p">)</span>
+<span class="n">attack</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">e</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Note: Run on linux
+</code></pre></div></div>
+
+<h4 id="4-read-file-pem-to-find-n-and-e-in-rsa-"><span style="color:red">4. READ FILE .PEM TO FIND N AND E IN RSA </span></h4>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">Crypto.Publickey</span> <span class="kn">import</span> <span class="n">RSA</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'public.pem'</span><span class="p">,</span><span class="s">'r'</span><span class="p">)</span>
+<span class="n">key</span> <span class="o">=</span> <span class="n">RSA</span><span class="p">.</span><span class="n">importKey</span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="n">read</span><span class="p">())</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"n: "</span><span class="p">,</span><span class="n">key</span><span class="p">.</span><span class="n">n</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"e: "</span><span class="p">,</span><span class="n">key</span><span class="p">.</span><span class="n">e</span><span class="p">)</span>
+</code></pre></div></div>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>It applied for public key (pem) and private key (pem)
+</code></pre></div></div>
+
+<h4 id="5-rsa-1---weiner-attack-"><span style="color:red">5. RSA 1 - Weiner-Attack </span></h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Statement: Find flag when know: 
+Given: 
+c = 0x217c8bf9b45601267624c3b1ba89ae93d04c8fae32dc15496262f36f48d06c0dc9e178a77b77a33708dcbe1fcd55ea9eb636fe5684c2f0f08df3389f47b36a128636671eba300491c829ed1e252b1bb4dbb3b93bc46d98a10bb5d55347752052ab45e143fd46799be1d06ac3ff7e8b1eb181dfbba8dfac3910202fd0b9a25befe
+E = 266524484526673326121255015126836087453426858655909092116029065652649301962338744664679734617977550306567819672969837450223062478394149960243362563995235387971047857994699247277712682103161537347874310994510059329875060868679654080020041070975648626636209785889112656335054840517934593236597457100751820027783
+N = 412460203584740978970185080155274765823237615982150661072746604041385717906706098256415230390148737678989448404730885157667896599397615737297545930957425615121654272472589331747646564634264520011009284080299605233265170506809736069720838542498970453928922703911186788239628906189362646418960560442406497717567
+</code></pre></div></div>
+
+<p>Solution:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Find d using Weiner-Attack
+</code></pre></div></div>
+
+<p>Code:</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">sage.all</span> <span class="kn">import</span> <span class="n">Integer</span>
+<span class="kn">from</span> <span class="nn">sage.all</span> <span class="kn">import</span> <span class="n">continued_fraction</span>
+
+<span class="c1">#from factorization import known_phi
+</span><span class="n">n</span> <span class="o">=</span> <span class="mi">412460203584740978970185080155274765823237615982150661072746604041385717906706098256415230390148737678989448404730885157667896599397615737297545930957425615121654272472589331747646564634264520011009284080299605233265170506809736069720838542498970453928922703911186788239628906189362646418960560442406497717567</span>
+<span class="n">e</span> <span class="o">=</span> <span class="mi">266524484526673326121255015126836087453426858655909092116029065652649301962338744664679734617977550306567819672969837450223062478394149960243362563995235387971047857994699247277712682103161537347874310994510059329875060868679654080020041070975648626636209785889112656335054840517934593236597457100751820027783</span>
+
+<span class="k">def</span> <span class="nf">attack</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">e</span><span class="p">):</span>
+    <span class="s">"""
+    Recovers the prime factors of a modulus and the private exponent if the private exponent is too small.
+    :param n: the modulus
+    :param e: the public exponent
+    :return: a tuple containing the prime factors of the modulus and the private exponent, or None if the private exponent was not found
+    """</span>
+    <span class="n">convergents</span> <span class="o">=</span> <span class="n">continued_fraction</span><span class="p">(</span><span class="n">Integer</span><span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="o">/</span> <span class="n">Integer</span><span class="p">(</span><span class="n">n</span><span class="p">)).</span><span class="n">convergents</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">convergents</span><span class="p">:</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="n">c</span><span class="p">.</span><span class="n">numerator</span><span class="p">()</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="n">c</span><span class="p">.</span><span class="n">denominator</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="p">(</span><span class="n">e</span> <span class="o">*</span> <span class="n">d</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="n">k</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">continue</span>
+
+        <span class="k">print</span><span class="p">(</span><span class="s">"d"</span><span class="p">,</span><span class="n">d</span><span class="p">)</span>
+<span class="n">attack</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">e</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>Result:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>d =  1
+d =  2
+d =  3
+d =  27979163639208238097581493168255260980791785886427784936313524512033423912647
+</code></pre></div></div>
+<p>With every d we find, try find flag:</p>
+
+<p>Code:</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">Crypto.Util.number</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="n">c_hex</span> <span class="o">=</span> <span class="s">"0x217c8bf9b45601267624c3b1ba89ae93d04c8fae32dc15496262f36f48d06c0dc9e178a77b77a33708dcbe1fcd55ea9eb636fe5684c2f0f08df3389f47b36a128636671eba300491c829ed1e252b1bb4dbb3b93bc46d98a10bb5d55347752052ab45e143fd46799be1d06ac3ff7e8b1eb181dfbba8dfac3910202fd0b9a25befe"</span>
+<span class="n">c</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">c_hex</span><span class="p">,</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">e</span> <span class="o">=</span> <span class="mi">266524484526673326121255015126836087453426858655909092116029065652649301962338744664679734617977550306567819672969837450223062478394149960243362563995235387971047857994699247277712682103161537347874310994510059329875060868679654080020041070975648626636209785889112656335054840517934593236597457100751820027783</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">412460203584740978970185080155274765823237615982150661072746604041385717906706098256415230390148737678989448404730885157667896599397615737297545930957425615121654272472589331747646564634264520011009284080299605233265170506809736069720838542498970453928922703911186788239628906189362646418960560442406497717567</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="mi">27979163639208238097581493168255260980791785886427784936313524512033423912647</span>
+
+<span class="n">flag</span> <span class="o">=</span> <span class="n">long_to_bytes</span><span class="p">(</span><span class="nb">pow</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">flag</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<p>Result:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>b'Bugs_Bunny{Baby_Its_Cool_Lik3_school_haHAha}'
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Note: Using flag.decode() the flag will be: Bugs_Bunny{Baby_Its_Cool_Lik3_school_haHAha}
+</code></pre></div></div>
+
+<h4 id="6-rsa-2---rsactftool-"><span style="color:red">6. RSA 2 - RsaCtfTool </span></h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Given:
+c = 24069342720029447645279421073270575353047711895242659815039311355734342330508297195320032629315218226212387151445283779967345116103626286184366740272344305727987474407741946014932936418366083000851440285481560035222386750756966859
+e = 65537
+n= 1230186684530117755130494958384962720772853569595334792197322452151726400507263657518745202199786469389956474942774063845925192557326303453731548268507917026122142913461670429214311602221240479274737794080665351419597459856902143413
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Find flag using RsaCtfTool
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Solve:
+</code></pre></div></div>
+
+<ol>
+  <li>
+    <p>Download in <a href="https://github.com/Ganapati/RsaCtfTool">here</a></p>
+  </li>
+  <li>
+    <p>Using Kali to solve:</p>
+  </li>
+</ol>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python3 RsaCtfTool.py -n 1230186684530117755130494958384962720772853569595334792197322452151726400507263657518745202199786469389956474942774063845925192557326303453731548268507917026122142913461670429214311602221240479274737794080665351419597459856902143413 -e 65537 --uncipher 24069342720029447645279421073270575353047711895242659815039311355734342330508297195320032629315218226212387151445283779967345116103626286184366740272344305727987474407741946014932936418366083000851440285481560035222386750756966859
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Flag: tpctf{omg_b1c_m0dulus}
+</code></pre></div></div>
+
+<p><img src="https://i.imgur.com/3kBExVy.png" alt="Imgur" /></p>
+
+<h4 id="7-rsa-3---rshack-"><span style="color:red">7. RSA 3 - rshack </span></h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Given:
+n = 744818955050534464823866087257532356968231824820271085207879949998948199709147121321290553099733152323288251591199926821010868081248668951049658913424473469563234265317502534369961636698778949885321284313747952124526309774208636874553139856631170172521493735303157992414728027248540362231668996541750186125327789044965306612074232604373780686285181122911537441192943073310204209086616936360770367059427862743272542535703406418700365566693954029683680217414854103
+
+e = 57595780582988797422250554495450258341283036312290233089677435648298040662780680840440367886540630330262961400339569961467848933132138886193931053170732881768402173651699826215256813839287157821765771634896183026173084615451076310999329120859080878365701402596570941770905755711526708704996817430012923885310126572767854017353205940605301573014555030099067727738540219598443066483590687404131524809345134371422575152698769519371943813733026109708642159828957941
+
+c = 305357304207903396563769252433798942116307601421155386799392591523875547772911646596463903009990423488430360340024642675941752455429625701977714941340413671092668556558724798890298527900305625979817567613711275466463556061436226589272364057532769439646178423063839292884115912035826709340674104581566501467826782079168130132642114128193813051474106526430253192254354664739229317787919578462780984845602892238745777946945435746719940312122109575086522598667077632
+</code></pre></div></div>
+
+<p>You can download tool in <a href="https://github.com/zweisamkeit/RSHack">here</a></p>
+
+<p><img src="https://i.imgur.com/5S0Fq4X.png" alt="Imgur" /></p>
+
+<p>So we get:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>d = 108642162821084938181507878056324903120999504739411128372202198922197750954973
+</code></pre></div></div>
+
+<p>Now, flag is:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>flag = pow(c,d,n)
+</code></pre></div></div>
+
+<p>Result is:</p>
+
+<p><img src="https://i.imgur.com/qXkFXwQ.png" alt="Imgur" /></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Flag: d4rk{r3p34t3ed_RsA_1s_f0r_n00bs}
+</code></pre></div></div>
+
+<h4 id="7-rsa-4---tool-online-"><span style="color:red">7. RSA 4 - Tool online </span></h4>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Given:
+
+- ciphertext (base64): PePAW8C9Lm7yxsyA2MShozuHpDrRZJssZECWAYULMEMq7pfcX4cUyKpWvW8ZVQis+KtxT7pa1LEcq4UvYW8Gm44nTUwPOOzqw86MXonJ8Mwgx9gXlZHNReG/X2+bynejQo36b1axIt9RujXCxXzEsOzO/gpSVE24bgvwwvU+C28= 
+
+- public key :
+MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCO5+gAGMWkPvEtXWLRaqxSm3PeNtMMDfbGQs15Gms7trqxGnK+pjZslc4oVyw6cu5RHrt4YpfGY1VeXG8ZeIiY5BagA7eMP8Rv5ixblyhA51MMDNd/+gNcDZH4MvtM1KsDYYeeD9SXKrBI10znG7nxV4fAB39Y4PW8UzMv8GFVEQIDAQAB
+</code></pre></div></div>
+
+<p>Using this <a href="https://www.devglan.com/online-tools/rsa-encryption-decryption">website</a> and choose mode <code class="language-plaintext highlighter-rouge">public key</code></p>
+
+<p>Result is:</p>
+
+<p><img src="https://i.imgur.com/TuxNbjk.png" alt="Imgur" /></p>
+
+<p>Flag:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Flag: SBCTF{53cu23_data_724n5m15510n}
+</code></pre></div></div>
+
+<h4 id="8-rsa-5---three-file-pub-"><span style="color:red">8. RSA 5 - Three file pub </span></h4>
+
+<p>Given:</p>
+<ul>
+  <li>file <code class="language-plaintext highlighter-rouge">bob.pub</code></li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-----BEGIN PUBLIC KEY-----
+MDgwDQYJKoZIhvcNAQEBBQADJwAwJAIdDVZLl4+dIzUElY7ti3RDcyge0UGLKfHs
++oCT2M8CAwEAAQ==
+-----END PUBLIC KEY-----
+</code></pre></div></div>
+<ul>
+  <li>file <code class="language-plaintext highlighter-rouge">bob2.pub</code></li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-----BEGIN PUBLIC KEY-----
+MDgwDQYJKoZIhvcNAQEBBQADJwAwJAIdCiM3Dn0PsAIyFkrG1kKED8VOkgJDP5J6
+YOta29kCAwEAAQ==
+-----END PUBLIC KEY-----
+
+</code></pre></div></div>
+
+<ul>
+  <li>file <code class="language-plaintext highlighter-rouge">bob3.pub</code></li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>-----BEGIN PUBLIC KEY-----
+MDgwDQYJKoZIhvcNAQEBBQADJwAwJAIdDFtp4ZeeVB+F2s3iqhTSciqEb0Gz24Pm
+Z+Oz0R0CAwEAAQ==
+-----END PUBLIC KEY-----
+</code></pre></div></div>
+
+<ul>
+  <li>file <code class="language-plaintext highlighter-rouge">secret.enc</code></li>
+</ul>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>DK9dt2MTybMqRz/N2RUMq2qauvqFIOnQ89mLjXY=
+
+AK/WPYsK5ECFsupuW98bCFKYUApgrQ6LTcm3KxY=
+
+CiLSeTUCCKkyNf8NVnifGKKS2FJ7VnWKnEdygXY=
+</code></pre></div></div>
+
+<p>Solution:</p>
+
+<p>Using:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>from Crypto.PublicKey import RSA
+
+f = open('bob.pub', 'r')
+pubkey = RSA.import_key(f.read())
+
+print("n = ", pubkey.n)
+print("e = ", pubkey.e)
+</code></pre></div></div>
+
+<p>And use this <a href="https://www.alpertron.com.ar/ECM.HTM">link</a> to factorizer a number</p>
+
+<p><code class="language-plaintext highlighter-rouge">Part 1:</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>n = 359567260516027240236814314071842368703501656647819140843316303878351
+e = 65537
+p =  17963604736595708916714953362445519
+q =  20016431322579245244930631426505729
+phi_n = (p-1)*(q-1)
+d = inverse(e,phi_n)
+c_base64 = DK9dt2MTybMqRz/N2RUMq2qauvqFIOnQ89mLjXY=
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">Part 2:</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>n = 273308045849724059815624389388987562744527435578575831038939266472921
+e = 65537
+p = 16514150337068782027309734859141427
+q = 16549930833331357120312254608496323
+phi_n = (p-1)*(q-1)
+d = inverse(e,phi_n)
+c_base64 = CiLSeTUCCKkyNf8NVnifGKKS2FJ7VnWKnEdygXY=
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">Part 3:</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>n = 333146335555060589623326457744716213139646991731493272747695074955549
+e = 65537
+p = 17357677172158834256725194757225793
+q = 19193025210159847056853811703017693
+phi_n = (p-1)*(q-1)
+d = inverse(e,phi_n)
+c_base64 = AK/WPYsK5ECFsupuW98bCFKYUApgrQ6LTcm3KxY=
+</code></pre></div></div>
+
+<p>Solution:</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">Crypto.PublicKey</span> <span class="kn">import</span> <span class="n">RSA</span> 
+<span class="kn">from</span> <span class="nn">Crypto.Util.number</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">base64</span> <span class="kn">import</span> <span class="n">b64decode</span>
+
+
+<span class="c1"># First process
+</span>
+<span class="c1"># f = open('bob3.pub', 'r')
+# pubkey = RSA.import_key(f.read())
+</span>
+<span class="c1"># print("n = ", pubkey.n)
+# print("e = ", pubkey.e)
+</span>
+<span class="c1"># Second process
+## Part 1
+</span>
+<span class="c1"># n = 359567260516027240236814314071842368703501656647819140843316303878351
+# e = 65537
+# p = 17963604736595708916714953362445519
+# q = 20016431322579245244930631426505729
+# phi_n = (p-1)*(q-1)
+# d = inverse(e,phi_n)
+# c_base64 = "DK9dt2MTybMqRz/N2RUMq2qauvqFIOnQ89mLjXY="
+# c = bytes_to_long(b64decode(c_base64))
+# flag = long_to_bytes(pow(c,d,n))
+# print(flag)
+</span>
+<span class="c1"># Ans 1: IW{WEAK_R
+</span>
+<span class="c1">## Part 2
+# n = 273308045849724059815624389388987562744527435578575831038939266472921
+# e = 65537
+# p = 16514150337068782027309734859141427
+# q = 16549930833331357120312254608496323
+# phi_n = (p-1)*(q-1)
+# d = inverse(e,phi_n)
+# c_base64 = "CiLSeTUCCKkyNf8NVnifGKKS2FJ7VnWKnEdygXY="
+# c = bytes_to_long(b64decode(c_base64))
+# flag = long_to_bytes(pow(c,d,n))
+# print(flag)
+</span>
+<span class="c1"># Ans 2: SA_K3YS_4R
+</span>
+<span class="c1">## Part 3 
+# n = 333146335555060589623326457744716213139646991731493272747695074955549
+# e = 65537
+# p = 17357677172158834256725194757225793
+# q = 19193025210159847056853811703017693
+# phi_n = (p-1)*(q-1)
+# d = inverse(e,phi_n)
+# c_base64 = "AK/WPYsK5ECFsupuW98bCFKYUApgrQ6LTcm3KxY="
+# c = bytes_to_long(b64decode(c_base64))
+# flag = long_to_bytes(pow(c,d,n))
+# print(flag)
+</span>
+<span class="c1"># # Ans 3: _SO_BAD!}
+</span>
+<span class="c1"># FLAG : IW{WEAK_RSA_K3YS_4R_SO_BAD!}
+</span></code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Flag: IW{WEAK_RSA_K3YS_4R_SO_BAD!}
+</code></pre></div></div>
+
+<h4 id="9-rsa-6---file-pem-"><span style="color:red">9. RSA 6 - File PEM </span></h4>
+
+<p>Given:</p>
+
+<p><code class="language-plaintext highlighter-rouge">public.pem</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+-----BEGIN PUBLIC KEY-----
+MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEBITsFfW/evEUntbdCGsHp
+PM/+p2xPCHSZHPP6zw6rnvZGohg5ggtNZTqRa2jyWOnT98K6BU5K8F8+TWGz3nct
+KtIziw6ubqCPIHbk5LCKsgkg+miF5sRN7BvuKKh2U8dLy56fEpTeiki9YUZSo9ZZ
+3857iURhDyW/r5NumlQWfE0ifRbTLmXqRYtp1g3s1/oDTBs72GJxcWTneF6wbcxb
+iLqiYuQxIOVGZcDLyz6tUbCgCBm06R1IctP753JOA6txvK+LuEx03slqrfyxhlOo
+8FOT1mYGmSO8e5sxNj1tbZtFn0bbW6+W+EBKrxqDHw24qtfZOkJW6BVrK3B1egEg
+kwIDAQAB
+-----END PUBLIC KEY-----
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">flag.enc</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Cc0GtEY4nL7DhDukClWKaTHChrCVJeVVm3MJ+6hgiqaYUjbx9ArCrH0uzdfDqf4l81NAqV0fGtd8a9H4dlEQRykvOwpFpViK4qTU1H28nEMZ6O1Hnt9NrLxlSvpARZd8hxoJtXiwUbZI6rcI9lQwt+pJLvrvw2/Mz+fBMvrVPFONSYDH/lU0wy4jKbH0zl7zJ09+gCBo9oJ2Hqpsh0BkcS6ix5lDu/6JENG/ChC7jZGYWpte+QIkb/fQTwsw3tGIz1jWYhqQ8MrSxtGpyyPG9Oy/zGHIBEBDesS4r72D8n2mQExRnCH2KW5wz5hsM2TXYRILtJqWCOyv/AF56Ebg9A==
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">Solution</code></p>
+
+<ul>
+  <li>Step 1: Find <code class="language-plaintext highlighter-rouge">n,e,c</code></li>
+</ul>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">Crypto.Util.number</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">Crypto.PublicKey</span> <span class="kn">import</span> <span class="n">RSA</span>
+<span class="kn">from</span> <span class="nn">base64</span> <span class="kn">import</span> <span class="n">b64decode</span> 
+
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"public.pem"</span><span class="p">,</span><span class="s">"r"</span><span class="p">)</span>
+<span class="n">public</span> <span class="o">=</span> <span class="n">RSA</span><span class="p">.</span><span class="n">import_key</span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="n">read</span><span class="p">())</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">public</span><span class="p">.</span><span class="n">n</span> 
+<span class="n">e</span> <span class="o">=</span> <span class="n">public</span><span class="p">.</span><span class="n">e</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"n = "</span><span class="p">,</span><span class="n">public</span><span class="p">.</span><span class="n">n</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"e = "</span><span class="p">,</span><span class="n">public</span><span class="p">.</span><span class="n">e</span><span class="p">)</span>
+<span class="n">c_base64</span> <span class="o">=</span> <span class="s">"Cc0GtEY4nL7DhDukClWKaTHChrCVJeVVm3MJ+6hgiqaYUjbx9ArCrH0uzdfDqf4l81NAqV0fGtd8a9H4dlEQRykvOwpFpViK4qTU1H28nEMZ6O1Hnt9NrLxlSvpARZd8hxoJtXiwUbZI6rcI9lQwt+pJLvrvw2/Mz+fBMvrVPFONSYDH/lU0wy4jKbH0zl7zJ09+gCBo9oJ2Hqpsh0BkcS6ix5lDu/6JENG/ChC7jZGYWpte+QIkb/fQTwsw3tGIz1jWYhqQ8MrSxtGpyyPG9Oy/zGHIBEBDesS4r72D8n2mQExRnCH2KW5wz5hsM2TXYRILtJqWCOyv/AF56Ebg9A=="</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">long_to_bytes</span><span class="p">(</span><span class="n">b64decode</span><span class="p">(</span><span class="n">c_base64</span><span class="p">))</span>
+</code></pre></div></div>
+
+<ul>
+  <li>Step 2: Using <a href="https://www.alpertron.com.ar/ECM.HTM">factorize</a> to factorize <code class="language-plaintext highlighter-rouge">n</code>, we have <code class="language-plaintext highlighter-rouge">n</code> is prime, so <code class="language-plaintext highlighter-rouge">phi(n)=n-1</code>. Then we have <code class="language-plaintext highlighter-rouge">d = inverse(e,phi(n))</code> and <code class="language-plaintext highlighter-rouge">flag = pow(c,d,n)</code></li>
+</ul>
+
+<p><code class="language-plaintext highlighter-rouge">Total code:</code></p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">Crypto.Util.number</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">Crypto.PublicKey</span> <span class="kn">import</span> <span class="n">RSA</span>
+<span class="kn">from</span> <span class="nn">base64</span> <span class="kn">import</span> <span class="n">b64decode</span> 
+
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"public.pem"</span><span class="p">,</span><span class="s">"r"</span><span class="p">)</span>
+<span class="n">public</span> <span class="o">=</span> <span class="n">RSA</span><span class="p">.</span><span class="n">import_key</span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="n">read</span><span class="p">())</span>
+<span class="n">n</span> <span class="o">=</span> <span class="n">public</span><span class="p">.</span><span class="n">n</span> 
+<span class="n">e</span> <span class="o">=</span> <span class="n">public</span><span class="p">.</span><span class="n">e</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"n = "</span><span class="p">,</span><span class="n">public</span><span class="p">.</span><span class="n">n</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"e = "</span><span class="p">,</span><span class="n">public</span><span class="p">.</span><span class="n">e</span><span class="p">)</span>
+<span class="n">c_base64</span> <span class="o">=</span> <span class="s">"Cc0GtEY4nL7DhDukClWKaTHChrCVJeVVm3MJ+6hgiqaYUjbx9ArCrH0uzdfDqf4l81NAqV0fGtd8a9H4dlEQRykvOwpFpViK4qTU1H28nEMZ6O1Hnt9NrLxlSvpARZd8hxoJtXiwUbZI6rcI9lQwt+pJLvrvw2/Mz+fBMvrVPFONSYDH/lU0wy4jKbH0zl7zJ09+gCBo9oJ2Hqpsh0BkcS6ix5lDu/6JENG/ChC7jZGYWpte+QIkb/fQTwsw3tGIz1jWYhqQ8MrSxtGpyyPG9Oy/zGHIBEBDesS4r72D8n2mQExRnCH2KW5wz5hsM2TXYRILtJqWCOyv/AF56Ebg9A=="</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">bytes_to_long</span><span class="p">(</span><span class="n">b64decode</span><span class="p">(</span><span class="n">c_base64</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="s">"c = "</span><span class="p">,</span><span class="n">c</span><span class="p">)</span>
+<span class="n">phi_n</span> <span class="o">=</span> <span class="n">n</span><span class="o">-</span><span class="mi">1</span> 
+<span class="n">d</span> <span class="o">=</span> <span class="n">inverse</span><span class="p">(</span><span class="n">e</span><span class="p">,</span><span class="n">phi_n</span><span class="p">)</span>
+<span class="n">flag</span> <span class="o">=</span> <span class="n">long_to_bytes</span><span class="p">(</span><span class="nb">pow</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">n</span><span class="p">))</span>
+<span class="k">print</span><span class="p">(</span><span class="n">flag</span><span class="p">)</span>
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Flag: Flag{S1nGL3_PR1m3_M0duLUs_ATT4cK_TaK3d_D0wn_RSA_T0_A_Sym3tr1c_ALg0r1thm} 
+</code></pre></div></div>
+
+<h4 id="10-rsa-7---round-rabin-"><span style="color:red">10. RSA 7 - Round Rabin </span></h4>
+
+<p>Given</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>n = 0x6b612825bd7972986b4c0ccb8ccb2fbcd25fffbadd57350d713f73b1e51ba9fc4a6ae862475efa3c9fe7dfb4c89b4f92e925ce8e8eb8af1c40c15d2d99ca61fcb018ad92656a738c8ecf95413aa63d1262325ae70530b964437a9f9b03efd90fb1effc5bfd60153abc5c5852f437d748d91935d20626e18cbffa24459d786601
+e = 2
+c = 0xd9d6345f4f961790abb7830d367bede431f91112d11aabe1ed311c7710f43b9b0d5331f71a1fccbfca71f739ee5be42c16c6b4de2a9cbee1d827878083acc04247c6e678d075520ec727ef047ed55457ba794cf1d650cbed5b12508a65d36e6bf729b2b13feb5ce3409d6116a97abcd3c44f136a5befcb434e934da16808b0b
+</code></pre></div></div>
+
+<p>Require: <code class="language-plaintext highlighter-rouge">Find flag</code></p>
+
+<p><code class="language-plaintext highlighter-rouge">Step 1</code> : Convert <code class="language-plaintext highlighter-rouge">n,c</code> into decimal</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">n</span> <span class="o">=</span> <span class="s">"0x6b612825bd7972986b4c0ccb8ccb2fbcd25fffbadd57350d713f73b1e51ba9fc4a6ae862475efa3c9fe7dfb4c89b4f92e925ce8e8eb8af1c40c15d2d99ca61fcb018ad92656a738c8ecf95413aa63d1262325ae70530b964437a9f9b03efd90fb1effc5bfd60153abc5c5852f437d748d91935d20626e18cbffa24459d786601"</span>
+<span class="n">c</span> <span class="o">=</span> <span class="s">"0xd9d6345f4f961790abb7830d367bede431f91112d11aabe1ed311c7710f43b9b0d5331f71a1fccbfca71f739ee5be42c16c6b4de2a9cbee1d827878083acc04247c6e678d075520ec727ef047ed55457ba794cf1d650cbed5b12508a65d36e6bf729b2b13feb5ce3409d6116a97abcd3c44f136a5befcb434e934da16808b0b"</span>
+<span class="n">nn</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="mi">16</span><span class="p">)</span>
+<span class="n">cc</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="mi">16</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">Step 2</code> : Using <a href="https://www.alpertron.com.ar/ECM.HTM">factorize big number online</a> we found that: <code class="language-plaintext highlighter-rouge">n=p*p</code></p>
+
+<p>Using this algorithm to find <code class="language-plaintext highlighter-rouge">p</code>:</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">math</span>
+
+<span class="n">_1_50</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">50</span>  <span class="c1"># 2**50 == 1,125,899,906,842,624
+</span><span class="k">def</span> <span class="nf">isqrt</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="s">"""Return the integer part of the square root of x, even for very
+    large integer values."""</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="nb">ValueError</span><span class="p">(</span><span class="s">'square root not defined for negative numbers'</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;</span> <span class="n">_1_50</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="p">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>  <span class="c1"># use math's sqrt() for small parameters
+</span>    <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">n</span>  <span class="c1"># handle sqrt(0)==0, sqrt(1)==1
+</span>    <span class="c1"># Make a high initial estimate of the result (a little lower is slower!!!)
+</span>    <span class="n">r</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="p">((</span><span class="n">n</span><span class="p">.</span><span class="n">bit_length</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">newr</span> <span class="o">=</span> <span class="p">(</span><span class="n">r</span> <span class="o">+</span> <span class="n">n</span> <span class="o">//</span> <span class="n">r</span><span class="p">)</span> <span class="o">&gt;&gt;</span> <span class="mi">1</span>  <span class="c1"># next estimate by Newton-Raphson
+</span>        <span class="k">if</span> <span class="n">newr</span> <span class="o">&gt;=</span> <span class="n">r</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">r</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">newr</span>
+<span class="n">nn</span> <span class="o">=</span> <span class="mi">75404462446621433278932073418166377856783371695311741162660984000216286022717332034344886883228963555598915581623574177254937709767805818855313080010310907057693076782794571905025544034519430835894406844610021327070351428935856401291946497064114909504725588880164068827953784803548706132824333011073782801921</span>
+<span class="k">print</span><span class="p">(</span><span class="n">isqrt</span><span class="p">(</span><span class="n">nn</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>Result: <code class="language-plaintext highlighter-rouge">p=8683574289808398551680690596312519188712344019929990563696863014403818356652403139359303583094623893591695801854572600022831462919735839793929311522108161</code></p>
+
+<p>Now, we will find research some bit knowledge about <code class="language-plaintext highlighter-rouge">Quadratic residue</code></p>
+
+<p>In number theory, an interger q is called a quadratic residue module n if it is congruent to a perfect square modulo n; i.e if there exists an integer x such that <code class="language-plaintext highlighter-rouge">x^2=q(mod n)</code>.</p>
+
+<p>Otherwise, q is called a quadratic nonresidue modulo n.</p>
+
+<p>Next, we will get familiar with <code class="language-plaintext highlighter-rouge">Legendre Symbol</code></p>
+
+<p>In Legendre symbol we introduced a fast way to determine whether a number is a square root modulo a prime. We can go further: there are algorithms for efficiently calculating such roots. The best one in practice is called <code class="language-plaintext highlighter-rouge">Tonelli-Shanks</code>, which gets its funny name from the fact that is was first described by an Italian in the 19th century and rediscovered independently by Daniel Shanks in the 1970s.</p>
+
+<p>All primes that aren’t <code class="language-plaintext highlighter-rouge">2</code> are of the form <code class="language-plaintext highlighter-rouge">p=1 (mod 4)</code> or <code class="language-plaintext highlighter-rouge">p=3 (mod 4)</code>, since all odd numbers obey these congruences. As the previous challenge hinted, in the <code class="language-plaintext highlighter-rouge">p=3 (mod 4)</code> case, a really simple formula for computing square roots can be derived directly from Fermat’s little theorem. That leaves us still with the <code class="language-plaintext highlighter-rouge">p=1(mod 4)</code> case, so a more general algorithm is required.</p>
+
+<p>In a congruence of the form <code class="language-plaintext highlighter-rouge">r^2 = a(mod p)</code>, <code class="language-plaintext highlighter-rouge">Tonelli-Shanks</code> calculates <code class="language-plaintext highlighter-rouge">r</code></p>
+
+<p>Note: Tonelli-Shanks doesn’t work for composite(non-prime) moduli. Finding square roots modulo composites is computationally equivalent to integer factorization.</p>
+
+<p>Next, we will have research <code class="language-plaintext highlighter-rouge">Legendre symbol</code>:</p>
+
+<p><img src="https://i.imgur.com/KWKAnvv.png" alt="Imgur" /></p>
+
+<p>And some characteristic of this:</p>
+
+<p><img src="https://i.imgur.com/lt4lOia.png" alt="Imgur" /></p>
+
+<p>and last is example:</p>
+
+<p><img src="https://i.imgur.com/VnfJGDh.png" alt="Imgur" /></p>
+
+<p>Another we can reference some special symbols such as: <a href="https://vi.wikipedia.org/wiki/K%C3%BD_hi%E1%BB%87u_Jacobi">Jacobi symbol</a> and <a href="https://en.wikipedia.org/wiki/Kronecker_symbol">Kronecker Symbol</a></p>
+
+<p>Continued: <a href="https://cryptohack.org/challenges/maths/">P1</a> and <a href="https://en.wikipedia.org/wiki/Rabin_cryptosystem">P2</a> and <a href="https://github.com/WCSC/writeups/tree/master/icectf-2016/Round-Rabins">P3</a></p>
+
+<h4 id="11-rsa-8---bruteforce-private-key-pem-"><span style="color:red">11. RSA 8 - Bruteforce private key pem </span></h4>
+
+<p><img src="https://i.imgur.com/VwWjm4T.png" alt="Imgur" /></p>
+
+<ul>
+  <li>
+    <p>In this Challenge we were given with two file flag.enc and private.pem.</p>
+  </li>
+  <li>
+    <p>With <code class="language-plaintext highlighter-rouge">flag.enc</code>, we can convert into long:</p>
+  </li>
+</ul>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">Crypto.Util.number</span> <span class="kn">import</span> <span class="n">bytes_to_long</span><span class="p">,</span><span class="n">long_to_bytes</span>
+<span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">"flag.enc"</span><span class="p">,</span><span class="s">"rb"</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">bytes_to_long</span><span class="p">(</span><span class="n">f</span><span class="p">.</span><span class="n">read</span><span class="p">()))</span>
+</code></pre></div></div>
+
+<ul>
+  <li>
+    <p>Challenge Description says <code class="language-plaintext highlighter-rouge">Our security agency has got hold of a ciphertext and a key. Well..the key got corrupted and the lost character is represented by a x. Can you decipher the message for us?</code></p>
+  </li>
+  <li>
+    <p>Viewing the private.pem file,we can notice a emoji is replaced in the place of a letter,which would make the private key invalid.</p>
+  </li>
+</ul>
+
+<p><img src="https://i.imgur.com/gxpT00C.png" alt="Imgur" /></p>
+
+<ul>
+  <li>
+    <p>We can brutefoce all possible lowercase+uppercase alphabets and for each iteration decrypt the flag.enc.</p>
+  </li>
+  <li>
+    <p>Print the flag if we got a hit on the string which matches <code class="language-plaintext highlighter-rouge">KCTF</code></p>
+  </li>
+  <li>
+    <p>Below is the Exploit script</p>
+  </li>
+</ul>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">Crypto.Util.number</span> <span class="kn">import</span> <span class="n">long_to_bytes</span>
+<span class="kn">from</span> <span class="nn">Crypto.PublicKey</span> <span class="kn">import</span> <span class="n">RSA</span>
+<span class="kn">import</span> <span class="nn">string</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="n">a</span><span class="o">=</span><span class="s">'''-----BEGIN RSA PRIVATE KEY-----
+MIIEowIBAAKCAQEAyiytHt1AKzYLwZPm1dd9uT7LgsqVj0eSLpheNd0H4xyiZCYG
+ZtRYnNtGNnq7A/ubyFalExm61QNewfy71h6xhM/'''</span>
+
+<span class="n">b</span> <span class="o">=</span> <span class="s">'''IEIoNT0VfMOIzcq0Jmoh+v6k
+6/x/3GRkk/vLVolsLbkOKd4aorPMwEsZX4vMd+Sga5Mz0tx5xLFZsbl0r1vvtBl7
+CtC/ojWX4+/RSGuaUVVayrU32kyCjJo3hniSaY2EvSXXHdE6nOKkF725LVrnOOIz
+1/n9CYrYPV6ESEBdwS7VOen8uPwh5cFGHOV49ofmvVZNvcV2qoKFjY5UXf8fDzZ+
+jBzWiCukE+3WFwgEYaBGg/a6HomkobpDqxkrYwIDAQABAoIBABht45FaLLnL8wm2
+BGuMeV2b791i+0Vv4YMN2Dxr89sGh7zQN2/PctGpUUed9uEZUw6XIaU4M7IvkRCh
+qFTMKqkgrVd4hwE/20vTGMG9H52Qr4Bzqpv1S8Hmw5x6DWzseAziUorOkqtcTH5j
+1LIN42wNTTESfW2aRIB26Z6nCSlzHD8jpBYlrBFNsXydApEtA86PPtgs8MUsABFa
+Rhy6VG9rNfzaBeRDX1m1lX+yNkqPb3xgABeYgURYgUneiTY/S5GrFfrtRAnLWVm4
+audCUkxvF8OV0vJnazcMUopleBonMH2FCl3vKAjTX2xq9X24PeNXDg6SfiEEuI/g
+EDtJO1ECgYEAzwBWVwbx/lvc5PP3oYXRr9IpflZ3Z9xSyopY0KpOakAXn6717x6i
+s/1DwGvpmFBqUd25vhcn9ztj18GtMCtZ4dNvvyGpPwvM41Z1RVHY5REfC7sgBp8W
+0N+IVR2QlyU3pjoS5t19O3g48fhOp8o3wsZ+05RpLtUhNXe0yHxk7fsCgYEA+gfZ
+aCr+dgzHfdBOEwwozaRpJANchnGeILSgZZEeYmyE0RuBcatpwxKs+jG82mWYnosN
+KR5CZZiPn/laySUQEB5H6Cg/OQDVyj5r49adc2H8hTCluaXtiVyxA3JqV8Ixc9TM
+cRWJZdokaDbkyNXCuUuTMinzWjrNBKBZ+zg5w7kCgYBQkjwJEb39mHoJb+CSMUkl
+23KlJzjA52QeS+04AyIUfy/yyqIVWeJQlqLZcedxjtNjXB9hGxhGRgqdv1gO6MDK
+gob7aTm8PXaZglyRB8OZnals4oAbs66ozGj/YEuYWTco72/OBqYpEKlxnYnYC4Da
+wnI5Hoo2XWTYr+hhJPIQIwKBgAxMxo0xUENObaHq1WxqdLdpFyMGZ07V2AmT2TAl
+63C8FeyThdKptBI8oPXN7JRx2wgxnvwe2PVWg/pCsgyjHh8s3iy1jianu9yvJW+X
+5zb94wZKVlzDpOPVA4A/6KtYikZAea42eQPhr1jRGoAmw+WJqjwVhDs0GVHY8ZRC
+N9VBAoGBAJTZwrY+tZkNzURk9JLWzrevfD6BpYrQ0jchaGtzdgjdOpHo3++cdUag
+9oQ8ZNKaUVDm3lyzUhO41Hw7xMmmW8JwsVvKdrRL+ZG12Ts/uiy1P0DY+HsNMr9d
+xqG9YAHVmm4iJzcHeMdzLwmzR6D/x6+k2cFWwox6PxvA7ikJQEYr
+-----END RSA PRIVATE KEY-----
+'''</span>
+<span class="n">alphabet_string</span> <span class="o">=</span> <span class="n">string</span><span class="p">.</span><span class="n">ascii_lowercase</span>
+<span class="n">alphabet_string2</span> <span class="o">=</span> <span class="n">string</span><span class="p">.</span><span class="n">ascii_uppercase</span>
+<span class="n">ct</span> <span class="o">=</span> <span class="mi">3727860015271984841324159765928537422111591563168703246274534058212860148324984926533129834972015501237164337596283528586314608137883075991757210424415228060370930359406872327945577230190541395424158421129540532799576716844437077695468441298361281287281500731107510110919792316394598802631743356037461925682629386640483698027096813857434182454560793760145474202157717338360918130962780548424537332305217288434027436974151260268471169603628280221742021890088311856300748132434057776577308980718407083905792718517692206286940837721132833739445400411565013638730221599142594621268990711490374043387501971024260884088096</span>
+<span class="n">alphabets</span> <span class="o">=</span> <span class="n">alphabet_string</span><span class="o">+</span><span class="n">alphabet_string2</span>
+<span class="n">length</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">alphabets</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">length</span><span class="p">):</span>
+	<span class="n">key</span> <span class="o">=</span> <span class="n">RSA</span><span class="p">.</span><span class="n">importKey</span><span class="p">(</span><span class="n">a</span><span class="o">+</span><span class="n">alphabets</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">+</span><span class="n">b</span><span class="p">)</span>
+	<span class="n">n</span> <span class="o">=</span> <span class="n">key</span><span class="p">.</span><span class="n">n</span>
+	<span class="n">d</span> <span class="o">=</span> <span class="n">key</span><span class="p">.</span><span class="n">d</span>
+	<span class="n">m</span> <span class="o">=</span> <span class="nb">pow</span><span class="p">(</span><span class="n">ct</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+	<span class="n">m</span> <span class="o">=</span> <span class="n">long_to_bytes</span><span class="p">(</span><span class="n">m</span><span class="p">)</span>
+	<span class="k">if</span> <span class="p">(</span><span class="n">m</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="s">'KCTF'</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+		<span class="n">flag</span> <span class="o">=</span> <span class="n">re</span><span class="p">.</span><span class="nb">compile</span><span class="p">(</span><span class="s">'KCTF+.*'</span><span class="p">)</span>
+		<span class="k">print</span><span class="p">(</span><span class="n">flag</span><span class="p">.</span><span class="n">findall</span><span class="p">(</span><span class="n">m</span><span class="p">)[</span><span class="mi">0</span><span class="p">])</span>
+		
+<span class="c1">#Flag KCTF{M4Y_TH3_8RUT3F0rc3_B3_W1TH_Y0U}
+</span></code></pre></div></div>
+<h4 id="12-rsa-9---find-flag-through-find-cube-root-"><span style="color:red">12. RSA 9 - Find Flag through find cube root </span></h4>
+
+<p>The problem give us 2 files: <code class="language-plaintext highlighter-rouge">chal.sage</code> and <code class="language-plaintext highlighter-rouge">out.txt</code>, detailed as follow:</p>
+
+<p><code class="language-plaintext highlighter-rouge">chal.sage</code></p>
+
+<pre><code class="language-sage">from Crypto.PublicKey import RSA
+from Crypto.Util.number import bytes_to_long
+import random
+import binascii
+from secret import flag
+
+e = 3
+BITSIZE =  8192
+key = RSA.generate(BITSIZE)
+n = key.n
+flag = bytes_to_long(flag)
+m = floor(BITSIZE/(e*e)) - 400
+assert (m &lt; BITSIZE - len(bin(flag)[2:]))
+r1 = random.randint(1,pow(2,m))
+r2 = random.randint(r1,pow(2,m))
+msg1 = pow(2,m)*flag + r1
+msg2 = pow(2,m)*flag + r2
+C1 = Integer(pow(msg1,e,n))
+C2 = Integer(pow(msg2,e,n))
+print(f'{n = }\n{C1 = }\n{C2 = }')
+</code></pre>
+
+<hr />
+
+<p><code class="language-plaintext highlighter-rouge">out.txt</code></p>
+
+<pre><code class="language-txt">n = 823652328526060931201375649241006048943627312591742662481083103378002522077877852124731191042617160616707714556599692967069663667698601996983528940331840856212083763983210643933408040552418340463683380557808507002495230815546453104038740886365473259236836768987811419579308089803722619415774848441151249684528573808701348303730672001325400435253430057941264536553439343549378798471521843765967413899839467956313753964739101523564712402586172009670872793597148015854112713073516537134244622001863136944934492241145306737850771111625635504275979597201321615004183224138178242850606020061860874365891414739635021953470569531263648279914661978749409495850032838932287660547294983608500552408270453150111004704982673000064474229357303826290412232101668643442191345117752836713723186345029858940323602239828980619674790421554523298312252632246856653570861376722546483845572057592874642653507921669598604980999675710944351125800581153679737947035951167396427406664211538456926422574733908468243848301080202616710219948021550303624199272309262465841979895988543037749409344273271528685813232663250051559875409936374630801262025889212026998068310718442102601557388789291924368011403387710015947533663816312246609754580679612583443687679604653697210741383870120265666560114312552082718765229857906075466911647146394186461224534740685587572846934610230530077015354170886197688407248753878297395666994564903309464938353409270895657559261894379593177576322878056778321362020242262629594237747578073010697822390042229221755183530894661801846645578606229378188194698297341498164221255458973569036112042793665638020083355322818801649079577206155596664351547761867936241825962264402061264130743855926770190009644935373522637016531313612905118696369479379392748765790270985780979092810127202612369788297683386941277137962371308477169065442960974519121200614968578299255908217109555425373639991249942561881066593925137769635916819686179968920303847549317832449280869569173490086055713440659573036379376871313591502012736961740953226823792006776306025493582816361497869257717651668075570919074032100188984609089237083774415809378590512597855039607625398955711313352280354581208986236739705133090250836743923077744209886105632205516098409509945870967048379575392597005574605671295696290105152505109115729545462303929321064678575733744453013844396847747874774560936394947704938716022268449263762808882912779863563062087323815155503567025604594567944510834845389179609006394130719657363087
+C1 = 138604270237134534112743212644616449187692378939637896055320936677529897960835117799077267347298678107031857708834234867949004008866584408288272718174944005247281182704110071985982762860316789278723189738430436690943806868878982562799129736576593875631850056775539229239799682738700710216806174002449616599477466210310386600736499714740361747969973718347095697189605303148613119104798603461313289164107162759182110107568729898709265252329895862170091572165860623096748730108315029720395180483240857815537765987240293780559413621634616731611457999105645890254616180108684484111551400204145466579713376335168837095473428132610657311922576659063964864816927637794472255883920363962994040086056352213615355155336047742875321877777043584327913192448537029767660816802421871457551873100279391823455263903450304034557919732645143487533538943198997776987742643929566403463889152262047049873409325737357390275038091407938919150758822963329761264354005399142689352595527066743969291045496548965996410916410974600827179080229802502026992567559903302198282019316525974045236753071662259094177004561587843521123352176047829889922474932560434065169177898287264496750729243672
+C2 = 138604270237134534112743212644616449187692378939637896055320936677529897960835117799077267347298678107031857708834234867949004008866584408288272718174944005247281182704110071985982762860316789278723189738430436690943806868878982562801315565156426103645734001592666235894224346424366448014174339619953344112868374944069699668659552171905796026764359565068714399719527680623357405851675409955573477228301886561411896147227291350808930951282598922176120977605666135963906053158934308125639347521515926780372069545707019601637468577493997742590807146827349865640857651027809446746299962731018358206171079317925725680542147150070051957133849278906576405074966481232057919403951090124732230438431203080079109828298282999845576767904877434936923847105040157703725014937676457110907557409863930279230474134789746314617582331031090955073528453085567165286271224442421785911327002274933133905582320854345262688022854226418394665705506630780960278867388105443056536999414456768050350078505683642885335398895190922264436040594316438930099159076822113725497974332635130516805301785291427363314598707750026963533325470071715793252887081074252099626695293515248472454824781000
+
+</code></pre>
+
+<p>We have:</p>
+
+<ul>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">msg1^3 = C1 (mod n)</code></p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">msg2^3 = C2 (mod n)</code></p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">msg1 = flag * 2^{m} + r1</code></p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">msg2 = flag * 2^{m} + r2</code></p>
+  </li>
+  <li>
+    <p>With <code class="language-plaintext highlighter-rouge">m = 510</code> , <code class="language-plaintext highlighter-rouge">1&lt;=r1&lt;=r2&lt;=2^m</code></p>
+  </li>
+</ul>
+
+<p>We will analyze a little bit about number digit of <code class="language-plaintext highlighter-rouge">msg1,C1,C2</code> and <code class="language-plaintext highlighter-rouge">n</code></p>
+
+<p>We have:</p>
+
+<ul>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">n</code> has <code class="language-plaintext highlighter-rouge">2466</code> digits</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">C1</code> and <code class="language-plaintext highlighter-rouge">C2</code> have also <code class="language-plaintext highlighter-rouge">1161</code> digits</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">2^m</code> has approxiate <code class="language-plaintext highlighter-rouge">153</code> digits =&gt; <code class="language-plaintext highlighter-rouge">msg1^3</code> has approxiate <code class="language-plaintext highlighter-rouge">459*flag</code></p>
+  </li>
+</ul>
+
+<p>While <code class="language-plaintext highlighter-rouge">C1</code> has <code class="language-plaintext highlighter-rouge">1161</code></p>
+
+<p>So from those, we have: <code class="language-plaintext highlighter-rouge">msg1^3=C1</code> and <code class="language-plaintext highlighter-rouge">msg2^3=C2</code></p>
+
+<p>Now, we have <code class="language-plaintext highlighter-rouge">C1,C2</code>, actually we need compute only <code class="language-plaintext highlighter-rouge">msg1</code> is enough !</p>
+
+<p>Now, we will use <code class="language-plaintext highlighter-rouge">Divide and Conquer Algorithm</code> to compute cube root of <code class="language-plaintext highlighter-rouge">C1</code></p>
+
+<p>This is the code find n’th root of number x</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">nth_root</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+
+    <span class="c1"># Start with some reasonable bounds around the nth root.
+</span>
+    <span class="n">upper_bound</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="k">while</span> <span class="n">upper_bound</span> <span class="o">**</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="n">x</span><span class="p">:</span>
+
+        <span class="n">upper_bound</span> <span class="o">*=</span> <span class="mi">2</span>
+
+    <span class="n">lower_bound</span> <span class="o">=</span> <span class="n">upper_bound</span> <span class="o">//</span> <span class="mi">2</span>
+
+    <span class="c1"># Keep searching for a better result as long as the bounds make sense.
+</span>
+    <span class="k">while</span> <span class="n">lower_bound</span> <span class="o">&lt;</span> <span class="n">upper_bound</span><span class="p">:</span>
+
+        <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">lower_bound</span> <span class="o">+</span> <span class="n">upper_bound</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+
+        <span class="n">mid_nth</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">**</span> <span class="n">n</span>
+
+        <span class="k">if</span> <span class="n">lower_bound</span> <span class="o">&lt;</span> <span class="n">mid</span> <span class="ow">and</span> <span class="n">mid_nth</span> <span class="o">&lt;</span> <span class="n">x</span><span class="p">:</span>
+
+            <span class="n">lower_bound</span> <span class="o">=</span> <span class="n">mid</span>
+
+        <span class="k">elif</span> <span class="n">upper_bound</span> <span class="o">&gt;</span> <span class="n">mid</span> <span class="ow">and</span> <span class="n">mid_nth</span> <span class="o">&gt;</span> <span class="n">x</span><span class="p">:</span>
+
+            <span class="n">upper_bound</span> <span class="o">=</span> <span class="n">mid</span>
+
+        <span class="k">else</span><span class="p">:</span>
+
+            <span class="c1"># Found perfect nth root.
+</span>
+            <span class="k">return</span> <span class="n">mid</span>
+
+    <span class="k">return</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span>
+</code></pre></div></div>
+
+<p>And this solution of this problem</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">Crypto.PublicKey</span> <span class="kn">import</span> <span class="n">RSA</span>
+
+<span class="kn">from</span> <span class="nn">Crypto.Util.number</span> <span class="kn">import</span> <span class="n">bytes_to_long</span><span class="p">,</span><span class="n">long_to_bytes</span>
+
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="kn">import</span> <span class="nn">binascii</span>
+
+<span class="kn">from</span> <span class="nn">secret</span> <span class="kn">import</span> <span class="n">flag</span>
+
+
+
+<span class="c1">###### PROBLEM ######
+</span>
+<span class="c1"># e = 3
+</span>
+<span class="c1"># BITSIZE =  1024
+</span>
+<span class="c1"># key = RSA.generate(BITSIZE)
+</span>
+<span class="c1"># n = key.n
+</span>
+<span class="c1"># flag = bytes_to_long(flag)
+</span>
+<span class="c1"># print("n: ",n)
+</span>
+<span class="c1"># print("flag: ",flag)
+</span>
+<span class="c1"># m = BITSIZE//(e*e) - 50
+</span>
+<span class="c1"># r1 = random.randint(1,pow(2,m))
+</span>
+<span class="c1"># r2 = random.randint(r1,pow(2,m))
+</span>
+<span class="c1"># msg1 = pow(2,m)*flag + r1
+</span>
+<span class="c1"># msg2 = pow(2,m)*flag + r2
+</span>
+<span class="c1"># C1 = pow(msg1,e,n)
+</span>
+<span class="c1"># C2 = pow(msg2,e,n)
+</span>
+<span class="c1"># print(f'{n = }\n{C1 = }\n{C2 = }')
+</span>
+<span class="c1"># print("Test 1:",pow(msg1,3)-C1)
+</span>
+<span class="c1"># print("Test 2:",pow(msg2,3)-C2)
+</span>
+
+
+<span class="c1">###### SOLUTION ######
+</span>
+<span class="k">def</span> <span class="nf">nth_root</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+
+    <span class="c1"># Start with some reasonable bounds around the nth root.
+</span>
+    <span class="n">upper_bound</span> <span class="o">=</span> <span class="mi">1</span>
+
+    <span class="k">while</span> <span class="n">upper_bound</span> <span class="o">**</span> <span class="n">n</span> <span class="o">&lt;=</span> <span class="n">x</span><span class="p">:</span>
+
+        <span class="n">upper_bound</span> <span class="o">*=</span> <span class="mi">2</span>
+
+    <span class="n">lower_bound</span> <span class="o">=</span> <span class="n">upper_bound</span> <span class="o">//</span> <span class="mi">2</span>
+
+    <span class="c1"># Keep searching for a better result as long as the bounds make sense.
+</span>
+    <span class="k">while</span> <span class="n">lower_bound</span> <span class="o">&lt;</span> <span class="n">upper_bound</span><span class="p">:</span>
+
+        <span class="n">mid</span> <span class="o">=</span> <span class="p">(</span><span class="n">lower_bound</span> <span class="o">+</span> <span class="n">upper_bound</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+
+        <span class="n">mid_nth</span> <span class="o">=</span> <span class="n">mid</span> <span class="o">**</span> <span class="n">n</span>
+
+        <span class="k">if</span> <span class="n">lower_bound</span> <span class="o">&lt;</span> <span class="n">mid</span> <span class="ow">and</span> <span class="n">mid_nth</span> <span class="o">&lt;</span> <span class="n">x</span><span class="p">:</span>
+
+            <span class="n">lower_bound</span> <span class="o">=</span> <span class="n">mid</span>
+
+        <span class="k">elif</span> <span class="n">upper_bound</span> <span class="o">&gt;</span> <span class="n">mid</span> <span class="ow">and</span> <span class="n">mid_nth</span> <span class="o">&gt;</span> <span class="n">x</span><span class="p">:</span>
+
+            <span class="n">upper_bound</span> <span class="o">=</span> <span class="n">mid</span>
+
+        <span class="k">else</span><span class="p">:</span>
+
+            <span class="c1"># Found perfect nth root.
+</span>
+            <span class="k">return</span> <span class="n">mid</span>
+
+    <span class="k">return</span> <span class="n">mid</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="n">m</span> <span class="o">=</span> <span class="mi">510</span>
+
+<span class="n">C1</span> <span class="o">=</span> <span class="mi">138604270237134534112743212644616449187692378939637896055320936677529897960835117799077267347298678107031857708834234867949004008866584408288272718174944005247281182704110071985982762860316789278723189738430436690943806868878982562799129736576593875631850056775539229239799682738700710216806174002449616599477466210310386600736499714740361747969973718347095697189605303148613119104798603461313289164107162759182110107568729898709265252329895862170091572165860623096748730108315029720395180483240857815537765987240293780559413621634616731611457999105645890254616180108684484111551400204145466579713376335168837095473428132610657311922576659063964864816927637794472255883920363962994040086056352213615355155336047742875321877777043584327913192448537029767660816802421871457551873100279391823455263903450304034557919732645143487533538943198997776987742643929566403463889152262047049873409325737357390275038091407938919150758822963329761264354005399142689352595527066743969291045496548965996410916410974600827179080229802502026992567559903302198282019316525974045236753071662259094177004561587843521123352176047829889922474932560434065169177898287264496750729243672</span>
+
+<span class="n">g1</span> <span class="o">=</span> <span class="n">nth_root</span><span class="p">(</span><span class="n">C1</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">K</span> <span class="o">=</span> <span class="nb">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">m</span><span class="p">)</span>
+
+<span class="n">r1</span> <span class="o">=</span> <span class="n">g1</span> <span class="o">%</span> <span class="n">K</span> 
+
+<span class="c1"># print(r1)
+</span>
+<span class="n">flag</span> <span class="o">=</span> <span class="p">(</span><span class="n">g1</span><span class="o">-</span><span class="n">r1</span><span class="p">)</span><span class="o">//</span><span class="n">K</span> 
+
+<span class="k">print</span><span class="p">(</span><span class="n">long_to_bytes</span><span class="p">(</span><span class="n">flag</span><span class="p">))</span>
+
+
+
+
+
+<span class="c1">#flag_final = 154393050551454020090514297200922012210056319897965118750440811938341742022936780608133963214043027836777756205300371216004407768274132755769040020127958503581173320507900533732136817550207767148177469879490070754935314884923896381309
+</span>
+<span class="c1"># flag_final1 = 2689276504310631707478400123130984936310976782319770622603922543360881069490035758414301813498217745374830369542722941247551735690124561015564676628519906993119832597021135435970751146045680238055519831015820279678694558572703641886454848236967291037462015700658168832646801086807243098003268469538880
+</span>
+<span class="c1"># print(long_to_bytes(flag_final1))
+</span></code></pre></div></div>
+
+<p>And we will get flag</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>crew{l00ks_l1k3_y0u_h4v3_you_He4rd_0f_c0pp3rsm1th_sh0r+_p4d_4tt4ck_th4t_w45n't_d1ff1cult_w4s_it?}
+</code></pre></div></div>
+
+<h4 id="13-rsa-10---find-flag-through-find-phin-"><span style="color:red">13. RSA 10 - Find Flag through find phi(n) </span></h4>
+
+<p>The problem give us a statement:</p>
+
+<pre><code class="language-txt">== proof-of-work: disabled ==
+n: 9099069576005010864322131238316022841221043338895736227456302636550336776171968946298044005765927235002236358603510713249831486899034262930368203212096032559091664507617383780759417104649503558521835589329751163691461155254201486010636703570864285313772976190442467858988008292898546327400223671343777884080302269
+
+Here is RSA encrypted flag.(e=65537)
+7721448675656271306770207905447278771344900690929609366254539633666634639656550740458154588923683190330091584419635454991419701119568903552077272516472473602367188377791329158090763546083264422552335660922148840678536264063681459356778292303287448582918945582522946194737497041408425657842265913159282583371732459
+
+Let's see a property of numbers... I like small numbers.
+
+pow(4, x, n) = 3
+x-&gt;2076118641589166085567213874123474567491402237019668147884288468645748227900602149506213192343093244218866119520289447791172877431433341258605333332347317311240605414266962400678327394383961953495485042589683815930048091844890318004699674982043472077122232159707521022410989077157770575872817558884492139975614597
+
+pow(8, x, n) = 7
+x-&gt;570481792553282645867016247709264298221131860678573812616921555986238556312142113287582311278495020362100663108209217027748644136334829350490306775744918923811231372691300869181402544517366663817020095330354191043859808572829301218801816885745384781881259366872787514869251800308553996081149858726536089368839064
+
+pow(4, x, n) = 7
+x-&gt;855722688829923968800524371563896447331697791017860718925382333979357834468213169931373466917742530543150994662313825541622966204502244025735460163617378385716847059036951303772103816776049995725530142995531286565789712859243951828202725328618077172821889050309181272303877700462830994121724788089804134053258596
+
+pow(2, x, n) = 3
+x-&gt;4152237283178332171134427748246949134982804474039336295768576937291496455801204299012426384686186488437732239040578895582345754862866682517210666664694634622481210828533924801356654788767923906990970085179367631860096183689780636009399349964086944154244464319415042044821978154315541151745635117768984279951229194
+
+pow(9, x, n) = 7
+x-&gt;1054156663532949017820446207672781543086515249287744969638214339331295245382323409940477418924969955788539945803249537876463709506856113889266213509621440928560104784495364553042394060462684347026550923448282194835059887286242632372339522130562494706847419860622125915531462963858618845383475136682837714340274340
+
+pow(5, x, n) = 7
+x-&gt;3916704810437927145600864918236836170491099995953699168541731264707734332610664820402524451306018121752526504056848858498261740094610196113519273038900804576322610451175905222231364299872297068281255941214365432478262573598957328534058633443808701127122560630454143760365394739477719428783885592620907691725814382
+
+pow(2, x, n) = 9
+x-&gt;3754939778354158910107789877335886849355087278630804477809002556307824523516424124875830766489409359374346298779402434539775766276216233569237231723341252968455894584408143678496101610613389877101646294181565422615598678053423609327485531311004778211836628609338110226534895570202818439605250908707603466887326390
+
+pow(4, x, n) = 9
+x-&gt;1877469889177079455053894938667943424677543639315402238904501278153912261758212062437915383244704679687173149389701217269887883138108116784618615861670626484227947292204071839248050805306694938550823147090782711307799339026711804663742765655502389105918314304669055113267447785101409219802625454353801733443663195
+
+pow(5, x, n) = 4
+x-&gt;1409828699698033208091409044455165366643801419932373553123260771987699896353688393694756863763560622086506122042233901651495199885942636834433947550336356542178907165298626723075515405354701129627152693478823016506389518956567226250580121882030622556782873851604640300443552173844660124075798887496649067556217390
+
+pow(6, x, n) = 2
+x-&gt;939292781082112016281996120029640558513504271209074729744679536785999346698143634739122352482233665730748662161995597875421203578208037954730627469631250345432329905035343676336544953322597208540536869444672643207916253721052582779000448220996637632239183670918288993354842447149274646102688185469428348953985987
+
+pow(5, x, n) = 3
+x-&gt;2133766932864388673682415264428852563157697531212805381722606537415880821651881836036219743693469157186116448622886351607608930829881035994695888699244352664133706885871664208865202356948720814126562878822367646312138979081062675067312895961013235414261084030444892478136847891250703661546259439777289170770933244
+
+pow(6, x, n) = 9
+x-&gt;2670949225838281399597073379098730303583513127029718654238792244703169694689697203670777297918496286039620854977764160874073336293101055555722846666785515585641867262589018571544118060277263519799220137287824554688761181884032497133312272175175834832173932687655395876399375844129714571680642955891508395107160026
+
+pow(7, x, n) = 4
+x-&gt;782048530527862007921345086825967824809921804253677698357640394456486443141294396991806703662463153174674499822712272620352264740247063132442983714411111748779418558073361927132656469123102907840771323625012596232213516808553077385813641065260507991821817461035116755889737568582054061118287348291920439180743213
+
+pow(8, x, n) = 3
+x-&gt;1384079094392777390378142582748983044994268158013112098589525645763832151933734766337475461562062162812577413013526298527448584954288894172403555554898211540827070276177974933785551596255974635663656695059789210620032061229926878669799783321362314718081488106471680681607326051438513717248545039256328093317076398
+
+pow(6, x, n) = 8
+x-&gt;2817878343246336048845988360088921675540512813627224189234038610357998040094430904217367057446700997192245986485986793626263610734624113864191882408893751036296989715106031029009634859967791625621610608334017929623748761163157748337001344662989912896717551012754866980064527341447823938308064556408285046861957961
+
+pow(5, x, n) = 9
+x-&gt;4267533865728777347364830528857705126315395062425610763445213074831761643303763672072439487386938314372232897245772703215217861659762071989391777398488705328267413771743328417730404713897441628253125757644735292624277958162125350134625791922026470828522168060889784956273695782501407323092518879554578341541866488
+
+pow(3, x, n) = 7
+x-&gt;2108313327065898035640892415345563086173030498575489939276428678662590490764646819880954837849939911577079891606499075752927419013712227778532427019242881857120209568990729106084788120925368694053101846896564389670119774572485264744679044261124989413694839721244251831062925927717237690766950273365675428680548680
+
+pow(2, x, n) = 6
+x-&gt;4152237283178332171134427748246949134982804474039336295768576937291496455801204299012426384686186488437732239040578895582345754862866682517210666664694634622481210828533924801356654788767923906990970085179367631860096183689780636009399349964086944154244464319415042044821978154315541151745635117768984279951229195
+
+pow(7, x, n) = 3
+x-&gt;302667136777917447885639399855798746783792281082047426137560224394234690761198213214781903275125974443412434383258389499537763965208434880475329103516951799391535587982643066857765962424901807944918698865193821688853878387134235170443608989618620354405251870857636073985822876614487518015398151778674906411808601
+
+pow(6, x, n) = 4
+x-&gt;1878585562164224032563992240059281117027008542418149459489359073571998693396287269478244704964467331461497324323991195750842407156416075909461254939262500690864659810070687352673089906645194417081073738889345286415832507442105165558000896441993275264478367341836577986709684894298549292205376370938856697907971974
+
+pow(8, x, n) = 6
+x-&gt;2900590690393612534431831122468320185197775381162401469832242751855554947962396257387149462523050035312950139447444750735753832770794604660798256090247550299662579300397876908524620918563460614623754653785512490988229957671972766233570839527085351416965588116302338635977012964247935005210551481533116457655453731
+
+pow(6, x, n) = 3
+x-&gt;3610242006920393415879069499128370862097017398238793383983471781489169041387840838409899650400729951770369517139759758749494539871309093510453474136416765931074197167624362247880663013599860728339757006732497197896677435605085079912312720396172472464413116358573684869754218291278989217783331141360936744061146012
+
+pow(3, x, n) = 4
+x-&gt;1363952586418552326838027389457770381128348610341916654151049344040269791768048789580711074747324279253953986869951673094759791136335614290642926045930520993156736257909660908648437081973019508017016877769804013904226195162132557973767673754417051913608582789200470895254896416316547292509925572389642012264907490
+
+pow(7, x, n) = 9
+x-&gt;605334273555834895771278799711597493567584562164094852275120448788469381522396426429563806550251948886824868766516778999075527930416869760950658207033903598783071175965286133715531924849803615889837397730387643377707756774268470340887217979237240708810503741715272147971645753228975036030796303557349812823617202
+
+pow(2, x, n) = 7
+x-&gt;1711445377659847937601048743127792894663395582035721437850764667958715668936426339862746933835485061086301989324627651083245932409004488051470920327234756771433694118073902607544207633552099991451060285991062573131579425718487903656405450657236154345643778100618362544607755400925661988243449576179608268106517192
+
+pow(8, x, n) = 9
+x-&gt;2768158188785554780756285165497966089988536316026224197179051291527664303867469532674950923124124325625154826027052597054897169908577788344807111109796423081654140552355949867571103192511949271327313390119578421240064122459853757339599566642724629436162976212943361363214652102877027434497090078512656186634152796
+
+pow(6, x, n) = 7
+x-&gt;4382451963215414951923427484295917714075099595415988392264685392449057783423441922126020145423600985804385331915992918388410803253438498450309874925605271432370368439308396818520118534947166364332426731242512326875404549273011444416465627832281990548624424694040059123529752908838818278511190008322930537534907342
+
+pow(9, x, n) = 4
+x-&gt;681976293209276163419013694728885190564174305170958327075524672020134895884024394790355537373662139626976993434975836547379895568167807145321463022965260496578368128954830454324218540986509754008508438884902006952113097581066278986883836877208525956804291394600235447627448208158273646254962786194821006132453745
+
+pow(8, x, n) = 4
+x-&gt;3033023192001670288107377079438674280407014446298578742485434212183445592057322982099348001921975745000745452867836904416610495633011420976789401070698677517671018048439803949478138644614971957920195917451446560736395792884091775127542112411446073397768200019661315908739373825618842575924012884553576728676754666
+</code></pre>
+
+<p>It’s quite long, but after analyze, we recognize that, we actually need 3 arguments and last expression</p>
+
+<ul>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">n=9099069576005010864322131238316022841221043338895736227456302636550336776171968946298044005765927235002236358603510713249831486899034262930368203212096032559091664507617383780759417104649503558521835589329751163691461155254201486010636703570864285313772976190442467858988008292898546327400223671343777884080302269</code></p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">e = 65537</code></p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">c = 7721448675656271306770207905447278771344900690929609366254539633666634639656550740458154588923683190330091584419635454991419701119568903552077272516472473602367188377791329158090763546083264422552335660922148840678536264063681459356778292303287448582918945582522946194737497041408425657842265913159282583371732459</code></p>
+  </li>
+</ul>
+
+<p>last expression:</p>
+
+<pre><code class="language-txt">pow(8, x, n) = 4
+x-&gt;3033023192001670288107377079438674280407014446298578742485434212183445592057322982099348001921975745000745452867836904416610495633011420976789401070698677517671018048439803949478138644614971957920195917451446560736395792884091775127542112411446073397768200019661315908739373825618842575924012884553576728676754666
+</code></pre>
+
+<p>The reason we choose the last expression is because it is a clue for us to find phi(n), specifically as follows:</p>
+
+<p>We have : <code class="language-plaintext highlighter-rouge">8^x = 4 (mod n)</code> or <code class="language-plaintext highlighter-rouge">2^{3x-2} = 1 (mod n)</code></p>
+
+<p>No we will analyze a litte bit about number of digit of <code class="language-plaintext highlighter-rouge">n</code> and <code class="language-plaintext highlighter-rouge">phi(n)</code></p>
+
+<p>We found that: Number of digits of <code class="language-plaintext highlighter-rouge">n</code>  approxiate Number of digits of <code class="language-plaintext highlighter-rouge">phi(n)</code></p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Because: n = p*q and phi(n) = (p-1)(q-1) ~ pq = n
+</code></pre></div></div>
+
+<p>And now, we continue see that:</p>
+
+<p><code class="language-plaintext highlighter-rouge">3x-2</code> has approxiate <code class="language-plaintext highlighter-rouge">n</code> , so we boldly guess that <code class="language-plaintext highlighter-rouge">3x-2</code> is <code class="language-plaintext highlighter-rouge">phi(n)</code></p>
+
+<p>And luckily, Finally we get the flag, detail as follow:</p>
+
+<p>We have: <code class="language-plaintext highlighter-rouge">ed = 1 (mod phi(n))</code>, with <code class="language-plaintext highlighter-rouge">phi(n)=3x-2</code></p>
+
+<p>So we will easily find <code class="language-plaintext highlighter-rouge">d</code> and <code class="language-plaintext highlighter-rouge">flag = c^d (mod n)</code></p>
+
+<p>And this is my solution:</p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">Crypto.PublicKey</span> <span class="kn">import</span> <span class="n">RSA</span>
+
+<span class="kn">from</span> <span class="nn">Crypto.Util.number</span> <span class="kn">import</span> <span class="n">bytes_to_long</span><span class="p">,</span><span class="n">long_to_bytes</span>
+
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="kn">import</span> <span class="nn">binascii</span>
+
+
+
+<span class="n">n</span> <span class="o">=</span> <span class="mi">9099069576005010864322131238316022841221043338895736227456302636550336776171968946298044005765927235002236358603510713249831486899034262930368203212096032559091664507617383780759417104649503558521835589329751163691461155254201486010636703570864285313772976190442467858988008292898546327400223671343777884080302269</span>
+
+<span class="n">e</span> <span class="o">=</span> <span class="mi">65537</span>
+
+<span class="n">c</span> <span class="o">=</span> <span class="mi">7721448675656271306770207905447278771344900690929609366254539633666634639656550740458154588923683190330091584419635454991419701119568903552077272516472473602367188377791329158090763546083264422552335660922148840678536264063681459356778292303287448582918945582522946194737497041408425657842265913159282583371732459</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="mi">3033023192001670288107377079438674280407014446298578742485434212183445592057322982099348001921975745000745452867836904416610495633011420976789401070698677517671018048439803949478138644614971957920195917451446560736395792884091775127542112411446073397768200019661315908739373825618842575924012884553576728676754666</span>
+
+<span class="n">phi_n</span> <span class="o">=</span> <span class="mi">3</span><span class="o">*</span><span class="n">x</span><span class="o">-</span><span class="mi">2</span>
+
+<span class="n">d</span> <span class="o">=</span> <span class="nb">pow</span><span class="p">(</span><span class="n">e</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">phi_n</span><span class="p">)</span>
+
+<span class="n">flag</span> <span class="o">=</span> <span class="nb">pow</span><span class="p">(</span><span class="n">c</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">long_to_bytes</span><span class="p">(</span><span class="n">flag</span><span class="p">))</span>
+</code></pre></div></div>
+
+<p>And we get result:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@crew{d15cr373_l06_15_r3duc710n_f0r_f4c70r1n6}@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+</code></pre></div></div>
+
+<p>And flag is:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>crew{d15cr373_l06_15_r3duc710n_f0r_f4c70r1n6}
+</code></pre></div></div>
+
+<h4 id="14-xor-json-time-and-netcat-"><span style="color:red">14. XOR, JSON, Time and netcat </span></h4>
+
+<p>LINK PROBLEM: <a href="https://cryptohack.org/challenges/misc/">GOTTA GO FAST</a></p>
+
+<p>Problem statement: Connect at <code class="language-plaintext highlighter-rouge">nc socket.cryptohack.org 13372</code> and file <code class="language-plaintext highlighter-rouge">13372.py</code></p>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">#!/usr/bin/env python3
+</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">Crypto.Util.number</span> <span class="kn">import</span> <span class="n">long_to_bytes</span>
+<span class="kn">import</span> <span class="nn">hashlib</span>
+<span class="kn">from</span> <span class="nn">utils</span> <span class="kn">import</span> <span class="n">listener</span>
+
+
+<span class="n">FLAG</span> <span class="o">=</span> <span class="sa">b</span><span class="s">'crypto{????????????????????}'</span>
+
+
+<span class="k">def</span> <span class="nf">generate_key</span><span class="p">():</span>
+    <span class="n">current_time</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">time</span><span class="p">.</span><span class="n">time</span><span class="p">())</span>
+    <span class="n">key</span> <span class="o">=</span> <span class="n">long_to_bytes</span><span class="p">(</span><span class="n">current_time</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">hashlib</span><span class="p">.</span><span class="n">sha256</span><span class="p">(</span><span class="n">key</span><span class="p">).</span><span class="n">digest</span><span class="p">()</span>
+
+
+<span class="k">def</span> <span class="nf">encrypt</span><span class="p">(</span><span class="n">b</span><span class="p">):</span>
+    <span class="n">key</span> <span class="o">=</span> <span class="n">generate_key</span><span class="p">()</span>
+    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">key</span><span class="p">),</span> <span class="s">"Data package too large to encrypt"</span>
+    <span class="n">ciphertext</span> <span class="o">=</span> <span class="sa">b</span><span class="s">''</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="p">)):</span>
+        <span class="n">ciphertext</span> <span class="o">+=</span> <span class="nb">bytes</span><span class="p">([</span><span class="n">b</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">^</span> <span class="n">key</span><span class="p">[</span><span class="n">i</span><span class="p">]])</span>
+    <span class="k">return</span> <span class="n">ciphertext</span><span class="p">.</span><span class="nb">hex</span><span class="p">()</span>
+
+
+<span class="k">class</span> <span class="nc">Challenge</span><span class="p">():</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="p">.</span><span class="n">before_input</span> <span class="o">=</span> <span class="s">"Gotta go fast!</span><span class="se">\n</span><span class="s">"</span>
+
+    <span class="k">def</span> <span class="nf">challenge</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">your_input</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="s">'option'</span> <span class="ow">in</span> <span class="n">your_input</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">{</span><span class="s">"error"</span><span class="p">:</span> <span class="s">"You must send an option to this server"</span><span class="p">}</span>
+
+        <span class="k">elif</span> <span class="n">your_input</span><span class="p">[</span><span class="s">'option'</span><span class="p">]</span> <span class="o">==</span> <span class="s">'get_flag'</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">{</span><span class="s">"encrypted_flag"</span><span class="p">:</span> <span class="n">encrypt</span><span class="p">(</span><span class="n">FLAG</span><span class="p">)}</span>
+
+        <span class="k">elif</span> <span class="n">your_input</span><span class="p">[</span><span class="s">'option'</span><span class="p">]</span> <span class="o">==</span> <span class="s">'encrypt_data'</span><span class="p">:</span>
+            <span class="n">input_data</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">.</span><span class="n">fromhex</span><span class="p">(</span><span class="n">your_input</span><span class="p">[</span><span class="s">'input_data'</span><span class="p">])</span>
+            <span class="k">return</span> <span class="p">{</span><span class="s">"encrypted_data"</span><span class="p">:</span> <span class="n">encrypt</span><span class="p">(</span><span class="n">input_data</span><span class="p">)}</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">{</span><span class="s">"error"</span><span class="p">:</span> <span class="s">"Invalid option"</span><span class="p">}</span>
+
+
+<span class="s">"""
+When you connect, the 'challenge' function will be called on your JSON
+input.
+"""</span>
+<span class="n">listener</span><span class="p">.</span><span class="n">start_server</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="mi">13372</span><span class="p">)</span>
+
+</code></pre></div></div>
+
+<p>This is my solution:</p>
+
+<p>Firstly, we see that: <code class="language-plaintext highlighter-rouge">encrypted_flag = flag[i]^key[i]</code> and <code class="language-plaintext highlighter-rouge">encrypted_data = input_data[i]^key[i]</code></p>
+
+<p>And suppose that, we can input with <code class="language-plaintext highlighter-rouge">input_data = crypto{????????????????????}</code>, and the difficult point of this problem is <code class="language-plaintext highlighter-rouge">key</code> because key is created follow current time</p>
+
+<p>So, after a few moment thinking and guess, I found that, when distance between moment is very little, key at 2 moment is same !</p>
+
+<p>=&gt; <code class="language-plaintext highlighter-rouge">flag = encrypted_flag ^ encrypted_date ^ input_data</code></p>
+
+<p>And this is my code.</p>
+
+<h3 id="phase-1-get-encrypted_flag-and-encrypted_data">Phase 1: Get <code class="language-plaintext highlighter-rouge">encrypted_flag</code> and <code class="language-plaintext highlighter-rouge">encrypted_data</code></h3>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">pwn</span> <span class="kn">import</span> <span class="o">*</span> 
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">from</span> <span class="nn">Crypto.Util.number</span> <span class="kn">import</span> <span class="n">long_to_bytes</span>
+<span class="kn">import</span> <span class="nn">hashlib</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">remote</span><span class="p">(</span><span class="s">"socket.cryptohack.org"</span><span class="p">,</span><span class="mi">13372</span><span class="p">)</span>
+<span class="n">u</span> <span class="o">=</span> <span class="n">r</span><span class="p">.</span><span class="n">recvline</span><span class="p">()</span>
+<span class="n">FLAG_FAKE</span> <span class="o">=</span> <span class="sa">b</span><span class="s">'crypto{????????????????????}'</span>
+<span class="n">la_time</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">FLAG_FAKE</span><span class="p">.</span><span class="nb">hex</span><span class="p">())</span>
+<span class="n">res1</span> <span class="o">=</span> <span class="s">'{"option":"get_flag"}'</span>
+<span class="n">r</span><span class="p">.</span><span class="n">sendline</span><span class="p">(</span><span class="n">res1</span><span class="p">.</span><span class="n">encode</span><span class="p">())</span>
+<span class="n">u</span> <span class="o">=</span> <span class="n">r</span><span class="p">.</span><span class="n">recvline</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+<span class="n">res2</span> <span class="o">=</span> <span class="s">'{"option":"encrypt_data","input_data":'</span><span class="o">+</span><span class="nb">chr</span><span class="p">(</span><span class="mi">34</span><span class="p">)</span><span class="o">+</span><span class="n">la_time</span><span class="o">+</span><span class="nb">chr</span><span class="p">(</span><span class="mi">34</span><span class="p">)</span><span class="o">+</span><span class="s">'}'</span>
+<span class="n">r</span><span class="p">.</span><span class="n">sendline</span><span class="p">(</span><span class="n">res2</span><span class="p">.</span><span class="n">encode</span><span class="p">())</span>
+<span class="n">u</span> <span class="o">=</span> <span class="n">r</span><span class="p">.</span><span class="n">recvline</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+<span class="c1">#y = json.loads(u)
+#print(bytes.fromhex(y["encrypted_data"]))
+</span></code></pre></div></div>
+<p>And we get result</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>b'{"encrypted_flag": "39c97bfb78d7007419b01867c812994c53725bf244d7b17533f409e6"}\n'
+b'{"encrypted_data": "39c97bfb78d7003f16bf783ec35ed22c187d54921d9dfc233cbe03e6"}\n'
+</code></pre></div></div>
+
+<h3 id="phase-2-find-flag">Phase 2: Find <code class="language-plaintext highlighter-rouge">flag</code></h3>
+
+<div class="language-py highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1"># b'{"encrypted_flag": "39c97bfb78d7007419b01867c812994c53725bf244d7b17533f409e6"}\n'
+# b'{"encrypted_data": "39c97bfb78d7003f16bf783ec35ed22c187d54921d9dfc233cbe03e6"}\n'
+</span><span class="n">enc_flag</span> <span class="o">=</span> <span class="s">"39c97bfb78d7007419b01867c812994c53725bf244d7b17533f409e6"</span>
+<span class="n">enc_data</span> <span class="o">=</span> <span class="s">"39c97bfb78d7003f16bf783ec35ed22c187d54921d9dfc233cbe03e6"</span>
+
+<span class="n">enc_flag_byte</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">.</span><span class="n">fromhex</span><span class="p">(</span><span class="n">enc_flag</span><span class="p">)</span>
+<span class="n">enc_data_byte</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">.</span><span class="n">fromhex</span><span class="p">(</span><span class="n">enc_data</span><span class="p">)</span>
+<span class="n">FLAG_FAKE</span> <span class="o">=</span> <span class="sa">b</span><span class="s">'crypto{????????????????????}'</span>
+<span class="n">arr1</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">arr2</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">arr3</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">arr4</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">ress</span> <span class="o">=</span> <span class="s">""</span>
+<span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">enc_flag_byte</span><span class="p">:</span>
+    <span class="n">arr1</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">enc_data_byte</span><span class="p">:</span>
+    <span class="n">arr2</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">FLAG_FAKE</span><span class="p">:</span>
+    <span class="n">arr3</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">28</span><span class="p">):</span>
+    <span class="n">arr4</span><span class="p">.</span><span class="n">append</span><span class="p">(</span><span class="n">arr1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">^</span><span class="n">arr2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">^</span><span class="n">arr3</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+    <span class="n">ress</span> <span class="o">=</span> <span class="n">ress</span> <span class="o">+</span> <span class="nb">chr</span><span class="p">(</span><span class="n">arr1</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">^</span><span class="n">arr2</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">^</span><span class="n">arr3</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<span class="k">print</span><span class="p">(</span><span class="n">ress</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>And ger result:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>crypto{t00_f4st_t00_furi0u5}
+</code></pre></div></div>
+
+<p>1</p>
+
+
+      </article>
+
+      
+        <div class="blog-tags">
+          <span>Tags:</span>
+          
+            <a href="/tags#crypto">crypto</a>
+          
+        </div>
+      
+
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+  <span class="sr-only">Share: </span>
+
+  
+    <a href="https://twitter.com/intent/tweet?text=RSA+blog&url=http%3A%2F%2Flocalhost%3A4000%2F2022-06-11-RSA-Blog%2F"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fab fa-fw fa-twitter" aria-hidden="true"></span>
+      <span class="sr-only">Twitter</span>
+    </a>
+  
+
+  
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Flocalhost%3A4000%2F2022-06-11-RSA-Blog%2F"
+      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+      <span class="fab fa-fw fa-facebook" aria-hidden="true"></span>
+      <span class="sr-only">Facebook</span>
+    </a>
+  
+
+  
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Flocalhost%3A4000%2F2022-06-11-RSA-Blog%2F"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fab fa-fw fa-linkedin" aria-hidden="true"></span>
+      <span class="sr-only">LinkedIn</span>
+    </a>
+  
+
+  
+
+</section>
+
+
+
+      
+
+      <ul class="pagination blog-pager">
+        
+        <li class="page-item previous">
+          <a class="page-link" href="/2022-05-31-ECC_Restart/" data-toggle="tooltip" data-placement="top" title="ECC">&larr; Previous Post</a>
+        </li>
+        
+        
+      </ul>
+      
+  
+  
+  
+
+  
+
+
+
+
+    </div>
+  </div>
+</div>
+
+
+  <footer>
+  <div class="container-md beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-xl-8 offset-xl-2 col-lg-10 offset-lg-1">
+      <ul class="list-inline text-center footer-links"><li class="list-inline-item">
+    <a href="/feed.xml" title="RSS">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">RSS</span>
+    </a>
+  </li><li class="list-inline-item">
+    <a href="mailto:tritanngo99@gmail.com" title="Email me">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fas fa-envelope fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">Email me</span>
+   </a>
+  </li><li class="list-inline-item">
+    <a href="https://www.facebook.com/deanattali" title="Facebook">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">Facebook</span>
+   </a>
+  </li><li class="list-inline-item">
+    <a href="https://github.com/daattali" title="GitHub">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">GitHub</span>
+   </a>
+  </li><li class="list-inline-item">
+    <a href="https://twitter.com/daattali" title="Twitter">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">Twitter</span>
+   </a>
+  </li><li class="list-inline-item">
+    <a href="https://www.youtube.com/c/daattali" title="YouTube">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fab fa-youtube fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">YouTube</span>
+   </a>
+  </li><li class="list-inline-item">
+    <a href="https://patreon.com/DeanAttali" title="Patreon">
+      <span class="fa-stack fa-lg" aria-hidden="true">
+        <i class="fas fa-circle fa-stack-2x"></i>
+        <i class="fab fa-patreon fa-stack-1x fa-inverse"></i>
+      </span>
+      <span class="sr-only">Patreon</span>
+    </a>
+  </li></ul>
+
+      
+      <p class="copyright text-muted">
+      
+        Ngô Tấn Trí
+        &nbsp;&bull;&nbsp;
+      
+      2022
+
+      
+        &nbsp;&bull;&nbsp;
+        <span class="author-site">
+          <a href="http://localhost:4000/">MyWebsite.com</a>
+        </span>
+      
+
+      
+      </p>
+      <p class="theme-by text-muted">
+        Powered by
+        <a href="https://beautifuljekyll.com">Beautiful Jekyll</a>
+      </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  
+  
+    
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs=" crossorigin="anonymous"></script>
+
+
+  
+    
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+
+  
+    
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+  
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script src="/assets/js/beautifuljekyll.js"></script>
+    
+  
+
+
+
+
+
+
+
+
+
+</body>
+</html>
