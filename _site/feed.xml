@@ -12,6 +12,17 @@
     
     
       <item>
+        <title>Web training</title>
+        <description>
+          paper, web - 
+          PicoCTF 2019 - Web Exploitation Bài 1: Insp3ct0r Đề bài: Kishor Balan tipped us off that the following code may need inspection: https://jupiter.challenges.picoctf.org/problem/41511/ (link) or http://jupiter.challenges.picoctf.org:41511 Lời giải: Sau khi truy cập vào link: https://jupiter.challenges.picoctf.org/problem/41511/, ta sẽ nhấn Ctrl+U để xem mã nguồn: Ta thấy được: &amp;lt;!-- Html is neat....
+        </description>
+        <pubDate>Sun, 03 Jul 2022 00:00:00 +0000</pubDate>
+        <link>http://localhost:4000/2022-07-03-picoCTF-Web-Exploitiation/</link>
+        <guid isPermaLink="true">http://localhost:4000/2022-07-03-picoCTF-Web-Exploitiation/</guid>
+      </item>
+    
+      <item>
         <title>RSA blog</title>
         <description>
           mathematic, crypto - 
@@ -238,17 +249,6 @@ Danh mục vật tư:
         <pubDate>Wed, 29 Sep 2021 00:00:00 +0000</pubDate>
         <link>http://localhost:4000/2021-09-29-Learning-English/</link>
         <guid isPermaLink="true">http://localhost:4000/2021-09-29-Learning-English/</guid>
-      </item>
-    
-      <item>
-        <title>Học GIT cơ bản</title>
-        <description>
-          Welcome to Em0t3t&apos; Blog - 
-          Phần 1: Làm quen với GIT ở local Bước 1: Lên mạng Download GIT và cài đặt Bước 2: Tạo thư mục DEMO-GIT Bước 3: Vào thư mục kích phải chuột chọn GIT BASH Bước 4: Tạo file sử dụng echo echo &quot;This is first file&quot; &amp;gt; file1.txt Bước 5:...
-        </description>
-        <pubDate>Thu, 16 Sep 2021 00:00:00 +0000</pubDate>
-        <link>http://localhost:4000/2021-09-16-DEMO-GIT/</link>
-        <guid isPermaLink="true">http://localhost:4000/2021-09-16-DEMO-GIT/</guid>
       </item>
     
   </channel>
